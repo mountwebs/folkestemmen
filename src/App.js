@@ -7,6 +7,7 @@ const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 function App() {
   return (
     <Layout>
+      <Welcome />
       <main>
         <Question text={questionText} />
         <AnswerBoard />
