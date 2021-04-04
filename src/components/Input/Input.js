@@ -5,7 +5,14 @@ const Input = ({ placeholderText, buttonText }) => {
   return (
     <div className="input-container">
       <textarea className="input-field" placeholder={placeholderText} />
-      <button className="input-button">{buttonText}</button>
+      <div className="input-tema-button-wrapper">
+        <input
+          type="text"
+          className="input-tema"
+          placeholder="# Legg til tema"
+        />
+        <button className="input-button">{buttonText}</button>
+      </div>
     </div>
   );
 };

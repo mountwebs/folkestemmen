@@ -12,17 +12,27 @@
   outline: none;
 }
 .input-field {
-  padding: 10px;
+  padding: 0.5rem;
   height: inherit;
   line-height: 1.5;
   border: none;
   outline: none;
   resize: none;
 }
+.input-tema::placeholder,
 .input-field::placeholder {
   color: #e5e5e5;
 }
 
+.input-tema-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-tema {
+  padding: 0 0.5rem;
+  border: none;
+}
 .input-button {
   align-self: flex-end;
   border-radius: 20px;
