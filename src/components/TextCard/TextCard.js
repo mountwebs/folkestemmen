@@ -1,12 +1,12 @@
 import React from 'react';
-import './Input.css';
 
-const TextCard = ({ cardText, buttonText, userName }) => {
+const TextCard = ({ className, cardText, buttonText, userName }) => {
+  // const wrapperClass = `card-wrapper ${classes}`
   return (
-    <div className="card-wrapper">
+    <div className={`card-wrapper ${className}`}>
       <p className="card-text">{cardText}</p>
-      <button className="card-btn">{buttonText}</button>
-      <span className="card-name">{userName}</span>
+      {buttonText && <button className="card-btn">{buttonText}</button>}
+      {userName && <span className="card-name">{userName}</span>}
     </div>
   );
 };
