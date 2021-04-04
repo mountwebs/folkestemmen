@@ -1,9 +1,7 @@
 import Layout from './components/Layout/Layout';
-import Input from './components/Input/Input';
 import Question from './components/Question/Question';
+import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 
-const placeholderText = 'Fortell oss hva du vil si her';
-const buttonText = 'Legg ut';
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
 function App() {
@@ -11,7 +9,7 @@ function App() {
     <Layout>
       <main>
         <Question text={questionText} />
-        <Input placeholderText={placeholderText} buttonText={buttonText} />
+        <AnswerBoard />
       </main>
     </Layout>
   );
