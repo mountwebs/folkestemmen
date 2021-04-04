@@ -1,14 +1,11 @@
 import React from 'react';
 import './Input.css';
 
-const Input = () => {
+const Input = ({ placeholderText, buttonText }) => {
   return (
     <div className="input-container">
-      <textarea
-        className="input-field"
-        placeholder="Fortell oss hva du vil si her"
-      />
-      <button className="input-button">Legg ut</button>
+      <textarea className="input-field" placeholder={placeholderText} />
+      <button className="input-button">{buttonText}</button>
     </div>
   );
 };
