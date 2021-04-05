@@ -2,13 +2,20 @@
 
 * {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Space Grotesk", sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 33px;
+  font-weight: 400;
 }
 
 code {

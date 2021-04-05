@@ -1,0 +1,8 @@
+.question-card {
+  background-color: #292929;
+  padding: 1.5rem 1rem;
+  font-size: 1.3rem;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}

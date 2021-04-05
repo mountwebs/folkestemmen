@@ -1,11 +1,17 @@
 .header {
-  height: 134px;
-  background-color: blue;
+  height: 103px;
   width: 100%;
 }
 
 .container {
-  background-color: red;
+  height: 100%;
   display: flex;
-  margin: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 10px 57.5px;
 }

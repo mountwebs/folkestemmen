@@ -6,9 +6,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <img src={logoFull} height="100px" width="100px" />
-        {/* <Logo />
-        <LogInButton /> */}
+        <img className={styles.logo} src={logoFull} />
       </div>
     </header>
   );
