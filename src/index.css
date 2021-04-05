@@ -9,6 +9,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 33px;
 }
 
 code {

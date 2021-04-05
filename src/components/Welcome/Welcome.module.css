@@ -1,2 +1,10 @@
-welcome {
+.welcome {
+  background: #e5e5e5;
+  height: 303px;
+  width: 100%;
+  display: flex;
+}
+
+.content {
+  justify-content: center;
 }
