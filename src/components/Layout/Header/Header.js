@@ -6,7 +6,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <img className={styles.logo} src={logoFull} />
+        <img
+          className={styles.logo}
+          src={logoFull}
+          alt="Beta folkestemmen - logo"
+        />
       </div>
     </header>
   );
