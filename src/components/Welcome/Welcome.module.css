@@ -4,22 +4,25 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .container {
   text-align: center;
-  display: flex;
+  padding: 40px;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column; */
 }
 
 h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0;
   font-weight: 400;
 }
 
 .description {
-  padding: inherit 80px;
-  max-width: 250px;
+  padding: 0 30px;
+
+  /* max-width: 250px; */
 }
