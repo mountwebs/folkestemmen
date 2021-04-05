@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Welcome.module.css";
+import Button from "../Button/Button";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Welcome = () => {
   return (
@@ -9,6 +11,9 @@ const Welcome = () => {
         <p className={styles.description}>
           Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{" "}
         </p>
+        <Button primary>
+          <BsFillPersonFill style={{ marginRight: "5px" }} /> Logg inn
+        </Button>
       </div>
     </div>
   );
