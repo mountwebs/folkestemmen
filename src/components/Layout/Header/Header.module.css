@@ -1,0 +1,11 @@
+.header {
+  height: 134px;
+  background-color: blue;
+  width: 100%;
+}
+
+.container {
+  background-color: red;
+  display: flex;
+  margin: 10px;
+}
