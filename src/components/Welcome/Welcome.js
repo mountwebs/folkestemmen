@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Welcome.module.css";
 import Button from "../Button/Button";
-import { BsFillPersonFill } from "react-icons/bs";
 
 const Welcome = () => {
   return (
