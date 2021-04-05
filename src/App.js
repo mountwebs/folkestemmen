@@ -1,8 +1,9 @@
-import Layout from './components/Layout/Layout';
-import Question from './components/Question/Question';
-import AnswerBoard from './components/AnswerBoard/AnswerBoard';
+import Layout from "./components/Layout/Layout";
+import Question from "./components/Question/Question";
+import AnswerBoard from "./components/AnswerBoard/AnswerBoard";
+import Welcome from "./components/Welcome/Welcome";
 
-const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
+const questionText = "Hvordan synes du fremtidens sentrum bør være?";
 
 function App() {
   return (
