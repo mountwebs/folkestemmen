@@ -1,10 +1,25 @@
 .welcome {
-  background: #e5e5e5;
+  background: #f2f2f2;
   height: 303px;
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
-.content {
+.container {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.description {
+  padding: inherit 80px;
+  max-width: 250px;
 }
