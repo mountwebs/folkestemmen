@@ -1,10 +1,17 @@
 import React from 'react';
 import Input from '../Input/Input';
 import Answer from './Answer';
-import './AnswerBoard.css';
+import styled from 'styled-components';
 
 const placeholderText = 'Fortell oss hva du vil si her';
 const buttonText = 'Legg ut';
+
+const StyledContainer = styled.div`
+  padding: 0.5rem;
+  background-color: #f6f6f6;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+`;
 
 const answerList = [
   {
@@ -44,14 +51,14 @@ const answerList = [
 
 const AnswerBoard = () => {
   return (
-    <div className="answer-board">
+    <StyledContainer className="answer-board">
       <Input placeholderText={placeholderText} buttonText={buttonText} />
 
       {answerList.map(answer => {
         const { text, tema, user } = answer;
         return <Answer cardText={text} temaText={tema} userName={user} />;
       })}
-    </div>
+    </StyledContainer>
   );
 };
 
