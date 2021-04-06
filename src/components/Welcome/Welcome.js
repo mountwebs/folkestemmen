@@ -10,7 +10,7 @@ const Welcome = () => {
         <p className={styles.description}>
           Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{" "}
         </p>
-        <Button primary>Logg inn</Button>
+        <Button primary icon="PersonFill">Logg inn</Button>
       </div>
     </div>
   );
