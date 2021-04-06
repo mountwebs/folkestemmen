@@ -1,6 +1,11 @@
 import React from "react";
 import styles from "./Welcome.module.css";
 import Button from "../Button/Button";
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  font-size: 18px;
+`
 
 const Welcome = () => {
   return (
@@ -10,7 +15,7 @@ const Welcome = () => {
         <p className={styles.description}>
           Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{" "}
         </p>
-        <Button primary icon="PersonFill">Logg inn</Button>
+        <StyledButton primary icon="PersonFill">Logg inn</StyledButton>
       </div>
     </div>
   );
