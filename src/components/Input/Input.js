@@ -1,9 +1,49 @@
 import React from 'react';
 import './Input.css';
+import styled from 'styled-components';
+import Button from '../Button/Button';
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 1rem;
+  margin-bottom: 3rem;
+  height: 190px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  .input {
+    &-tema::placeholder,
+    &-field::placeholder {
+      color: #e5e5e5;
+    }
+    &-field {
+      padding: 0.5rem;
+      height: inherit;
+      line-height: 1.5;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      resize: none;
+    }
+    &-tema-button-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-tema {
+      padding: 0 0.5rem;
+      border: none;
+      min-width: 0;
+    }
+  }
+`;
+const StyledButton = styled(Button)`
+  font-size: 1rem;
+`;
 
 const Input = ({ placeholderText, buttonText }) => {
   return (
-    <div className="input-container">
+    <StyledContainer className="input-container">
       <textarea className="input-field" placeholder={placeholderText} />
       <div className="input-tema-button-wrapper">
         <input
@@ -11,9 +51,9 @@ const Input = ({ placeholderText, buttonText }) => {
           className="input-tema"
           placeholder="# Legg til tema"
         />
-        <button className="input-button">{buttonText}</button>
+        <StyledButton children={buttonText} />
       </div>
-    </div>
+    </StyledContainer>
   );
 };
 
