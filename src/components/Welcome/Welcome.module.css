@@ -23,6 +23,6 @@ h1 {
 
 .description {
   padding: 0 30px;
-
+  padding-bottom: 2em;
   /* max-width: 250px; */
 }

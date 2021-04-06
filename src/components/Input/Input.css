@@ -1,9 +1,11 @@
 .input-container {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 1rem;
-  width: 85%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 3rem;
+  /* width: 85%; */
   height: 190px;
+  background-color: #fff;
   /* border: 1px solid #a9a9a9; */
   border-radius: 10px;
 }
@@ -15,6 +17,7 @@
   padding: 0.5rem;
   height: inherit;
   line-height: 1.5;
+  font-size: 1rem;
   border: none;
   outline: none;
   resize: none;
@@ -32,6 +35,7 @@
 .input-tema {
   padding: 0 0.5rem;
   border: none;
+  min-width: 0;
 }
 .input-button {
   align-self: flex-end;
@@ -42,4 +46,6 @@
   height: 2.2rem;
   border: none;
   color: #a5a5a5;
+
+  white-space: nowrap;
 }
