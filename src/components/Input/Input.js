@@ -1,5 +1,4 @@
 import React from 'react';
-import './Input.css';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 
@@ -33,6 +32,7 @@ const StyledContainer = styled.div`
     &-tema {
       padding: 0 0.5rem;
       border: none;
+      outline: none;
       min-width: 0;
     }
   }
