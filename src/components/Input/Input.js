@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Button from "../Button/Button";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Button from '../Button/Button';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -39,26 +39,27 @@ const StyledContainer = styled.form`
 `;
 
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
-  const [textAreaValue, setTextAreaValue] = useState("");
-  const [temaValue, setTemaValue] = useState("");
+  const [textAreaValue, setTextAreaValue] = useState('');
+  const [temaValue, setTemaValue] = useState('');
 
-  const handleTextAreaChange = (e) => {
+  const handleTextAreaChange = e => {
     setTextAreaValue(e.target.value);
   };
 
-  const handleTemaChange = (e) => {
+  const handleTemaChange = e => {
     setTemaValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    const answer = { user: "Navn" };
+    const answer = { user: 'Navn' };
     answer.text = textAreaValue;
     answer.tema = temaValue;
+    if (!answer.text) return;
     addAnswer(answer);
-    setTextAreaValue("");
-    setTemaValue("");
+    setTextAreaValue('');
+    setTemaValue('');
   };
 
   return (

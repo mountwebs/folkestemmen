@@ -60,7 +60,7 @@ const Answer = ({ cardText, temaText, userName }) => {
           </div>
           <p>{userName}</p>
         </div>
-        <span className="answer-tema">{temaText}</span>
+        {temaText && <span className="answer-tema">{temaText}</span>}
       </div>
     </StyledCard>
   );
