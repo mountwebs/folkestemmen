@@ -1,5 +1,4 @@
 import React from 'react';
-import './Input.css';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 
