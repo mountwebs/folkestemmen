@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Welcome.module.css";
 import Button from "../Button/Button";
+import ButtonWIcon from "../ButtonWIcon/ButtonWIcon"
 
 const Welcome = () => {
   return (
@@ -10,7 +11,7 @@ const Welcome = () => {
         <p className={styles.description}>
           Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{" "}
         </p>
-        <Button primary>Logg inn</Button>
+        <ButtonWIcon primary icon>Logg inn</ButtonWIcon>
       </div>
     </div>
   );
