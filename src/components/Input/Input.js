@@ -1,5 +1,6 @@
 import React from 'react';
 import './Input.css';
+import Button from "../Button/Button"
 
 const Input = ({ placeholderText, buttonText }) => {
   return (
@@ -11,7 +12,7 @@ const Input = ({ placeholderText, buttonText }) => {
           className="input-tema"
           placeholder="# Legg til tema"
         />
-        <button className="input-button">{buttonText}</button>
+        <Button>{buttonText}</Button>
       </div>
     </div>
   );
