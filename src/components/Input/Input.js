@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from '../Button/Button';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Button from "../Button/Button";
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.form`
   display: flex;
   flex-direction: column;
   padding: 0.7rem 1rem;
@@ -37,17 +37,49 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Input = ({ placeholderText, buttonText }) => {
+const Input = ({ placeholderText, buttonText, addAnswer }) => {
+  const [textAreaValue, setTextAreaValue] = useState("");
+  const [temaValue, setTemaValue] = useState("");
+
+  const handleTextAreaChange = (e) => {
+    setTextAreaValue(e.target.value);
+  };
+
+  const handleTemaChange = (e) => {
+    setTemaValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    answer.text = textAreaValue;
+    answer.tema = temaValue;
+    addAnswer(answer);
+  };
+
+  const answer = {
+    text:
+      "Minst like viktig å ruste opp og se nye muligheter i det som allerede finnes, som å nødvendigvis måtte bygge alt fra scratch. ",
+    tema: "Gjenbruk",
+    user: "Navn",
+  };
+
   return (
-    <StyledContainer className="input-container">
-      <textarea className="input-field" placeholder={placeholderText} />
+    <StyledContainer className="input-container" onSubmit={handleSubmit}>
+      <textarea
+        value={textAreaValue}
+        onChange={handleTextAreaChange}
+        className="input-field"
+        placeholder={placeholderText}
+      />
       <div className="input-tema-button-wrapper">
         <input
           type="text"
           className="input-tema"
           placeholder="# Legg til tema"
+          value={temaValue}
+          onChange={handleTemaChange}
         />
-        <Button children={buttonText} />
+        <Button type="submit" children={buttonText} />
       </div>
     </StyledContainer>
   );
