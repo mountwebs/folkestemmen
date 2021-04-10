@@ -11,6 +11,7 @@ const StyledContainer = styled.div`
   height: 190px;
   background-color: #fff;
   border-radius: 10px;
+
   .input {
     &-tema::placeholder,
     &-field::placeholder {
@@ -36,9 +37,6 @@ const StyledContainer = styled.div`
     }
   }
 `;
-const StyledButton = styled(Button)`
-  font-size: 1rem;
-`;
 
 const Input = ({ placeholderText, buttonText }) => {
   return (
@@ -50,7 +48,7 @@ const Input = ({ placeholderText, buttonText }) => {
           className="input-tema"
           placeholder="# Legg til tema"
         />
-        <StyledButton children={buttonText} />
+        <Button children={buttonText} />
       </div>
     </StyledContainer>
   );

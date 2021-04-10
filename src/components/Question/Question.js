@@ -1,9 +1,12 @@
 import React from 'react';
-import TextCard from '../TextCard/TextCard';
 import './Question.css';
 
 const Question = ({ text }) => {
-  return <TextCard className="question-card" cardText={text} />;
+  return (
+    <div className="question-card">
+      <p className="card-text">{text}</p>
+    </div>
+  );
 };
 
 export default Question;
