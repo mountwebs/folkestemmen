@@ -51,16 +51,14 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const answer = {
+      user: "Navn",
+    };
+    
     answer.text = textAreaValue;
     answer.tema = temaValue;
     addAnswer(answer);
-  };
-
-  const answer = {
-    text:
-      "Minst like viktig å ruste opp og se nye muligheter i det som allerede finnes, som å nødvendigvis måtte bygge alt fra scratch. ",
-    tema: "Gjenbruk",
-    user: "Navn",
   };
 
   return (
