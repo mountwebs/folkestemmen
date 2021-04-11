@@ -32,6 +32,7 @@ const StyledContainer = styled.form`
     &-tema {
       padding: 0 0.5rem;
       border: none;
+      outline: none;
       min-width: 0;
     }
   }
