@@ -52,11 +52,13 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const answer = {user: "Navn"};
+
+    const answer = { user: "Navn" };
     answer.text = textAreaValue;
     answer.tema = temaValue;
     addAnswer(answer);
+    setTextAreaValue("");
+    setTemaValue("");
   };
 
   return (
