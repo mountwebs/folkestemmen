@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledCard = styled.div`
   background-color: #292929;
@@ -11,11 +11,24 @@ const StyledCard = styled.div`
   text-align: center;
 `;
 
+const StyledHeader = styled.div`
+  padding: 0.5rem 1.5rem;
+  background-color: #e5e5e5;
+  color: #a5a5a5;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+`;
+
 const Question = ({ text }) => {
   return (
-    <StyledCard className="question-card">
-      <p className="card-text">{text}</p>
-    </StyledCard>
+    <>
+      <StyledHeader>Spørsmål</StyledHeader>
+      <StyledCard className="question-card">
+        <p className="card-text">{text}</p>
+      </StyledCard>
+    </>
   );
 };
 
