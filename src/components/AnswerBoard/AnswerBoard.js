@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Input from "../Input/Input";
 import Answer from "./Answer";
-import "./AnswerBoard.css";
 
 const placeholderText = "Fortell oss hva du vil si her";
 const buttonText = "Legg ut";
@@ -59,7 +58,11 @@ const AnswerBoard = () => {
 
   return (
     <StyledContainer className="answer-board">
-      <Input placeholderText={placeholderText} buttonText={buttonText} addAnswer={addAnswer} />
+      <Input
+        placeholderText={placeholderText}
+        buttonText={buttonText}
+        addAnswer={addAnswer}
+      />
       {answerList.map((answer, index) => {
         const { text, tema, user } = answer;
         return (
