@@ -5,15 +5,6 @@ import styled from "styled-components";
 import Button from "../../Button/Button";
 import device from "../../../constants/breakpoints";
 
-const StyledButton = styled(Button)`
-  font-size: 18px;
-  margin-top: 2em;
-
-  @media only screen and ${device.sm} {
-    display: none;
-  }
-`;
-
 const StyledHeader = styled.header`
   height: 103px;
   width: 100%;
@@ -24,12 +15,31 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and ${device.sm} {
+    justify-content: space-between;
+    margin: 0 100px;
+  }
 `;
 
 const StyledLogo = styled.img`
   flex-grow: 1;
   max-width: 500px;
+  max-height: 50px;
   margin: 10px 57.5px;
+
+  @media only screen and ${device.sm} {
+    margin: 0;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  font-size: 18px;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    display: block;
+  }
 `;
 
 const Header = () => {
