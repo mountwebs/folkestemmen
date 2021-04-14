@@ -8,13 +8,13 @@ const StyledContainer = styled.form`
   padding: 0.7rem 1rem;
   margin-bottom: 3rem;
   height: 190px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 10px;
 
   .input {
     &-tema::placeholder,
     &-field::placeholder {
-      color: #e5e5e5;
+      color: ${({ theme }) => theme.colors.text.muted};
     }
     &-field {
       padding: 0.5rem;
