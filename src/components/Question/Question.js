@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledCard = styled.div`
-  background-color: #292929;
+  background-color: ${({ theme }) => theme.colors.card.background.secondary};
   padding: 1.5rem 1rem;
   margin-bottom: 1rem;
   font-size: 1.3rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.card.text.secondary};
   border-radius: 10px;
   text-align: center;
 `;

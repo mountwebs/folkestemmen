@@ -7,7 +7,11 @@ export const theme = {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
       },
-      text: '#292929',
+      text: {
+        primary: '#000000',
+        secondary: '#292929',
+        muted: '#E5E5E5',
+      },
       button: {
         text: {
           primary: '#fff',
@@ -18,6 +22,16 @@ export const theme = {
           primary: '#292929',
           secondary: 'transparent',
           disabled: '#E5E5E5',
+        },
+      },
+      card: {
+        text: {
+          primary: '#000000',
+          secondary: '#FFFFFF',
+        },
+        background: {
+          primary: '#FFFFFF',
+          secondary: '#292929',
         },
       },
       link: {

@@ -8,11 +8,11 @@ const StyledCard = styled.div`
   padding-right: 1.5rem;
   padding-bottom: 1.3rem;
   margin-bottom: 1rem;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 20px;
   .answer {
     &-content {
-      color: #000;
+      color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.3rem;
     }
 
@@ -27,20 +27,22 @@ const StyledCard = styled.div`
       align-items: center;
       p {
         margin-left: 0.4rem;
-        color: #e5e5e5;
+        color: ${({ theme }) => theme.colors.text.muted};
       }
     }
 
     &-tema {
       padding: 0.5rem 1.5rem;
-      background-color: #e5e5e5;
-      color: #a5a5a5;
+      background-color: ${({ theme }) =>
+        theme.colors.button.background.disabled};
+      color: ${({ theme }) => theme.colors.button.text.disabled};
       border-radius: 20px;
     }
     &-thumbnail-wrapper {
       width: 25px;
       height: 25px;
-      background-color: #e5e5e5;
+      background-color: ${({ theme }) =>
+        theme.colors.button.background.disabled};
       border-radius: 50%;
     }
   }
