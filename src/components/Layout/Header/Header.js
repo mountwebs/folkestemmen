@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
 const StyledLogo = styled.img`
   flex-grow: 1;
   max-width: 500px;
-  max-height: 50px;
+  max-height: 40px;
   margin: 10px 57.5px;
 
   @media only screen and ${device.sm} {
