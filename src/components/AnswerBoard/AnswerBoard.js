@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import device from '../../constants/breakpoints';
 import Input from '../Input/Input';
 import Answer from './Answer';
 
@@ -11,6 +12,15 @@ const StyledContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.body.secondary};
   margin-bottom: 5rem;
   border-radius: 10px;
+  max-width: 1020px;
+
+  @media only screen and ${device.sm} {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 66px;
+    padding-left: 66px;
+    padding-right: 66px;
+  }
 `;
 
 const originalAnswerList = [
@@ -49,10 +59,18 @@ const originalAnswerList = [
   },
 ];
 
+const StyledAnswersWrapper = styled.div`
+  @media only screen and ${device.sm} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.8rem;
+  }
+`;
+
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState(originalAnswerList);
 
-  const addAnswer = answer => {
+  const addAnswer = (answer) => {
     setAnswerList([answer, ...answerList]);
   };
 
@@ -63,12 +81,19 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         addAnswer={addAnswer}
       />
-      {answerList.map((answer, index) => {
-        const { text, tema, user } = answer;
-        return (
-          <Answer cardText={text} temaText={tema} userName={user} key={index} />
-        );
-      })}
+      <StyledAnswersWrapper>
+        {answerList.map((answer, index) => {
+          const { text, tema, user } = answer;
+          return (
+            <Answer
+              cardText={text}
+              temaText={tema}
+              userName={user}
+              key={index}
+            />
+          );
+        })}
+      </StyledAnswersWrapper>
     </StyledContainer>
   );
 };
