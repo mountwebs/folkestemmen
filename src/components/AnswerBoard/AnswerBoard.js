@@ -61,13 +61,9 @@ const originalAnswerList = [
 
 const StyledAnswersWrapper = styled.div`
   @media only screen and ${device.sm} {
-    // // -- alternative to make columns more 'masonry' --
-    // columns: 2;
-    // column-gap: 2rem;
-
-    display: grid;
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-    gap: 1rem 1.8rem;
+    // -- alternative to make columns more 'masonry' --
+    columns: 2;
+    column-gap: 2rem;
   }
 `;
 
