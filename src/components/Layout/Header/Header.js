@@ -1,8 +1,8 @@
-import React from "react";
-import logoFull from "../../../assets/logo-full.svg";
-import styled from "styled-components";
-import Button from "../../Button/Button";
-import device from "../../../constants/breakpoints";
+import React from 'react';
+import logoFull from '../../../assets/logo-full.svg';
+import styled from 'styled-components';
+import Button from '../../Button/Button';
+import device from '../../../constants/breakpoints';
 
 const StyledHeader = styled.header`
   height: 103px;
