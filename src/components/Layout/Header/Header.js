@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Header.module.css";
 import logoFull from "../../../assets/logo-full.svg";
 import styled from "styled-components";
 import Button from "../../Button/Button";
