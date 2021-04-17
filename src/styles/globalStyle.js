@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import device from '../constants/breakpoints';
 
 const GlobalStyle = createGlobalStyle`
 // Import normalize.css
@@ -18,10 +19,20 @@ ${normalize}
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    @media only screen and ${device.sm} {
+      font-size: 24px;
+    }
   }
   h1 {
     font-size: 33px;
     font-weight: 400;
+
+    @media only screen and ${device.sm} {
+      font-size: 2.5rem;
+  }
+
+
   }
   a {
     color: ${({ theme }) => theme.colors.link.text};

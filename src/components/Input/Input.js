@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
+import device from '../../constants/breakpoints';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -24,6 +25,9 @@ const StyledContainer = styled.form`
       border: none;
       outline: none;
       resize: none;
+      @media only screen and ${device.sm} {
+        font-size: 1.4rem;
+      }
     }
     &-tema-button-wrapper {
       display: flex;
@@ -34,7 +38,16 @@ const StyledContainer = styled.form`
       border: none;
       outline: none;
       min-width: 0;
+      @media only screen and ${device.sm} {
+        font-size: 1.2rem;
+      }
     }
+  }
+`;
+
+const StyledButton = styled(Button)`
+  @media only screen and ${device.sm} {
+    font-size: 1.4rem;
   }
 `;
 
@@ -42,15 +55,15 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
 
-  const handleTextAreaChange = e => {
+  const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
   };
 
-  const handleTemaChange = e => {
+  const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const answer = { user: 'Navn' };
@@ -78,7 +91,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
           value={temaValue}
           onChange={handleTemaChange}
         />
-        <Button type="submit" children={buttonText} />
+        <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>
   );

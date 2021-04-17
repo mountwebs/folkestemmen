@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import device from '../../constants/breakpoints';
 
 const StyledCard = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const StyledCard = styled.div`
   .answer {
     &-content {
       color: ${({ theme }) => theme.colors.text.primary};
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
     &-details {
@@ -25,9 +26,11 @@ const StyledCard = styled.div`
     &-user {
       display: flex;
       align-items: center;
+
       p {
         margin-left: 0.4rem;
         color: ${({ theme }) => theme.colors.text.muted};
+        font-size: 1rem;
       }
     }
 
@@ -37,6 +40,7 @@ const StyledCard = styled.div`
         theme.colors.button.background.disabled};
       color: ${({ theme }) => theme.colors.button.text.disabled};
       border-radius: 20px;
+      font-size: 1rem;
     }
     &-thumbnail-wrapper {
       width: 25px;
