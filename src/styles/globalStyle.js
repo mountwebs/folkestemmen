@@ -21,7 +21,7 @@ ${normalize}
     -moz-osx-font-smoothing: grayscale;
     
     @media only screen and ${device.sm} {
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
   h1 {
