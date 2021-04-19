@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import device from '../../constants/breakpoints';
 
 const StyledCard = styled.div`
   background-color: ${({ theme }) => theme.colors.card.background.secondary};
@@ -9,6 +10,10 @@ const StyledCard = styled.div`
   color: ${({ theme }) => theme.colors.card.text.secondary};
   border-radius: 10px;
   text-align: center;
+
+  @media only screen and ${device.sm} {
+    font-size: 2.5rem;
+  }
 `;
 
 const StyledHeader = styled.div`
@@ -19,6 +24,10 @@ const StyledHeader = styled.div`
   display: inline-block;
   margin-bottom: 1rem;
   margin-top: 1rem;
+
+  @media only screen and ${device.sm} {
+    font-size: 1.2rem;
+  }
 `;
 
 const Question = ({ text }) => {
