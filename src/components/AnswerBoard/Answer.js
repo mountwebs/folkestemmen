@@ -11,10 +11,17 @@ const StyledCard = styled.div`
   margin-bottom: 1rem;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 20px;
+
+  @media only screen and ${device.sm} {
+    // // -- alternative to make columns more 'masonry' --
+    // margin-bottom: 35px;
+    // break-inside: avoid;
+  }
   .answer {
     &-content {
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.4rem;
+      overflow-wrap: break-word;
     }
 
     &-details {
