@@ -15,8 +15,6 @@ const StyledContainer = styled.div`
   max-width: 1020px;
 
   @media only screen and ${device.sm} {
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 66px;
     padding-left: 66px;
     padding-right: 66px;

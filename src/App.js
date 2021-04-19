@@ -5,10 +5,17 @@ import Welcome from './components/Welcome/Welcome';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/globalStyle';
 import AnswerBoard from './components/AnswerBoard/AnswerBoard';
-import styles from './App.module.css';
 import { theme } from './styles/theme';
+import styled from 'styled-components';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
+
+const StyledMain = styled.main`
+  margin: 1rem;
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 function App() {
   return (
@@ -16,10 +23,10 @@ function App() {
       <GlobalStyle />
       <Layout>
         <Welcome />
-        <main className={styles.main}>
+        <StyledMain>
           <Question text={questionText} />
           <AnswerBoard />
-        </main>
+        </StyledMain>
       </Layout>
     </ThemeProvider>
   );
