@@ -36,6 +36,10 @@ const StyledHeader = styled.h1`
 const StyledDescription = styled.p`
   padding: 0 30px;
   padding-bottom: 2em;
+  padding-top: 1em;
+  max-width: 550px;
+  text-align: center;
+  margin: 0 auto;
 `;
 
 const StyledButton = styled(Button)`
