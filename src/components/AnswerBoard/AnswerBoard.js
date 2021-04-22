@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Input from '../Input/Input';
 import Answer from './Answer';
+import Masonry from 'react-masonry-css';
+// import './AnswerBoard.css';
 
 const placeholderText = 'Fortell oss hva du vil si her';
 const buttonText = 'Legg ut';
@@ -18,6 +20,19 @@ const StyledContainer = styled.div`
     padding-top: 66px;
     padding-left: 66px;
     padding-right: 66px;
+  }
+`;
+
+const StyledMasonry = styled(Masonry)`
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+
+  .my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
   }
 `;
 
@@ -57,6 +72,7 @@ const originalAnswerList = [
   },
 ];
 
+
 const StyledAnswersWrapper = styled.div`
   @media only screen and ${device.sm} {
     // -- alternative to make columns more 'masonry' --
@@ -79,7 +95,10 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         addAnswer={addAnswer}
       />
-      <StyledAnswersWrapper>
+      <StyledMasonry
+        breakpointCols={{ default: 2, 768: 1 }}
+        columnClassName="my-masonry-grid_column"
+      >
         {answerList.map((answer, index) => {
           const { text, tema, user } = answer;
           return (
@@ -91,7 +110,7 @@ const AnswerBoard = () => {
             />
           );
         })}
-      </StyledAnswersWrapper>
+      </StyledMasonry>
     </StyledContainer>
   );
 };
