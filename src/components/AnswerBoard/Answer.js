@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import device from '../../constants/breakpoints';
 
 const StyledCard = styled.div`
   display: flex;
