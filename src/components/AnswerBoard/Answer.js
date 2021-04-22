@@ -8,7 +8,7 @@ const StyledCard = styled.div`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 20px;
   .answer {
