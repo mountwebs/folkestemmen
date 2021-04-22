@@ -72,6 +72,15 @@ const originalAnswerList = [
   },
 ];
 
+
+const StyledAnswersWrapper = styled.div`
+  @media only screen and ${device.sm} {
+    // -- alternative to make columns more 'masonry' --
+    columns: 2;
+    column-gap: 2rem;
+  }
+`;
+
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState(originalAnswerList);
 
