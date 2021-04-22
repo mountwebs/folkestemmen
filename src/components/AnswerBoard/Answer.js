@@ -7,13 +7,20 @@ const StyledCard = styled.div`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 20px;
+
+  @media only screen and ${device.sm} {
+    // -- alternative to make columns more 'masonry' --
+    margin-bottom: 35px;
+    break-inside: avoid;
+  }
   .answer {
     &-content {
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.4rem;
+      overflow-wrap: break-word;
     }
 
     &-details {
