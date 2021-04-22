@@ -13,9 +13,9 @@ const StyledCard = styled.div`
   border-radius: 20px;
 
   @media only screen and ${device.sm} {
-    // // -- alternative to make columns more 'masonry' --
-    // margin-bottom: 35px;
-    // break-inside: avoid;
+    // -- alternative to make columns more 'masonry' --
+    margin-bottom: 35px;
+    break-inside: avoid;
   }
   .answer {
     &-content {
