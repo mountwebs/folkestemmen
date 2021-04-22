@@ -87,7 +87,7 @@ const AnswerBoard = () => {
         addAnswer={addAnswer}
       />
       <StyledMasonry
-        breakpointCols={2}
+        breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"
       >
         {answerList.map((answer, index) => {
