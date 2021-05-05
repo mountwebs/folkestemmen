@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Input from '../Input/Input';
 import Answer from './Answer';
 import Masonry from 'react-masonry-css';
+import axios from 'axios';
 // import './AnswerBoard.css';
 
 const placeholderText = 'Fortell oss hva du vil si her';
@@ -78,6 +79,21 @@ const AnswerBoard = () => {
   const addAnswer = (answer) => {
     setAnswerList([answer, ...answerList]);
   };
+
+  const baseUrl = 'http://localhost:4000/';
+
+  const getAnswers = () => {
+    axios
+      .get(`${baseUrl}/answer`)
+      .then((response) => response.data)
+      .then((data) => console.log(data));
+  };
+
+  // useEffect(() => {
+  //   getAnswers()
+  // })
+
+  getAnswers();
 
   return (
     <StyledContainer className="answer-board">
