@@ -84,14 +84,14 @@ const AnswerBoard = () => {
 
   const getAnswers = () => {
     axios
-      .get(`${baseUrl}/answer`)
+      .get(`${baseUrl}answer`)
       .then((response) => response.data)
-      .then((data) => console.log(data));
+      .then((data) => setAnswerList(data));
   };
 
-  // useEffect(() => {
-  //   getAnswers()
-  // })
+  useEffect(() => {
+    getAnswers();
+  });
 
   getAnswers();
 
@@ -107,12 +107,12 @@ const AnswerBoard = () => {
         columnClassName="my-masonry-grid_column"
       >
         {answerList.map((answer, index) => {
-          const { text, tema, user } = answer;
+          const { text, tags, name } = answer;
           return (
             <Answer
               cardText={text}
-              temaText={tema}
-              userName={user}
+              temaText={tags}
+              userName={name}
               key={index}
             />
           );
