@@ -73,20 +73,27 @@ const originalAnswerList = [
   },
 ];
 
+const baseUrl = 'http://localhost:4000/';
+
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState(originalAnswerList);
 
   const addAnswer = (answer) => {
-    setAnswerList([answer, ...answerList]);
+    // setAnswerList([answer, ...answerList]);
+    axios
+      .post(`${baseUrl}answer`, answer)
+      .then((response) => response.data)
+      .then((data) => console.log(data))
+      .then(getAnswers)
+      .catch((error) => console.log(error));
   };
-
-  const baseUrl = 'http://localhost:4000/';
 
   const getAnswers = () => {
     axios
       .get(`${baseUrl}answer`)
       .then((response) => response.data)
-      .then((data) => setAnswerList(data));
+      .then((data) => setAnswerList(data))
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {

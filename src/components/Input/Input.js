@@ -66,9 +66,9 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const answer = { user: 'Navn' };
+    const answer = { name: 'Navn' };
     answer.text = textAreaValue;
-    answer.tema = temaValue;
+    answer.tags = temaValue;
     if (!answer.text) return;
     addAnswer(answer);
     setTextAreaValue('');
