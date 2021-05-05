@@ -91,9 +91,7 @@ const AnswerBoard = () => {
 
   useEffect(() => {
     getAnswers();
-  });
-
-  getAnswers();
+  }, []);
 
   return (
     <StyledContainer className="answer-board">
