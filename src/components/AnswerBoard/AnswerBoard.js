@@ -37,46 +37,12 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const originalAnswerList = [
-  {
-    text:
-      'Jeg ønsker at sentrum skal bli til det naturlige stedet å både bo og oppholde seg!',
-    tema: 'Møteplasser',
-    user: 'Navn',
-  },
-  {
-    text: 'Gode møteplasser for folk i alle aldre.',
-    tema: 'Møteplasser',
-    user: 'Navn',
-  },
-  {
-    text: 'Tilgang på god mat og drikke. Helst fra lokale produsenter.',
-    tema: 'Mat og drikke',
-    user: 'Navn',
-  },
-  {
-    text: 'Uten bil, hvertfall!',
-    tema: 'Bilfri',
-    user: 'Navn',
-  },
-  {
-    text:
-      'En park uten biler der venner møtes for å ligge i gresset og ha det fint sammen. ',
-    tema: 'Park',
-    user: 'Navn',
-  },
-  {
-    text:
-      'Minst like viktig å ruste opp og se nye muligheter i det som allerede finnes, som å nødvendigvis måtte bygge alt fra scratch. ',
-    tema: 'Gjenbruk',
-    user: 'Navn',
-  },
-];
-
 const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
-  const [answerList, setAnswerList] = useState(originalAnswerList);
+  const [answerList, setAnswerList] = useState('');
+  const [loading, setLoadingState] = useState(true);
+  const [error, setErrorState] = useState(false);
 
   const addAnswer = (answer) => {
     // setAnswerList([answer, ...answerList]);
@@ -92,8 +58,14 @@ const AnswerBoard = () => {
     axios
       .get(`${baseUrl}answer`)
       .then((response) => response.data)
-      .then((data) => setAnswerList(data))
-      .catch((error) => console.log(error));
+      .then((data) => {
+        setAnswerList(data);
+        setLoadingState(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorState(true);
+      });
   };
 
   useEffect(() => {
@@ -111,17 +83,21 @@ const AnswerBoard = () => {
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"
       >
-        {answerList.map((answer, index) => {
-          const { text, tags, name } = answer;
-          return (
-            <Answer
-              cardText={text}
-              temaText={tags}
-              userName={name}
-              key={index}
-            />
-          );
-        })}
+        {error
+          ? 'Error'
+          : loading
+          ? 'Loading'
+          : answerList.map((answer, index) => {
+              const { text, tags, name } = answer;
+              return (
+                <Answer
+                  cardText={text}
+                  temaText={tags}
+                  userName={name}
+                  key={index}
+                />
+              );
+            })}
       </StyledMasonry>
     </StyledContainer>
   );
