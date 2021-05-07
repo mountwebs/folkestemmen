@@ -37,7 +37,7 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'http://localhost:4000/';
+const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
