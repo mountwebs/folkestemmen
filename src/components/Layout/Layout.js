@@ -1,15 +1,21 @@
-import React from "react";
-import styles from "./Layout.module.css";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import React from 'react';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import styled from 'styled-components';
+
+const StyledApp = styled.div`
+  background-color: #fdfdfd;
+  min-height: 100vh;
+  position: relative;
+`;
 
 const Layout = (props) => {
   return (
-    <div className={styles.app}>
+    <StyledApp>
       <Header />
       {props.children}
       <Footer />
-    </div>
+    </StyledApp>
   );
 };
 
