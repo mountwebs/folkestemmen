@@ -59,7 +59,7 @@ const StyledCard = styled.div`
   }
 `;
 
-const Answer = ({ cardText, temaText, userName }) => {
+const Answer = ({ cardText, tags, userName }) => {
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-content">
@@ -73,7 +73,18 @@ const Answer = ({ cardText, temaText, userName }) => {
           </div>
           <p>{userName}</p>
         </div>
-        {temaText && <span className="answer-tema">{temaText}</span>}
+        {tags.map((tag) => {
+          return (
+            <span
+              className="answer-tema"
+              key={tag._id}
+              style={{ backgroundColor: tag.color ? tag.color : 'default' }}
+            >
+              {tag.name}
+            </span>
+          );
+        })}
+        {/* {tags.length > 0 && <span className="answer-tema">{tags}</span>} */}
       </div>
     </StyledCard>
   );

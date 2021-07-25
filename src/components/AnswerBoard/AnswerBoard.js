@@ -90,11 +90,10 @@ const AnswerBoard = () => {
           ? 'Loading'
           : answerList.map((answer, index) => {
               const { text, tags, name } = answer;
-              const parsedTags = tags.map((tag) => tag.name);
               return (
                 <Answer
                   cardText={text}
-                  temaText={parsedTags[0]}
+                  tags={tags}
                   userName={name}
                   key={index}
                 />
