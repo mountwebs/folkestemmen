@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
+import Tag from './Tag';
 
 const StyledCard = styled.div`
   display: flex;
@@ -41,14 +42,6 @@ const StyledCard = styled.div`
       }
     }
 
-    &-tema {
-      padding: 0.5rem 1.5rem;
-      background-color: ${({ theme }) =>
-        theme.colors.button.background.disabled};
-      color: ${({ theme }) => theme.colors.button.text.disabled};
-      border-radius: 20px;
-      font-size: 1rem;
-    }
     &-thumbnail-wrapper {
       width: 25px;
       height: 25px;
@@ -73,18 +66,13 @@ const Answer = ({ cardText, tags, userName }) => {
           </div>
           <p>{userName}</p>
         </div>
-        {tags.map((tag) => {
-          return (
-            <span
-              className="answer-tema"
-              key={tag._id}
-              style={{ backgroundColor: tag.color ? tag.color : 'default' }}
-            >
-              {tag.name}
-            </span>
-          );
-        })}
-        {/* {tags.length > 0 && <span className="answer-tema">{tags}</span>} */}
+        <div>
+          {tags.map((tagData) => (
+            <Tag key={tagData._id} tagData={tagData}>
+              {tagData.name}
+            </Tag>
+          ))}
+        </div>
       </div>
     </StyledCard>
   );
