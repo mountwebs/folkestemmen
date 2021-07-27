@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
+import './Autocomplete.css';
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
@@ -14,6 +15,8 @@ const StyledInput = styled.input`
     color: ${({ theme }) => theme.colors.text.muted};
   }
 `;
+
+// https://www.digitalocean.com/community/tutorials/react-react-autocomplete
 
 const Autocomplete = () => {
   const [activeSuggestion, setActiveSuggestion] = useState(0);
@@ -44,20 +47,22 @@ const Autocomplete = () => {
   };
 
   const onKeyDown = (e) => {
-    if (e.keyCode === 13) {
-      // enter key
+    if (e.keyCode === 13 || e.keyCode === 9) {
+      // 13: enter key, 9: tab
+      e.preventDefault();
       setUserInput(filteredSuggestions[activeSuggestion]);
       setActiveSuggestion(0);
       setShowSuggestions(false);
     } else if (e.keyCode === 38) {
       // up key
+      e.preventDefault();
       if (activeSuggestion === 0) {
         return;
       }
       setActiveSuggestion(activeSuggestion - 1);
-    }
-    // User pressed the down arrow, increment the index
-    else if (e.keyCode === 40) {
+    } else if (e.keyCode === 40) {
+      // down key
+      e.preventDefault();
       if (activeSuggestion - 1 === filteredSuggestions.length) {
         return;
       }
