@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
+import Autocomplete from './Autocomplete';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -91,6 +92,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
           value={temaValue}
           onChange={handleTemaChange}
         />
+        <Autocomplete />
         <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>
