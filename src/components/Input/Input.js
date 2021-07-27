@@ -14,7 +14,6 @@ const StyledContainer = styled.form`
   border-radius: 10px;
 
   .input {
-    &-tema::placeholder,
     &-field::placeholder {
       color: ${({ theme }) => theme.colors.text.muted};
     }
@@ -33,15 +32,6 @@ const StyledContainer = styled.form`
     &-tema-button-wrapper {
       display: flex;
       justify-content: space-between;
-    }
-    &-tema {
-      padding: 0 0.5rem;
-      border: none;
-      outline: none;
-      min-width: 0;
-      @media only screen and ${device.sm} {
-        font-size: 1.2rem;
-      }
     }
   }
 `;
@@ -85,13 +75,6 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <input
-          type="text"
-          className="input-tema"
-          placeholder="# Legg til tema"
-          value={temaValue}
-          onChange={handleTemaChange}
-        />
         <Autocomplete />
         <StyledButton type="submit" children={buttonText} />
       </div>

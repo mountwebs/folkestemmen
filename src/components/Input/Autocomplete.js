@@ -1,4 +1,19 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import device from '../../constants/breakpoints';
+
+const StyledInput = styled.input`
+  padding: 0 0.5rem;
+  border: none;
+  outline: none;
+  min-width: 0;
+  @media only screen and ${device.sm} {
+    font-size: 1.2rem;
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.text.muted};
+  }
+`;
 
 const Autocomplete = () => {
   const [activeSuggestion, setActiveSuggestion] = useState(0);
@@ -9,21 +24,12 @@ const Autocomplete = () => {
   const suggestions = ['a', 'b', 'test', 'makro', 'lkjdsflk', 'lki'];
 
   const onChange = (e) => {
-    // const userInput = e.currentTarget.value;
-
     const currentUserInput = e.currentTarget.value;
 
     setFilteredSuggestions(
-      suggestions.filter((suggestion) => {
-        console.log(
-          '🚀 ~ file: Autocomplete.js ~ line 17 ~ suggestions.filter ~ suggestion',
-          currentUserInput
-        );
-
-        return suggestion
-          .toLowerCase()
-          .startsWith(currentUserInput.toLowerCase());
-      })
+      suggestions.filter((suggestion) =>
+        suggestion.toLowerCase().startsWith(currentUserInput.toLowerCase())
+      )
     );
     setActiveSuggestion(0);
     setShowSuggestions(true);
@@ -80,22 +86,17 @@ const Autocomplete = () => {
           })}
         </ul>
       );
-    } else {
-      suggestionsListComponent = (
-        <div className="no-suggestions">
-          <em>No suggestions available.</em>
-        </div>
-      );
     }
   }
 
   return (
     <>
-      <input
+      <StyledInput
         type="text"
         onChange={onChange}
         onKeyDown={onKeyDown}
         value={userInput}
+        placeholder="# Legg til tema"
       />
       {suggestionsListComponent}
     </>
