@@ -96,14 +96,17 @@ const Autocomplete = () => {
 
   return (
     <>
-      <StyledInput
-        type="text"
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        value={userInput}
-        placeholder="# Legg til tema"
-      />
-      {suggestionsListComponent}
+      <div className="input-wrapper">
+        <StyledInput
+          type="text"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={userInput}
+          placeholder="# Legg til tema"
+        />
+
+        <div>{suggestionsListComponent}</div>
+      </div>
     </>
   );
 };

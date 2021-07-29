@@ -1,12 +1,21 @@
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .suggestions {
+  background-color: white;
+  position: absolute;
   border: 1px solid #999;
-  border-top-width: 0;
   list-style: none;
-  margin-top: 0;
   max-height: 143px;
-  overflow-y: auto;
   padding-left: 0;
-  width: calc(300px + 1rem);
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 10px;
+  left: 0;
+  right: 0;
 }
 
 .suggestions li {
@@ -18,7 +27,6 @@
   background-color: #008f68;
   color: #fae042;
   cursor: pointer;
-  font-weight: 700;
 }
 
 .suggestions li:not(:last-of-type) {
