@@ -58,6 +58,30 @@ const tagsData = [
     updatedAt: '2021-07-25T20:54:12.161Z',
     __v: 0,
   },
+  {
+    _id: '6102d7e482ed40057c44ae54',
+    name: 'Støy',
+    color: 'red',
+    createdAt: '2021-07-29T16:31:32.406Z',
+    updatedAt: '2021-07-29T16:31:32.406Z',
+    __v: 0,
+  },
+  {
+    _id: '6102d80382ed40057c44ae55',
+    name: 'Transport',
+    color: 'blue',
+    createdAt: '2021-07-29T16:32:03.819Z',
+    updatedAt: '2021-07-29T16:32:03.819Z',
+    __v: 0,
+  },
+  {
+    _id: '6102d82782ed40057c44ae56',
+    name: 'Grønt områder',
+    color: 'purple',
+    createdAt: '2021-07-29T16:32:39.637Z',
+    updatedAt: '2021-07-29T16:32:39.637Z',
+    __v: 0,
+  },
 ];
 
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
