@@ -42,10 +42,27 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const tagsData = [
+  {
+    _id: '60f7ffa95250b1137a3969f7',
+    name: 'Veier',
+    createdAt: '2021-07-21T11:06:17.506Z',
+    updatedAt: '2021-07-21T11:06:17.506Z',
+    __v: 0,
+  },
+  {
+    _id: '60fdcf73b4e99b55d16e6e47',
+    name: 'Tog',
+    color: 'green',
+    createdAt: '2021-07-25T20:54:12.161Z',
+    updatedAt: '2021-07-25T20:54:12.161Z',
+    __v: 0,
+  },
+];
+
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
-
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
   };
@@ -75,7 +92,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Autocomplete />
+        <Autocomplete tagsData={tagsData} />
         <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import './Autocomplete.css';
+import InputTags from './InputTags';
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
@@ -18,13 +19,28 @@ const StyledInput = styled.input`
 
 // https://www.digitalocean.com/community/tutorials/react-react-autocomplete
 
-const Autocomplete = () => {
+const getNames = (tagsData) => tagsData.map((tag) => tag.name);
+
+const Autocomplete = ({ tagsData }) => {
+  // const suggestions = ['a', 'b', 'test', 'makro', 'lkjdsflk', 'lki'];
+  const suggestions = getNames(tagsData);
+
   const [activeSuggestion, setActiveSuggestion] = useState(0);
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
+  const [tags, setTags] = useState([]);
 
-  const suggestions = ['a', 'b', 'test', 'makro', 'lkjdsflk', 'lki'];
+  const chooseTag = (tagName) => {
+    setTags([...tags, tagsData.find((tag) => tag.name === tagName)]);
+    setActiveSuggestion(0);
+    setShowSuggestions(false);
+    setFilteredSuggestions(suggestions);
+    setUserInput('');
+  };
+  const onFocus = (e) => {
+    setShowSuggestions(true);
+  };
 
   const onChange = (e) => {
     const currentUserInput = e.currentTarget.value;
@@ -39,20 +55,23 @@ const Autocomplete = () => {
     setUserInput(e.currentTarget.value);
   };
 
-  const onClick = (e) => {
-    setUserInput(e.currentTarget.innerText);
-    setActiveSuggestion(0);
-    setShowSuggestions(true);
-    setFilteredSuggestions([]);
+  const onMouseDown = (e) => {
+    chooseTag(e.currentTarget.innerText);
+  };
+
+  const onBlur = (e) => {
+    setShowSuggestions(false);
+  };
+
+  const onMouseOver = (e) => {
+    setActiveSuggestion(filteredSuggestions.indexOf(e.currentTarget.innerText));
   };
 
   const onKeyDown = (e) => {
     if (e.keyCode === 13 || e.keyCode === 9) {
       // 13: enter key, 9: tab
       e.preventDefault();
-      setUserInput(filteredSuggestions[activeSuggestion]);
-      setActiveSuggestion(0);
-      setShowSuggestions(false);
+      chooseTag(filteredSuggestions[activeSuggestion]);
     } else if (e.keyCode === 38) {
       // up key
       e.preventDefault();
@@ -72,7 +91,7 @@ const Autocomplete = () => {
 
   let suggestionsListComponent;
 
-  if (showSuggestions && userInput) {
+  if (showSuggestions) {
     if (filteredSuggestions.length) {
       suggestionsListComponent = (
         <ul className="suggestions">
@@ -84,7 +103,12 @@ const Autocomplete = () => {
               className = 'suggestion-active';
             }
             return (
-              <li className={className} key={suggestion} onClick={onClick}>
+              <li
+                className={className}
+                key={suggestion}
+                onMouseDown={onMouseDown}
+                onMouseOver={onMouseOver}
+              >
                 {suggestion}
               </li>
             );
@@ -95,19 +119,22 @@ const Autocomplete = () => {
   }
 
   return (
-    <>
+    <div>
+      <InputTags tags={tags} />
       <div className="input-wrapper">
         <StyledInput
           type="text"
           onChange={onChange}
           onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          onBlur={onBlur}
           value={userInput}
           placeholder="# Legg til tema"
         />
 
         <div>{suggestionsListComponent}</div>
       </div>
-    </>
+    </div>
   );
 };
 

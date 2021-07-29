@@ -68,7 +68,7 @@ const Answer = ({ cardText, tags, userName }) => {
         </div>
         <div>
           {tags.map((tagData) => (
-            <Tag key={tagData._id} tagData={tagData}>
+            <Tag key={tagData._id} tagColor={tagData.color}>
               {tagData.name}
             </Tag>
           ))}
