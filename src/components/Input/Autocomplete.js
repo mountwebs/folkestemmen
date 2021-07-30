@@ -17,15 +17,17 @@ const StyledInput = styled.input`
   }
 `;
 
-const getNames = (tagData) => tagData.map((tag) => tag.name);
-
-const Autocomplete = ({ tagData }) => {
-  const [suggestions, setSuggestions] = useState(getNames(tagData));
+const Autocomplete = ({
+  tagData,
+  selectedTags,
+  setSelectedTags,
+  suggestions,
+  setSuggestions,
+}) => {
   const [activeSuggestion, setActiveSuggestion] = useState(0);
   const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
-  const [selectedTags, setSelectedTags] = useState([]);
 
   const chooseTag = (tagName) => {
     setSelectedTags([
@@ -59,7 +61,7 @@ const Autocomplete = ({ tagData }) => {
     setUserInput(e.currentTarget.value);
   };
 
-  const onMouseDown = (e) => {
+  const onLiMouseDown = (e) => {
     chooseTag(e.currentTarget.innerText);
   };
 
@@ -67,8 +69,15 @@ const Autocomplete = ({ tagData }) => {
     setShowSuggestions(false);
   };
 
-  const onMouseOver = (e) => {
+  const onLiMouseOver = (e) => {
     setActiveSuggestion(filteredSuggestions.indexOf(e.currentTarget.innerText));
+  };
+
+  const onTagMouseDown = (e) => {
+    const tagName = e.currentTarget.innerText;
+    setSelectedTags(selectedTags.filter((tag) => tag.name !== tagName));
+    setFilteredSuggestions([...filteredSuggestions, tagName]);
+    setSuggestions([...suggestions, tagName]);
   };
 
   const onKeyDown = (e) => {
@@ -110,8 +119,8 @@ const Autocomplete = ({ tagData }) => {
               <li
                 className={className}
                 key={suggestion}
-                onMouseDown={onMouseDown}
-                onMouseOver={onMouseOver}
+                onMouseDown={onLiMouseDown}
+                onMouseOver={onLiMouseOver}
               >
                 {suggestion}
               </li>
@@ -124,7 +133,7 @@ const Autocomplete = ({ tagData }) => {
 
   return (
     <div>
-      <InputTags tags={selectedTags} />
+      <InputTags tags={selectedTags} onTagMouseDown={onTagMouseDown} />
       <div className="input-wrapper">
         <StyledInput
           type="text"

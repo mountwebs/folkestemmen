@@ -8,6 +8,11 @@ const Tag = styled.span`
   color: ${({ theme }) => theme.colors.button.text.disabled};
   border-radius: 20px;
   font-size: 1rem;
+
+  &:after {
+    content: ${({ deletable }) => deletable && "'x'"};
+    margin-left: ${({ deletable }) => deletable && '7px'};
+  }
 `;
 
 export default Tag;

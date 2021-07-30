@@ -42,15 +42,15 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const getTagNames = (tagData) => tagData.map((tag) => tag.name);
+
 const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
-  const [temaValue, setTemaValue] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [tagSuggestions, setTagSuggestions] = useState(getTagNames(tagData));
+
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
-  };
-
-  const handleTemaChange = (e) => {
-    setTemaValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -58,11 +58,12 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
 
     const answer = { name: 'Navn' };
     answer.text = textAreaValue;
-    answer.tags = temaValue;
     if (!answer.text) return;
+    answer.tags = selectedTags.map((tag) => tag._id);
+    //answer.tags = tagIds;
     addAnswer(answer);
     setTextAreaValue('');
-    setTemaValue('');
+    setSelectedTags([]);
   };
 
   return (
@@ -74,7 +75,13 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Autocomplete tagData={tagData} />
+        <Autocomplete
+          tagData={tagData}
+          selectedTags={selectedTags}
+          setSelectedTags={setSelectedTags}
+          suggestions={tagSuggestions}
+          setSuggestions={setTagSuggestions}
+        />
         <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>

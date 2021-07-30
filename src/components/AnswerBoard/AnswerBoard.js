@@ -50,7 +50,6 @@ const AnswerBoard = () => {
     axios
       .post(`${baseUrl}answer`, answer)
       .then((response) => response.data)
-      .then((data) => console.log(data))
       .then(getAnswers)
       .catch((error) => console.log(error));
   };
@@ -74,7 +73,6 @@ const AnswerBoard = () => {
       .get(`${baseUrl}tag`)
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         setTagData(data);
       })
       .catch((error) => {
