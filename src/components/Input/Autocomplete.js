@@ -6,6 +6,7 @@ import InputTags from './InputTags';
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
+  margin: 2px;
   border: none;
   outline: none;
   min-width: 0;
@@ -23,13 +24,15 @@ const Autocomplete = ({
   setSelectedTags,
   suggestions,
   setSuggestions,
+  filteredSuggestions,
+  setFilteredSuggestions,
 }) => {
   const [activeSuggestion, setActiveSuggestion] = useState(0);
-  const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
 
   const chooseTag = (tagName) => {
+    if (!tagName) return;
     setSelectedTags([
       ...selectedTags,
       tagData.find((tag) => tag.name === tagName),
@@ -132,7 +135,7 @@ const Autocomplete = ({
   }
 
   return (
-    <div>
+    <div className="tags-input-wrapper">
       <InputTags tags={selectedTags} onTagMouseDown={onTagMouseDown} />
       <div className="input-wrapper">
         <StyledInput
@@ -144,7 +147,6 @@ const Autocomplete = ({
           value={userInput}
           placeholder="# Legg til tema"
         />
-
         <div>{suggestionsListComponent}</div>
       </div>
     </div>

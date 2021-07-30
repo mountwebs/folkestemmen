@@ -1,6 +1,9 @@
+.tags-input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 .input-wrapper {
   position: relative;
-  display: inline-block;
 }
 
 .suggestions {
@@ -13,10 +16,11 @@
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 10px;
+  top: 15px;
   left: 0;
   right: 0;
   overflow-y: auto;
+  font-size: 1rem;
 }
 
 .suggestions li {
@@ -25,11 +29,7 @@
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #008f68;
-  color: #fae042;
+  background-color: grey;
+  color: white;
   cursor: pointer;
-}
-
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
 }

@@ -48,6 +48,9 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const [tagSuggestions, setTagSuggestions] = useState(getTagNames(tagData));
+  const [tagFilteredSuggestions, setTagFilteredSuggestions] = useState(
+    getTagNames(tagData)
+  );
 
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
@@ -64,6 +67,7 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
     addAnswer(answer);
     setTextAreaValue('');
     setSelectedTags([]);
+    setTagFilteredSuggestions(getTagNames(tagData));
   };
 
   return (
@@ -76,6 +80,8 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
       />
       <div className="input-tema-button-wrapper">
         <Autocomplete
+          filteredSuggestions={tagFilteredSuggestions}
+          setFilteredSuggestions={setTagFilteredSuggestions}
           tagData={tagData}
           selectedTags={selectedTags}
           setSelectedTags={setSelectedTags}
