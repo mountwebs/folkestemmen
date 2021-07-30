@@ -23,8 +23,7 @@ const getNames = (tagsData) => tagsData.map((tag) => tag.name);
 
 const Autocomplete = ({ tagsData }) => {
   // const suggestions = ['a', 'b', 'test', 'makro', 'lkjdsflk', 'lki'];
-  const suggestions = getNames(tagsData);
-
+  const [suggestions, setSuggestions] = useState(getNames(tagsData));
   const [activeSuggestion, setActiveSuggestion] = useState(0);
   const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -33,11 +32,16 @@ const Autocomplete = ({ tagsData }) => {
 
   const chooseTag = (tagName) => {
     setTags([...tags, tagsData.find((tag) => tag.name === tagName)]);
+    const newSuggestions = suggestions.filter(
+      (suggestions) => suggestions !== tagName
+    );
+    setSuggestions(newSuggestions);
+    setFilteredSuggestions(newSuggestions);
     setActiveSuggestion(0);
     setShowSuggestions(false);
-    setFilteredSuggestions(suggestions);
     setUserInput('');
   };
+
   const onFocus = (e) => {
     setShowSuggestions(true);
   };
