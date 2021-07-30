@@ -98,9 +98,10 @@ const Autocomplete = ({
     } else if (e.keyCode === 40) {
       // down key
       e.preventDefault();
-      if (activeSuggestion - 1 === filteredSuggestions.length) {
+      if (activeSuggestion + 1 === filteredSuggestions.length) {
         return;
       }
+      console.log(activeSuggestion);
       setActiveSuggestion(activeSuggestion + 1);
     }
   };
