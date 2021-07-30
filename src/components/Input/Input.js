@@ -42,14 +42,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Input = ({ placeholderText, buttonText, addAnswer, tagList }) => {
+const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
   };
-
-  console.log(tagList);
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -76,7 +74,7 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagList }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Autocomplete tagsData={tagList} />
+        <Autocomplete tagData={tagData} />
         <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>

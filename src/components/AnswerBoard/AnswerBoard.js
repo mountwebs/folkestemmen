@@ -44,7 +44,7 @@ const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
-  const [tagList, setTagList] = useState([]);
+  const [tagData, setTagData] = useState([]);
 
   const addAnswer = (answer) => {
     axios
@@ -69,13 +69,13 @@ const AnswerBoard = () => {
       });
   };
 
-  const getTagList = () => {
+  const getTagData = () => {
     axios
       .get(`${baseUrl}tag`)
       .then((response) => response.data)
       .then((data) => {
         console.log(data);
-        setTagList(data);
+        setTagData(data);
       })
       .catch((error) => {
         console.log(error);
@@ -85,7 +85,7 @@ const AnswerBoard = () => {
 
   useEffect(() => {
     getAnswers();
-    getTagList();
+    getTagData();
   }, []);
 
   return (
@@ -99,7 +99,7 @@ const AnswerBoard = () => {
           placeholderText={placeholderText}
           buttonText={buttonText}
           addAnswer={addAnswer}
-          tagList={tagList}
+          tagData={tagData}
         />
       )}
 

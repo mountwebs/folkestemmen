@@ -17,21 +17,21 @@ const StyledInput = styled.input`
   }
 `;
 
-// https://www.digitalocean.com/community/tutorials/react-react-autocomplete
+const getNames = (tagData) => tagData.map((tag) => tag.name);
 
-const getNames = (tagsData) => tagsData.map((tag) => tag.name);
-
-const Autocomplete = ({ tagsData }) => {
-  // const suggestions = ['a', 'b', 'test', 'makro', 'lkjdsflk', 'lki'];
-  const [suggestions, setSuggestions] = useState(getNames(tagsData));
+const Autocomplete = ({ tagData }) => {
+  const [suggestions, setSuggestions] = useState(getNames(tagData));
   const [activeSuggestion, setActiveSuggestion] = useState(0);
   const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
-  const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const chooseTag = (tagName) => {
-    setTags([...tags, tagsData.find((tag) => tag.name === tagName)]);
+    setSelectedTags([
+      ...selectedTags,
+      tagData.find((tag) => tag.name === tagName),
+    ]);
     const newSuggestions = suggestions.filter(
       (suggestions) => suggestions !== tagName
     );
@@ -124,7 +124,7 @@ const Autocomplete = ({ tagsData }) => {
 
   return (
     <div>
-      <InputTags tags={tags} />
+      <InputTags tags={selectedTags} />
       <div className="input-wrapper">
         <StyledInput
           type="text"
