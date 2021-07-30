@@ -42,54 +42,14 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const tagsData = [
-  {
-    _id: '60f7ffa95250b1137a3969f7',
-    name: 'Veier',
-    createdAt: '2021-07-21T11:06:17.506Z',
-    updatedAt: '2021-07-21T11:06:17.506Z',
-    __v: 0,
-  },
-  {
-    _id: '60fdcf73b4e99b55d16e6e47',
-    name: 'Tog',
-    color: 'green',
-    createdAt: '2021-07-25T20:54:12.161Z',
-    updatedAt: '2021-07-25T20:54:12.161Z',
-    __v: 0,
-  },
-  {
-    _id: '6102d7e482ed40057c44ae54',
-    name: 'Støy',
-    color: 'red',
-    createdAt: '2021-07-29T16:31:32.406Z',
-    updatedAt: '2021-07-29T16:31:32.406Z',
-    __v: 0,
-  },
-  {
-    _id: '6102d80382ed40057c44ae55',
-    name: 'Transport',
-    color: 'blue',
-    createdAt: '2021-07-29T16:32:03.819Z',
-    updatedAt: '2021-07-29T16:32:03.819Z',
-    __v: 0,
-  },
-  {
-    _id: '6102d82782ed40057c44ae56',
-    name: 'Grønt områder',
-    color: 'purple',
-    createdAt: '2021-07-29T16:32:39.637Z',
-    updatedAt: '2021-07-29T16:32:39.637Z',
-    __v: 0,
-  },
-];
-
-const Input = ({ placeholderText, buttonText, addAnswer }) => {
+const Input = ({ placeholderText, buttonText, addAnswer, tagList }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
   };
+
+  console.log(tagList);
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -116,7 +76,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Autocomplete tagsData={tagsData} />
+        <Autocomplete tagsData={tagList} />
         <StyledButton type="submit" children={buttonText} />
       </div>
     </StyledContainer>

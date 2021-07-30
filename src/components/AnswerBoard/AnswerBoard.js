@@ -44,9 +44,9 @@ const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
+  const [tagList, setTagList] = useState([]);
 
   const addAnswer = (answer) => {
-    // setAnswerList([answer, ...answerList]);
     axios
       .post(`${baseUrl}answer`, answer)
       .then((response) => response.data)
@@ -69,17 +69,40 @@ const AnswerBoard = () => {
       });
   };
 
+  const getTagList = () => {
+    axios
+      .get(`${baseUrl}tag`)
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+        setTagList(data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorState(true);
+      });
+  };
+
   useEffect(() => {
     getAnswers();
+    getTagList();
   }, []);
 
   return (
     <StyledContainer className="answer-board">
-      <Input
-        placeholderText={placeholderText}
-        buttonText={buttonText}
-        addAnswer={addAnswer}
-      />
+      {error ? (
+        'Error'
+      ) : loading ? (
+        'Loading'
+      ) : (
+        <Input
+          placeholderText={placeholderText}
+          buttonText={buttonText}
+          addAnswer={addAnswer}
+          tagList={tagList}
+        />
+      )}
+
       <StyledMasonry
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"
