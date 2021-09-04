@@ -110,12 +110,12 @@ const AnswerBoard = () => {
           : loading
           ? 'Loading'
           : answerList.map((answer, index) => {
-              const { text, tags, name } = answer;
+              const { text, tags, createdAt } = answer;
               return (
                 <Answer
                   cardText={text}
                   tags={tags}
-                  userName={name}
+                  createDate={createdAt}
                   key={index}
                 />
               );

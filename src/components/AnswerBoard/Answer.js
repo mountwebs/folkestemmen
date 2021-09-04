@@ -31,7 +31,7 @@ const StyledCard = styled.div`
       align-items: center;
     }
 
-    &-user {
+    &-date {
       display: flex;
       align-items: center;
 
@@ -52,7 +52,15 @@ const StyledCard = styled.div`
   }
 `;
 
-const Answer = ({ cardText, tags, userName }) => {
+const twoNumberDate = (date) =>
+  date.toString().length > 1 ? date : '0' + date;
+
+const formatDate = (inputDate) => {
+  const date = new Date(inputDate);
+  return `${twoNumberDate(date.getDate())}.${twoNumberDate(date.getMonth())}`;
+};
+
+const Answer = ({ cardText, tags, createDate }) => {
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-content">
@@ -60,11 +68,8 @@ const Answer = ({ cardText, tags, userName }) => {
       </div>
 
       <div className="answer-details">
-        <div className="answer-user">
-          <div className="answer-thumbnail-wrapper">
-            <img src="" alt="" className="user-thumbnail" />
-          </div>
-          <p>{userName}</p>
+        <div className="answer-date">
+          <p>{formatDate(createDate)}</p>
         </div>
         <div>
           {tags.map((tagData) => (
