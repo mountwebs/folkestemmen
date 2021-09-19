@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import './Autocomplete.css';
 import InputTags from './InputTags';
+import SuggestionsList from './SuggestionsList';
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
@@ -30,6 +31,7 @@ const Autocomplete = ({
   const [activeSuggestion, setActiveSuggestion] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
+  const [placeholder, setPlaceholder] = useState('# Legg til tema');
 
   const chooseTag = (tagName) => {
     if (!tagName) return;
@@ -106,35 +108,6 @@ const Autocomplete = ({
     }
   };
 
-  let suggestionsListComponent;
-
-  if (showSuggestions) {
-    if (filteredSuggestions.length) {
-      suggestionsListComponent = (
-        <ul className="suggestions">
-          {filteredSuggestions.map((suggestion, index) => {
-            let className;
-
-            // Flag the active suggestion with a class
-            if (index === activeSuggestion) {
-              className = 'suggestion-active';
-            }
-            return (
-              <li
-                className={className}
-                key={suggestion}
-                onMouseDown={onLiMouseDown}
-                onMouseOver={onLiMouseOver}
-              >
-                {suggestion}
-              </li>
-            );
-          })}
-        </ul>
-      );
-    }
-  }
-
   return (
     <div className="tags-input-wrapper">
       <InputTags tags={selectedTags} onTagMouseDown={onTagMouseDown} />
@@ -146,9 +119,18 @@ const Autocomplete = ({
           onFocus={onFocus}
           onBlur={onBlur}
           value={userInput}
-          placeholder="# Legg til tema"
+          placeholder={placeholder}
         />
-        <div>{suggestionsListComponent}</div>
+        {showSuggestions && filteredSuggestions.length && (
+          <SuggestionsList
+            {...{
+              filteredSuggestions,
+              activeSuggestion,
+              onLiMouseDown,
+              onLiMouseOver,
+            }}
+          />
+        )}
       </div>
     </div>
   );
