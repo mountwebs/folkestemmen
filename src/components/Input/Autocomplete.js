@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import './Autocomplete.css';
@@ -17,6 +17,9 @@ const StyledInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.muted};
   }
+  :disabled {
+    background-color: transparent;
+  }
 `;
 
 const Autocomplete = ({
@@ -32,6 +35,17 @@ const Autocomplete = ({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [placeholder, setPlaceholder] = useState('# Legg til tema');
+  const [disabledInput, setDisabledInput] = useState(false);
+
+  useEffect(() => {
+    if (selectedTags.length) {
+      setPlaceholder('');
+      setDisabledInput(true);
+    } else {
+      setPlaceholder('# Legg til tema');
+      setDisabledInput(false);
+    }
+  }, [selectedTags]);
 
   const chooseTag = (tagName) => {
     if (!tagName) return;
@@ -50,7 +64,7 @@ const Autocomplete = ({
   };
 
   const onFocus = (e) => {
-    setShowSuggestions(true);
+    if (selectedTags.length === 0) setShowSuggestions(true);
   };
 
   const onChange = (e) => {
@@ -120,8 +134,9 @@ const Autocomplete = ({
           onBlur={onBlur}
           value={userInput}
           placeholder={placeholder}
+          disabled={disabledInput}
         />
-        {showSuggestions && filteredSuggestions.length && (
+        {showSuggestions && filteredSuggestions.length > 1 && (
           <SuggestionsList
             {...{
               filteredSuggestions,

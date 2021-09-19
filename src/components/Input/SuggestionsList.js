@@ -1,4 +1,35 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
+
+const StyledSuggestionsUl = styled.ul`
+  background-color: white;
+  position: absolute;
+  border: 1px solid #999;
+  list-style: none;
+  padding-left: 0;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 15px;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  font-size: 1rem;
+  max-height: 300px;
+`;
+
+const StyledSuggestionsLi = styled.li`
+  padding: 0.5rem;
+
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: grey;
+      color: white;
+      cursor: pointer;
+    `}
+`;
 
 const SuggestionsList = ({
   filteredSuggestions,
@@ -7,26 +38,26 @@ const SuggestionsList = ({
   onLiMouseOver,
 }) => {
   return (
-    <ul className="suggestions">
+    <StyledSuggestionsUl>
       {filteredSuggestions.map((suggestion, index) => {
-        let className;
+        let active;
 
         // Flag the active suggestion with a class
         if (index === activeSuggestion) {
-          className = 'suggestion-active';
+          active = true;
         }
         return (
-          <li
-            className={className}
+          <StyledSuggestionsLi
             key={suggestion}
             onMouseDown={onLiMouseDown}
             onMouseOver={onLiMouseOver}
+            active={active}
           >
             {suggestion}
-          </li>
+          </StyledSuggestionsLi>
         );
       })}
-    </ul>
+    </StyledSuggestionsUl>
   );
 };
 

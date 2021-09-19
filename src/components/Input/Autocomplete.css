@@ -6,28 +6,6 @@
   position: relative;
 }
 
-.suggestions {
-  background-color: white;
-  position: absolute;
-  border: 1px solid #999;
-  list-style: none;
-  padding-left: 0;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 15px;
-  left: 0;
-  right: 0;
-  overflow-y: auto;
-  font-size: 1rem;
-}
-
 .suggestions li {
   padding: 0.5rem;
-}
-
-.suggestion-active {
-  background-color: grey;
-  color: white;
-  cursor: pointer;
 }
