@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
-import './Autocomplete.css';
 import InputTags from './InputTags';
 import SuggestionsList from './SuggestionsList';
+
+const StyledTagsInputWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const StyledInputWrapper = styled.div`
+  position: relative;
+`;
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
@@ -31,7 +39,7 @@ const Autocomplete = ({
   filteredSuggestions,
   setFilteredSuggestions,
 }) => {
-  const [activeSuggestion, setActiveSuggestion] = useState(0);
+  const [activeSuggestion, setActiveSuggestion] = useState(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [placeholder, setPlaceholder] = useState('# Legg til tema');
@@ -110,22 +118,21 @@ const Autocomplete = ({
       if (activeSuggestion === 0) {
         return;
       }
-      setActiveSuggestion(activeSuggestion - 1);
+      // setActiveSuggestion(activeSuggestion - 1);
     } else if (e.keyCode === 40) {
       // down key
       e.preventDefault();
       if (activeSuggestion + 1 === filteredSuggestions.length) {
         return;
       }
-      console.log(activeSuggestion);
-      setActiveSuggestion(activeSuggestion + 1);
+      // setActiveSuggestion(activeSuggestion + 1);
     }
   };
 
   return (
-    <div className="tags-input-wrapper">
+    <StyledTagsInputWrapper>
       <InputTags tags={selectedTags} onTagMouseDown={onTagMouseDown} />
-      <div className="input-wrapper">
+      <StyledInputWrapper>
         <StyledInput
           type="text"
           onChange={onChange}
@@ -146,8 +153,8 @@ const Autocomplete = ({
             }}
           />
         )}
-      </div>
-    </div>
+      </StyledInputWrapper>
+    </StyledTagsInputWrapper>
   );
 };
 
