@@ -1,58 +1,111 @@
 import React from 'react';
 import styled from 'styled-components';
 import whiteLogo from '../../../assets/logo-white.svg';
+import Button from '../../Button/Button';
+import traversLogo from '../../../assets/travers-logo.svg';
+import device from '../../../constants/breakpoints';
 
 const StyledFooter = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  background: #292929;
+  background: #3a5108;
   position: relative;
   bottom: 0;
   color: #a5a5a5;
   padding: 3rem;
+  border-radius: 20px 20px 0 0;
+
+  @media only screen and ${device.sm} {
+    border-radius: 50px 50px 0 0;
+    padding-top: 7rem;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
 `;
 
 const StyledContainer = styled.div`
-  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1020px;
+
+  @media only screen and ${device.sm} {
+    flex-direction: row;
+  }
 `;
 
-const StyledImageContainer = styled.div`
+const StyledLogoContainer = styled.div`
+  flex: 1 0;
   margin-bottom: 29px;
   padding-right: 8px;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    display: block;
+  }
 `;
 
 const StyledLogo = styled.img`
   height: 38px;
 `;
 
-const StyledTextContainer = styled.div`
-  max-width: 300px;
-`;
+const StyledCTA = styled.div`
+  max-width: 220px;
+  color: #f2f2f2;
 
-const StyledTitle = styled.h3`
-  margin: 0.2rem 0;
+  @media only screen and ${device.sm} {
+    max-width: 300px;
+  }
 `;
 
 const StyledText = styled.div`
   font-size: 1rem;
 `;
 
+const StyledBranding = styled.small`
+  display: flex;
+  place-self: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #ffffff;
+`;
+
+const StyledButton = styled(Button)`
+  background-color: #fff3c7;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #3a5108;
+  border-radius: 4px;
+  font-size: 1rem;
+
+  @media only screen and ${device.sm} {
+    margin-left: 2rem;
+  }
+`;
+
 const Footer = () => {
   return (
     <StyledFooter>
       <StyledContainer>
-        <StyledImageContainer>
+        <StyledLogoContainer>
           <StyledLogo src={whiteLogo}></StyledLogo>
-        </StyledImageContainer>
-        <StyledTextContainer>
-          <StyledTitle>Beta kommune</StyledTitle>
-          <StyledText>
-            Design og digital samfunnsutvikling fra innbyggernes perspektiv
-          </StyledText>
-        </StyledTextContainer>
+          <StyledText>Medvirkning rett i lomma.</StyledText>
+        </StyledLogoContainer>
+        <StyledCTA>
+          Har du spørsmål eller vil du gi oss tilbakemelding?
+        </StyledCTA>
+        <StyledButton>Ta kontakt</StyledButton>
       </StyledContainer>
+      <StyledBranding>
+        Utviklet av &nbsp;
+        <img src={traversLogo} alt="" />
+      </StyledBranding>
     </StyledFooter>
   );
 };
