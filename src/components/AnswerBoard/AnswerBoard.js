@@ -22,8 +22,9 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledHeader = styled.p`
+const StyledHeading = styled.p`
   text-align: center;
+  margin-bottom: 1.5rem;
   @media only screen and ${device.sm} {
     font-size: 1rem;
   }
@@ -105,7 +106,7 @@ const AnswerBoard = () => {
           tagData={tagData}
         />
       )}
-      <StyledHeader>Innspill</StyledHeader>
+      <StyledHeading>Innspill</StyledHeading>
       <StyledMasonry
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"

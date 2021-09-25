@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 
-const StyledHeaderContainer = styled.div`
+const StyledHeadingContainer = styled.div`
   display: flex;
   justify-content: center;
 `
 
-const StyledHeader = styled.div`
+const StyledHeading = styled.div`
   padding: 0.5rem 1.5rem;
   color: ${({theme}) => theme.colors.text.secondary};
   border: 1px solid;
@@ -39,9 +39,9 @@ const StyledCard = styled.div`
 const Question = ({ text }) => {
   return (
     <>
-    <StyledHeaderContainer>
-      <StyledHeader>Ukens spørsmål</StyledHeader>
-      </StyledHeaderContainer>
+    <StyledHeadingContainer>
+      <StyledHeading>Ukens spørsmål</StyledHeading>
+      </StyledHeadingContainer>
       <StyledCard className="question-card">
         <p className="card-text">{text}</p>
       </StyledCard>
