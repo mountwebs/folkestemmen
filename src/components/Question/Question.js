@@ -2,17 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 
+const StyledHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const StyledHeader = styled.div`
   padding: 0.5rem 1.5rem;
-  background-color: #e5e5e5;
-  color: #a5a5a5;
+  color: ${({theme}) => theme.colors.text.secondary};
+  border: 1px solid;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  text-align: center;
 
   @media only screen and ${device.sm} {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 `;
 
@@ -33,7 +39,9 @@ const StyledCard = styled.div`
 const Question = ({ text }) => {
   return (
     <>
-      <StyledHeader>Spørsmål</StyledHeader>
+    <StyledHeaderContainer>
+      <StyledHeader>Ukens spørsmål</StyledHeader>
+      </StyledHeaderContainer>
       <StyledCard className="question-card">
         <p className="card-text">{text}</p>
       </StyledCard>

@@ -22,6 +22,13 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledHeader = styled.p`
+  text-align: center;
+  @media only screen and ${device.sm} {
+    font-size: 1rem;
+  }
+`
+
 const StyledMasonry = styled(Masonry)`
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -98,7 +105,7 @@ const AnswerBoard = () => {
           tagData={tagData}
         />
       )}
-
+      <StyledHeader>Innspill</StyledHeader>
       <StyledMasonry
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"
