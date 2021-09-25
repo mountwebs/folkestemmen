@@ -19,7 +19,7 @@ const StyledHeader = styled.div`
 const StyledCard = styled.div`
   background-color: ${({ theme }) => theme.colors.question.background};
   padding: 1.5rem 1rem;
-  margin-bottom: 1rem;
+  margin: 0 5px;
   font-size: 1.3rem;
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 10px;

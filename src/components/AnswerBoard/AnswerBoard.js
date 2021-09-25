@@ -11,16 +11,14 @@ const placeholderText = 'Fortell oss hva du vil si her';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
-  padding: 0.5rem;
   background-color: ${({ theme }) => theme.colors.body.background};
   margin-bottom: 5rem;
   border-radius: 10px;
+  margin: 0 5px;
   max-width: 1020px;
 
   @media only screen and ${device.sm} {
-    padding-top: 66px;
-    padding-left: 66px;
-    padding-right: 66px;
+    padding-top: 4rem;
   }
 `;
 
