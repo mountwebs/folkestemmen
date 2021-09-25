@@ -37,6 +37,7 @@ const StyledContainer = styled.form`
 `;
 
 const StyledButton = styled(Button)`
+  background-color: ${({theme}) => theme.colors.buttons.post.background};
   @media only screen and ${device.sm} {
     font-size: 1.4rem;
   }

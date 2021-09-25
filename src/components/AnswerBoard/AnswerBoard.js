@@ -12,7 +12,7 @@ const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
   padding: 0.5rem;
-  background-color: ${({ theme }) => theme.colors.body.secondary};
+  background-color: ${({ theme }) => theme.colors.body.background};
   margin-bottom: 5rem;
   border-radius: 10px;
   max-width: 1020px;
