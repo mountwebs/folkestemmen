@@ -11,18 +11,24 @@ const placeholderText = 'Fortell oss hva du vil si her';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
-  padding: 0.5rem;
-  background-color: ${({ theme }) => theme.colors.body.secondary};
+  background-color: ${({ theme }) => theme.colors.body.background};
   margin-bottom: 5rem;
   border-radius: 10px;
+  margin: 0 5px;
   max-width: 1020px;
 
   @media only screen and ${device.sm} {
-    padding-top: 66px;
-    padding-left: 66px;
-    padding-right: 66px;
+    padding-top: 4rem;
   }
 `;
+
+const StyledHeading = styled.p`
+  text-align: center;
+  margin-bottom: 1.5rem;
+  @media only screen and ${device.sm} {
+    font-size: 1rem;
+  }
+`
 
 const StyledMasonry = styled(Masonry)`
   display: -webkit-box; /* Not needed if autoprefixing */
@@ -100,7 +106,7 @@ const AnswerBoard = () => {
           tagData={tagData}
         />
       )}
-
+      <StyledHeading>Innspill</StyledHeading>
       <StyledMasonry
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"

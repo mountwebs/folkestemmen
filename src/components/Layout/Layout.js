@@ -4,7 +4,7 @@ import Footer from './Footer/Footer';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
-  background-color: #fdfdfd;
+  background-color: ${({ theme }) => theme.colors.body.background};
   min-height: 100vh;
   position: relative;
 `;

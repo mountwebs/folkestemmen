@@ -13,7 +13,7 @@ ${normalize}
   }
 
   body {
-    background: ${({ theme }) => theme.colors.body.primary};
+    background: ${({ theme }) => theme.colors.body.background};
     color: ${({ theme }) => theme.colors.text.secondary};
     font-family: ${({ theme }) => theme.font};
     font-weight: 400;

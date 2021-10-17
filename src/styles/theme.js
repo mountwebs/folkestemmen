@@ -1,3 +1,12 @@
+const brown = '#735F18';
+const darkBrown = '#513C08';
+const white = '#FFF';
+const black = '#000';
+const lightYellow = '#F5F2E3';
+const lightGreen = '#C3E679';
+const lightGrey = '#BDBDBD';
+const yellow = '#FFE074';
+
 export const theme = {
   light: {
     id: 'T_001',
@@ -6,15 +15,32 @@ export const theme = {
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
+        background: lightYellow,
       },
       text: {
-        primary: '#000000',
-        secondary: '#292929',
-        muted: '#E5E5E5',
+        primary: black,
+        secondary: darkBrown,
+        tertiary: white,
+        muted: lightGrey,
+      },
+      buttons: {
+        header: {
+          background: brown,
+          text: white,
+        },
+        footer: {},
+        post: {
+          background: lightGreen,
+          text: brown,
+        },
+        tag: {
+          background: lightYellow,
+          text: brown,
+        },
       },
       button: {
         text: {
-          primary: '#fff',
+          primary: white,
           secondary: '#292929',
           disabled: '#A5A5A5',
         },
@@ -24,15 +50,9 @@ export const theme = {
           disabled: '#E5E5E5',
         },
       },
-      card: {
-        text: {
-          primary: '#000000',
-          secondary: '#FFFFFF',
-        },
-        background: {
-          primary: '#FFFFFF',
-          secondary: '#292929',
-        },
+      question: {
+        text: darkBrown,
+        background: yellow,
       },
       link: {
         text: 'teal',

@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
 const StyledContainer = styled.div`
   height: 100%;
   display: flex;
+  max-width: 1020px;
   align-items: center;
   justify-content: center;
 
@@ -35,6 +36,8 @@ const StyledLogo = styled.img`
 const StyledButton = styled(Button)`
   font-size: 18px;
   display: none;
+  background-color: ${({ theme }) => theme.colors.buttons.header.background};
+
 
   @media only screen and ${device.sm} {
     display: block;

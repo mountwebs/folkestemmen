@@ -8,7 +8,7 @@ const StyledContainer = styled.form`
   display: flex;
   flex-direction: column;
   padding: 0.7rem 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   height: 190px;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 10px;
@@ -37,6 +37,8 @@ const StyledContainer = styled.form`
 `;
 
 const StyledButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.buttons.post.background};
+  color: ${({ theme }) => theme.colors.buttons.post.text};
   @media only screen and ${device.sm} {
     font-size: 1.4rem;
   }
