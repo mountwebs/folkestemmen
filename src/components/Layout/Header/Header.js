@@ -1,5 +1,5 @@
 import React from 'react';
-import logoFull from '../../../assets/logo-full.svg';
+import brownLogo from '../../../assets/logo-brown.svg';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
@@ -27,6 +27,7 @@ const StyledLogo = styled.img`
   max-width: 500px;
   max-height: 40px;
   margin: 10px 57.5px;
+  color: blue;
 
   @media only screen and ${device.sm} {
     margin: 0;
@@ -58,7 +59,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledLogo src={logoFull} alt="Beta folkestemmen - logo" />
+        <StyledLogo src={brownLogo} alt="Beta folkestemmen - logo" />
         <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
         <StyledButton primary icon="PersonFill">
           Logg inn
