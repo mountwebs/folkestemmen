@@ -59,9 +59,7 @@ const Header = () => {
     <StyledHeader>
       <StyledContainer>
         <StyledLogo src={logoFull} alt="Beta folkestemmen - logo" />
-        <StyledLink href="mailto:erlend@travers.as" className="contact-btn">
-          Kontakt oss
-        </StyledLink>
+        <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
         <StyledButton primary icon="PersonFill">
           Logg inn
         </StyledButton>
