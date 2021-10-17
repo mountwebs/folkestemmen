@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
-import './Autocomplete.css';
 import InputTags from './InputTags';
+import SuggestionsList from './SuggestionsList';
+
+const StyledTagsInputWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const StyledInputWrapper = styled.div`
+  position: relative;
+`;
 
 const StyledInput = styled.input`
   padding: 0 0.5rem;
@@ -16,6 +25,9 @@ const StyledInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.muted};
   }
+  :disabled {
+    background-color: transparent;
+  }
 `;
 
 const Autocomplete = ({
@@ -27,9 +39,21 @@ const Autocomplete = ({
   filteredSuggestions,
   setFilteredSuggestions,
 }) => {
-  const [activeSuggestion, setActiveSuggestion] = useState(0);
+  const [activeSuggestion, setActiveSuggestion] = useState(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
+  const [placeholder, setPlaceholder] = useState('# Legg til tema');
+  const [disabledInput, setDisabledInput] = useState(false);
+
+  useEffect(() => {
+    if (selectedTags.length) {
+      setPlaceholder('');
+      setDisabledInput(true);
+    } else {
+      setPlaceholder('# Legg til tema');
+      setDisabledInput(false);
+    }
+  }, [selectedTags]);
 
   const chooseTag = (tagName) => {
     if (!tagName) return;
@@ -48,7 +72,7 @@ const Autocomplete = ({
   };
 
   const onFocus = (e) => {
-    setShowSuggestions(true);
+    if (selectedTags.length === 0) setShowSuggestions(true);
   };
 
   const onChange = (e) => {
@@ -94,51 +118,21 @@ const Autocomplete = ({
       if (activeSuggestion === 0) {
         return;
       }
-      setActiveSuggestion(activeSuggestion - 1);
+      // setActiveSuggestion(activeSuggestion - 1);
     } else if (e.keyCode === 40) {
       // down key
       e.preventDefault();
       if (activeSuggestion + 1 === filteredSuggestions.length) {
         return;
       }
-      console.log(activeSuggestion);
-      setActiveSuggestion(activeSuggestion + 1);
+      // setActiveSuggestion(activeSuggestion + 1);
     }
   };
 
-  let suggestionsListComponent;
-
-  if (showSuggestions) {
-    if (filteredSuggestions.length) {
-      suggestionsListComponent = (
-        <ul className="suggestions">
-          {filteredSuggestions.map((suggestion, index) => {
-            let className;
-
-            // Flag the active suggestion with a class
-            if (index === activeSuggestion) {
-              className = 'suggestion-active';
-            }
-            return (
-              <li
-                className={className}
-                key={suggestion}
-                onMouseDown={onLiMouseDown}
-                onMouseOver={onLiMouseOver}
-              >
-                {suggestion}
-              </li>
-            );
-          })}
-        </ul>
-      );
-    }
-  }
-
   return (
-    <div className="tags-input-wrapper">
+    <StyledTagsInputWrapper>
       <InputTags tags={selectedTags} onTagMouseDown={onTagMouseDown} />
-      <div className="input-wrapper">
+      <StyledInputWrapper>
         <StyledInput
           type="text"
           onChange={onChange}
@@ -146,11 +140,21 @@ const Autocomplete = ({
           onFocus={onFocus}
           onBlur={onBlur}
           value={userInput}
-          placeholder="# Legg til tema"
+          placeholder={placeholder}
+          disabled={disabledInput}
         />
-        <div>{suggestionsListComponent}</div>
-      </div>
-    </div>
+        {showSuggestions && filteredSuggestions.length > 1 && (
+          <SuggestionsList
+            {...{
+              filteredSuggestions,
+              activeSuggestion,
+              onLiMouseDown,
+              onLiMouseOver,
+            }}
+          />
+        )}
+      </StyledInputWrapper>
+    </StyledTagsInputWrapper>
   );
 };
 
