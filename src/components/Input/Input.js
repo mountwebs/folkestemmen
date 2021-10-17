@@ -42,6 +42,11 @@ const StyledButton = styled(Button)`
   @media only screen and ${device.sm} {
     font-size: 1.4rem;
   }
+  :disabled {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.post.disabledBackground};
+    color: ${({ theme }) => theme.colors.buttons.post.disabledColor};
+  }
 `;
 
 const getTagNames = (tagData) => tagData.map((tag) => tag.name);
@@ -90,7 +95,11 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
           suggestions={tagSuggestions}
           setSuggestions={setTagSuggestions}
         />
-        <StyledButton type="submit" children={buttonText} />
+        <StyledButton
+          type="submit"
+          disabled={textAreaValue ? false : true}
+          children={buttonText}
+        />
       </div>
     </StyledContainer>
   );

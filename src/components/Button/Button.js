@@ -15,6 +15,10 @@ const StyledButton = styled.button`
   border: none;
   background: ${(props) => (props.primary ? '#292929' : '#e5e5e5')};
   color: ${(props) => (props.primary ? 'white' : '#a5a5a5')};
+
+  :hover:disabled {
+    cursor: inherit;
+  }
 `;
 
 const ContainerDiv = styled.div`
