@@ -38,8 +38,18 @@ const StyledButton = styled(Button)`
   display: none;
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
 
+  @media only screen and ${device.sm} {
+    display: block;
+  }
+`;
+
+const StyledLink = styled.a`
+  display: none;
 
   @media only screen and ${device.sm} {
+    margin-left: 8rem;
+    color: inherit;
+    text-decoration: unset;
     display: block;
   }
 `;
@@ -49,6 +59,7 @@ const Header = () => {
     <StyledHeader>
       <StyledContainer>
         <StyledLogo src={logoFull} alt="Beta folkestemmen - logo" />
+        <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
         <StyledButton primary icon="PersonFill">
           Logg inn
         </StyledButton>
