@@ -32,6 +32,8 @@ export const theme = {
         post: {
           background: lightGreen,
           text: brown,
+          disabledBackground: lightGrey,
+          disabledColor: black,
         },
         tag: {
           background: lightYellow,
