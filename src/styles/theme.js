@@ -1,11 +1,11 @@
-const brown = "#735F18";
-const darkBrown = "#513C08"
-const white = "#FFF"
-const black = "#000"
-const lightYellow = '#F5F2E3'
-const lightGreen = '#C3E679'
-const lightGrey = '#BDBDBD'
-const yellow = '#FFE074'
+const brown = '#735F18';
+const darkBrown = '#513C08';
+const white = '#FFF';
+const black = '#000';
+const lightYellow = '#F5F2E3';
+const lightGreen = '#C3E679';
+const lightGrey = '#BDBDBD';
+const yellow = '#FFE074';
 
 export const theme = {
   light: {
@@ -15,25 +15,28 @@ export const theme = {
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
-        background: lightYellow
+        background: lightYellow,
       },
       text: {
         primary: black,
         secondary: darkBrown,
         tertiary: white,
         muted: lightGrey,
-
       },
       buttons: {
         header: {
           background: brown,
-          text: white
+          text: white,
         },
         footer: {},
         post: {
           background: lightGreen,
-          text: brown
-        }
+          text: brown,
+        },
+        tag: {
+          background: lightYellow,
+          text: brown,
+        },
       },
       button: {
         text: {
