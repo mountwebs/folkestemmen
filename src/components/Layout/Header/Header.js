@@ -27,7 +27,6 @@ const StyledLogo = styled.img`
   max-width: 500px;
   max-height: 40px;
   margin: 10px 57.5px;
-  color: blue;
 
   @media only screen and ${device.sm} {
     margin: 0;
