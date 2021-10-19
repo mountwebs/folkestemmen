@@ -143,7 +143,7 @@ const Autocomplete = ({
           placeholder={placeholder}
           disabled={disabledInput}
         />
-        {showSuggestions && filteredSuggestions.length > 1 && (
+        {showSuggestions && filteredSuggestions.length > 0 && (
           <SuggestionsList
             {...{
               filteredSuggestions,
