@@ -73,9 +73,10 @@ const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>
-        <StyledHeader>Velkommen til Folkestemmen!</StyledHeader>
+        <StyledHeader>Velkommen!</StyledHeader>
         <StyledDescription>
-          Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{' '}
+          Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
+          og komme med innspill.
         </StyledDescription>
         <StyledButton primary icon="PersonFill">
           Logg inn
