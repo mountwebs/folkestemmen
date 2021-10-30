@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
-import welcomeImg from '../../assets/welcome.svg';
+import rectangle3 from '../../assets/welcome-shapes/rectangle3.svg';
 
 const StyledWelcome = styled.div`
   background: #f2f2f2;
@@ -14,28 +14,23 @@ const StyledWelcome = styled.div`
   position: relative;
 
   @media only screen and ${device.sm} {
-    align-items: stretch;
-    height: 536px;
+    height: 25rem;
   }
 `;
 
 const StyledContainer = styled.div`
-  text-align: center;
   padding: 40px;
-
-  @media only screen and ${device.sm} {
-    padding-top: 70px;
-  }
 `;
 
 const StyledHeader = styled.h1`
+  text-align: center;
   margin: 0;
   font-weight: 400;
 `;
 
 const StyledDescription = styled.p`
   padding: 0 30px;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   padding-top: 1em;
   max-width: 550px;
   text-align: center;
@@ -51,28 +46,22 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const StyledWelcomeImg = styled.img`
-  display: none;
-
-  @media only screen and ${device.sm} {
-    display: block;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    height: 310px;
-    max-width: 100%;
-    object-fit: cover;
-    align-self: flex-end;
-  }
+const StyledShape = styled.img`
+  position: absolute;
+  z-index: 100;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  left: -150px;
+  top: 150px;
+  fill: blue;
 `;
 
 const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>
+        <StyledShape src={rectangle3} />
         <StyledHeader>Velkommen!</StyledHeader>
         <StyledDescription>
           Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
@@ -81,7 +70,6 @@ const Welcome = () => {
         <StyledButton primary icon="PersonFill">
           Logg inn
         </StyledButton>
-        <StyledWelcomeImg src={welcomeImg} />
       </StyledContainer>
     </StyledWelcome>
   );
