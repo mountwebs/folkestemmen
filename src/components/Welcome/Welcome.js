@@ -3,15 +3,20 @@ import Button from '../Button/Button';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import rectangle3 from '../../assets/welcome-shapes/rectangle3.svg';
+import rectangle7 from '../../assets/welcome-shapes/rectangle7.svg';
+import union2 from '../../assets/welcome-shapes/union2.svg';
+import star from '../../assets/welcome-shapes/star.svg';
+import union from '../../assets/welcome-shapes/union.svg';
 
 const StyledWelcome = styled.div`
-  background: #f2f2f2;
+  background: ${({ theme }) => theme.colors.body.background};
   height: 303px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 10;
 
   @media only screen and ${device.sm} {
     height: 25rem;
@@ -48,20 +53,45 @@ const StyledButton = styled(Button)`
 
 const StyledShape = styled.img`
   position: absolute;
-  z-index: 100;
-  position: absolute;
+  z-index: -100;
+`;
+
+const StyledRectangle3 = styled(StyledShape)`
   width: 300px;
   height: 150px;
   left: -150px;
-  top: 150px;
-  fill: blue;
+  top: 220px;
+`;
+
+const StyledUnion2 = styled(StyledShape)`
+  width: 200px;
+  left: 30px;
+  top: 25px;
+`;
+
+const StyledStar = styled(StyledShape)`
+  width: 125px;
+  left: 200px;
+  top: 300px;
+`;
+
+const StyledUnion = styled(StyledShape)`
+  width: 225px;
+  top: 225px;
+  right: 0;
+`;
+
+const StyledRectangle7 = styled(StyledShape)`
+  width: 125px;
+  right: 75px;
+  top: 0;
 `;
 
 const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>
-        <StyledShape src={rectangle3} />
+        <StyledRectangle7 src={rectangle7} />
         <StyledHeader>Velkommen!</StyledHeader>
         <StyledDescription>
           Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
@@ -70,6 +100,10 @@ const Welcome = () => {
         <StyledButton primary icon="PersonFill">
           Logg inn
         </StyledButton>
+        <StyledRectangle3 src={rectangle3} />
+        <StyledUnion2 src={union2} />
+        <StyledStar src={star} />
+        <StyledUnion src={union} />
       </StyledContainer>
     </StyledWelcome>
   );
