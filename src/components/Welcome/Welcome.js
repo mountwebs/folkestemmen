@@ -69,7 +69,11 @@ const StyledWelcomeImg = styled.img`
   }
 `;
 
-const Welcome = () => {
+const Welcome = ({ showModal, setShowModal }) => {
+  const handleLogin = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <StyledWelcome>
       <StyledContainer>
@@ -77,7 +81,7 @@ const Welcome = () => {
         <StyledDescription>
           Gi tilbakemelding og kom med innspill på spørsmål fra kommunen din{' '}
         </StyledDescription>
-        <StyledButton primary icon="PersonFill">
+        <StyledButton primary icon="PersonFill" onClick={handleLogin}>
           Logg inn
         </StyledButton>
         <StyledWelcomeImg src={welcomeImg} />

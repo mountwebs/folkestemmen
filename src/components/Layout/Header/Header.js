@@ -3,6 +3,7 @@ import brownLogo from '../../../assets/logo-brown.svg';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
+import Login from '../../LoginModal/Login';
 
 const StyledHeader = styled.header`
   height: 103px;
@@ -54,15 +55,20 @@ const StyledLink = styled.a`
   }
 `;
 
-const Header = () => {
+const Header = ({ showModal, setShowModal }) => {
+  const handleLogin = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <StyledHeader>
       <StyledContainer>
         <StyledLogo src={brownLogo} alt="Beta folkestemmen - logo" />
         <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
-        <StyledButton primary icon="PersonFill">
+        <StyledButton primary icon="PersonFill" onClick={handleLogin}>
           Logg inn
         </StyledButton>
+        {showModal && <Login setShowModal={setShowModal}></Login>}
       </StyledContainer>
     </StyledHeader>
   );

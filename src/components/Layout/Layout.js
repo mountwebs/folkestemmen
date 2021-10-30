@@ -12,7 +12,7 @@ const StyledApp = styled.div`
 const Layout = (props) => {
   return (
     <StyledApp>
-      <Header />
+      <Header showModal={props.showModal} setShowModal={props.setShowModal} />
       {props.children}
       <Footer />
     </StyledApp>
