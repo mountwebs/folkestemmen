@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from './components/Layout/Layout';
 import Question from './components/Question/Question';
 import Welcome from './components/Welcome/Welcome';
@@ -18,11 +18,13 @@ const StyledMain = styled.main`
 `;
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <ThemeProvider theme={theme.light}>
       <GlobalStyle />
-      <Layout>
-        <Welcome />
+      <Layout showModal={showModal} setShowModal={setShowModal}>
+        <Welcome showModal={showModal} setShowModal={setShowModal} />
         <StyledMain>
           <Question text={questionText} />
           <AnswerBoard />
