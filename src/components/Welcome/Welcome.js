@@ -91,7 +91,6 @@ const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>
-        <StyledRectangle7 src={rectangle7} />
         <StyledHeader>Velkommen!</StyledHeader>
         <StyledDescription>
           Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
@@ -104,6 +103,7 @@ const Welcome = () => {
         <StyledUnion2 src={union2} />
         <StyledStar src={star} />
         <StyledUnion src={union} />
+        <StyledRectangle7 src={rectangle7} />
       </StyledContainer>
     </StyledWelcome>
   );
