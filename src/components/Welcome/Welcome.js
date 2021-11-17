@@ -45,6 +45,7 @@ const StyledDescription = styled.p`
 const StyledButton = styled(Button)`
   font-size: 18px;
   margin-top: 2em;
+  display: none;
 
   @media only screen and ${device.sm} {
     display: none;
