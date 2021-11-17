@@ -23,9 +23,18 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledContentRight = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  @media only screen and ${device.sm} {
+  }
+`;
+
 const StyledLogo = styled.img`
   flex-grow: 1;
-  max-width: 500px;
+  max-width: 350px;
   max-height: 40px;
   margin: 10px 57.5px;
 
@@ -46,9 +55,9 @@ const StyledButton = styled(Button)`
 
 const StyledLink = styled.a`
   display: none;
+  margin-right: 15px;
 
   @media only screen and ${device.sm} {
-    margin-left: 8rem;
     color: inherit;
     text-decoration: unset;
     display: block;
@@ -64,10 +73,12 @@ const Header = ({ showModal, setShowModal }) => {
     <StyledHeader>
       <StyledContainer>
         <StyledLogo src={brownLogo} alt="Beta folkestemmen - logo" />
-        <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
-        <StyledButton primary icon="PersonFill" onClick={handleLogin}>
+        <StyledContentRight>
+          <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
+          <StyledButton primary icon="PersonFill" onClick={handleLogin}>
           Logg inn
-        </StyledButton>
+          </StyledButton>
+        </StyledContentRight>
         {showModal && <Login setShowModal={setShowModal}></Login>}
       </StyledContainer>
     </StyledHeader>

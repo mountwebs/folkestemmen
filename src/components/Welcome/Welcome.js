@@ -10,7 +10,7 @@ import union from '../../assets/welcome-shapes/union.svg';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
-  height: 303px;
+  height: 250px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -60,32 +60,62 @@ const StyledShape = styled.img`
 const StyledRectangle3 = styled(StyledShape)`
   width: 300px;
   height: 150px;
-  left: -150px;
-  top: 220px;
+  left: -188px;
+  top: 170px;
+
+  @media only screen and ${device.sm} {
+    width: 300px;
+    height: 150px;
+    left: -150px;
+    top: 220px;
+  }
 `;
 
 const StyledUnion2 = styled(StyledShape)`
-  width: 200px;
-  left: 30px;
-  top: 25px;
+  width: 180px;
+  left: -80px;
+  top: -20px;
+
+  @media only screen and ${device.sm} {
+    width: 200px;
+    left: 30px;
+    top: 25px;
+  }
 `;
 
 const StyledStar = styled(StyledShape)`
-  width: 125px;
-  left: 200px;
-  top: 300px;
+  width: 100px;
+  right: -30px;
+  top: 190px;
+
+  @media only screen and ${device.sm} {
+    width: 125px;
+    left: 200px;
+    top: 300px;
+  }
 `;
 
 const StyledUnion = styled(StyledShape)`
   width: 225px;
   top: 225px;
   right: 0;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    display: block;
+  }
 `;
 
 const StyledRectangle7 = styled(StyledShape)`
-  width: 125px;
-  right: 75px;
-  top: 0;
+  width: 85px;
+  right: 22px;
+  top: -25px;
+
+  @media only screen and ${device.sm} {
+    width: 125px;
+    right: 75px;
+    top: 0;
+  }
 `;
 
 const Welcome = ({ showModal, setShowModal }) => {

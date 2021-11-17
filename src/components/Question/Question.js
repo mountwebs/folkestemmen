@@ -16,6 +16,7 @@ const StyledHeading = styled.div`
   margin-bottom: 1rem;
   margin-top: 1rem;
   text-align: center;
+  z-index: 100;
 
   @media only screen and ${device.sm} {
     font-size: 1rem;
