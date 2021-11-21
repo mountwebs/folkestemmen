@@ -28,7 +28,6 @@ export const theme = {
           background: brown,
           text: white,
         },
-        footer: {},
         post: {
           background: lightGreen,
           text: brown,

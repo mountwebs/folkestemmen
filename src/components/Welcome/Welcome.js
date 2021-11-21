@@ -15,6 +15,7 @@ const StyledWelcome = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   position: relative;
   z-index: 10;
 
@@ -43,9 +44,10 @@ const StyledDescription = styled.p`
 `;
 
 const StyledButton = styled(Button)`
+  background: ${({ theme }) => theme.colors.buttons.header.background};
+  color: ${({ theme }) => theme.colors.buttons.header.text};
   font-size: 18px;
   margin-top: 2em;
-  display: none;
 
   @media only screen and ${device.sm} {
     display: none;
@@ -131,15 +133,15 @@ const Welcome = ({ showModal, setShowModal }) => {
           Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
           og komme med innspill.
         </StyledDescription>
-        <StyledButton primary icon="PersonFill" onClick={handleLogin}>
-          Logg inn
-        </StyledButton>
         <StyledRectangle3 src={rectangle3} />
         <StyledUnion2 src={union2} />
         <StyledStar src={star} />
         <StyledUnion src={union} />
         <StyledRectangle7 src={rectangle7} />
       </StyledContainer>
+      <StyledButton primary icon="PersonFill" onClick={handleLogin}>
+        Logg inn
+      </StyledButton>
     </StyledWelcome>
   );
 };

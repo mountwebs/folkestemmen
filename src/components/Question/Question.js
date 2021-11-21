@@ -5,18 +5,18 @@ import device from '../../constants/breakpoints';
 const StyledHeadingContainer = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const StyledHeading = styled.div`
   padding: 0.5rem 1.5rem;
-  color: ${({theme}) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.text.secondary};
   border: 1px solid;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1rem;
   margin-top: 1rem;
   text-align: center;
-  z-index: 100;
+  z-index: 80;
 
   @media only screen and ${device.sm} {
     font-size: 1rem;
@@ -40,8 +40,8 @@ const StyledCard = styled.div`
 const Question = ({ text }) => {
   return (
     <>
-    <StyledHeadingContainer>
-      <StyledHeading>Ukens spørsmål</StyledHeading>
+      <StyledHeadingContainer>
+        <StyledHeading>Ukens spørsmål</StyledHeading>
       </StyledHeadingContainer>
       <StyledCard className="question-card">
         <p className="card-text">{text}</p>
