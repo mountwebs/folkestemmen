@@ -10,7 +10,7 @@ import union from '../../assets/welcome-shapes/union.svg';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
-  height: 250px;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -47,7 +47,8 @@ const StyledButton = styled(Button)`
   background: ${({ theme }) => theme.colors.buttons.header.background};
   color: ${({ theme }) => theme.colors.buttons.header.text};
   font-size: 18px;
-  margin-top: 2em;
+  margin-top: 1em;
+  bottom: 1em;
 
   @media only screen and ${device.sm} {
     display: none;
@@ -75,8 +76,8 @@ const StyledRectangle3 = styled(StyledShape)`
 
 const StyledUnion2 = styled(StyledShape)`
   width: 180px;
-  left: -80px;
-  top: -20px;
+  left: -120px;
+  top: -40px;
 
   @media only screen and ${device.sm} {
     width: 200px;
@@ -110,7 +111,7 @@ const StyledUnion = styled(StyledShape)`
 
 const StyledRectangle7 = styled(StyledShape)`
   width: 85px;
-  right: 22px;
+  right: -20px;
   top: -25px;
 
   @media only screen and ${device.sm} {

@@ -18,6 +18,7 @@ const StyledInput = styled.input`
   margin: 2px;
   border: none;
   outline: none;
+  width: 90%;
   min-width: 0;
   @media only screen and ${device.sm} {
     font-size: 1.2rem;
