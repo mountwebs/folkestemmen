@@ -32,6 +32,7 @@ const StyledContainer = styled.form`
     &-tema-button-wrapper {
       display: flex;
       justify-content: space-between;
+      align-items: flex-end;
     }
   }
 `;
