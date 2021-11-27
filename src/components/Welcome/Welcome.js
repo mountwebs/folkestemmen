@@ -7,6 +7,7 @@ import rectangle7 from '../../assets/welcome-shapes/rectangle7.svg';
 import union2 from '../../assets/welcome-shapes/union2.svg';
 import star from '../../assets/welcome-shapes/star.svg';
 import union from '../../assets/welcome-shapes/union.svg';
+import starMobile from '../../assets/welcome-shapes/star_mobile.svg';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
@@ -61,10 +62,10 @@ const StyledShape = styled.img`
 `;
 
 const StyledRectangle3 = styled(StyledShape)`
-  width: 300px;
-  height: 150px;
-  left: -188px;
-  top: 170px;
+  width: 299px;
+  height: 136px;
+  left: -185px;
+  top: 130px;
 
   @media only screen and ${device.sm} {
     width: 300px;
@@ -75,9 +76,9 @@ const StyledRectangle3 = styled(StyledShape)`
 `;
 
 const StyledUnion2 = styled(StyledShape)`
-  width: 180px;
-  left: -120px;
-  top: -40px;
+  width: 161px;
+  left: -111px;
+  top: -45px;
 
   @media only screen and ${device.sm} {
     width: 200px;
@@ -87,14 +88,23 @@ const StyledUnion2 = styled(StyledShape)`
 `;
 
 const StyledStar = styled(StyledShape)`
-  width: 100px;
-  right: -30px;
-  top: 190px;
+  display: none;
 
   @media only screen and ${device.sm} {
+    display: block;
     width: 125px;
     left: 200px;
     top: 300px;
+  }
+`;
+
+const StyledStarMobile = styled(StyledShape)`
+  width: 79px;
+  right: 0;
+  top: 189px;
+
+  @media only screen and ${device.sm} {
+    display: none;
   }
 `;
 
@@ -110,9 +120,9 @@ const StyledUnion = styled(StyledShape)`
 `;
 
 const StyledRectangle7 = styled(StyledShape)`
-  width: 85px;
-  right: -20px;
-  top: -25px;
+  width: 75px;
+  right: 10px;
+  top: -39px;
 
   @media only screen and ${device.sm} {
     width: 125px;
@@ -139,6 +149,7 @@ const Welcome = ({ showModal, setShowModal }) => {
         <StyledStar src={star} />
         <StyledUnion src={union} />
         <StyledRectangle7 src={rectangle7} />
+        <StyledStarMobile src={starMobile} />
       </StyledContainer>
       <StyledButton primary icon="PersonFill" onClick={handleLogin}>
         Logg inn
