@@ -14,6 +14,7 @@ const StyledInputWrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
+  display: ${(props) => (props.disabled ? 'none' : 'block')};
   padding: 0 0.5rem;
   margin: 2px;
   border: none;
