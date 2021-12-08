@@ -28,7 +28,7 @@ const StyledHeading = styled.p`
   @media only screen and ${device.sm} {
     font-size: 1rem;
   }
-`
+`;
 
 const StyledMasonry = styled(Masonry)`
   display: -webkit-box; /* Not needed if autoprefixing */
@@ -43,14 +43,13 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
-  const [tagData, setTagData] = useState([]);
 
   const addAnswer = (answer) => {
     axios
@@ -58,6 +57,7 @@ const AnswerBoard = () => {
       .then((response) => response.data)
       .then(getAnswers)
       .catch((error) => console.log(error));
+    console.log(answer);
   };
 
   const getAnswers = () => {
@@ -74,22 +74,21 @@ const AnswerBoard = () => {
       });
   };
 
-  const getTagData = () => {
-    axios
-      .get(`${baseUrl}tag`)
-      .then((response) => response.data)
-      .then((data) => {
-        setTagData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorState(true);
-      });
-  };
+  // const getTagData = () => {
+  //   axios
+  //     .get(`${baseUrl}tag`)
+  //     .then((response) => response.data)
+  //     .then((data) => {
+  //       setTagData(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setErrorState(true);
+  //     });
+  // };
 
   useEffect(() => {
     getAnswers();
-    getTagData();
   }, []);
 
   return (
@@ -103,7 +102,6 @@ const AnswerBoard = () => {
           placeholderText={placeholderText}
           buttonText={buttonText}
           addAnswer={addAnswer}
-          tagData={tagData}
         />
       )}
       <StyledHeading>Innspill</StyledHeading>

@@ -71,13 +71,7 @@ const Answer = ({ cardText, tags, createDate }) => {
         <div className="answer-date">
           <p>{formatDate(createDate)}</p>
         </div>
-        <div>
-          {tags.map((tagData) => (
-            <Tag key={tagData._id} tagColor={tagData.color}>
-              {tagData.name}
-            </Tag>
-          ))}
-        </div>
+        <div>{tags && <Tag>{tags}</Tag>}</div>
       </div>
     </StyledCard>
   );
