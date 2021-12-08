@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
-import Autocomplete from './Autocomplete';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -34,6 +33,14 @@ const StyledContainer = styled.form`
       justify-content: space-between;
       align-items: flex-end;
     }
+    &-tema {
+      padding: 0 0.5rem;
+      border: none;
+      outline: none;
+      min-width: 0;
+      @media only screen and ${device.sm} {
+        font-size: 1.2rem;
+      }
   }
 `;
 
@@ -50,15 +57,13 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const getTagNames = (tagData) => tagData.map((tag) => tag.name);
-
-const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
+const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [tagSuggestions, setTagSuggestions] = useState(getTagNames(tagData));
-  const [tagFilteredSuggestions, setTagFilteredSuggestions] = useState(
-    getTagNames(tagData)
-  );
+  const [temaValue, setTemaValue] = useState('');
+
+  const handleTemaChange = (e) => {
+    setTemaValue(e.target.value);
+  };
 
   const handleTextAreaChange = (e) => {
     setTextAreaValue(e.target.value);
@@ -69,13 +74,11 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
 
     const answer = { name: 'Navn' };
     answer.text = textAreaValue;
+    answer.tags = temaValue;
     if (!answer.text) return;
-    answer.tags = selectedTags.map((tag) => tag._id);
-    //answer.tags = tagIds;
     addAnswer(answer);
+    setTemaValue('');
     setTextAreaValue('');
-    setSelectedTags([]);
-    setTagFilteredSuggestions(getTagNames(tagData));
   };
 
   return (
@@ -87,14 +90,12 @@ const Input = ({ placeholderText, buttonText, addAnswer, tagData }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Autocomplete
-          filteredSuggestions={tagFilteredSuggestions}
-          setFilteredSuggestions={setTagFilteredSuggestions}
-          tagData={tagData}
-          selectedTags={selectedTags}
-          setSelectedTags={setSelectedTags}
-          suggestions={tagSuggestions}
-          setSuggestions={setTagSuggestions}
+        <input
+          type="text"
+          className="input-tema"
+          placeholder="# Legg til tema"
+          value={temaValue}
+          onChange={handleTemaChange}
         />
         <StyledButton
           type="submit"
