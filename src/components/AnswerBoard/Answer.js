@@ -11,7 +11,7 @@ const StyledCard = styled.div`
   padding-bottom: 1.3rem;
   margin-bottom: 2rem;
   background-color: ${({ theme }) => theme.colors.body.primary};
-  border-radius: 20px;
+  border-radius: 10px;
 
   @media only screen and ${device.sm} {
     // -- alternative to make columns more 'masonry' --
