@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
+import Tag from '../AnswerBoard/Tag';
+import AutosizeInput from 'react-input-autosize';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -38,6 +40,7 @@ const StyledContainer = styled.form`
       border: none;
       outline: none;
       min-width: 0;
+      background-color: inherit;
       @media only screen and ${device.sm} {
         font-size: 1.2rem;
       }
@@ -47,6 +50,10 @@ const StyledContainer = styled.form`
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
   color: ${({ theme }) => theme.colors.buttons.post.text};
+  padding: 0.6rem 1.5rem;
+  font-size: 14px;
+  margin: 2px;
+
   @media only screen and ${device.sm} {
     font-size: 1.4rem;
   }
@@ -60,6 +67,15 @@ const StyledButton = styled(Button)`
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
+  const [temaFocus, setTemaFocus] = useState(true);
+
+  const handleTemaFocus = (e) => {
+    setTemaFocus(true);
+  };
+
+  const handleTemaFocusOff = (e) => {
+    setTemaFocus(true);
+  };
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -90,13 +106,23 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <input
-          type="text"
-          className="input-tema"
-          placeholder="# Legg til tema"
-          value={temaValue}
-          onChange={handleTemaChange}
-        />
+        <Tag hide={!temaFocus && !temaValue}>
+          <AutosizeInput
+            type="text"
+            className="input-tema"
+            placeholder="# Legg til tema"
+            value={temaValue}
+            onChange={handleTemaChange}
+            onFocus={handleTemaFocus}
+            onBlur={handleTemaFocusOff}
+            maxLength="30"
+            inputStyle={{
+              borderStyle: 'none',
+              outline: 'none',
+              backgroundColor: 'inherit',
+            }}
+          />
+        </Tag>
         <StyledButton
           type="submit"
           disabled={textAreaValue ? false : true}
