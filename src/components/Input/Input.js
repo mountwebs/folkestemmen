@@ -115,7 +115,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
             onChange={handleTemaChange}
             onFocus={handleTemaFocus}
             onBlur={handleTemaFocusOff}
-            maxLength="30"
+            maxLength="20"
             inputStyle={{
               borderStyle: 'none',
               outline: 'none',
