@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { PersonFill } from '@styled-icons/bootstrap';
+import device from '../../constants/breakpoints';
 
 const PersonFillStyled = styled(PersonFill)`
   width: 1.3rem;

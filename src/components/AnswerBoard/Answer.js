@@ -6,9 +6,7 @@ import Tag from './Tag';
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.3rem;
+  padding: 0 1rem 1rem 1rem;
   margin-bottom: 2rem;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 10px;
@@ -17,6 +15,7 @@ const StyledCard = styled.div`
     // -- alternative to make columns more 'masonry' --
     margin-bottom: 35px;
     break-inside: avoid;
+    padding: 0 1.5rem 1.5rem 1.5rem;
   }
   .answer {
     &-content {
@@ -33,12 +32,13 @@ const StyledCard = styled.div`
 
     &-date {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
 
       p {
-        margin-left: 0.4rem;
+        margin: 0;
         color: ${({ theme }) => theme.colors.text.muted};
         font-size: 1rem;
+        padding: 0;
       }
     }
 

@@ -42,7 +42,6 @@ ${normalize}
     display: inline-block;
     border: 0;
     padding: 0.5rem 2rem;
-    font-size: 14px;
     border-radius: 20px;
     cursor: pointer;
     font-family: ${({ theme }) => theme.font};

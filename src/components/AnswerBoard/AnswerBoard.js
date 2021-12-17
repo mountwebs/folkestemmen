@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
   border-radius: 10px;
   margin: 0 5px;
   max-width: 1020px;
+  padding-top: 2rem;
 
   @media only screen and ${device.sm} {
     padding-top: 4rem;

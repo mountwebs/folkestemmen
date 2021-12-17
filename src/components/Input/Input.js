@@ -4,20 +4,26 @@ import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import Tag from '../AnswerBoard/Tag';
 import AutosizeInput from 'react-input-autosize';
+import { useMediaQuery } from 'react-responsive';
 
 const StyledContainer = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 0.7rem 1rem;
-  margin-bottom: 4rem;
+  padding: 0.7rem 0.5rem;
+  margin-bottom: 3rem;
   height: 190px;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 10px;
+
+  @media only screen and ${device.sm} {
+    padding: 0.7rem 1rem;
+  }
 
   .input {
     &-field::placeholder {
       color: ${({ theme }) => theme.colors.text.muted};
     }
+    
     &-field {
       padding: 0.5rem;
       height: inherit;
@@ -47,15 +53,23 @@ const StyledContainer = styled.form`
   }
 `;
 
+const StyledTag = styled(Tag)`
+  padding: 0.5rem 0.3rem;
+
+  @media only screen and ${device.sm} {
+    padding: 0.5rem;
+  }
+`;
+
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
   color: ${({ theme }) => theme.colors.buttons.post.text};
-  padding: 0.6rem 1.5rem;
-  font-size: 14px;
+  padding: 0.6rem 1rem;
   margin: 2px;
 
   @media only screen and ${device.sm} {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    padding: 0.6rem 1.5rem;
   }
   :disabled {
     background-color: ${({ theme }) =>
@@ -68,6 +82,8 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
+  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 425px)' });
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
@@ -106,7 +122,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         placeholder={placeholderText}
       />
       <div className="input-tema-button-wrapper">
-        <Tag hide={!temaFocus && !temaValue}>
+        <StyledTag hide={!temaFocus && !temaValue}>
           <AutosizeInput
             type="text"
             className="input-tema"
@@ -115,14 +131,14 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
             onChange={handleTemaChange}
             onFocus={handleTemaFocus}
             onBlur={handleTemaFocusOff}
-            maxLength="20"
+            maxLength={isXtraSmallScreen ? 20 : 25}
             inputStyle={{
               borderStyle: 'none',
               outline: 'none',
               backgroundColor: 'inherit',
             }}
           />
-        </Tag>
+        </StyledTag>
         <StyledButton
           type="submit"
           disabled={textAreaValue ? false : true}
