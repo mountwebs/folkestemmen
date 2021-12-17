@@ -68,13 +68,17 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
+  const [tagPlaceholderText, setTagPlaceholderText] =
+    useState('# Legg til tema');
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
+    setTagPlaceholderText('');
   };
 
   const handleTemaFocusOff = (e) => {
     setTemaFocus(true);
+    if (temaValue === '') setTagPlaceholderText('# Legg til tema');
   };
 
   const handleTemaChange = (e) => {
@@ -110,7 +114,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
           <AutosizeInput
             type="text"
             className="input-tema"
-            placeholder="# Legg til tema"
+            placeholder={tagPlaceholderText}
             value={temaValue}
             onChange={handleTemaChange}
             onFocus={handleTemaFocus}
