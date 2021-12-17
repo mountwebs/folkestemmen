@@ -83,7 +83,6 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 425px)' });
   const [tagPlaceholderText, setTagPlaceholderText] =
     useState('# Legg til tema');
 
