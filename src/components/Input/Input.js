@@ -84,13 +84,17 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [temaFocus, setTemaFocus] = useState(true);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
   const isSmallScreen = useMediaQuery({ query: '(max-width: 425px)' });
+  const [tagPlaceholderText, setTagPlaceholderText] =
+    useState('# Legg til tema');
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
+    setTagPlaceholderText('');
   };
 
   const handleTemaFocusOff = (e) => {
     setTemaFocus(true);
+    if (temaValue === '') setTagPlaceholderText('# Legg til tema');
   };
 
   const handleTemaChange = (e) => {
@@ -126,7 +130,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
           <AutosizeInput
             type="text"
             className="input-tema"
-            placeholder="# Legg til tema"
+            placeholder={tagPlaceholderText}
             value={temaValue}
             onChange={handleTemaChange}
             onFocus={handleTemaFocus}
