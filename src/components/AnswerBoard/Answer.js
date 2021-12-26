@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Tag from './Tag';
+import Like from "../Like/Like"
 
 const StyledCard = styled.div`
   display: flex;
@@ -68,10 +69,8 @@ const Answer = ({ cardText, tags, createDate }) => {
       </div>
 
       <div className="answer-details">
-        <div className="answer-date">
-          <p>{formatDate(createDate)}</p>
-        </div>
         <div>{tags && <Tag>{tags}</Tag>}</div>
+        <Like/>
       </div>
     </StyledCard>
   );
