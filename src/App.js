@@ -31,7 +31,7 @@ function App() {
       localStorage.setItem("userId", JSON.stringify(newUserId));
       setUserId(newUserId);
     }
-  }, [userId])
+  }, [])
 
 
   return (
