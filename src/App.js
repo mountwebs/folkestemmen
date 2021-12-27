@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
 import Question from './components/Question/Question';
 import Welcome from './components/Welcome/Welcome';
@@ -7,6 +7,7 @@ import GlobalStyle from './styles/globalStyle';
 import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -19,6 +20,19 @@ const StyledMain = styled.main`
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("userId");
+    if (saved) {
+      setUserId(JSON.parse(saved))
+    } else {
+      const newUserId = uuidv4();
+      localStorage.setItem("userId", JSON.stringify(newUserId));
+      setUserId(newUserId);
+    }
+  }, [userId])
+
 
   return (
     <ThemeProvider theme={theme.light}>
