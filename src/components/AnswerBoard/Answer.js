@@ -53,14 +53,6 @@ const StyledCard = styled.div`
   }
 `;
 
-const twoNumberDate = (date) =>
-  date.toString().length > 1 ? date : '0' + date;
-
-const formatDate = (inputDate) => {
-  const date = new Date(inputDate);
-  return `${twoNumberDate(date.getDate())}.${twoNumberDate(date.getMonth())}`;
-};
-
 const Answer = ({
   cardText,
   tags,
