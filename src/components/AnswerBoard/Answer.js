@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Tag from './Tag';
-import Like from "../Like/Like"
+import Like from '../Like/Like';
 
 const StyledCard = styled.div`
   display: flex;
@@ -61,17 +61,28 @@ const formatDate = (inputDate) => {
   return `${twoNumberDate(date.getDate())}.${twoNumberDate(date.getMonth())}`;
 };
 
-const Answer = ({ cardText, tags, createDate, likes }) => {
+const Answer = ({
+  cardText,
+  tags,
+  createDate,
+  likes,
+  answerData,
+  updateAnswer,
+}) => {
+  console.log('reload');
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-content">
         <p className="card-text">{cardText}</p>
       </div>
 
-
       <div className="answer-details">
         <div>{tags && <Tag>{tags}</Tag>}</div>
-        <Like likes={likes}/>
+        <Like
+          likes={likes}
+          updateAnswer={updateAnswer}
+          answerData={answerData}
+        />
       </div>
     </StyledCard>
   );

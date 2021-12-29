@@ -52,15 +52,6 @@ const AnswerBoard = () => {
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
 
-  const addAnswer = (answer) => {
-    axios
-      .post(`${baseUrl}answer`, answer)
-      .then((response) => response.data)
-      .then(getAnswers)
-      .catch((error) => console.log(error));
-    console.log(answer);
-  };
-
   const getAnswers = () => {
     axios
       .get(`${baseUrl}answer`)
@@ -68,6 +59,7 @@ const AnswerBoard = () => {
       .then((data) => {
         setAnswerList(data);
         setLoadingState(false);
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -75,6 +67,22 @@ const AnswerBoard = () => {
       });
   };
 
+  const addAnswer = (answer) => {
+    axios
+      .post(`${baseUrl}answer`, answer)
+      .then((response) => response.data)
+      .then(getAnswers)
+      .catch((error) => console.log(error));
+  };
+
+  const updateAnswer = (id, answer) => {
+    axios
+      .put(`${baseUrl}answer/${id}`, answer)
+      .then((response) => response.data)
+      .then(getAnswers)
+      .catch((error) => console.log(error));
+    console.log(answer);
+  };
   // const getTagData = () => {
   //   axios
   //     .get(`${baseUrl}tag`)
@@ -123,6 +131,8 @@ const AnswerBoard = () => {
                   createDate={createdAt}
                   key={index}
                   likes={likes}
+                  answerData={answer}
+                  updateAnswer={updateAnswer}
                 />
               );
             })}
