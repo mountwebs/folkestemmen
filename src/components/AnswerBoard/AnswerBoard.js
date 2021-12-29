@@ -44,8 +44,8 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -115,13 +115,14 @@ const AnswerBoard = () => {
           : loading
           ? 'Loading'
           : answerList.map((answer, index) => {
-              const { text, tags, createdAt } = answer;
+              const { text, tags, createdAt, likes } = answer;
               return (
                 <Answer
                   cardText={text}
                   tags={tags}
                   createDate={createdAt}
                   key={index}
+                  likes={likes}
                 />
               );
             })}

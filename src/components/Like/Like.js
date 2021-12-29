@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import styled from 'styled-components';
-
-import { HeartOutline } from "@styled-icons/evaicons-outline"
-import { Heart } from "@styled-icons/evaicons-solid/Heart"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCircle} from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons'
+
+import UserContext from '../../UserContext'
 
 
 const StyledContainer = styled.div`
@@ -38,11 +37,15 @@ const StyledSmall = styled.small`
     transform: translateY(3%);
     font-size: 1.2rem;
     margin-left: 7px;
+    user-select: none;
 `
 
 
-const Like = ({like}) => {
+const Like = ({like, likes}) => {
     const [liked, setLiked] = useState(like);
+    const userId = useContext(UserContext);
+    
+    const isLiked = likes && likes.some(user => user === userId)
 
     const handleClick = () => {
         setLiked(!liked)
@@ -54,8 +57,8 @@ const Like = ({like}) => {
                 <FontAwesomeIcon icon={faCircle}  transform={'grow-12'} id="test"/>
                 {liked ? <FontAwesomeIcon icon={faHeart} /> : <FontAwesomeIcon icon={farHeart} />}
                 
-            </span>            
-            <StyledSmall>12</StyledSmall>
+            </span>
+            <StyledSmall>{likes ? likes.length : ""}</StyledSmall>
         </StyledContainer>
     )
 }

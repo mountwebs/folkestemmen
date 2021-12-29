@@ -8,6 +8,7 @@ import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+import UserContext from './UserContext'
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -17,6 +18,7 @@ const StyledMain = styled.main`
   margin-left: auto;
   margin-right: auto;
 `;
+
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -35,16 +37,18 @@ function App() {
 
 
   return (
-    <ThemeProvider theme={theme.light}>
-      <GlobalStyle />
-      <Layout showModal={showModal} setShowModal={setShowModal}>
-        <Welcome showModal={showModal} setShowModal={setShowModal} />
-        <StyledMain>
-          <Question text={questionText} />
-          <AnswerBoard />
-        </StyledMain>
-      </Layout>
-    </ThemeProvider>
+    <UserContext.Provider value={userId}>
+      <ThemeProvider theme={theme.light}>
+        <GlobalStyle />
+        <Layout showModal={showModal} setShowModal={setShowModal}>
+          <Welcome showModal={showModal} setShowModal={setShowModal} />
+          <StyledMain>
+            <Question text={questionText} />
+            <AnswerBoard />
+          </StyledMain>
+        </Layout>
+      </ThemeProvider>
+      </UserContext.Provider>
   );
 }
 

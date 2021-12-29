@@ -61,16 +61,17 @@ const formatDate = (inputDate) => {
   return `${twoNumberDate(date.getDate())}.${twoNumberDate(date.getMonth())}`;
 };
 
-const Answer = ({ cardText, tags, createDate }) => {
+const Answer = ({ cardText, tags, createDate, likes }) => {
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-content">
         <p className="card-text">{cardText}</p>
       </div>
 
+
       <div className="answer-details">
         <div>{tags && <Tag>{tags}</Tag>}</div>
-        <Like/>
+        <Like likes={likes}/>
       </div>
     </StyledCard>
   );
