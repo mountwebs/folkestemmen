@@ -47,7 +47,7 @@ const Like = ({ like, likes, answerData, updateAnswer }) => {
 
   useEffect(() => {
     setLiked(likes && likes.some((user) => user === userId));
-  }, [likes]);
+  }, [likes, userId]);
 
   const handleClick = () => {
     if (!liked) {
