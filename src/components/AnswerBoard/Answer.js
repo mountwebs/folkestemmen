@@ -53,15 +53,7 @@ const StyledCard = styled.div`
   }
 `;
 
-const Answer = ({
-  cardText,
-  tags,
-  createDate,
-  likes,
-  answerData,
-  updateAnswer,
-}) => {
-  console.log('reload');
+const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-content">
@@ -70,11 +62,7 @@ const Answer = ({
 
       <div className="answer-details">
         <div>{tags && <Tag>{tags}</Tag>}</div>
-        <Like
-          likes={likes}
-          updateAnswer={updateAnswer}
-          answerData={answerData}
-        />
+        <Like updateAnswer={updateAnswer} answerData={answerData} />
       </div>
     </StyledCard>
   );

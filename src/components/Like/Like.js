@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -39,36 +39,46 @@ const StyledSmall = styled.small`
   user-select: none;
 `;
 
-const Like = ({ like, likes, answerData, updateAnswer }) => {
+const Like = ({ answerData, updateAnswer }) => {
   const userId = useContext(UserContext);
-  const [liked, setLiked] = useState(
-    likes && likes.some((user) => user === userId)
+  const isLiked = useCallback(
+    () => answerData.likes && answerData.likes.some((user) => user === userId),
+    [answerData, userId]
+  );
+
+  const [liked, setLiked] = useState(isLiked());
+  const [numOfLikes, setNumOfLikes] = useState(
+    answerData.likes ? answerData.likes.length : 0
   );
 
   useEffect(() => {
-    setLiked(likes && likes.some((user) => user === userId));
-  }, [likes, userId]);
+    setLiked(isLiked());
+    setNumOfLikes(answerData.likes ? answerData.likes.length : 0);
+  }, [answerData, isLiked]);
 
   const handleClick = () => {
+    const newAnswerData = JSON.parse(JSON.stringify(answerData));
     if (!liked) {
+      // liked refers to previous state, and is therefor reversed
       // if liked
+      setNumOfLikes(numOfLikes + 1);
       if (answerData.likes) {
-        answerData.likes.push(userId);
+        newAnswerData.likes.push(userId);
       } else {
-        answerData.likes = [userId];
+        newAnswerData.likes = [userId];
       }
     } else {
       // if not liked
-      // if answerData has likes and userId is in likes
+      setNumOfLikes(numOfLikes - 1);
+
       if (
         answerData.likes &&
         answerData.likes.some((user) => user === userId)
       ) {
-        answerData.likes.splice(answerData.likes.indexOf(userId), 1);
+        newAnswerData.likes.splice(answerData.likes.indexOf(userId), 1);
       }
     }
-    console.log(answerData);
-    updateAnswer(answerData._id, answerData);
+    updateAnswer(answerData._id, newAnswerData);
     setLiked(!liked);
   };
 
@@ -82,7 +92,9 @@ const Like = ({ like, likes, answerData, updateAnswer }) => {
           <FontAwesomeIcon icon={farHeart} />
         )}
       </span>
-      <StyledSmall>{likes.length > 0 ? likes.length : ''}</StyledSmall>
+      {(answerData.likes && answerData.likes.length) > 0 && (
+        <StyledSmall>{numOfLikes}</StyledSmall>
+      )}
     </StyledContainer>
   );
 };
