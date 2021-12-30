@@ -61,7 +61,6 @@ const Like = ({ answerData, updateAnswer }) => {
     if (!liked) {
       // liked refers to previous state, and is therefor reversed
       // if liked
-      setNumOfLikes(numOfLikes + 1);
       if (answerData.likes) {
         newAnswerData.likes.push(userId);
       } else {
@@ -69,8 +68,6 @@ const Like = ({ answerData, updateAnswer }) => {
       }
     } else {
       // if not liked
-      setNumOfLikes(numOfLikes - 1);
-
       if (
         answerData.likes &&
         answerData.likes.some((user) => user === userId)
