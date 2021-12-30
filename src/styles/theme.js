@@ -1,11 +1,13 @@
 const brown = '#735F18';
-const darkBrown = '#513C08';
+const darkBrown = '#50410B';
 const white = '#FFF';
 const black = '#000';
-const lightYellow = '#F5F2E3';
+const lightYellow = '#FFEBA5';
+const lighterYellow = '#F5F2E3';
 const lightGreen = '#C3E679';
 const lightGrey = '#BDBDBD';
 const yellow = '#FFE074';
+const beige = '#EBE6CE';
 
 export const theme = {
   light: {
@@ -15,7 +17,7 @@ export const theme = {
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
-        background: lightYellow,
+        background: lighterYellow,
       },
       text: {
         primary: black,
@@ -36,7 +38,7 @@ export const theme = {
         },
         tag: {
           background: lightYellow,
-          text: brown,
+          text: darkBrown,
         },
       },
       button: {
@@ -54,6 +56,10 @@ export const theme = {
       question: {
         text: darkBrown,
         background: yellow,
+      },
+      questionHeader: {
+        background: beige,
+        text: darkBrown,
       },
       link: {
         text: 'teal',

@@ -11,12 +11,12 @@ const StyledContainer = styled.form`
   flex-direction: column;
   padding: 0.7rem 0.5rem;
   margin-bottom: 3rem;
-  height: 190px;
+  height: 250px;
   background-color: ${({ theme }) => theme.colors.body.primary};
-  border-radius: 10px;
+  border-radius: 25px;
 
   @media only screen and ${device.sm} {
-    padding: 0.7rem 1rem;
+    padding: 1.5rem 1.5rem;
   }
 
   .input {

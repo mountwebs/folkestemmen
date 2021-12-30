@@ -9,8 +9,8 @@ const StyledHeadingContainer = styled.div`
 
 const StyledHeading = styled.div`
   padding: 0.5rem 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  border: 1px solid;
+  color: ${({ theme }) => theme.colors.questionHeader.text};
+  background: ${({ theme }) => theme.colors.questionHeader.background};
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1rem;
@@ -29,7 +29,7 @@ const StyledCard = styled.div`
   margin: 0 5px;
   font-size: 1.3rem;
   color: ${({ theme }) => theme.colors.question.text};
-  border-radius: 10px;
+  border-radius: 50px;
   text-align: center;
 
   @media only screen and ${device.sm} {
