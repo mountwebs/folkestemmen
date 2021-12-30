@@ -14,6 +14,7 @@ const StyledContainer = styled.div`
   color: ${({ theme }) => theme.colors.text.primary};
   color: ${({ theme, liked }) => (liked ? '#F34C90' : theme.colors.text.muted)};
   transform: translateY(5%);
+  font-size: 1.4rem;
   &:hover {
     opacity: ${({ liked }) => (liked ? '100%' : '30%')};
     color: #f34c90;
@@ -33,9 +34,9 @@ const StyledContainer = styled.div`
 `;
 
 const StyledSmall = styled.small`
-  transform: translateY(3%);
-  font-size: 1.2rem;
-  margin-left: 7px;
+  transform: translateY(6%);
+  font-size: 1.1rem;
+  margin-left: 6px;
   user-select: none;
 `;
 

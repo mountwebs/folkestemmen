@@ -32,16 +32,19 @@ const StyledContainer = styled.div`
 const StyledHeader = styled.h1`
   text-align: center;
   margin: 0;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 3.2rem;
 `;
 
 const StyledDescription = styled.p`
   padding: 0 30px;
   padding-bottom: 1em;
   padding-top: 1em;
-  max-width: 550px;
+  max-width: 800px;
+  font-weight: 400;
   text-align: center;
   margin: 0 auto;
+  font-size: 1.8rem;
 `;
 
 const StyledButton = styled(Button)`
@@ -141,8 +144,8 @@ const Welcome = ({ showModal, setShowModal }) => {
       <StyledContainer>
         <StyledHeader>Velkommen!</StyledHeader>
         <StyledDescription>
-          Vi ønsker mer dialog med våre innbyggere. Her kan du svare på spørsmål
-          og komme med innspill.
+          Vi som jobber i kommunen ønsker innspill fra innbyggere for å gjøre
+          det enda bedre å bo og leve i her kommunen.
         </StyledDescription>
         <StyledRectangle3 src={rectangle3} />
         <StyledUnion2 src={union2} />

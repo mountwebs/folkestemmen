@@ -48,7 +48,7 @@ const StyledContainer = styled.form`
       min-width: 0;
       background-color: inherit;
       @media only screen and ${device.sm} {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
   }
 `;
@@ -66,15 +66,21 @@ const StyledButton = styled(Button)`
   color: ${({ theme }) => theme.colors.buttons.post.text};
   padding: 0.6rem 1rem;
   margin: 2px;
+  font-weight: 500;
+
+  &:hover {
+    filter: brightness(90%);
+  }
 
   @media only screen and ${device.sm} {
-    font-size: 1.2rem;
-    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
   }
   :disabled {
-    background-color: ${({ theme }) =>
-      theme.colors.buttons.post.disabledBackground};
-    color: ${({ theme }) => theme.colors.buttons.post.disabledColor};
+    opacity: 50%;
+  }
+  :disabled:hover {
+    filter: brightness(100%);
   }
 `;
 

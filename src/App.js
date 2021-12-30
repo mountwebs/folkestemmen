@@ -8,7 +8,7 @@ import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
-import UserContext from './UserContext'
+import UserContext from './UserContext';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -17,24 +17,23 @@ const StyledMain = styled.main`
   max-width: 1020px;
   margin-left: auto;
   margin-right: auto;
+  margin: 0 10px;
 `;
-
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("userId");
+    const saved = localStorage.getItem('userId');
     if (saved) {
-      setUserId(JSON.parse(saved))
+      setUserId(JSON.parse(saved));
     } else {
       const newUserId = uuidv4();
-      localStorage.setItem("userId", JSON.stringify(newUserId));
+      localStorage.setItem('userId', JSON.stringify(newUserId));
       setUserId(newUserId);
     }
-  }, [])
-
+  }, []);
 
   return (
     <UserContext.Provider value={userId}>
@@ -48,7 +47,7 @@ function App() {
           </StyledMain>
         </Layout>
       </ThemeProvider>
-      </UserContext.Provider>
+    </UserContext.Provider>
   );
 }
 

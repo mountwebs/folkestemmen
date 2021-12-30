@@ -23,6 +23,7 @@ const StyledCard = styled.div`
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.4rem;
       overflow-wrap: break-word;
+      padding-left: 0.2rem;
     }
 
     &-details {
