@@ -9,6 +9,7 @@ import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import UserContext from './UserContext';
+import device from './constants/breakpoints';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -17,7 +18,10 @@ const StyledMain = styled.main`
   max-width: 1020px;
   margin-left: auto;
   margin-right: auto;
-  margin: 0 10px;
+  padding: 10px;
+  @media only screen and ${device.sm} {
+    padding: 0 10px;
+  }
 `;
 
 function App() {

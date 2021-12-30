@@ -68,7 +68,6 @@ const formatDate = (inputDate) => {
 };
 
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
-  console.log(answerData);
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-date">
