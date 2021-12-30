@@ -59,7 +59,6 @@ const AnswerBoard = () => {
       .then((data) => {
         setAnswerList(data);
         setLoadingState(false);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -81,20 +80,7 @@ const AnswerBoard = () => {
       .then((response) => response.data)
       .then(getAnswers)
       .catch((error) => console.log(error));
-    console.log(answer);
   };
-  // const getTagData = () => {
-  //   axios
-  //     .get(`${baseUrl}tag`)
-  //     .then((response) => response.data)
-  //     .then((data) => {
-  //       setTagData(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setErrorState(true);
-  //     });
-  // };
 
   useEffect(() => {
     getAnswers();
