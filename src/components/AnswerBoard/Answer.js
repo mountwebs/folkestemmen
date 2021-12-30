@@ -16,7 +16,7 @@ const StyledCard = styled.div`
     // -- alternative to make columns more 'masonry' --
     margin-bottom: 35px;
     break-inside: avoid;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.2rem;
   }
   .answer {
     &-content {
@@ -24,6 +24,10 @@ const StyledCard = styled.div`
       font-size: 1.4rem;
       overflow-wrap: break-word;
       padding-left: 0.2rem;
+
+      p {
+        margin-top: 0.8rem;
+      }
     }
 
     &-details {
@@ -37,10 +41,9 @@ const StyledCard = styled.div`
       align-items: flex-end;
 
       p {
-        margin: 0;
+        margin: 1rem 0 0 0.2rem;
         color: ${({ theme }) => theme.colors.text.muted};
-        font-size: 1rem;
-        padding: 0;
+        font-size: 0.8rem;
       }
     }
 
@@ -54,9 +57,23 @@ const StyledCard = styled.div`
   }
 `;
 
+const twoNumberDate = (date) =>
+  date.toString().length > 1 ? date : '0' + date;
+
+const formatDate = (inputDate) => {
+  const date = new Date(inputDate);
+  return `${twoNumberDate(date.getDate())}.${twoNumberDate(
+    date.getMonth()
+  )}.${date.getFullYear().toString().substring(2, 4)}`;
+};
+
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
+  console.log(answerData);
   return (
     <StyledCard className="answer card-wrapper">
+      <div className="answer-date">
+        <p>{formatDate(answerData.createdAt)}</p>
+      </div>
       <div className="answer-content">
         <p className="card-text">{cardText}</p>
       </div>

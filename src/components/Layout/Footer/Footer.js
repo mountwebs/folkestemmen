@@ -55,16 +55,18 @@ const StyledLogo = styled.img`
 `;
 
 const StyledCTA = styled.div`
-  max-width: 220px;
+  max-width: 200px;
   color: #f2f2f2;
+  font-weight: 300;
+  font-size: 1rem;
 
   @media only screen and ${device.sm} {
-    max-width: 300px;
+    max-width: 200px;
   }
 `;
 
 const StyledText = styled.div`
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 
 const StyledBranding = styled.small`
@@ -73,6 +75,7 @@ const StyledBranding = styled.small`
   margin-top: 2rem;
   font-size: 0.8rem;
   color: #ffffff;
+  align-items: center;
 `;
 
 const StyledButton = styled(Button)`
@@ -81,7 +84,6 @@ const StyledButton = styled(Button)`
   padding-bottom: 0.5rem;
   margin-top: 1rem;
   color: #3a5108;
-  border-radius: 4px;
   font-size: 1rem;
 
   @media only screen and ${device.sm} {

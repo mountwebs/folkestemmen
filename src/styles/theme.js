@@ -1,5 +1,6 @@
 const brown = '#735F18';
 const darkBrown = '#50410B';
+const darkerBrown = '#302405';
 const white = '#FFF';
 const black = '#000';
 const lightYellow = '#FFEBA5';
@@ -32,7 +33,7 @@ export const theme = {
         },
         post: {
           background: lightGreen,
-          text: brown,
+          text: darkerBrown,
           disabledBackground: lightGrey,
           disabledColor: black,
         },

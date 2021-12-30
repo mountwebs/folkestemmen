@@ -33,7 +33,11 @@ const StyledHeader = styled.h1`
   text-align: center;
   margin: 0;
   font-weight: 500;
-  font-size: 3.2rem;
+  font-size: 2rem;
+
+  @media only screen and ${device.sm} {
+    font-size: 3.2rem;
+  }
 `;
 
 const StyledDescription = styled.p`
@@ -44,7 +48,10 @@ const StyledDescription = styled.p`
   font-weight: 400;
   text-align: center;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  @media only screen and ${device.sm} {
+    font-size: 1.8rem;
+  }
 `;
 
 const StyledButton = styled(Button)`
