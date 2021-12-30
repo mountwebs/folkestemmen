@@ -42,13 +42,13 @@ const StyledHeader = styled.h1`
 
 const StyledDescription = styled.p`
   padding: 0 30px;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
   max-width: 800px;
   font-weight: 400;
   text-align: center;
   margin: 0 auto;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   @media only screen and ${device.sm} {
     font-size: 1.8rem;
   }
@@ -58,7 +58,6 @@ const StyledButton = styled(Button)`
   background: ${({ theme }) => theme.colors.buttons.header.background};
   color: ${({ theme }) => theme.colors.buttons.header.text};
   font-size: 18px;
-  margin-top: 1em;
   bottom: 1em;
 
   @media only screen and ${device.sm} {

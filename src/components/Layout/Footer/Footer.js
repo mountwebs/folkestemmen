@@ -88,6 +88,7 @@ const StyledButton = styled(Button)`
 
   @media only screen and ${device.sm} {
     margin-left: 2rem;
+    margin-top: 0rem;
   }
 `;
 
