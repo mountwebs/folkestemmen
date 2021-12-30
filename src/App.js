@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import UserContext from './UserContext';
 import device from './constants/breakpoints';
+import { Helmet } from 'react-helmet';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -41,6 +42,19 @@ function App() {
 
   return (
     <UserContext.Provider value={userId}>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <ThemeProvider theme={theme.light}>
         <GlobalStyle />
         <Layout showModal={showModal} setShowModal={setShowModal}>

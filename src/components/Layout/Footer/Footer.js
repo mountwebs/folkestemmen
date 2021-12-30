@@ -19,7 +19,7 @@ const StyledFooter = styled.footer`
 
   @media only screen and ${device.sm} {
     border-radius: 50px 50px 0 0;
-    padding-top: 7rem;
+    padding-top: 6rem;
     padding-right: 10%;
     padding-left: 10%;
   }
@@ -32,16 +32,16 @@ const StyledContainer = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  max-width: 1020px;
 
   @media only screen and ${device.sm} {
     flex-direction: row;
+    max-width: 1020px;
+    padding: 0 25px;
   }
 `;
 
 const StyledLogoContainer = styled.div`
   flex: 1 0;
-  margin-bottom: 29px;
   padding-right: 8px;
   display: none;
 
