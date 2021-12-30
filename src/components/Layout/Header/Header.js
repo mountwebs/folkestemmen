@@ -8,18 +8,22 @@ import Login from '../../LoginModal/Login';
 const StyledHeader = styled.header`
   height: 103px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const StyledContainer = styled.div`
-  height: 100%;
+  height: 103px;
   display: flex;
+  flex-grow: 1;
   max-width: 1020px;
+  padding: 0 10px;
   align-items: center;
   justify-content: center;
 
   @media only screen and ${device.sm} {
     justify-content: space-between;
-    margin: 0 100px;
+    padding: 0 20px 0 15px;
   }
 `;
 
@@ -33,8 +37,6 @@ const StyledContentRight = styled.div`
 `;
 
 const StyledLogo = styled.img`
-  flex-grow: 1;
-  max-width: 350px;
   max-height: 40px;
   margin: 10px 57.5px;
 
@@ -44,7 +46,7 @@ const StyledLogo = styled.img`
 `;
 
 const StyledButton = styled(Button)`
-  font-size: 18px;
+  font-size: 1rem;
   display: none;
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
 
@@ -55,7 +57,8 @@ const StyledButton = styled(Button)`
 
 const StyledLink = styled.a`
   display: none;
-  margin-right: 15px;
+  margin-right: 1.5rem;
+  font-size: 1.3rem;
 
   @media only screen and ${device.sm} {
     color: inherit;
@@ -75,8 +78,8 @@ const Header = ({ showModal, setShowModal }) => {
         <StyledLogo src={brownLogo} alt="Beta folkestemmen - logo" />
         <StyledContentRight>
           <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
-          <StyledButton primary icon="PersonFill" onClick={handleLogin}>
-          Logg inn
+          <StyledButton primary onClick={handleLogin}>
+            Logg inn
           </StyledButton>
         </StyledContentRight>
         {showModal && <Login setShowModal={setShowModal}></Login>}

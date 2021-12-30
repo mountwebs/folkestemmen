@@ -16,7 +16,7 @@ ${normalize}
     background: ${({ theme }) => theme.colors.body.background};
     color: ${({ theme }) => theme.colors.text.secondary};
     font-family: ${({ theme }) => theme.font};
-    font-weight: 400;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     

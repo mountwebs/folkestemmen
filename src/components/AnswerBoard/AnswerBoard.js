@@ -7,7 +7,7 @@ import Masonry from 'react-masonry-css';
 import axios from 'axios';
 // import './AnswerBoard.css';
 
-const placeholderText = 'Fortell oss hva du vil si her';
+const placeholderText = 'Hva er ditt inspill?';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
