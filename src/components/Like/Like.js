@@ -67,6 +67,7 @@ const Like = ({ answerData, updateAnswer }) => {
       } else {
         newAnswerData.likes = [userId];
       }
+      setNumOfLikes(numOfLikes + 1);
     } else {
       // if not liked
       if (
@@ -75,6 +76,7 @@ const Like = ({ answerData, updateAnswer }) => {
       ) {
         newAnswerData.likes.splice(answerData.likes.indexOf(userId), 1);
       }
+      setNumOfLikes(numOfLikes - 1);
     }
     updateAnswer(answerData._id, newAnswerData);
     setLiked(!liked);
