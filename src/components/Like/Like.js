@@ -63,7 +63,7 @@ const Like = ({ answerData, updateAnswer }) => {
       // liked refers to previous state, and is therefor reversed
       // if liked
       if (answerData.likes) {
-        newAnswerData.likes.push(userId);
+        !answerData.likes.includes(userId) && newAnswerData.likes.push(userId);
       } else {
         newAnswerData.likes = [userId];
       }
