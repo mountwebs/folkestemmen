@@ -38,6 +38,8 @@ function App() {
       localStorage.setItem('userId', JSON.stringify(newUserId));
       setUserId(newUserId);
     }
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts'));
+    if (!likedPosts) localStorage.setItem('likedPosts', '[]');
   }, []);
 
   return (

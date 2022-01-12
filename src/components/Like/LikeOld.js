@@ -41,20 +41,25 @@ const StyledSmall = styled.small`
 `;
 
 const Like = ({ answerData, updateAnswer }) => {
-  const [liked, setLiked] = useState(false);
-  const [numOfLikes, setNumOfLikes] = useState(answerData.numOfLikes);
+  const userId = useContext(UserContext);
+  const isLiked = useCallback(() => {
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts'));
+    if (likedPosts.includes(answerData._id)) return true;
+    return false;
+  });
+
+  const [liked, setLiked] = useState(isLiked());
+  const [numOfLikes, setNumOfLikes] = useState(
+    answerData.likes ? answerData.likes.length : 0
+  );
 
   useEffect(() => {
-    const likedPosts = JSON.parse(localStorage.getItem('likedPosts')) || [];
-    if (likedPosts.includes(answerData._id)) {
-      setLiked(true);
-    } else {
-      setLiked(false);
-    }
-    setNumOfLikes(answerData.numOfLikes);
-  }, [answerData]);
+    setLiked(isLiked());
+    setNumOfLikes(answerData.likes ? answerData.likes.length : 0);
+  }, [answerData, isLiked]);
 
   const handleClick = () => {
+    console.log('before ' + localStorage.getItem('likedPosts'));
     const newAnswerData = JSON.parse(JSON.stringify(answerData));
     const likedPosts = localStorage.getItem('likedPosts')
       ? JSON.parse(localStorage.getItem('likedPosts'))
@@ -62,17 +67,37 @@ const Like = ({ answerData, updateAnswer }) => {
     if (likedPosts.includes(answerData._id)) {
       likedPosts.splice(likedPosts.indexOf(answerData._id), 1);
       newAnswerData.numOfLikes = newAnswerData.numOfLikes - 1;
-      setLiked(false);
     } else {
       likedPosts.push(answerData._id);
       newAnswerData.numOfLikes = newAnswerData.numOfLikes + 1;
-      setLiked(true);
     }
-    console.log(newAnswerData.numOfLikes);
-    setNumOfLikes(newAnswerData.numOfLikes);
     localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
 
+    console.log('after ' + localStorage.getItem('likedPosts'));
     updateAnswer(answerData._id, newAnswerData);
+
+    // if (!liked) {
+    //   // liked refers to previous state, and is therefor reversed
+    //   // if liked
+    //   if (answerData.likes) {
+    //     !answerData.likes.includes(userId) && newAnswerData.likes.push(userId);
+    //   } else {
+    //     newAnswerData.likes = [userId];
+    //   }
+    //   setNumOfLikes(numOfLikes + 1);
+    // } else {
+    //   // if not liked
+    //   if (
+    //     answerData.likes &&
+    //     answerData.likes.some((user) => user === userId)
+    //   ) {
+    //     newAnswerData.likes.splice(answerData.likes.indexOf(userId), 1);
+    //   }
+    //   setNumOfLikes(numOfLikes - 1);
+    // }
+    // updateAnswer(answerData._id, newAnswerData);
+
+    setLiked(!liked);
   };
 
   return (
@@ -85,7 +110,9 @@ const Like = ({ answerData, updateAnswer }) => {
           <FontAwesomeIcon icon={farHeart} />
         )}
       </span>
-      {numOfLikes > 0 && <StyledSmall>{numOfLikes}</StyledSmall>}
+      {(answerData.likes && answerData.likes.length) > 0 && (
+        <StyledSmall>{numOfLikes}</StyledSmall>
+      )}
     </StyledContainer>
   );
 };
