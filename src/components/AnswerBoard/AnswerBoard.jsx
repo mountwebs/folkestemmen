@@ -5,6 +5,7 @@ import Input from '../Input/Input';
 import Answer from './Answer';
 import Masonry from 'react-masonry-css';
 import axios from 'axios';
+import Button from '../Button/Button';
 // import './AnswerBoard.css';
 
 const placeholderText = 'Hva er ditt inspill?';
@@ -31,6 +32,18 @@ const StyledHeading = styled.p`
   }
 `;
 
+const StyledSortButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`;
+
+const StyledButton = styled(Button)`
+  margin-left: 10px;
+  background-color: ${(props) => (props.selected ? '#292929' : '#C3E679')};
+  color: ${({ theme, selected }) => (selected ? 'white' : theme.colors.brown)};
+`;
+
 const StyledMasonry = styled(Masonry)`
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -51,10 +64,11 @@ const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
+  const [sortType, setSortType] = useState('new');
 
   const getAnswers = () => {
     axios
-      .get(`${baseUrl}answer`)
+      .get(`${baseUrl}answer?sort=${sortType}`)
       .then((response) => response.data)
       .then((data) => {
         setAnswerList(data);
@@ -84,7 +98,7 @@ const AnswerBoard = () => {
 
   useEffect(() => {
     getAnswers();
-  }, []);
+  }, [sortType]);
 
   return (
     <StyledContainer className="answer-board">
@@ -100,6 +114,20 @@ const AnswerBoard = () => {
         />
       )}
       <StyledHeading>Innspill</StyledHeading>
+      <StyledSortButtonsContainer>
+        <StyledButton
+          selected={sortType === 'new'}
+          onClick={() => setSortType('new')}
+        >
+          Nyeste
+        </StyledButton>
+        <StyledButton
+          selected={sortType === 'likes'}
+          onClick={() => setSortType('likes')}
+        >
+          Populære
+        </StyledButton>
+      </StyledSortButtonsContainer>
       <StyledMasonry
         breakpointCols={{ default: 2, 768: 1 }}
         columnClassName="my-masonry-grid_column"

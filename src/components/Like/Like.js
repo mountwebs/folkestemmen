@@ -57,7 +57,7 @@ const Like = ({ answerData, updateAnswer }) => {
     setNumOfLikes(answerData.likes ? answerData.likes.length : 0);
   }, [answerData, isLiked]);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const newAnswerData = JSON.parse(JSON.stringify(answerData));
     if (!liked) {
       // liked refers to previous state, and is therefor reversed
@@ -78,7 +78,7 @@ const Like = ({ answerData, updateAnswer }) => {
       }
       setNumOfLikes(numOfLikes - 1);
     }
-    updateAnswer(answerData._id, newAnswerData);
+    await updateAnswer(answerData._id, newAnswerData);
     setLiked(!liked);
   };
 

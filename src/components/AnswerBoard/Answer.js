@@ -57,13 +57,14 @@ const StyledCard = styled.div`
   }
 `;
 
-const twoNumberDate = (date) =>
-  date.toString().length > 1 ? date : '0' + date;
+const twoNumberDate = (date) => {
+  return date.toString().length > 1 ? date : '0' + date;
+};
 
 const formatDate = (inputDate) => {
   const date = new Date(inputDate);
   return `${twoNumberDate(date.getDate())}.${twoNumberDate(
-    date.getMonth()
+    date.getMonth() + 1
   )}.${date.getFullYear().toString().substring(2, 4)}`;
 };
 
@@ -71,6 +72,8 @@ const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-date">
+        {/* {answerData._id === '61d3516910397a00164feb15' &&
+          console.log(answerData.createdAt)} */}
         <p>{formatDate(answerData.createdAt)}</p>
       </div>
       <div className="answer-content">

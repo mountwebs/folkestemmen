@@ -15,6 +15,7 @@ export const theme = {
     id: 'T_001',
     name: 'Light',
     colors: {
+      brown,
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
