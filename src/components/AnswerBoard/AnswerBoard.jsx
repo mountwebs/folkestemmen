@@ -102,17 +102,11 @@ const AnswerBoard = () => {
 
   return (
     <StyledContainer className="answer-board">
-      {error ? (
-        'Error'
-      ) : loading ? (
-        'Loading'
-      ) : (
-        <Input
-          placeholderText={placeholderText}
-          buttonText={buttonText}
-          addAnswer={addAnswer}
-        />
-      )}
+      <Input
+        placeholderText={placeholderText}
+        buttonText={buttonText}
+        addAnswer={addAnswer}
+      />
       <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
