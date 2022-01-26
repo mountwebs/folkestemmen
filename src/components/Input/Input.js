@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import Tag from '../AnswerBoard/Tag';
 import AutosizeInput from 'react-input-autosize';
 import { useMediaQuery } from 'react-responsive';
+import UserContext from '../../UserContext';
 
 const StyledContainer = styled.form`
   display: flex;
@@ -92,6 +93,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
   const [tagPlaceholderText, setTagPlaceholderText] =
     useState('# Legg til tema');
+  const userId = useContext(UserContext);
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
@@ -114,7 +116,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const answer = { name: 'Navn' };
+    const answer = { user: userId };
     answer.text = textAreaValue;
     answer.tags = temaValue;
     if (!answer.text) return;

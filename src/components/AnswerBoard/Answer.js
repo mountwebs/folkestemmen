@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Tag from './Tag';
 import Like from '../Like/Like';
+import UserContext from '../../UserContext';
 
 const StyledCard = styled.div`
   display: flex;
@@ -69,6 +70,8 @@ const formatDate = (inputDate) => {
 };
 
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
+  const userId = useContext(UserContext);
+
   return (
     <StyledCard className="answer card-wrapper">
       <div className="answer-date">

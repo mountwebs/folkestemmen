@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Input from '../Input/Input';
@@ -66,7 +66,7 @@ const AnswerBoard = () => {
   const [error, setErrorState] = useState(false);
   const [sortType, setSortType] = useState('new');
 
-  const getAnswers = () => {
+  const getAnswers = useCallback(() => {
     axios
       .get(`${baseUrl}answer?sort=${sortType}`)
       .then((response) => response.data)
@@ -78,7 +78,7 @@ const AnswerBoard = () => {
         console.log(error);
         setErrorState(true);
       });
-  };
+  }, [sortType]);
 
   const addAnswer = (answer) => {
     axios
@@ -98,7 +98,7 @@ const AnswerBoard = () => {
 
   useEffect(() => {
     getAnswers();
-  }, [sortType]);
+  }, [getAnswers]);
 
   return (
     <StyledContainer className="answer-board">
