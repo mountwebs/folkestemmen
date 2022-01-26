@@ -71,12 +71,12 @@ const formatDate = (inputDate) => {
 
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
   const userId = useContext(UserContext);
+  const currentUser = answerData.user === userId ? true : false;
+  console.log(currentUser);
 
   return (
-    <StyledCard className="answer card-wrapper">
+    <StyledCard className="answer card-wrapper" currentUser={currentUser}>
       <div className="answer-date">
-        {/* {answerData._id === '61d3516910397a00164feb15' &&
-          console.log(answerData.createdAt)} */}
         <p>{formatDate(answerData.createdAt)}</p>
       </div>
       <div className="answer-content">
