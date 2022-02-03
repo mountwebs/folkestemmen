@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Input from '../Input/Input';
@@ -6,7 +6,7 @@ import Answer from './Answer';
 import Masonry from 'react-masonry-css';
 import axios from 'axios';
 import Button from '../Button/Button';
-// import './AnswerBoard.css';
+import UserContext from '../../UserContext';
 
 const placeholderText = 'Hva er ditt inspill?';
 const buttonText = 'Legg ut';
@@ -57,14 +57,21 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
   const [sortType, setSortType] = useState('new');
+  const userId = useContext(UserContext);
+
+  let headerConfig = {
+    headers: {
+      userId,
+    },
+  };
 
   const getAnswers = useCallback(() => {
     axios

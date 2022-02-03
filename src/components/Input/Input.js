@@ -116,7 +116,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const answer = { user: userId };
+    const answer = { userId: userId };
     answer.text = textAreaValue;
     answer.tags = temaValue;
     if (!answer.text) return;
