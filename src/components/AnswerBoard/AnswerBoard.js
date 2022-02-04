@@ -75,6 +75,8 @@ const AnswerBoard = () => {
     },
   };
 
+  console.log(userData);
+
   const getAnswers = useCallback(() => {
     axios
       .get(`${baseUrl}answer?sort=${sortType}`)
@@ -92,7 +94,9 @@ const AnswerBoard = () => {
   const addAnswer = (answer) => {
     axios
       .post(`${baseUrl}answer`, answer)
-      .then((response) => response.data)
+      .then((response) =>
+        userData.setPosts([...userData.posts, response.data._id])
+      )
       .then(getAnswers)
       .catch((error) => console.log(error));
   };

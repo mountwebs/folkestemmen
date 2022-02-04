@@ -10,7 +10,8 @@ const StyledCard = styled.div`
   flex-direction: column;
   padding: 0 1rem 1rem 1rem;
   margin-bottom: 2rem;
-  background-color: ${({ theme }) => theme.colors.body.primary};
+  background-color: ${({ theme, currentUser }) =>
+    currentUser ? 'blue' : theme.colors.body.primary};
   border-radius: 25px;
 
   @media only screen and ${device.sm} {
@@ -71,7 +72,7 @@ const formatDate = (inputDate) => {
 
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
   const userData = useContext(UserContext);
-  const currentUser = answerData.user === userData.userId ? true : false;
+  const currentUser = userData.posts.includes(answerData._id);
 
   return (
     <StyledCard className="answer card-wrapper" currentUser={currentUser}>
