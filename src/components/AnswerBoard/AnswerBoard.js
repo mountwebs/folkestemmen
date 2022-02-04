@@ -165,7 +165,6 @@ const AnswerBoard = () => {
                   key={index}
                   likes={likes}
                   answerData={answer}
-                  updateAnswer={updateAnswer}
                   updateLike={updateLike}
                 />
               );

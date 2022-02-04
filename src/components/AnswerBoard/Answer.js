@@ -70,7 +70,7 @@ const formatDate = (inputDate) => {
   )}.${date.getFullYear().toString().substring(2, 4)}`;
 };
 
-const Answer = ({ cardText, tags, answerData, updateAnswer, updateLike }) => {
+const Answer = ({ cardText, tags, answerData, updateLike }) => {
   const userData = useContext(UserContext);
   const currentUser = userData.posts.includes(answerData._id);
 
