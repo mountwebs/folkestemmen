@@ -8,7 +8,7 @@ import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
-import UserContext from './UserContext';
+import UserContext, { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
 import { Helmet } from 'react-helmet';
 
@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={userId}>
+    <UserProvider>
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,7 +65,7 @@ function App() {
           </StyledMain>
         </Layout>
       </ThemeProvider>
-    </UserContext.Provider>
+    </UserProvider>
   );
 }
 

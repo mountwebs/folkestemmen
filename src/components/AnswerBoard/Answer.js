@@ -70,8 +70,8 @@ const formatDate = (inputDate) => {
 };
 
 const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
-  const userId = useContext(UserContext);
-  const currentUser = answerData.user === userId ? true : false;
+  const userData = useContext(UserContext);
+  const currentUser = answerData.user === userData.userId ? true : false;
 
   return (
     <StyledCard className="answer card-wrapper" currentUser={currentUser}>

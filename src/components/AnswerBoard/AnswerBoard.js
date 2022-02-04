@@ -65,7 +65,9 @@ const AnswerBoard = () => {
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
   const [sortType, setSortType] = useState('new');
-  const userId = useContext(UserContext);
+  const userData = useContext(UserContext);
+
+  const userId = userData.userId;
 
   let headerConfig = {
     headers: {

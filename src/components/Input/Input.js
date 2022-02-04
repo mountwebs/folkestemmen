@@ -93,7 +93,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
   const [tagPlaceholderText, setTagPlaceholderText] =
     useState('# Legg til tema');
-  const userId = useContext(UserContext);
+  const userData = useContext(UserContext);
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
@@ -116,7 +116,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const answer = { userId: userId };
+    const answer = { userId: userData.userId };
     answer.text = textAreaValue;
     answer.tags = temaValue;
     if (!answer.text) return;
