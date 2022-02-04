@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useCallback } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,46 +40,32 @@ const StyledSmall = styled.small`
   user-select: none;
 `;
 
-const Like = ({ answerData, updateAnswer }) => {
-  const userId = useContext(UserContext);
-  const isLiked = useCallback(
-    () => answerData.likes && answerData.likes.some((user) => user === userId),
-    [answerData, userId]
+const Like = ({ answerData, updateLike }) => {
+  const userData = useContext(UserContext);
+  const [liked, setLiked] = useState(() =>
+    userData.likes.includes(answerData._id)
   );
-
-  const [liked, setLiked] = useState(isLiked());
-  const [numOfLikes, setNumOfLikes] = useState(
-    answerData.likes ? answerData.likes.length : 0
+  const [numOfLikes, setNumOfLikes] = useState(() =>
+    answerData.numOfLikes ? answerData.numOfLikes : 0
   );
 
   useEffect(() => {
-    setLiked(isLiked());
-    setNumOfLikes(answerData.likes ? answerData.likes.length : 0);
-  }, [answerData, isLiked]);
+    setNumOfLikes(answerData.numOfLikes);
+    setLiked(() => userData.likes.includes(answerData._id));
+  }, [answerData, userData.likes]);
 
   const handleClick = async () => {
-    const newAnswerData = JSON.parse(JSON.stringify(answerData));
+    // liked refers to previous state, and is therefor reversed
     if (!liked) {
-      // liked refers to previous state, and is therefor reversed
-      // if liked
-      if (answerData.likes) {
-        !answerData.likes.includes(userId) && newAnswerData.likes.push(userId);
-      } else {
-        newAnswerData.likes = [userId];
-      }
-      setNumOfLikes(numOfLikes + 1);
+      userData.setLikes([...userData.likes, answerData._id]);
     } else {
-      // if not liked
-      if (
-        answerData.likes &&
-        answerData.likes.some((user) => user === userId)
-      ) {
-        newAnswerData.likes.splice(answerData.likes.indexOf(userId), 1);
-      }
-      setNumOfLikes(numOfLikes - 1);
+      const newLikes = [...userData.likes];
+      userData.setLikes(
+        newLikes.filter((answerId) => answerData._id !== answerId)
+      );
     }
-    await updateAnswer(answerData._id, newAnswerData);
-    setLiked(!liked);
+
+    await updateLike(answerData._id);
   };
 
   return (
@@ -92,9 +78,7 @@ const Like = ({ answerData, updateAnswer }) => {
           <FontAwesomeIcon icon={farHeart} />
         )}
       </span>
-      {(answerData.likes && answerData.likes.length) > 0 && (
-        <StyledSmall>{numOfLikes}</StyledSmall>
-      )}
+      {numOfLikes > 0 && <StyledSmall>{numOfLikes}</StyledSmall>}
     </StyledContainer>
   );
 };

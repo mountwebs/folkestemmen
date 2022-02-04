@@ -75,8 +75,6 @@ const AnswerBoard = () => {
     },
   };
 
-  console.log(userData);
-
   const getAnswers = useCallback(() => {
     axios
       .get(`${baseUrl}answer?sort=${sortType}`)
@@ -92,6 +90,7 @@ const AnswerBoard = () => {
   }, [sortType]);
 
   const addAnswer = (answer) => {
+    console.log(answer);
     axios
       .post(`${baseUrl}answer`, answer)
       .then((response) =>
@@ -107,6 +106,19 @@ const AnswerBoard = () => {
       .then((response) => response.data)
       .then(getAnswers)
       .catch((error) => console.log(error));
+  };
+
+  const updateLike = (answerId) => {
+    const axiosPromise = axios
+      .patch(`${baseUrl}like/${answerId}`, {}, headerConfig)
+      .then((response) => response.data)
+      .then((data) => {
+        getAnswers();
+        return data;
+      })
+      .catch((error) => console.log(error));
+
+    return axiosPromise;
   };
 
   useEffect(() => {
@@ -154,6 +166,7 @@ const AnswerBoard = () => {
                   likes={likes}
                   answerData={answer}
                   updateAnswer={updateAnswer}
+                  updateLike={updateLike}
                 />
               );
             })}

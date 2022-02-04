@@ -70,7 +70,7 @@ const formatDate = (inputDate) => {
   )}.${date.getFullYear().toString().substring(2, 4)}`;
 };
 
-const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
+const Answer = ({ cardText, tags, answerData, updateAnswer, updateLike }) => {
   const userData = useContext(UserContext);
   const currentUser = userData.posts.includes(answerData._id);
 
@@ -85,7 +85,7 @@ const Answer = ({ cardText, tags, answerData, updateAnswer }) => {
 
       <div className="answer-details">
         <div>{tags && <Tag>{tags}</Tag>}</div>
-        <Like updateAnswer={updateAnswer} answerData={answerData} />
+        <Like answerData={answerData} updateLike={updateLike} />
       </div>
     </StyledCard>
   );
