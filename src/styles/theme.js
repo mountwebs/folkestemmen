@@ -7,6 +7,7 @@ const lightYellow = '#FFEBA5';
 const lighterYellow = '#F5F2E3';
 const lightGreen = '#D0F286';
 const lightGrey = '#BDBDBD';
+const lighterGrey = '#FAFAFA';
 const yellow = '#FFE074';
 const beige = '#EBE6CE';
 
@@ -63,6 +64,7 @@ export const theme = {
         background: beige,
         text: darkBrown,
       },
+      answerMenu: { background: lighterGrey },
       link: {
         text: 'teal',
       },

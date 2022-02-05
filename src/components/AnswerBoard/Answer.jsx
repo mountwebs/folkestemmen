@@ -4,8 +4,12 @@ import device from '../../constants/breakpoints';
 import Tag from './Tag';
 import Like from '../Like/Like';
 import UserContext from '../../UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import AnswerMenu from './AnswerMenu';
 
 const StyledCard = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 0 1rem 1rem 1rem;
@@ -14,6 +18,10 @@ const StyledCard = styled.div`
     currentUser ? 'blue' : theme.colors.body.primary};
   border-radius: 25px;
 
+  .fa-ellipsis-h {
+    color: ${({ theme }) => theme.colors.text.muted};
+  }
+
   @media only screen and ${device.sm} {
     // -- alternative to make columns more 'masonry' --
     margin-bottom: 35px;
@@ -21,6 +29,28 @@ const StyledCard = styled.div`
     padding: 0 1.5rem 1.5rem 1.2rem;
   }
   .answer {
+    &-upper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &-date {
+      display: flex;
+      align-items: flex-end;
+
+      p {
+        margin: 1rem 0 0.2rem 0.2rem;
+        color: ${({ theme }) => theme.colors.text.muted};
+        font-size: 0.8rem;
+      }
+    }
+
+    &-more-button {
+      display: flex;
+      align-items: flex-end;
+    }
+
     &-content {
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.4rem;
@@ -36,17 +66,6 @@ const StyledCard = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    &-date {
-      display: flex;
-      align-items: flex-end;
-
-      p {
-        margin: 1rem 0 0 0.2rem;
-        color: ${({ theme }) => theme.colors.text.muted};
-        font-size: 0.8rem;
-      }
     }
 
     &-thumbnail-wrapper {
@@ -76,13 +95,24 @@ const Answer = ({ cardText, tags, answerData, updateLike }) => {
 
   return (
     <StyledCard className="answer card-wrapper" currentUser={currentUser}>
-      <div className="answer-date">
-        <p>{formatDate(answerData.createdAt)}</p>
+      <AnswerMenu />
+      <div className="answer-upper">
+        <div className="answer-date">
+          <p>{formatDate(answerData.createdAt)}</p>
+        </div>
+        <a
+          onClick={() => {
+            console.log('test');
+          }}
+          className="answer-more-button"
+        >
+          <FontAwesomeIcon icon={faEllipsisH} size={'s'} />
+        </a>
       </div>
+
       <div className="answer-content">
         <p className="card-text">{cardText}</p>
       </div>
-
       <div className="answer-details">
         <div>{tags && <Tag>{tags}</Tag>}</div>
         <Like answerData={answerData} updateLike={updateLike} />
