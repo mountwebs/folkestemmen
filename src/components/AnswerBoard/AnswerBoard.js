@@ -100,6 +100,14 @@ const AnswerBoard = () => {
       .catch((error) => console.log(error));
   };
 
+  const deleteAnswer = (answerId) => {
+    axios
+      .delete(`${baseUrl}answerId`)
+      .then((response) => console.log(response.data))
+      .then(getAnswers)
+      .catch((error) => console.log(error));
+  };
+
   // const updateAnswer = (id, answer) => {
   //   axios
   //     .put(`${baseUrl}answer/${id}`, answer)
