@@ -57,8 +57,8 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -90,7 +90,6 @@ const AnswerBoard = () => {
   }, [sortType]);
 
   const addAnswer = (answer) => {
-    console.log(answer);
     axios
       .post(`${baseUrl}answer`, answer)
       .then((response) =>
@@ -102,8 +101,7 @@ const AnswerBoard = () => {
 
   const deleteAnswer = (answerId) => {
     axios
-      .delete(`${baseUrl}answerId`)
-      .then((response) => console.log(response.data))
+      .delete(`${baseUrl}answer/${answerId}`, headerConfig)
       .then(getAnswers)
       .catch((error) => console.log(error));
   };
@@ -174,6 +172,7 @@ const AnswerBoard = () => {
                   likes={likes}
                   answerData={answer}
                   updateLike={updateLike}
+                  deleteAnswer={deleteAnswer}
                 />
               );
             })}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Tag from './Tag';
@@ -14,8 +14,7 @@ const StyledCard = styled.div`
   flex-direction: column;
   padding: 0 1rem 1rem 1rem;
   margin-bottom: 2rem;
-  background-color: ${({ theme, currentUser }) =>
-    currentUser ? 'blue' : theme.colors.body.primary};
+  background-color: ${({ theme, currentUser }) => theme.colors.body.primary};
   border-radius: 25px;
 
   .fa-ellipsis-h {
@@ -89,25 +88,36 @@ const formatDate = (inputDate) => {
   )}.${date.getFullYear().toString().substring(2, 4)}`;
 };
 
-const Answer = ({ cardText, tags, answerData, updateLike }) => {
+const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
   const userData = useContext(UserContext);
+  const [activeMenu, setActiveMenu] = useState(false);
+
   const currentUser = userData.posts.includes(answerData._id);
 
   return (
     <StyledCard className="answer card-wrapper" currentUser={currentUser}>
-      <AnswerMenu />
+      {activeMenu && (
+        <AnswerMenu
+          setActiveMenu={setActiveMenu}
+          deleteAnswer={deleteAnswer}
+          answerId={answerData._id}
+        />
+      )}
+
       <div className="answer-upper">
         <div className="answer-date">
           <p>{formatDate(answerData.createdAt)}</p>
         </div>
-        <a
-          onClick={() => {
-            console.log('test');
-          }}
-          className="answer-more-button"
-        >
-          <FontAwesomeIcon icon={faEllipsisH} size={'s'} />
-        </a>
+        {currentUser && (
+          <a
+            onClick={() => {
+              setActiveMenu(true);
+            }}
+            className="answer-more-button"
+          >
+            <FontAwesomeIcon icon={faEllipsisH} size={'sm'} />
+          </a>
+        )}
       </div>
 
       <div className="answer-content">
