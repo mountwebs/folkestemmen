@@ -18,7 +18,7 @@ const StyledMenu = styled.div`
 
 const StyledButtonContainer = styled.div``;
 
-const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId }) => {
+const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId, setEditable }) => {
   const userData = useContext(UserContext);
   const ref = useRef();
   function handleOutsideClick() {
@@ -34,6 +34,7 @@ const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId }) => {
   };
 
   const handleEditClick = () => {
+    setEditable(true);
     setActiveMenu(false);
   };
 
@@ -52,7 +53,7 @@ const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId }) => {
         Slett inspill
       </MenuButton>
       <MenuButton
-        onClick={handleEditClick}
+        clickHandler={handleEditClick}
         icon={<FontAwesomeIcon icon={faPen} />}
       >
         Rediger inspill

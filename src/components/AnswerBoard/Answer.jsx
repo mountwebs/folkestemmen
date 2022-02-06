@@ -59,6 +59,14 @@ const StyledCard = styled.div`
       p {
         margin-top: 0.8rem;
       }
+
+      &-textarea {
+        margin-top: 0.8rem;
+        border: none;
+        outline: none;
+        resize: none;
+        height: inherit;
+      }
     }
 
     &-details {
@@ -77,6 +85,29 @@ const StyledCard = styled.div`
   }
 `;
 
+const StyledEditableTag = styled.textarea`
+  height: inherit;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: ${({ hide }) => (hide ? '0' : '0.5rem 0.8rem')};
+  margin: ${({ hide }) => (hide ? '0' : '2px')};  
+  background-color: ${({ theme, tagColor, hide }) =>
+    hide ? 'white' : tagColor || theme.colors.buttons.tag.background}};
+  color: ${({ theme }) => theme.colors.buttons.tag.text};
+  border-radius: 20px;
+
+  &:after {
+    content: ${({ deletable }) => deletable && "'x'"};
+    margin-left: ${({ deletable }) => deletable && '7px'};
+  }
+
+  @media only screen and ${device.sm} {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+`;
+
 const twoNumberDate = (date) => {
   return date.toString().length > 1 ? date : '0' + date;
 };
@@ -91,6 +122,8 @@ const formatDate = (inputDate) => {
 const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
   const userData = useContext(UserContext);
   const [activeMenu, setActiveMenu] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const [textAreaValue, setTextAreaValue] = useState(cardText);
 
   const currentUser = userData.posts.includes(answerData._id);
 
@@ -101,6 +134,7 @@ const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
           setActiveMenu={setActiveMenu}
           deleteAnswer={deleteAnswer}
           answerId={answerData._id}
+          setEditable={setEditable}
         />
       )}
 
@@ -121,10 +155,23 @@ const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
       </div>
 
       <div className="answer-content">
-        <p className="card-text">{cardText}</p>
+        {editable ? (
+          <textarea className="answer-content-textarea">
+            {textAreaValue}
+          </textarea>
+        ) : (
+          <p className="card-text">{cardText}</p>
+        )}
       </div>
       <div className="answer-details">
-        <div>{tags && <Tag>{tags}</Tag>}</div>
+        <div>
+          {tags &&
+            (editable ? (
+              <StyledEditableTag editable={editable}>{tags}</StyledEditableTag>
+            ) : (
+              <Tag>{tags}</Tag>
+            ))}
+        </div>
         <Like answerData={answerData} updateLike={updateLike} />
       </div>
     </StyledCard>
