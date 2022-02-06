@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Tag from './Tag';
@@ -7,6 +7,10 @@ import UserContext from '../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import AnswerMenu from './AnswerMenu';
+import AutosizeInput from 'react-input-autosize';
+import { useMediaQuery } from 'react-responsive';
+import TextareaAutosize from 'react-textarea-autosize';
+import Button from '../Button/Button';
 
 const StyledCard = styled.div`
   position: relative;
@@ -62,10 +66,13 @@ const StyledCard = styled.div`
 
       &-textarea {
         margin-top: 0.8rem;
+        margin-bottom: 1rem;
         border: none;
         outline: none;
         resize: none;
         height: inherit;
+        width: 100%;
+        font-weight: 500;
       }
     }
 
@@ -85,26 +92,28 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledEditableTag = styled.textarea`
-  height: inherit;
-  border: none;
-  outline: none;
-  resize: none;
-  padding: ${({ hide }) => (hide ? '0' : '0.5rem 0.8rem')};
-  margin: ${({ hide }) => (hide ? '0' : '2px')};  
-  background-color: ${({ theme, tagColor, hide }) =>
-    hide ? 'white' : tagColor || theme.colors.buttons.tag.background}};
-  color: ${({ theme }) => theme.colors.buttons.tag.text};
-  border-radius: 20px;
+const StyledTag = styled(Tag)`
+  padding: 0.5rem 0.3rem;
 
-  &:after {
-    content: ${({ deletable }) => deletable && "'x'"};
-    margin-left: ${({ deletable }) => deletable && '7px'};
+  @media only screen and ${device.sm} {
+    padding: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.buttons.post.background};
+  color: black;
+
+  :disabled {
+    opacity: 50%;
+  }
+
+  &:hover {
+    filter: brightness(90%);
   }
 
   @media only screen and ${device.sm} {
     font-size: 1rem;
-    padding: 0.5rem 1rem;
   }
 `;
 
@@ -119,13 +128,36 @@ const formatDate = (inputDate) => {
   )}.${date.getFullYear().toString().substring(2, 4)}`;
 };
 
-const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
+const Answer = ({
+  cardText,
+  tags,
+  answerData,
+  updateLike,
+  deleteAnswer,
+  updateAnswer,
+}) => {
   const userData = useContext(UserContext);
   const [activeMenu, setActiveMenu] = useState(false);
   const [editable, setEditable] = useState(false);
-  const [textAreaValue, setTextAreaValue] = useState(cardText);
+  const [textAreaValue, setTextAreaValue] = useState(answerData.text);
+  const [temaValue, setTemaValue] = useState(answerData.tags);
+  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
 
   const currentUser = userData.posts.includes(answerData._id);
+
+  useEffect(() => {
+    setEditable(false);
+    setTextAreaValue(answerData.text);
+    setTemaValue(answerData.tags);
+  }, [answerData]);
+
+  const handleSubmit = async () => {
+    await updateAnswer(answerData._id, {
+      text: textAreaValue,
+      tags: temaValue,
+    });
+    setEditable(false);
+  };
 
   return (
     <StyledCard className="answer card-wrapper" currentUser={currentUser}>
@@ -135,6 +167,7 @@ const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
           deleteAnswer={deleteAnswer}
           answerId={answerData._id}
           setEditable={setEditable}
+          editable={editable}
         />
       )}
 
@@ -156,23 +189,47 @@ const Answer = ({ cardText, tags, answerData, updateLike, deleteAnswer }) => {
 
       <div className="answer-content">
         {editable ? (
-          <textarea className="answer-content-textarea">
-            {textAreaValue}
-          </textarea>
+          <TextareaAutosize
+            autoFocus
+            onChange={(e) => setTextAreaValue(e.target.value)}
+            defaultValue={textAreaValue}
+            className="answer-content-textarea"
+          />
         ) : (
-          <p className="card-text">{cardText}</p>
+          <p className="card-text">{answerData.text}</p>
         )}
       </div>
       <div className="answer-details">
         <div>
-          {tags &&
-            (editable ? (
-              <StyledEditableTag editable={editable}>{tags}</StyledEditableTag>
-            ) : (
-              <Tag>{tags}</Tag>
-            ))}
+          {editable ? (
+            <StyledTag>
+              <AutosizeInput
+                type="text"
+                className="input-tema"
+                onChange={(e) => setTemaValue(e.target.value)}
+                value={temaValue}
+                maxLength={isXtraSmallScreen ? 20 : 25}
+                inputStyle={{
+                  borderStyle: 'none',
+                  outline: 'none',
+                  backgroundColor: 'inherit',
+                }}
+              />
+            </StyledTag>
+          ) : (
+            tags && <Tag>{tags}</Tag>
+          )}
         </div>
-        <Like answerData={answerData} updateLike={updateLike} />
+        {editable ? (
+          <StyledButton
+            onClick={handleSubmit}
+            disabled={textAreaValue ? false : true}
+          >
+            Ferdig
+          </StyledButton>
+        ) : (
+          <Like answerData={answerData} updateLike={updateLike} />
+        )}
       </div>
     </StyledCard>
   );

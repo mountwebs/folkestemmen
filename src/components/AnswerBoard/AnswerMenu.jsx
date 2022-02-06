@@ -18,7 +18,13 @@ const StyledMenu = styled.div`
 
 const StyledButtonContainer = styled.div``;
 
-const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId, setEditable }) => {
+const AnswerMenu = ({
+  setActiveMenu,
+  deleteAnswer,
+  answerId,
+  setEditable,
+  editable,
+}) => {
   const userData = useContext(UserContext);
   const ref = useRef();
   function handleOutsideClick() {
@@ -34,7 +40,7 @@ const AnswerMenu = ({ setActiveMenu, deleteAnswer, answerId, setEditable }) => {
   };
 
   const handleEditClick = () => {
-    setEditable(true);
+    setEditable(!editable);
     setActiveMenu(false);
   };
 

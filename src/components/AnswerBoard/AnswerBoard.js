@@ -106,13 +106,13 @@ const AnswerBoard = () => {
       .catch((error) => console.log(error));
   };
 
-  // const updateAnswer = (id, answer) => {
-  //   axios
-  //     .put(`${baseUrl}answer/${id}`, answer)
-  //     .then((response) => response.data)
-  //     .then(getAnswers)
-  //     .catch((error) => console.log(error));
-  // };
+  const updateAnswer = (answerId, newAnswer) => {
+    axios
+      .patch(`${baseUrl}answer/${answerId}`, newAnswer, headerConfig)
+      .then((response) => response.data)
+      .then(getAnswers)
+      .catch((error) => console.log(error));
+  };
 
   const updateLike = (answerId) => {
     const axiosPromise = axios
@@ -173,6 +173,7 @@ const AnswerBoard = () => {
                   answerData={answer}
                   updateLike={updateLike}
                   deleteAnswer={deleteAnswer}
+                  updateAnswer={updateAnswer}
                 />
               );
             })}
