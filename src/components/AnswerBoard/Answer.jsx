@@ -177,6 +177,7 @@ const Answer = ({
         </div>
         {currentUser && (
           <a
+            href="/#"
             onClick={() => {
               setActiveMenu(true);
             }}

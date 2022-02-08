@@ -16,8 +16,6 @@ const StyledMenu = styled.div`
   border-radius: 25px;
 `;
 
-const StyledButtonContainer = styled.div``;
-
 const AnswerMenu = ({
   setActiveMenu,
   deleteAnswer,

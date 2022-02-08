@@ -23,7 +23,7 @@ const MenuButton = ({ children, icon, style, clickHandler }) => {
   return (
     <>
       <StyledMenuButton onClick={clickHandler}>
-        <StyledContainer>
+        <StyledContainer href="/#">
           {icon && <StyledIconContainer>{icon}</StyledIconContainer>}
           <div style={style}>{children}</div>
         </StyledContainer>
