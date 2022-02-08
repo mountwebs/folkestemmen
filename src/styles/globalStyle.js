@@ -19,6 +19,7 @@ ${normalize}
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
     
     @media only screen and ${device.sm} {
       font-size: 1.5rem;

@@ -27,6 +27,8 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledContentLeft = styled.span``;
+
 const StyledContentRight = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -36,19 +38,12 @@ const StyledContentRight = styled.div`
   }
 `;
 
-const StyledLogo = styled.img`
-  max-height: 40px;
-  margin: 10px 57.5px;
-
-  @media only screen and ${device.sm} {
-    margin: 0;
-  }
-`;
-
 const StyledButton = styled(Button)`
   font-size: 1rem;
   display: none;
+  color: ${({ theme }) => theme.colors.buttons.header.text};
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
+  font-weight: 500;
 
   @media only screen and ${device.sm} {
     display: block;
@@ -75,7 +70,7 @@ const Header = ({ showModal, setShowModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledLogo src={brownLogo} alt="Beta folkestemmen - logo" />
+        <StyledContentLeft>Liv i sentrum</StyledContentLeft>
         <StyledContentRight>
           <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
           <StyledButton primary onClick={handleLogin}>

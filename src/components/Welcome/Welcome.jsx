@@ -2,12 +2,12 @@ import React from 'react';
 import Button from '../Button/Button';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
-import rectangle3 from '../../assets/welcome-shapes/rectangle3.svg';
-import rectangle7 from '../../assets/welcome-shapes/rectangle7.svg';
-import union2 from '../../assets/welcome-shapes/union2.svg';
-import star from '../../assets/welcome-shapes/star.svg';
-import union from '../../assets/welcome-shapes/union.svg';
-import starMobile from '../../assets/welcome-shapes/star_mobile.svg';
+import Rectangle3 from './Rectangle3';
+import Rectangle7 from './Rectangle7';
+import Star from './Star';
+import Union from './Union';
+import Union2 from './Union2';
+import StarMobile from './StarMobile';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
@@ -65,12 +65,9 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const StyledShape = styled.img`
+const StyledRectangle3 = styled(Rectangle3)`
   position: absolute;
   z-index: -100;
-`;
-
-const StyledRectangle3 = styled(StyledShape)`
   width: 299px;
   height: 136px;
   left: -185px;
@@ -84,7 +81,9 @@ const StyledRectangle3 = styled(StyledShape)`
   }
 `;
 
-const StyledUnion2 = styled(StyledShape)`
+const StyledUnion2 = styled(Union2)`
+  position: absolute;
+  z-index: -100;
   width: 161px;
   left: -111px;
   top: -45px;
@@ -96,7 +95,9 @@ const StyledUnion2 = styled(StyledShape)`
   }
 `;
 
-const StyledStar = styled(StyledShape)`
+const StyledStar = styled(Star)`
+  position: absolute;
+  z-index: -100;
   display: none;
 
   @media only screen and ${device.sm} {
@@ -107,28 +108,36 @@ const StyledStar = styled(StyledShape)`
   }
 `;
 
-const StyledStarMobile = styled(StyledShape)`
+const StyledStarMobile = styled(StarMobile)`
+  position: absolute;
+  z-index: -100;
   width: 79px;
   right: 0;
   top: 189px;
+  color: blue;
 
   @media only screen and ${device.sm} {
     display: none;
   }
 `;
 
-const StyledUnion = styled(StyledShape)`
+const StyledUnion = styled(Union)`
+  position: absolute;
+  z-index: -100;
   width: 225px;
   top: 225px;
-  right: 0;
+  right: -50px;
   display: none;
+  overflow: auto;
 
   @media only screen and ${device.sm} {
     display: block;
   }
 `;
 
-const StyledRectangle7 = styled(StyledShape)`
+const StyledRectangle7 = styled(Rectangle7)`
+  position: absolute;
+  z-index: -100;
   width: 75px;
   right: 10px;
   top: -39px;
@@ -153,12 +162,12 @@ const Welcome = ({ showModal, setShowModal }) => {
           Vi som jobber i kommunen ønsker innspill fra innbyggere for å gjøre
           det enda bedre å bo og leve i her kommunen.
         </StyledDescription>
-        <StyledRectangle3 src={rectangle3} />
-        <StyledUnion2 src={union2} />
-        <StyledStar src={star} />
-        <StyledUnion src={union} />
-        <StyledRectangle7 src={rectangle7} />
-        <StyledStarMobile src={starMobile} />
+        <StyledRectangle3 />
+        <StyledUnion2 />
+        <StyledStar />
+        <StyledUnion />
+        <StyledRectangle7 />
+        <StyledStarMobile />
       </StyledContainer>
       <StyledButton primary icon="PersonFill" onClick={handleLogin}>
         Logg inn

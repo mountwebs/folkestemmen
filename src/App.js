@@ -34,7 +34,7 @@ function App() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
           rel="stylesheet"
         />
         <link
@@ -42,7 +42,7 @@ function App() {
           rel="stylesheet"
         />
       </Helmet>
-      <ThemeProvider theme={theme.light}>
+      <ThemeProvider theme={theme.randaberg}>
         <GlobalStyle />
         <Layout showModal={showModal} setShowModal={setShowModal}>
           <Welcome showModal={showModal} setShowModal={setShowModal} />
