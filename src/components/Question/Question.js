@@ -13,39 +13,50 @@ const StyledHeading = styled.div`
   background: ${({ theme }) => theme.colors.questionHeader.background};
   border-radius: 20px;
   display: inline-block;
-  margin-bottom: 1rem;
   margin-top: 1rem;
   text-align: center;
   z-index: 80;
+  font-size: 0.9rem;
 
   @media only screen and ${device.sm} {
     font-size: 1rem;
   }
 `;
 
+const StyledCardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.question.background};
-  padding: 1.5rem 1rem;
-  margin: 0 5px;
-  font-size: 1.3rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+  margin: 0.5rem 5px 0 0;
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.question.text};
-  border-radius: 50px;
+  border-radius: 25px;
   text-align: center;
 
   @media only screen and ${device.sm} {
     font-size: 2.5rem;
+    background-color: ${({ theme }) => theme.colors.question.background};
+    max-width: 650px;
+    border-radius: 50px;
   }
 `;
 
-const Question = ({ text }) => {
+const Question = () => {
   return (
     <>
       <StyledHeadingContainer>
-        <StyledHeading>Ukens spørsmål</StyledHeading>
+        <StyledHeading>Spørsmål</StyledHeading>
       </StyledHeadingContainer>
-      <StyledCard className="question-card">
-        <p className="card-text">{text}</p>
-      </StyledCard>
+      <StyledCardContainer>
+        <StyledCard className="question-card">
+          <p className="card-text">Hva ønsker du deg i Randaberg sentrum?</p>
+        </StyledCard>
+      </StyledCardContainer>
     </>
   );
 };

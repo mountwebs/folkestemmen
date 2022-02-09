@@ -56,7 +56,7 @@ const StyledContainer = styled.form`
 `;
 
 const StyledTag = styled(Tag)`
-  padding: 0.5rem 0.3rem;
+  padding: 0.6rem 0.3rem;
 
   @media only screen and ${device.sm} {
     padding: 0.5rem;
@@ -66,7 +66,7 @@ const StyledTag = styled(Tag)`
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
   color: ${({ theme }) => theme.colors.buttons.post.text};
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1rem;
   margin: 2px;
   font-weight: 500;
 

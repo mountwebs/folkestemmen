@@ -25,8 +25,9 @@ const StyledContainer = styled.div`
 `;
 
 const StyledHeading = styled.p`
+  font-weight: 400;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   @media only screen and ${device.sm} {
     font-size: 1rem;
   }
@@ -35,13 +36,24 @@ const StyledHeading = styled.p`
 const StyledSortButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 `;
 
 const StyledButton = styled(Button)`
-  margin-left: 10px;
-  background-color: ${(props) => (props.selected ? '#292929' : '#C3E679')};
-  color: ${({ theme, selected }) => (selected ? 'white' : theme.colors.brown)};
+  padding: 20px 40px;
+  border-radius: 25px;
+  font-weight: 600;
+  background-color: ${(props) => (props.selected ? '#C3E679' : '#EBE6CE')};
+  color: ${({ theme, selected }) => (selected ? '#302405' : '#ACA79B')};
+
+  &:last-child {
+    margin-left: 10px;
+  }
+
+  @media only screen and ${device.sm} {
+    padding: 12px 40px;
+    font-size: 1rem;
+  }
 `;
 
 const StyledMasonry = styled(Masonry)`

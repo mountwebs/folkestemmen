@@ -6,8 +6,6 @@ const GlobalStyle = createGlobalStyle`
 // Import normalize.css
 ${normalize}
 
- @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
   * {
     box-sizing: border-box;
   }
@@ -20,6 +18,9 @@ ${normalize}
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
     
     @media only screen and ${device.sm} {
       font-size: 1.5rem;

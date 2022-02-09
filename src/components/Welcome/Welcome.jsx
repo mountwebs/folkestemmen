@@ -20,14 +20,12 @@ const StyledWelcome = styled.div`
   flex-direction: column;
   position: relative;
   z-index: 10;
-
   @media only screen and ${device.sm} {
-    height: 25rem;
   }
 `;
 
 const StyledContainer = styled.div`
-  padding: 40px;
+  overflow: hidden;
 `;
 
 const StyledHeader = styled.h1`
@@ -69,7 +67,7 @@ const StyledButton = styled(Button)`
 const StyledStar = styled(Star)`
   position: absolute;
   z-index: -100;
-  width: 159px;
+  width: 150px;
   color: #c3e679;
   left: -63px;
   top: -161px;
@@ -77,6 +75,7 @@ const StyledStar = styled(Star)`
   @media only screen and ${device.sm} {
     display: block;
     width: 125px;
+    display: none;
   }
 `;
 
@@ -85,7 +84,7 @@ const StyledRectangle3 = styled(Rectangle3)`
   z-index: -100;
   width: 120px;
   height: 136px;
-  right: -35px;
+  right: -50px;
   top: -90px;
   color: #ffe074;
 
@@ -94,6 +93,7 @@ const StyledRectangle3 = styled(Rectangle3)`
     height: 150px;
     left: -150px;
     top: 220px;
+    display: none;
   }
 `;
 
@@ -152,6 +152,7 @@ const StyledUnion = styled(Union)`
 
   @media only screen and ${device.sm} {
     display: block;
+    display: none;
   }
 `;
 
@@ -178,11 +179,6 @@ const Welcome = ({ showModal, setShowModal }) => {
   return (
     <StyledWelcome>
       <StyledContainer>
-        <StyledHeader>Velkommen!</StyledHeader>
-        <StyledDescription>
-          Vi som jobber i kommunen ønsker innspill fra innbyggere for å gjøre
-          det enda bedre å bo og leve i her kommunen.
-        </StyledDescription>
         <StyledRandabergLogo />
         <StyledRectangle3 />
         <StyledUnion2 />
@@ -191,9 +187,6 @@ const Welcome = ({ showModal, setShowModal }) => {
         <StyledRectangle7 />
         <StyledStarMobile />
       </StyledContainer>
-      <StyledButton primary icon="PersonFill" onClick={handleLogin}>
-        Logg inn
-      </StyledButton>
     </StyledWelcome>
   );
 };

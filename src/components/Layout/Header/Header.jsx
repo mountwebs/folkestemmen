@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledContainer = styled.div`
-  height: 103px;
+  height: 10rem;
   display: flex;
   flex-grow: 1;
   max-width: 1020px;
@@ -22,6 +22,7 @@ const StyledContainer = styled.div`
   justify-content: center;
 
   @media only screen and ${device.sm} {
+    height: 103px;
     justify-content: space-between;
     padding: 0 20px 0 15px;
   }
@@ -29,6 +30,11 @@ const StyledContainer = styled.div`
 
 const StyledContentLeft = styled.span`
   z-index: 100;
+  font-size: 2.4rem;
+
+  @media only screen and ${device.sm} {
+    font-size: 1.7rem;
+  }
 `;
 
 const StyledContentRight = styled.div`

@@ -112,7 +112,7 @@ export const theme = {
       button: {
         text: {
           primary: white,
-          secondary: '#292929',
+          secondary: darkerBrown,
           disabled: '#A5A5A5',
         },
         background: {
