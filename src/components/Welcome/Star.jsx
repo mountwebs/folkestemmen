@@ -9,11 +9,10 @@ const Svg = styled.svg.attrs({
 
 const Star = ({ className }) => (
   <Svg
-    width="147"
-    height="147"
     viewBox="0 0 147 147"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <path
       fill="currentColor"

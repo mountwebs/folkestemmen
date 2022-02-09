@@ -8,6 +8,7 @@ import Star from './Star';
 import Union from './Union';
 import Union2 from './Union2';
 import StarMobile from './StarMobile';
+import RandabergLogo from './RandabergLogo';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
@@ -65,18 +66,50 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const StyledStar = styled(Star)`
+  position: absolute;
+  z-index: -100;
+  width: 159px;
+  color: #c3e679;
+  left: -63px;
+  top: -161px;
+
+  @media only screen and ${device.sm} {
+    display: block;
+    width: 125px;
+  }
+`;
+
 const StyledRectangle3 = styled(Rectangle3)`
   position: absolute;
   z-index: -100;
-  width: 299px;
+  width: 120px;
   height: 136px;
-  left: -185px;
-  top: 130px;
+  right: -35px;
+  top: -90px;
+  color: #ffe074;
 
   @media only screen and ${device.sm} {
     width: 300px;
     height: 150px;
     left: -150px;
+    top: 220px;
+  }
+`;
+
+const StyledRandabergLogo = styled(RandabergLogo)`
+  position: absolute;
+  z-index: -100;
+  width: 299px;
+  height: 136px;
+  left: 100px;
+  top: -79px;
+  color: #3a83c4;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    width: 300px;
+    height: 150px;
     top: 220px;
   }
 `;
@@ -87,24 +120,12 @@ const StyledUnion2 = styled(Union2)`
   width: 161px;
   left: -111px;
   top: -45px;
+  display: none;
 
   @media only screen and ${device.sm} {
     width: 200px;
     left: 30px;
     top: 25px;
-  }
-`;
-
-const StyledStar = styled(Star)`
-  position: absolute;
-  z-index: -100;
-  display: none;
-
-  @media only screen and ${device.sm} {
-    display: block;
-    width: 125px;
-    left: 200px;
-    top: 300px;
   }
 `;
 
@@ -114,7 +135,7 @@ const StyledStarMobile = styled(StarMobile)`
   width: 79px;
   right: 0;
   top: 189px;
-  color: blue;
+  display: none;
 
   @media only screen and ${device.sm} {
     display: none;
@@ -128,7 +149,6 @@ const StyledUnion = styled(Union)`
   top: 225px;
   right: -50px;
   display: none;
-  overflow: auto;
 
   @media only screen and ${device.sm} {
     display: block;
@@ -141,6 +161,7 @@ const StyledRectangle7 = styled(Rectangle7)`
   width: 75px;
   right: 10px;
   top: -39px;
+  display: none;
 
   @media only screen and ${device.sm} {
     width: 125px;
@@ -162,6 +183,7 @@ const Welcome = ({ showModal, setShowModal }) => {
           Vi som jobber i kommunen ønsker innspill fra innbyggere for å gjøre
           det enda bedre å bo og leve i her kommunen.
         </StyledDescription>
+        <StyledRandabergLogo />
         <StyledRectangle3 />
         <StyledUnion2 />
         <StyledStar />

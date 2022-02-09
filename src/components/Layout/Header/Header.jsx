@@ -27,7 +27,9 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledContentLeft = styled.span``;
+const StyledContentLeft = styled.span`
+  z-index: 100;
+`;
 
 const StyledContentRight = styled.div`
   display: flex;
