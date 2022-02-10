@@ -49,11 +49,6 @@ const StyledCard = styled.div`
       }
     }
 
-    &-more-button {
-      display: flex;
-      align-items: flex-end;
-    }
-
     &-content {
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 1.4rem;
@@ -98,6 +93,12 @@ const StyledTag = styled(Tag)`
   @media only screen and ${device.sm} {
     padding: 0.5rem;
   }
+`;
+
+const StyledDots = styled.span`
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
 `;
 
 const StyledButton = styled(Button)`
@@ -176,15 +177,13 @@ const Answer = ({
           <p>{formatDate(answerData.createdAt)}</p>
         </div>
         {currentUser && (
-          <a
-            href="/#"
+          <StyledDots
             onClick={() => {
               setActiveMenu(true);
             }}
-            className="answer-more-button"
           >
             <FontAwesomeIcon icon={faEllipsisH} size={'sm'} />
-          </a>
+          </StyledDots>
         )}
       </div>
 
