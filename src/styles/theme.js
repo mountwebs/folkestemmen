@@ -96,7 +96,7 @@ export const theme = {
       buttons: {
         header: {
           background: beige,
-          text: black,
+          text: darkBrown,
         },
         post: {
           background: lightGreen,

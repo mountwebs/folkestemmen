@@ -1,5 +1,4 @@
 import React from 'react';
-import brownLogo from '../../../assets/logo-brown.svg';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
@@ -47,11 +46,11 @@ const StyledContentRight = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: none;
-  color: ${({ theme }) => theme.colors.buttons.header.text};
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.buttons.header.text};
 
   @media only screen and ${device.sm} {
     display: block;
@@ -80,9 +79,11 @@ const Header = ({ showModal, setShowModal }) => {
       <StyledContainer>
         <StyledContentLeft>Liv i sentrum</StyledContentLeft>
         <StyledContentRight>
-          <StyledLink href="mailto:erlend@travers.as">Kontakt oss</StyledLink>
-          <StyledButton primary onClick={handleLogin}>
-            Logg inn
+          <StyledLink onClick={handleLogin}>Hva er dette?</StyledLink>
+          <StyledButton
+            onClick={() => (window.location = 'mailto:erlend@travers.as')}
+          >
+            Kontakt oss
           </StyledButton>
         </StyledContentRight>
         {showModal && <Login setShowModal={setShowModal}></Login>}

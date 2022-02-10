@@ -9,10 +9,11 @@ const StyledMenuButton = styled.div`
   font-size: 1rem;
 `;
 
-const StyledContainer = styled.a`
+const StyledContainer = styled.div`
   padding-left: 10px;
   display: flex;
   color: ${({ style }) => (style ? style.color : 'black')};
+  cursor: pointer;
 `;
 
 const StyledIconContainer = styled.div`
@@ -23,7 +24,7 @@ const MenuButton = ({ children, icon, style, clickHandler }) => {
   return (
     <>
       <StyledMenuButton onClick={clickHandler}>
-        <StyledContainer href="/#">
+        <StyledContainer>
           {icon && <StyledIconContainer>{icon}</StyledIconContainer>}
           <div style={style}>{children}</div>
         </StyledContainer>
