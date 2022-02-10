@@ -171,11 +171,7 @@ const StyledRectangle7 = styled(Rectangle7)`
   }
 `;
 
-const Welcome = ({ showModal, setShowModal }) => {
-  const handleLogin = () => {
-    setShowModal(!showModal);
-  };
-
+const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>

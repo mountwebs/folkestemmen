@@ -86,14 +86,30 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const StyledBottomLeft = styled.div`
+  display: flex;
+  align-items: center;
+
+  > * {
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+`;
+
+const StyledLength = styled.span`
+  font-size: small;
+  color: grey;
+`;
+
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
-  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
   const [tagPlaceholderText, setTagPlaceholderText] =
     useState('# Legg til tema');
   const userData = useContext(UserContext);
+  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
@@ -132,6 +148,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         onChange={handleTextAreaChange}
         className="input-field"
         placeholder={placeholderText}
+        maxlength="250"
       />
       <div className="input-tema-button-wrapper">
         <StyledTag hide={!temaFocus && !temaValue}>
@@ -151,11 +168,15 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
             }}
           />
         </StyledTag>
-        <StyledButton
-          type="submit"
-          disabled={textAreaValue ? false : true}
-          children={buttonText}
-        />
+
+        <StyledBottomLeft>
+          <StyledLength>{textAreaValue.length}/250</StyledLength>
+          <StyledButton
+            type="submit"
+            disabled={textAreaValue ? false : true}
+            children={buttonText}
+          />
+        </StyledBottomLeft>
       </div>
     </StyledContainer>
   );

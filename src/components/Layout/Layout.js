@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
+import Login from '../LoginModal/Login';
 
 const StyledApp = styled.div`
   background-color: ${({ theme }) => theme.colors.body.background};
@@ -9,11 +10,12 @@ const StyledApp = styled.div`
   position: relative;
 `;
 
-const Layout = (props) => {
+const Layout = ({ showModal, setShowModal, children }) => {
   return (
     <StyledApp>
-      <Header showModal={props.showModal} setShowModal={props.setShowModal} />
-      {props.children}
+      <Header showModal={showModal} setShowModal={setShowModal} />
+      {showModal && <Login setShowModal={setShowModal}></Login>}
+      {children}
       <Footer />
     </StyledApp>
   );

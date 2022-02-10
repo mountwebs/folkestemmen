@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
-import Login from '../../LoginModal/Login';
 
 const StyledHeader = styled.header`
   height: 103px;
@@ -86,7 +85,6 @@ const Header = ({ showModal, setShowModal }) => {
             Kontakt oss
           </StyledButton>
         </StyledContentRight>
-        {showModal && <Login setShowModal={setShowModal}></Login>}
       </StyledContainer>
     </StyledHeader>
   );
