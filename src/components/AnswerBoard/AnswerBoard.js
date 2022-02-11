@@ -69,8 +69,8 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -80,10 +80,12 @@ const AnswerBoard = () => {
   const userData = useContext(UserContext);
 
   const userId = userData.userId;
+  const jwtKey = localStorage.getItem('jwtKey');
 
   let headerConfig = {
     headers: {
       userId,
+      token: `Bearer ${jwtKey}`,
     },
   };
 

@@ -176,7 +176,7 @@ const Answer = ({
         <div className="answer-date">
           <p>{formatDate(answerData.createdAt)}</p>
         </div>
-        {currentUser && (
+        {(currentUser || userData.isAdmin) && (
           <StyledDots
             onClick={() => {
               setActiveMenu(true);

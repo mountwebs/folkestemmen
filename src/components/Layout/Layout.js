@@ -16,7 +16,7 @@ const Layout = ({ showModal, setShowModal, children }) => {
       <Header showModal={showModal} setShowModal={setShowModal} />
       {showModal && <Login setShowModal={setShowModal}></Login>}
       {children}
-      <Footer />
+      <Footer showModal={showModal} setShowModal={setShowModal} />
     </StyledApp>
   );
 };
