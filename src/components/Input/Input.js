@@ -148,7 +148,7 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         onChange={handleTextAreaChange}
         className="input-field"
         placeholder={placeholderText}
-        maxlength="250"
+        maxLength="250"
       />
       <div className="input-tema-button-wrapper">
         <StyledTag hide={!temaFocus && !temaValue}>

@@ -194,6 +194,7 @@ const Answer = ({
             onChange={(e) => setTextAreaValue(e.target.value)}
             defaultValue={textAreaValue}
             className="answer-content-textarea"
+            maxLength="250"
           />
         ) : (
           <p className="card-text">{answerData.text}</p>
