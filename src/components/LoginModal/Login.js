@@ -57,6 +57,7 @@ const Login = ({ setShowModal }) => {
         localStorage.setItem('jwtKey', res.data.accessToken);
         setIsLoggedIn(true);
         userData.setIsAdmin(true);
+        setShowModal(false);
       }
     } catch (error) {}
   };
