@@ -39,8 +39,8 @@ const StyledCloseButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
 `;
 
-// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-const baseUrl = 'http://localhost:4000/';
+const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+// const baseUrl = 'http://localhost:4000/';
 
 const Login = ({ setShowModal }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
