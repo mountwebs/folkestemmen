@@ -8,10 +8,11 @@ const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 100;
 `;
 
 const StyledContainer = styled.div`
-  height: 10rem;
+  height: 11rem;
   display: flex;
   flex-grow: 1;
   max-width: 1020px;
@@ -28,7 +29,7 @@ const StyledContainer = styled.div`
 
 const StyledContentLeft = styled.span`
   z-index: 100;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
 
   @media only screen and ${device.sm} {
     font-size: 1.7rem;

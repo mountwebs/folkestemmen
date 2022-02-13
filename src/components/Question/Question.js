@@ -37,6 +37,7 @@ const StyledCard = styled.div`
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 25px;
   text-align: center;
+  z-index: 100;
 
   @media only screen and ${device.sm} {
     font-size: 2.5rem;

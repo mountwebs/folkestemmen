@@ -13,6 +13,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import Button from '../Button/Button';
 
 const StyledCard = styled.div`
+  z-index: 100;
   position: relative;
   display: flex;
   flex-direction: column;

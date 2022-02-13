@@ -8,6 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 import UserContext from '../../UserContext';
 
 const StyledContainer = styled.form`
+  position: relative;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   padding: 0.7rem 0.5rem;

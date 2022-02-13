@@ -3,6 +3,8 @@ import Button from '../Button/Button';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Rectangle3 from './Rectangle3';
+import Rectangle3Mobile from './Rectangle3Mobile';
+
 import Rectangle7 from './Rectangle7';
 import Star from './Star';
 import Union from './Union';
@@ -74,8 +76,24 @@ const StyledStar = styled(Star)`
 
   @media only screen and ${device.sm} {
     display: block;
-    width: 125px;
-    display: none;
+    top: -111px;
+    width: 150px;
+  }
+`;
+
+const StyledStar2 = styled(Star)`
+  position: absolute;
+  z-index: -100;
+  color: #298d75;
+  left: -63px;
+  top: -161px;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    height: 110px;
+    display: block;
+    top: 551px;
+    width: 150px;
   }
 `;
 
@@ -87,30 +105,59 @@ const StyledRectangle3 = styled(Rectangle3)`
   right: -50px;
   top: -90px;
   color: #ffe074;
+  display: none;
 
   @media only screen and ${device.sm} {
+    display: block;
     width: 300px;
     height: 150px;
-    left: -150px;
-    top: 220px;
+    right: 0;
+    top: 0;
+  }
+`;
+
+const StyledRectangle3Mobile = styled(Rectangle3Mobile)`
+  position: absolute;
+  z-index: -100;
+  right: 0;
+  top: -70px;
+  color: #ffe074;
+
+  @media only screen and ${device.sm} {
     display: none;
   }
 `;
 
 const StyledRandabergLogo = styled(RandabergLogo)`
   position: absolute;
-  z-index: -100;
   width: 299px;
   height: 136px;
-  left: 100px;
-  top: -79px;
   color: #3a83c4;
   display: none;
 
   @media only screen and ${device.sm} {
+    display: block;
     width: 300px;
     height: 150px;
-    top: 220px;
+    left: -70px;
+    top: 65px;
+    z-index: -100;
+  }
+`;
+
+const StyledUnion = styled(Union)`
+  position: absolute;
+  z-index: -100;
+  width: 225px;
+  top: 225px;
+  right: -50px;
+  display: none;
+
+  @media only screen and ${device.sm} {
+    display: block;
+    right: 0;
+    top: 700px;
+    color: #a0d2c0;
   }
 `;
 
@@ -130,29 +177,9 @@ const StyledUnion2 = styled(Union2)`
 `;
 
 const StyledStarMobile = styled(StarMobile)`
-  position: absolute;
-  z-index: -100;
-  width: 79px;
-  right: 0;
-  top: 189px;
   display: none;
 
   @media only screen and ${device.sm} {
-    display: none;
-  }
-`;
-
-const StyledUnion = styled(Union)`
-  position: absolute;
-  z-index: -100;
-  width: 225px;
-  top: 225px;
-  right: -50px;
-  display: none;
-
-  @media only screen and ${device.sm} {
-    display: block;
-    display: none;
   }
 `;
 
@@ -175,13 +202,17 @@ const Welcome = () => {
   return (
     <StyledWelcome>
       <StyledContainer>
-        <StyledRandabergLogo />
+        <StyledRectangle3Mobile />
         <StyledRectangle3 />
-        <StyledUnion2 />
-        <StyledStar />
-        <StyledUnion />
-        <StyledRectangle7 />
+        <StyledRandabergLogo />
         <StyledStarMobile />
+        <StyledUnion />
+        <StyledStar2 />
+
+        <StyledStar />
+
+        <StyledUnion2 />
+        <StyledRectangle7 />
       </StyledContainer>
     </StyledWelcome>
   );
