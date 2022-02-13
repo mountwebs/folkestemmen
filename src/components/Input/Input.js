@@ -101,7 +101,7 @@ const StyledBottomLeft = styled.div`
 
 const StyledLength = styled.span`
   font-size: small;
-  color: #b9b9b9;
+  color: ${({ full }) => (full ? '#FF7272' : '#b9b9b9')};
 `;
 
 const Input = ({ placeholderText, buttonText, addAnswer }) => {
@@ -172,10 +172,12 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
         </StyledTag>
 
         <StyledBottomLeft>
-          <StyledLength>{textAreaValue.length}/250 tegn</StyledLength>
+          <StyledLength full={textAreaValue.length >= 250}>
+            {textAreaValue.length}/250 tegn
+          </StyledLength>
           <StyledButton
             type="submit"
-            disabled={textAreaValue ? false : true}
+            disabled={!textAreaValue || textAreaValue.length >= 250}
             children={buttonText}
           />
         </StyledBottomLeft>
