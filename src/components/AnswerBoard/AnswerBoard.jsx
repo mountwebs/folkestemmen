@@ -69,14 +69,38 @@ const StyledMasonry = styled(Masonry)`
   }
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+const StyledLoadMoreContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+`;
+
+const StyledLoadMoreButton = styled(Button)`
+  padding: 20px 40px;
+  border-radius: 25px;
+  font-weight: 600;
+  background-color: #c3e679;
+  color: ${({ theme }) => theme.colors.button.text.secondary};
+
+  @media only screen and ${device.sm} {
+    padding: 12px 40px;
+    font-size: 1rem;
+  }
+`;
+
+const ANSWERS_LIMIT = 25;
+
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
   const [error, setErrorState] = useState(false);
   const [sortType, setSortType] = useState('new');
+  const [morePosts, setMorePosts] = useState(true);
+  const [loadPosts, setLoadPosts] = useState(ANSWERS_LIMIT);
   const userData = useContext(UserContext);
 
   const userId = userData.userId;
@@ -89,19 +113,42 @@ const AnswerBoard = () => {
     },
   };
 
+  const handleLoadMore = () => {
+    getMoreAnswers();
+  };
+
   const getAnswers = useCallback(() => {
     axios
-      .get(`${baseUrl}answer?sort=${sortType}`)
+      .get(`${baseUrl}answer?sort=${sortType}&limit=${loadPosts}`)
       .then((response) => response.data)
       .then((data) => {
         setAnswerList(data);
         setLoadingState(false);
+        if (data.length < ANSWERS_LIMIT) {
+          setLoadPosts(data.length);
+          setMorePosts(false);
+        }
       })
       .catch((error) => {
         console.log(error);
         setErrorState(true);
       });
-  }, [sortType]);
+  }, [sortType, loadPosts]);
+
+  const getMoreAnswers = () => {
+    axios
+      .get(`${baseUrl}answer?sort=${sortType}&skip=${answerList.length}`)
+      .then((response) => response.data)
+      .then((data) => {
+        setAnswerList([...answerList, ...data]);
+        setLoadPosts(loadPosts + data.length);
+        data.length < ANSWERS_LIMIT && setMorePosts(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorState(true);
+      });
+  };
 
   const addAnswer = (answer) => {
     axios
@@ -192,6 +239,17 @@ const AnswerBoard = () => {
               );
             })}
       </StyledMasonry>
+      {!error && !loading && (
+        <StyledLoadMoreContainer>
+          {morePosts ? (
+            <StyledLoadMoreButton onClick={handleLoadMore}>
+              Last flere inspill
+            </StyledLoadMoreButton>
+          ) : (
+            'Ingen flere innspill..'
+          )}
+        </StyledLoadMoreContainer>
+      )}
     </StyledContainer>
   );
 };
