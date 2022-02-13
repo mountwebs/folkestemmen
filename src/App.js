@@ -25,7 +25,8 @@ const StyledMain = styled.main`
 `;
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showThanksModal, setShowThanksModal] = useState(false);
 
   return (
     <UserProvider>
@@ -44,11 +45,22 @@ function App() {
       </Helmet>
       <ThemeProvider theme={theme.randaberg}>
         <GlobalStyle />
-        <Layout showModal={showModal} setShowModal={setShowModal}>
-          <Welcome showModal={showModal} setShowModal={setShowModal} />
+        <Layout
+          showLoginModal={showLoginModal}
+          setShowLoginModal={setShowLoginModal}
+          showThanksModal={showThanksModal}
+          setShowThanksModal={setShowThanksModal}
+        >
+          <Welcome
+            showLoginModal={showLoginModal}
+            setShowLoginModal={setShowLoginModal}
+          />
           <StyledMain>
             <Question text={questionText} />
-            <AnswerBoard />
+            <AnswerBoard
+              showThanksModal={showThanksModal}
+              setShowThanksModal={setShowThanksModal}
+            />
           </StyledMain>
         </Layout>
       </ThemeProvider>

@@ -3,6 +3,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 import Login from '../LoginModal/Login';
+import ThanksModal from '../ThanksModal/ThanksModal';
 
 const StyledApp = styled.div`
   background-color: ${({ theme }) => theme.colors.body.background};
@@ -10,13 +11,28 @@ const StyledApp = styled.div`
   position: relative;
 `;
 
-const Layout = ({ showModal, setShowModal, children }) => {
+const Layout = ({
+  showLoginModal,
+  setShowLoginModal,
+  showThanksModal,
+  setShowThanksModal,
+  children,
+}) => {
   return (
     <StyledApp>
-      <Header showModal={showModal} setShowModal={setShowModal} />
-      {showModal && <Login setShowModal={setShowModal}></Login>}
+      <Header
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+      />
+      {showLoginModal && <Login setShowLoginModal={setShowLoginModal}></Login>}
+      {showThanksModal && (
+        <ThanksModal setShowThanksModal={setShowThanksModal}></ThanksModal>
+      )}
       {children}
-      <Footer showModal={showModal} setShowModal={setShowModal} />
+      <Footer
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+      />
     </StyledApp>
   );
 };

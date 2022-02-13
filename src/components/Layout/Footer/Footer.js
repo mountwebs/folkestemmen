@@ -101,11 +101,11 @@ const StyledSpan = styled.span`
   font-size: small;
 `;
 
-const Footer = ({ showModal, setShowModal }) => {
+const Footer = ({ showLoginModal, setShowLoginModal }) => {
   const userData = useContext(UserContext);
 
   const handleAdminLogin = () => {
-    setShowModal(!showModal);
+    setShowLoginModal(!showLoginModal);
   };
 
   const handleLogout = () => {

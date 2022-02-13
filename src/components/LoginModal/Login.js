@@ -12,7 +12,7 @@ const StyledModal = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 100;
+  z-index: 1000;
 `;
 
 const StyledModalMain = styled.div`
@@ -42,7 +42,7 @@ const StyledCloseButton = styled(Button)`
 const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
 // const baseUrl = 'http://localhost:4000/';
 
-const Login = ({ setShowModal }) => {
+const Login = ({ setShowLoginModal }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const userData = useContext(UserContext);
 
@@ -57,7 +57,7 @@ const Login = ({ setShowModal }) => {
         localStorage.setItem('jwtKey', res.data.accessToken);
         setIsLoggedIn(true);
         userData.setIsAdmin(true);
-        setShowModal(false);
+        setShowLoginModal(false);
       }
     } catch (error) {}
   };
@@ -65,7 +65,7 @@ const Login = ({ setShowModal }) => {
   return (
     <StyledModal>
       <StyledModalMain>
-        <StyledCloseButton onClick={() => setShowModal(false)}>
+        <StyledCloseButton onClick={() => setShowLoginModal(false)}>
           X
         </StyledCloseButton>
         <form onSubmit={handleSubmit}>

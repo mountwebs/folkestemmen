@@ -7,6 +7,7 @@ import Masonry from 'react-masonry-css';
 import axios from 'axios';
 import Button from '../Button/Button';
 import UserContext from '../../UserContext';
+import ThanksModal from '../ThanksModal/ThanksModal';
 
 const placeholderText = 'Hva er ditt inspill?';
 const buttonText = 'Legg ut';
@@ -102,6 +103,7 @@ const AnswerBoard = () => {
   const [morePosts, setMorePosts] = useState(true);
   const [loadPosts, setLoadPosts] = useState(ANSWERS_LIMIT);
   const userData = useContext(UserContext);
+  const [showThanksModal, setShowThanksModal] = useState(false);
 
   const userId = userData.userId;
   const jwtKey = localStorage.getItem('jwtKey');
@@ -195,6 +197,9 @@ const AnswerBoard = () => {
 
   return (
     <StyledContainer className="answer-board">
+      {showThanksModal && (
+        <ThanksModal setShowThanksModal={setShowThanksModal}></ThanksModal>
+      )}
       <Input
         placeholderText={placeholderText}
         buttonText={buttonText}

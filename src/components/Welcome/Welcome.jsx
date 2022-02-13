@@ -155,7 +155,7 @@ const StyledUnion = styled(Union)`
 
   @media only screen and ${device.sm} {
     display: block;
-    right: 0;
+    right: -100;
     top: 700px;
     color: #a0d2c0;
   }
@@ -206,8 +206,8 @@ const Welcome = () => {
         <StyledRectangle3 />
         <StyledRandabergLogo />
         <StyledStarMobile />
-        <StyledUnion />
         <StyledStar2 />
+        <StyledUnion />
 
         <StyledStar />
 

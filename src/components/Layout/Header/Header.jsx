@@ -69,9 +69,9 @@ const StyledLink = styled.a`
   }
 `;
 
-const Header = ({ showModal, setShowModal }) => {
+const Header = ({ showLoginModal, setShowLoginModal }) => {
   const handleLogin = () => {
-    setShowModal(!showModal);
+    setShowLoginModal(!showLoginModal);
   };
 
   return (
