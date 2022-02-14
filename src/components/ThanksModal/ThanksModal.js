@@ -94,7 +94,11 @@ const StyledHeader = styled.h1`
 `;
 
 const ThanksModal = ({ setShowThanksModal }) => {
-  const handleSubmit = async (e) => {};
+  const handleSumbit = (input) => {
+    if (input === 'button') {
+    } else {
+    }
+  };
 
   return (
     <StyledModal>
@@ -104,8 +108,12 @@ const ThanksModal = ({ setShowThanksModal }) => {
           <StyledHeader>Takk for innspill!</StyledHeader>
           <p>En siste ting, hvor gammel er du?</p>
           <StyledInput placeholder={'Alder'} />
-          <StyledButton>Ok!</StyledButton>
-          <StyledLink>Hopp over</StyledLink>
+          <StyledButton onClick={() => handleSumbit('button')}>
+            Ok!
+          </StyledButton>
+          <StyledLink onClick={() => handleSumbit('link')}>
+            Hopp over
+          </StyledLink>
         </StyledContent>
       </StyledModalMain>
     </StyledModal>
