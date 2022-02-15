@@ -198,12 +198,15 @@ const AnswerBoard = () => {
   return (
     <StyledContainer className="answer-board">
       {showThanksModal && (
-        <ThanksModal setShowThanksModal={setShowThanksModal}></ThanksModal>
+        <ThanksModal
+          setShowThanksModal={setShowThanksModal}
+          addAnswer={addAnswer}
+        ></ThanksModal>
       )}
       <Input
         placeholderText={placeholderText}
         buttonText={buttonText}
-        addAnswer={addAnswer}
+        setShowThanksModal={setShowThanksModal}
       />
       <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>

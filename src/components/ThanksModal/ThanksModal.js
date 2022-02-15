@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
+import UserContext from '../../UserContext';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -93,11 +94,16 @@ const StyledHeader = styled.h1`
   margin-top: 0;
 `;
 
-const ThanksModal = ({ setShowThanksModal }) => {
+const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
+  const [ageValue, setAgeValue] = useState('');
+  const userData = useContext(UserContext);
+
   const handleSumbit = (input) => {
-    if (input === 'button') {
-    } else {
-    }
+    const answer = userData.answer;
+    if (input === 'button') answer.age = ageValue;
+    addAnswer(answer);
+    userData.setAnswer({});
+    setShowThanksModal(false);
   };
 
   return (
@@ -107,7 +113,11 @@ const ThanksModal = ({ setShowThanksModal }) => {
           <StyledEmoji>👏</StyledEmoji>
           <StyledHeader>Takk for innspill!</StyledHeader>
           <p>En siste ting, hvor gammel er du?</p>
-          <StyledInput placeholder={'Alder'} />
+          <StyledInput
+            placeholder="Alder"
+            value={ageValue}
+            onChange={(e) => setAgeValue(e.target.value)}
+          />
           <StyledButton onClick={() => handleSumbit('button')}>
             Ok!
           </StyledButton>

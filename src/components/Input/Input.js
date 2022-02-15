@@ -104,7 +104,12 @@ const StyledLength = styled.span`
   color: ${({ full }) => (full ? '#FF7272' : '#b9b9b9')};
 `;
 
-const Input = ({ placeholderText, buttonText, addAnswer }) => {
+const Input = ({
+  placeholderText,
+  buttonText,
+  addAnswer,
+  setShowThanksModal,
+}) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
@@ -139,9 +144,11 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
     answer.tags = temaValue;
     if (!answer.text) return;
     userData.setAnswer(answer);
+    setShowThanksModal(true);
     // addAnswer(answer);
     setTemaValue('');
     setTextAreaValue('');
+    setTagPlaceholderText('# Legg til tema');
   };
 
   return (

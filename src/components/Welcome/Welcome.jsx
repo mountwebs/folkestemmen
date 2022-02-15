@@ -150,7 +150,7 @@ const StyledUnion = styled(Union)`
   z-index: -100;
   width: 225px;
   top: 225px;
-  right: -50px;
+  right: 0px;
   display: none;
 
   @media only screen and ${device.sm} {

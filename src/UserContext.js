@@ -43,8 +43,8 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
   const [user, setUser] = useState(() => getUserData());
 
-  useEffect(() => {
-    setLocalStorage('userData', user);
+  useEffect(async () => {
+    await setLocalStorage('userData', user);
   }, [user]);
 
   return (
