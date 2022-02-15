@@ -138,7 +138,8 @@ const Input = ({ placeholderText, buttonText, addAnswer }) => {
     answer.text = textAreaValue;
     answer.tags = temaValue;
     if (!answer.text) return;
-    addAnswer(answer);
+    userData.setAnswer(answer);
+    // addAnswer(answer);
     setTemaValue('');
     setTextAreaValue('');
   };

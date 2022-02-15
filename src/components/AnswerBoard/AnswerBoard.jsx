@@ -103,7 +103,7 @@ const AnswerBoard = () => {
   const [morePosts, setMorePosts] = useState(true);
   const [loadPosts, setLoadPosts] = useState(ANSWERS_LIMIT);
   const userData = useContext(UserContext);
-  const [showThanksModal, setShowThanksModal] = useState(true);
+  const [showThanksModal, setShowThanksModal] = useState(false);
 
   const userId = userData.userId;
   const jwtKey = localStorage.getItem('jwtKey');

@@ -8,6 +8,7 @@ var initialState = {
   likes: [],
   posts: [],
   isAdmin: false,
+  answer: {},
 };
 
 function setLocalStorage(key, value) {
@@ -53,10 +54,12 @@ function UserProvider({ children }) {
         likes: user.likes,
         posts: user.posts,
         isAdmin: user.isAdmin,
+        answer: user.answer,
         setUserId: (userId) => setUser({ ...user, userId }),
         setLikes: (likes) => setUser({ ...user, likes }),
         setPosts: (posts) => setUser({ ...user, posts }),
         setIsAdmin: (isAdmin) => setUser({ ...user, isAdmin }),
+        setAnswer: (answer) => setUser({ ...user, answer }),
       }}
     >
       {children}
