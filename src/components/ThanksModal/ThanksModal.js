@@ -118,6 +118,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             placeholder="Alder"
             value={ageValue}
             onChange={(e) => setAgeValue(e.target.value)}
+            maxLength="15"
           />
           <StyledButton onClick={() => handleSumbit('button')}>
             Ok!
