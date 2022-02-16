@@ -228,9 +228,9 @@ const AnswerBoard = () => {
         columnClassName="my-masonry-grid_column"
       >
         {error
-          ? 'Error'
+          ? 'Beklager! En feil har oppstått :('
           : loading
-          ? 'Loading'
+          ? 'Laster inn innspill..'
           : answerList.map((answer, index) => {
               const { text, tags, createdAt, likes } = answer;
               return (
