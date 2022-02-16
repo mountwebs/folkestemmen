@@ -175,7 +175,10 @@ const Answer = ({
 
       <div className="answer-upper">
         <div className="answer-date">
-          <p>{formatDate(answerData.createdAt)}</p>
+          <p>
+            {formatDate(answerData.createdAt)}
+            {answerData.edited && ' (Redigert)'}
+          </p>
         </div>
         {(currentUser || userData.isAdmin) && (
           <StyledDots

@@ -56,6 +56,7 @@ const StyledInput = styled.input`
   padding: 10px 20px;
   max-width: 80%;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
 const StyledButton = styled(Button)`
