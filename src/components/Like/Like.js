@@ -18,6 +18,7 @@ const StyledContainer = styled.div`
   &:hover {
     opacity: ${({ liked }) => (liked ? '100%' : '30%')};
     color: #f34c90;
+    cursor: pointer;
   }
 
   .fa-circle {
