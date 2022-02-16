@@ -75,16 +75,15 @@ const StyledButton = styled(Button)`
   &:hover {
     filter: brightness(90%);
   }
-
-  @media only screen and ${device.sm} {
-    font-size: 1rem;
-    padding: 0.8rem 2rem;
-  }
   :disabled {
     opacity: 50%;
   }
   :disabled:hover {
     filter: brightness(100%);
+  }
+  @media only screen and ${device.sm} {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
   }
 `;
 
@@ -102,6 +101,23 @@ const StyledBottomLeft = styled.div`
 const StyledLength = styled.span`
   font-size: small;
   color: ${({ full }) => (full ? '#FF7272' : '#b9b9b9')};
+  display: none;
+
+  @media only screen and ${device.sm} {
+    display: inline;
+  }
+`;
+
+const StyledLengthMobile = styled(StyledLength)`
+  display: inline;
+  position: absolute;
+  right: 17px;
+  top: 10px;
+  font-size: 0.7rem;
+
+  @media only screen and ${device.sm} {
+    display: none;
+  }
 `;
 
 const Input = ({
@@ -153,6 +169,9 @@ const Input = ({
 
   return (
     <StyledContainer className="input-container" onSubmit={handleSubmit}>
+      <StyledLengthMobile full={textAreaValue.length >= 250}>
+        {textAreaValue.length}/250 tegn
+      </StyledLengthMobile>
       <textarea
         value={textAreaValue}
         onChange={handleTextAreaChange}
