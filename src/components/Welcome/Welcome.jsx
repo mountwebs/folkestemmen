@@ -130,10 +130,11 @@ const StyledRectangle3Mobile = styled(Rectangle3Mobile)`
 
 const StyledRandabergLogo = styled(RandabergLogo)`
   position: absolute;
-  width: 299px;
-  height: 136px;
+  z-index: -100;
+  height: 65px;
+  left: -60px;
+  top: 5px;
   color: #3a83c4;
-  display: none;
 
   @media only screen and ${device.sm} {
     display: block;
@@ -141,7 +142,6 @@ const StyledRandabergLogo = styled(RandabergLogo)`
     height: 150px;
     left: -70px;
     top: 65px;
-    z-index: -100;
   }
 `;
 
