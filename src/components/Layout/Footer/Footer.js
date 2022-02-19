@@ -123,7 +123,11 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
         <StyledCTA>
           Har du spørsmål eller vil du gi oss tilbakemelding?
         </StyledCTA>
-        <StyledButton>Ta kontakt</StyledButton>
+        <StyledButton
+          onClick={() => (window.location = 'mailto:erlend@travers.as')}
+        >
+          Kontakt oss
+        </StyledButton>
       </StyledContainer>
       <StyledBranding>
         Utviklet av &nbsp;
