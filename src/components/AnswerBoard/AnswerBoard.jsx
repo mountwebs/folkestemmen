@@ -92,8 +92,8 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://localhost:4000/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -103,7 +103,7 @@ const AnswerBoard = () => {
   const [morePosts, setMorePosts] = useState(true);
   const [loadPosts, setLoadPosts] = useState(ANSWERS_LIMIT);
   const userData = useContext(UserContext);
-  const [showThanksModal, setShowThanksModal] = useState(true);
+  const [showThanksModal, setShowThanksModal] = useState(false);
 
   const userId = userData.userId;
   const jwtKey = localStorage.getItem('jwtKey');

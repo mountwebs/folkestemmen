@@ -120,6 +120,23 @@ const StyledLengthMobile = styled(StyledLength)`
   }
 `;
 
+const StyledWarningContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+
+  @media only screen and ${device.sm} {
+    margin-top: 0.7rem;
+  }
+`;
+
+const StyledWarning = styled.span`
+  font-size: small;
+  color: #ff7272;
+  max-width: 550px;
+  text-align: center;
+`;
+
 const Input = ({
   placeholderText,
   buttonText,
@@ -209,6 +226,16 @@ const Input = ({
           />
         </StyledBottomLeft>
       </div>
+      {userData.posts.length >= 2 && (
+        <StyledWarningContainer>
+          {' '}
+          <StyledWarning>
+            Vi har lagt inn en begrensning på antall innspill for hver bruker på
+            to innspill. Dersom du ønsker å legge ut et nytt innspill må du
+            først slette et av dine tidligere innspill.
+          </StyledWarning>
+        </StyledWarningContainer>
+      )}
     </StyledContainer>
   );
 };
