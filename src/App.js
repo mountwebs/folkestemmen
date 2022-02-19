@@ -26,7 +26,7 @@ const StyledMain = styled.main`
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showThanksModal, setShowThanksModal] = useState(false);
+  const [showWhatsThisModal, setShowWhatsThisModal] = useState(true);
 
   return (
     <UserProvider>
@@ -48,8 +48,8 @@ function App() {
         <Layout
           showLoginModal={showLoginModal}
           setShowLoginModal={setShowLoginModal}
-          showThanksModal={showThanksModal}
-          setShowThanksModal={setShowThanksModal}
+          showWhatsThisModal={showWhatsThisModal}
+          setShowWhatsThisModal={setShowWhatsThisModal}
         >
           <Welcome
             showLoginModal={showLoginModal}
@@ -57,10 +57,7 @@ function App() {
           />
           <StyledMain>
             <Question text={questionText} />
-            <AnswerBoard
-              showThanksModal={showThanksModal}
-              setShowThanksModal={setShowThanksModal}
-            />
+            <AnswerBoard />
           </StyledMain>
         </Layout>
       </ThemeProvider>
