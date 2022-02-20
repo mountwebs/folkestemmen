@@ -23,6 +23,7 @@ const Layout = ({
       <Header
         showLoginModal={showLoginModal}
         setShowLoginModal={setShowLoginModal}
+        setShowWhatsThisModal={setShowWhatsThisModal}
       />
       {showLoginModal && <Login setShowLoginModal={setShowLoginModal}></Login>}
       {showWhatsThisModal && (

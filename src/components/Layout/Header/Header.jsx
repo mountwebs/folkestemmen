@@ -69,17 +69,19 @@ const StyledLink = styled.a`
   }
 `;
 
-const Header = ({ showLoginModal, setShowLoginModal }) => {
-  const handleLogin = () => {
-    setShowLoginModal(!showLoginModal);
-  };
-
+const Header = ({
+  showLoginModal,
+  setShowLoginModal,
+  setShowWhatsThisModal,
+}) => {
   return (
     <StyledHeader>
       <StyledContainer>
         <StyledContentLeft>Liv i sentrum</StyledContentLeft>
         <StyledContentRight>
-          <StyledLink onClick={handleLogin}>Hva er dette?</StyledLink>
+          <StyledLink onClick={() => setShowWhatsThisModal(true)}>
+            Hva er dette?
+          </StyledLink>
           <StyledButton
             onClick={() => (window.location = 'mailto:erlend@travers.as')}
           >

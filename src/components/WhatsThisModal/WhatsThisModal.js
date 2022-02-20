@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
@@ -15,9 +15,8 @@ const StyledModal = styled.div`
 
 const StyledModalMain = styled.div`
   position: fixed;
-  padding: 2rem;
-  max-width: 90%;
-  min-width: 60%;
+  padding: 1rem;
+  width: 90%;
   background-color: white;
   border-radius: 25px;
   color: white;
@@ -25,7 +24,12 @@ const StyledModalMain = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   @media only screen and ${device.sm} {
+    width: auto;
+    max-width: 90%;
+    min-width: 60%;
+    padding: 2rem;
   }
 `;
 
@@ -35,17 +39,31 @@ const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  font-size: 1rem;
+  position: relative;
 
   h1 {
     font-weight: 500;
     margin-bottom: 0;
+    font-size: 1.5rem;
   }
 
   p {
     opacity: 0.7;
-    margin-bottom: 4rem;
-    font-size: 1.3rem;
+    margin-bottom: 2rem;
     font-weight: 400;
+  }
+
+  @media only screen and ${device.sm} {
+    font-size: 1.3rem;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      margin-bottom: 4rem;
+    }
   }
 `;
 
@@ -53,18 +71,90 @@ const StyledArea = styled.div`
   border-radius: 25px;
   background: #fcfaef;
   padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 
   p {
     margin: 0;
+    text-wrap: balance;
+  }
+
+  > * {
+    &:last-child {
+      margin-top: 1rem;
+    }
+  }
+
+  @media only screen and ${device.sm} {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+
+    > * {
+      &:last-child {
+        margin-left: 20px;
+      }
+    }
   }
 `;
 
-const WhatsThisModal = ({}) => {
+const StyledButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.buttons.post.background};
+  color: black;
+
+  :disabled {
+    opacity: 50%;
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  @media only screen and ${device.sm} {
+    font-size: 1rem;
+  }
+`;
+
+const StyledX = styled.div`
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+    background: #f2f2f2;
+  }
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+const WhatsThisModal = ({ setShowWhatsThisModal }) => {
+  const handleX = () => {
+    setShowWhatsThisModal(false);
+  };
   return (
     <StyledModal>
       <StyledModalMain>
         <StyledContent>
-          <h1>Hva er dette</h1>
+          <StyledX onClick={handleX}>
+            <span>x</span>
+          </StyledX>
+          <h1>Hva er dette?</h1>
           <p>
             Randaberg kommune vil skape mer liv i sentrum og lurer på hva du som
             innbygger mener! Derfor har vi laget denne nettsiden. Her kan du
@@ -72,6 +162,11 @@ const WhatsThisModal = ({}) => {
           </p>
           <StyledArea>
             <p>Har du andre spørsmål? Ikke nøl med å kontakte oss.</p>
+            <StyledButton
+              onClick={() => (window.location = 'mailto:erlend@travers.as')}
+            >
+              Kontakt oss
+            </StyledButton>
           </StyledArea>
         </StyledContent>
       </StyledModalMain>

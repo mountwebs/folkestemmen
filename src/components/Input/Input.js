@@ -228,7 +228,6 @@ const Input = ({
       </div>
       {userData.posts.length >= 2 && (
         <StyledWarningContainer>
-          {' '}
           <StyledWarning>
             Vi har lagt inn en begrensning på antall innspill for hver bruker på
             to innspill. Dersom du ønsker å legge ut et nytt innspill må du
