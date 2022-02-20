@@ -26,7 +26,7 @@ const StyledMain = styled.main`
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showWhatsThisModal, setShowWhatsThisModal] = useState(true);
+  const [showWhatsThisModal, setShowWhatsThisModal] = useState(false);
 
   return (
     <UserProvider>
