@@ -161,7 +161,11 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
             legge inn dine ønsker og stemme på andre forslag.
           </p>
           <StyledArea>
-            <p>Har du andre spørsmål? Ikke nøl med å kontakte oss.</p>
+            <p>
+              Har du andre spørsmål?
+              <br />
+              Ikke nøl med å kontakte oss.
+            </p>
             <StyledButton
               onClick={() => (window.location = 'mailto:erlend@travers.as')}
             >
