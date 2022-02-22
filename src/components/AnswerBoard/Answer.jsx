@@ -19,11 +19,17 @@ const StyledCard = styled.div`
   flex-direction: column;
   padding: 0 1rem 1rem 1rem;
   margin-bottom: 2rem;
-  background-color: ${({ theme, currentUser }) => theme.colors.body.primary};
+  background-color: ${({ theme, currentUser }) =>
+    currentUser
+      ? theme.colors.currentUserAnswer.background
+      : theme.colors.body.primary};
   border-radius: 25px;
 
   .fa-ellipsis-h {
-    color: ${({ theme }) => theme.colors.text.muted};
+    color: ${({ theme, currentUser }) =>
+      currentUser
+        ? theme.colors.currentUserAnswer.details
+        : theme.colors.text.muted};
   }
 
   @media only screen and ${device.sm} {
@@ -45,7 +51,10 @@ const StyledCard = styled.div`
 
       p {
         margin: 1rem 0 0.2rem 0.2rem;
-        color: ${({ theme }) => theme.colors.text.muted};
+        color: ${({ currentUser, theme }) =>
+          currentUser
+            ? theme.colors.currentUserAnswer.details
+            : theme.colors.text.muted};
         font-size: 0.8rem;
       }
     }

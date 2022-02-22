@@ -5,6 +5,7 @@ const white = '#FFF';
 const black = '#000';
 const lightYellow = '#FFEBA5';
 const lighterYellow = '#F5F2E3';
+const darkestGrey = '#333333';
 const lightGreen = '#D0F286';
 const lightGrey = '#BDBDBD';
 const lighterGrey = '#FAFAFA';
@@ -128,6 +129,11 @@ export const theme = {
       questionHeader: {
         background: beige,
         text: randabergDarkBrown,
+      },
+      currentUserAnswer: {
+        background: lightGreen,
+        details: darkestGrey,
+        text: black,
       },
       answerMenu: { background: lighterGrey, deleteColor: orange },
       link: {
