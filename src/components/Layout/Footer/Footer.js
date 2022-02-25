@@ -101,7 +101,7 @@ const StyledSpan = styled.span`
 `;
 
 const StyledGit = styled(StyledSpan)`
-  margin: 0.5rem 0 1rem;
+  margin: 0.3rem 0 1rem;
 `;
 
 const StyledLink = styled(StyledSpan)`
