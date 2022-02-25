@@ -5,6 +5,8 @@ import Button from '../../Button/Button';
 import traversLogo from '../../../assets/travers-logo.svg';
 import device from '../../../constants/breakpoints';
 import UserContext from '../../../UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -77,7 +79,6 @@ const StyledBranding = styled.small`
   font-size: 0.8rem;
   color: #ffffff;
   align-items: center;
-  margin-bottom: 1rem;
 `;
 
 const StyledButton = styled(Button)`
@@ -96,9 +97,20 @@ const StyledButton = styled(Button)`
 
 const StyledSpan = styled.span`
   color: white;
+  font-size: small;
+`;
+
+const StyledGit = styled(StyledSpan)`
+  margin: 0.5rem 0 1rem;
+`;
+
+const StyledLink = styled(StyledSpan)`
   text-decoration: underline;
   cursor: pointer;
-  font-size: small;
+`;
+
+const StyledA = styled.a`
+  color: white;
 `;
 
 const Footer = ({ showLoginModal, setShowLoginModal }) => {
@@ -133,9 +145,14 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
         Utviklet av &nbsp;
         <img src={traversLogo} alt="" />
       </StyledBranding>
-      <StyledSpan onClick={handleAdminLogin}>Admin</StyledSpan>
+      <StyledGit>
+        <StyledA href="https://github.com/mountwebs/iver">
+          Åpen kildekode <FontAwesomeIcon icon={faGithub} size="lg" />
+        </StyledA>
+      </StyledGit>
+      <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
       {userData.isAdmin && (
-        <StyledSpan onClick={handleLogout}>Logg ut</StyledSpan>
+        <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
       )}
     </StyledFooter>
   );
