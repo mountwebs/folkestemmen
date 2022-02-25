@@ -11,7 +11,6 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   font-family: 'DM Sans', sans-serif;
-  color: ${({ theme }) => theme.colors.text.primary};
   color: ${({ theme, liked }) => (liked ? '#F34C90' : theme.colors.text.muted)};
   transform: translateY(5%);
   font-size: 1.4rem;
@@ -23,9 +22,11 @@ const StyledContainer = styled.div`
 
   .fa-circle {
     color: white;
+    opacity: 0;
   }
 
   &:hover .fa-circle {
+    opacity: 1;
     color: #f5e4eb;
   }
 
