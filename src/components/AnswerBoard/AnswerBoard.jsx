@@ -252,7 +252,7 @@ const AnswerBoard = () => {
         <StyledLoadMoreContainer>
           {morePosts ? (
             <StyledLoadMoreButton onClick={handleLoadMore}>
-              Last flere inspill
+              Last flere innspill
             </StyledLoadMoreButton>
           ) : (
             'Ingen flere innspill..'
