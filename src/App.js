@@ -37,7 +37,6 @@ function App() {
         <meta name="theme-color" content="#F5F2E3" />
         <meta property="og:title" content="Liv i sentrum" />
         <meta property="og:description" content="Liv i sentrum." />
-        <meta property="og:image" content={screenshot} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.livisentrum.no/" />
 
