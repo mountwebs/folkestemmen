@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
 import { Helmet } from 'react-helmet';
+import screenshot from './assets/screenshot.jpg';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -31,6 +32,15 @@ function App() {
   return (
     <UserProvider>
       <Helmet>
+        <title>Liv i sentrum</title>
+        <meta name="description" content="Liv i sentrum" />
+        <meta name="theme-color" content="#F5F2E3" />
+        <meta property="og:title" content="Liv i sentrum" />
+        <meta property="og:description" content="Liv i sentrum." />
+        <meta property="og:image" content={screenshot} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.livisentrum.no/" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
