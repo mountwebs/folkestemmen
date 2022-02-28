@@ -32,14 +32,6 @@ function App() {
   return (
     <UserProvider>
       <Helmet>
-        <title>Liv i sentrum</title>
-        <meta name="description" content="Liv i sentrum" />
-        <meta name="theme-color" content="#F5F2E3" />
-        <meta property="og:title" content="Liv i sentrum" />
-        <meta property="og:description" content="Liv i sentrum." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.livisentrum.no/" />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
