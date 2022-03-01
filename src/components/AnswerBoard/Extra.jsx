@@ -29,7 +29,8 @@ const StyledButton = styled(Button)`
   background: ${({ theme }) => theme.colors.buttons.extra.background};
   color: white;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+
   @media only screen and ${device.sm} {
     padding: 0.8rem 35px;
     margin-left: 60px;
