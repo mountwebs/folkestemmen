@@ -8,6 +8,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
+import Extra from './Extra';
 
 const placeholderText = 'Hva er ditt inspill?';
 const buttonText = 'Legg ut';
@@ -208,6 +209,7 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
+      <Extra />
       <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
