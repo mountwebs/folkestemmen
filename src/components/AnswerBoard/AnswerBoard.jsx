@@ -10,7 +10,7 @@ import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
 import Extra from './Extra';
 
-const placeholderText = 'Hva er ditt inspill?';
+const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
