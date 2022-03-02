@@ -41,7 +41,7 @@ const Extra = () => {
   return (
     <StyledExtra>
       <p>
-        <strong>Har du 5 min ekstra?</strong> Svar på spørreundersøkelse og være
+        <strong>Har du 5 min ekstra?</strong> Svar på spørreundersøkelse og vær
         med i trekningen av gavekort!
       </p>
       <StyledButton>Svar på undersøkelse</StyledButton>
