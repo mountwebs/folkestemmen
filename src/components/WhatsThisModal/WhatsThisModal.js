@@ -45,7 +45,7 @@ const StyledContent = styled.div`
   h1 {
     font-weight: 500;
     margin-bottom: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   p {
@@ -103,7 +103,8 @@ const StyledArea = styled.div`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: black;
+  color: #302405;
+  font-weight: 600;
 
   :disabled {
     opacity: 50%;
