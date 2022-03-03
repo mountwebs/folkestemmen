@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
+import { useOutsideClick } from 'rooks';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -145,12 +146,18 @@ const StyledX = styled.div`
 `;
 
 const WhatsThisModal = ({ setShowWhatsThisModal }) => {
+  const ref = useRef();
+
   const handleX = () => {
     setShowWhatsThisModal(false);
   };
+  function handleOutsideClick() {
+    setShowWhatsThisModal(false);
+  }
+  useOutsideClick(ref, handleOutsideClick);
   return (
     <StyledModal>
-      <StyledModalMain>
+      <StyledModalMain ref={ref}>
         <StyledContent>
           <StyledX onClick={handleX}>
             <span>x</span>
