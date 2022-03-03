@@ -157,8 +157,13 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           <h1>Hva er dette?</h1>
           <p>
             Randaberg kommune vil skape mer liv i sentrum og lurer på hva du som
-            innbygger mener! Derfor har vi laget denne nettsiden. Her kan du
-            legge inn dine ønsker og stemme på andre forslag.
+            innbygger mener! Skriv inn dine egen ønsker og lik andre innspill.
+            <br />
+            <br />
+            Nettsiden er laget sammen med designkontoret{' '}
+            <a href="https://www.travers.as/">Travers</a> og arkitektkontoret{' '}
+            <a href="http://etyde.no">Etyde</a>. De vil også være tilstede på
+            biblioteket i Randaberg 9. til 12. mars. Velkommen innom!
           </p>
           <StyledArea>
             <p>

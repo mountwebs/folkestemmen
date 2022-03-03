@@ -88,6 +88,10 @@ export const theme = {
         color: black,
         background: '#F9DB83',
       },
+      questionmark: {
+        background: randabergDarkBrown,
+        color: randabergLighterYellow,
+      },
     },
     font: 'DM Sans',
   },
