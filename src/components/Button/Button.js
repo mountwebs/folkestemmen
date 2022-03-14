@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-import { PersonFill } from '@styled-icons/bootstrap';
-
-const PersonFillStyled = styled(PersonFill)`
-  width: 1.3rem;
-  height: 1.3rem;
-  margin-right: 10px;
-`;
 
 const StyledButton = styled.button`
   white-space: nowrap;
@@ -29,10 +22,7 @@ const ContainerDiv = styled.div`
 const Button = ({ children, ...props }) => {
   return (
     <StyledButton {...props} disabled={props.disabled}>
-      <ContainerDiv>
-        {props.icon === 'PersonFill' && <PersonFillStyled />}
-        {children}
-      </ContainerDiv>
+      <ContainerDiv>{children}</ContainerDiv>
     </StyledButton>
   );
 };

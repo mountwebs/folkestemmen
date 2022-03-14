@@ -44,7 +44,11 @@ const Extra = () => {
         <strong>Har du 5 min ekstra?</strong> Svar på spørreundersøkelse og vær
         med i trekningen av gavekort!
       </p>
-      <StyledButton>Svar på undersøkelse</StyledButton>
+      <StyledButton
+        onClick={() => window.open('https://nettskjema.no/a/253737')}
+      >
+        Svar på undersøkelse
+      </StyledButton>
     </StyledExtra>
   );
 };

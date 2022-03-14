@@ -237,7 +237,7 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
-      {/* <Extra /> */}
+      <Extra />
       <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
