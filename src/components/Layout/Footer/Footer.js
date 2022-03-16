@@ -7,6 +7,8 @@ import device from '../../../constants/breakpoints';
 import UserContext from '../../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -125,6 +127,40 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
     localStorage.removeItem('jwtKey');
   };
 
+  const downloadCsv = () => {
+    const userId = userData.userId;
+    const jwtKey = localStorage.getItem('jwtKey');
+
+    let headerConfig = {
+      headers: {
+        userId,
+      },
+    };
+
+    if (jwtKey) headerConfig.headers.token = `Bearer ${jwtKey}`;
+
+    axios
+      .get('https://mighty-bayou-51480.herokuapp.com/answer/all', headerConfig)
+      .then((response) => response.data)
+      .then((data) => {
+        const items = data;
+        const replacer = (key, value) => (value === null ? '' : value); // specify how you want to handle null values here
+        const header = Object.keys(items[0]);
+        const csv = [
+          header.join(','), // header row first
+          ...items.map((row) =>
+            header
+              .map((fieldName) => JSON.stringify(row[fieldName], replacer))
+              .join(',')
+          ),
+        ].join('\r\n');
+
+        var blob = new Blob([csv], { type: '"text/csv;charset=utf-8"' });
+        saveAs(blob, 'data.csv');
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <StyledFooter>
       <StyledContainer>
@@ -152,7 +188,10 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
       </StyledGit>
       <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
       {userData.isAdmin && (
-        <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
+        <>
+          <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
+          <StyledLink onClick={downloadCsv}>Last ned csv</StyledLink>
+        </>
       )}
     </StyledFooter>
   );

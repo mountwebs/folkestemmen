@@ -196,34 +196,6 @@ const AnswerBoard = () => {
     getAnswers();
   }, [getAnswers]);
 
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}answer?limit=0`)
-      .then((response) => response.data)
-      .then((data) => {
-        const items = data;
-        const replacer = (key, value) => (value === null ? '' : value); // specify how you want to handle null values here
-        const header = Object.keys(items[0]);
-        const csv = [
-          header.join(','), // header row first
-          ...items.map((row) =>
-            header
-              .map((fieldName) => JSON.stringify(row[fieldName], replacer))
-              .join(',')
-          ),
-        ].join('\r\n');
-
-        let csvContent = 'data:text/csv;charset=utf-8,';
-
-        csvContent += csv;
-
-        var encodedUri = encodeURI(csvContent);
-        window.open(encodedUri);
-
-        console.log(csv);
-      });
-  }, []);
-
   return (
     <StyledContainer className="answer-board">
       {showThanksModal && (
