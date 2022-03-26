@@ -204,12 +204,6 @@ const AnswerBoard = () => {
           addAnswer={addAnswer}
         ></ThanksModal>
       )}
-      <Input
-        placeholderText={placeholderText}
-        buttonText={buttonText}
-        setShowThanksModal={setShowThanksModal}
-      />
-      <Extra />
       <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
