@@ -10,7 +10,6 @@ import Star from './Star';
 import Union from './Union';
 import Union2 from './Union2';
 import StarMobile from './StarMobile';
-import RandabergLogo from './RandabergLogo';
 
 const StyledWelcome = styled.div`
   background: ${({ theme }) => theme.colors.body.background};
@@ -128,23 +127,6 @@ const StyledRectangle3Mobile = styled(Rectangle3Mobile)`
   }
 `;
 
-const StyledRandabergLogo = styled(RandabergLogo)`
-  position: absolute;
-  z-index: -100;
-  height: 65px;
-  left: -60px;
-  top: 5px;
-  color: #3a83c4;
-
-  @media only screen and ${device.sm} {
-    display: block;
-    width: 300px;
-    height: 150px;
-    left: -70px;
-    top: 65px;
-  }
-`;
-
 const StyledUnion = styled(Union)`
   position: absolute;
   z-index: -100;
@@ -204,7 +186,6 @@ const Welcome = () => {
       <StyledContainer>
         <StyledRectangle3Mobile />
         <StyledRectangle3 />
-        <StyledRandabergLogo />
         <StyledStarMobile />
         <StyledStar2 />
         <StyledUnion />

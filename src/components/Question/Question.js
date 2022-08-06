@@ -31,7 +31,7 @@ const StyledCardContainer = styled.div`
 const StyledCard = styled.div`
   background-color: white;
   margin-bottom: 1rem;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   margin: 0.5rem 5px 0 0;
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.question.text};
@@ -55,7 +55,7 @@ const Question = () => {
       </StyledHeadingContainer>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p className="card-text">Hva ønsker du deg i Randaberg sentrum?</p>
+          <p className="card-text">Hva ønsker du deg i sentrum?</p>
         </StyledCard>
       </StyledCardContainer>
     </>
