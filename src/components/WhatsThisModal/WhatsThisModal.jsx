@@ -162,29 +162,30 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>Hva er dette?</h1>
+          <h1>Den smarte fjellbygda Trøym</h1>
           <p>
-            Randaberg kommune vil skape mer liv i sentrum og lurer på hva du som
-            innbygger mener! Skriv inn dine egen ønsker og lik andre innspill.
+            Hemsedal kommune jobber nå med å utvikle og utvide Trøym sentrum. Vi
+            ønsker å skape et trivelig sentrum som knytter sammen folk, natur,
+            handel og opplevelser.
             <br />
             <br />
-            Nettsiden er laget sammen med designkontoret{' '}
-            <a href="https://www.travers.as/">Travers</a> og arkitektkontoret{' '}
-            <a href="http://etyde.no">Etyde</a>. De vil også være tilstede på
-            biblioteket i Randaberg 9. til 12. mars. Velkommen innom!
+            Derfor ønsker vi å snakke med innbyggere i Hemsedal om hva dere
+            tenker om sentrum i dag, og ikke minst, hva dere ønsker at sentrum
+            skal være i fremtiden!
+            <br />
+            <br />
+            I ukene fremover vil vi gjøre ulike aktiviteter for å samle inn
+            innspill og tanker fra helårs-hemsedølinger, helge-hemsedølinger og
+            av-og-til-hemsdølinger.
+            <br />
+            <br />
+            I løpet av hele perioden kan du komme med dine innspill på
+            livisentrum.no/hemsedal.
+            <br />
+            <br />
+            Senere i høst vil vi lage skisser av ulike muligheter og tiltak, og
+            vil invitere på ny til en ny runde med innspill.
           </p>
-          <StyledArea>
-            <p>
-              Har du andre spørsmål?
-              <br />
-              Ikke nøl med å kontakte oss.
-            </p>
-            <StyledButton
-              onClick={() => (window.location = 'mailto:erlend@travers.as')}
-            >
-              Kontakt oss
-            </StyledButton>
-          </StyledArea>
         </StyledContent>
       </StyledModalMain>
     </StyledModal>
