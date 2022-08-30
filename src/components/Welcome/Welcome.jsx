@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import Rectangle3 from './Rectangle3';
 import Rectangle3Mobile from './Rectangle3Mobile';
+import HemsedalLogo from './HemsedalLogo';
 
 import Rectangle7 from './Rectangle7';
 import Star from './Star';
@@ -22,6 +23,20 @@ const StyledWelcome = styled.div`
   position: relative;
   z-index: 10;
   @media only screen and ${device.sm} {
+  }
+`;
+
+const StyledHemsedalLogo = styled(HemsedalLogo)`
+  position: absolute;
+  top: 0;
+  left: 30px;
+  z-index: -100;
+  height: 100px;
+  color: #d6cea6;
+
+  @media only screen and ${device.sm} {
+    left: 60px;
+    height: 160px;
   }
 `;
 
@@ -69,7 +84,7 @@ const StyledStar = styled(Star)`
   position: absolute;
   z-index: -100;
   width: 150px;
-  color: #c3e679;
+  color: #ebe6cc;
   left: -63px;
   top: -161px;
 
@@ -83,7 +98,7 @@ const StyledStar = styled(Star)`
 const StyledStar2 = styled(Star)`
   position: absolute;
   z-index: -100;
-  color: #298d75;
+  color: #ebe6cc;
   left: -63px;
   top: -161px;
   display: none;
@@ -103,7 +118,7 @@ const StyledRectangle3 = styled(Rectangle3)`
   height: 136px;
   right: -50px;
   top: -90px;
-  color: #ffe074;
+  color: #ebe6cc;
   display: none;
 
   @media only screen and ${device.sm} {
@@ -119,8 +134,8 @@ const StyledRectangle3Mobile = styled(Rectangle3Mobile)`
   position: absolute;
   z-index: -100;
   right: 0;
-  top: -70px;
-  color: #ffe074;
+  top: -50px;
+  color: #ebe6cc;
 
   @media only screen and ${device.sm} {
     display: none;
@@ -131,15 +146,15 @@ const StyledUnion = styled(Union)`
   position: absolute;
   z-index: -100;
   width: 225px;
-  top: 225px;
-  right: 0px;
+  right: 0;
+  top: 0;
   display: none;
 
   @media only screen and ${device.sm} {
     display: block;
-    right: -100;
-    top: 700px;
-    color: #a0d2c0;
+    right: 0;
+    top: 0;
+    color: #ebe6cc;
   }
 `;
 
@@ -185,15 +200,11 @@ const Welcome = () => {
     <StyledWelcome>
       <StyledContainer>
         <StyledRectangle3Mobile />
-        <StyledRectangle3 />
-        <StyledStarMobile />
         <StyledStar2 />
         <StyledUnion />
 
         <StyledStar />
-
-        <StyledUnion2 />
-        <StyledRectangle7 />
+        <StyledHemsedalLogo />
       </StyledContainer>
     </StyledWelcome>
   );
