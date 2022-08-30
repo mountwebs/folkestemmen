@@ -18,7 +18,7 @@ const StyledModalMain = styled.div`
   position: fixed;
   padding: 1rem;
   width: 90%;
-  background-color: white;
+  background-color: #f5f2e3;
   border-radius: 25px;
   color: white;
   text-align: center;
@@ -47,6 +47,7 @@ const StyledContent = styled.div`
     font-weight: 500;
     margin-bottom: 0;
     font-size: 1.8rem;
+    padding-right: 2rem;
   }
 
   p {
