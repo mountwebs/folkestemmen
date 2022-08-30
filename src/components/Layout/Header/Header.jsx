@@ -29,10 +29,11 @@ const StyledContainer = styled.div`
 
 const StyledContentLeft = styled.span`
   z-index: 100;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  text-align: center;
 
   @media only screen and ${device.sm} {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -77,7 +78,7 @@ const Header = ({
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft>Liv i sentrum</StyledContentLeft>
+        <StyledContentLeft>Den smarte fjellbygda Trøym</StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>
             Hva er dette?
