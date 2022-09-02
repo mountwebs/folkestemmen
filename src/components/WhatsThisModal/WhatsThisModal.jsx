@@ -174,10 +174,14 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
             tenker om sentrum i dag, og ikke minst, hva dere ønsker at sentrum
             skal være i fremtiden!
             <br />
-            <br />
-            I ukene fremover vil vi gjøre ulike aktiviteter for å samle inn
-            innspill og tanker fra helårs-hemsedølinger, helge-hemsedølinger og
-            av-og-til-hemsdølinger.
+            <br />I ukene fremover vil vi gjøre ulike aktiviteter for å samle
+            inn ulike innspill og tanker fra helårs-hemsedøler, helge-hemsedøler
+            og av-og-til-hemsedøler. I løpet av hele perioden kan du komme med
+            dine innspill på{' '}
+            <a href="https://livisentrum.no/hemsedal">
+              livisentrum.no/hemsedal
+            </a>
+            .
             <br />
             <br />
             I løpet av hele perioden kan du komme med dine innspill på
