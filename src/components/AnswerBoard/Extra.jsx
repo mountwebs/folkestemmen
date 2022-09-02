@@ -45,7 +45,7 @@ const Extra = () => {
         med i trekningen av gavekort!
       </p>
       <StyledButton
-        onClick={() => window.open('https://nettskjema.no/a/253737')}
+        onClick={() => window.open('https://nettskjema.no/a/280736')}
       >
         Svar på undersøkelse
       </StyledButton>
