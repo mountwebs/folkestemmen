@@ -177,10 +177,7 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
             <br />I ukene fremover vil vi gjøre ulike aktiviteter for å samle
             inn ulike innspill og tanker fra helårs-hemsedøler, helge-hemsedøler
             og av-og-til-hemsedøler. I løpet av hele perioden kan du komme med
-            dine innspill på{' '}
-            <a href="https://livisentrum.no/hemsedal">
-              livisentrum.no/hemsedal
-            </a>
+            dine innspill på <a href="https://livisentrum.no">livisentrum.no</a>
             .
             <br />
             <br />
