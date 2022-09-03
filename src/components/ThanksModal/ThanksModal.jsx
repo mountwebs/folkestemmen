@@ -41,10 +41,11 @@ const StyledContent = styled.div`
   }
 
   p {
-    max-width: 200px;
+    max-width: 250px;
     font-size: 1rem;
     opacity: 0.7;
     margin-bottom: 1.5rem;
+    align-self: start;
   }
 `;
 
@@ -52,11 +53,18 @@ const StyledInput = styled.input`
   background-color: #f8f8f8;
   border: none;
   border-radius: 15px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   padding: 10px 20px;
-  max-width: 80%;
+  max-width: 100%;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
+  align-self: start;
+
+  ::placeholder {
+    color: #747474;
+    opacity: 0.4;
+    font-size: 1.6rem;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -97,11 +105,13 @@ const StyledHeader = styled.h1`
 
 const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const [ageValue, setAgeValue] = useState('');
+  const [tagValue, setTagValue] = useState('');
   const userData = useContext(UserContext);
 
   const handleSumbit = (input) => {
     const answer = userData.answer;
-    if (input === 'button') answer.age = ageValue;
+    answer.age = ageValue;
+    answer.tags = tagValue;
     addAnswer(answer);
     userData.setAnswer({});
     setShowThanksModal(false);
@@ -113,19 +123,32 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
         <StyledContent>
           <StyledEmoji>👏</StyledEmoji>
           <StyledHeader>Takk for innspill!</StyledHeader>
-          <p>En siste ting, hvor gammel er du?</p>
+          {userData.answer.tags.length === 0 && (
+            <>
+              <p>Beskriv innspillet med et stikkord</p>
+              <StyledInput
+                placeholder="Stikkord"
+                value={tagValue}
+                onChange={(e) => setTagValue(e.target.value)}
+                maxLength="20"
+              />
+            </>
+          )}
+          <p>Hvor gammel er du?</p>
           <StyledInput
             placeholder="Alder"
             value={ageValue}
             onChange={(e) => setAgeValue(e.target.value)}
-            maxLength="15"
+            maxLength="10"
           />
-          <StyledButton onClick={() => handleSumbit('button')}>
+          <StyledButton
+            onClick={() => handleSumbit('button')}
+            disabled={
+              userData.answer.tags.length === 0 && tagValue.length === 0
+            }
+          >
             Ok!
           </StyledButton>
-          <StyledLink onClick={() => handleSumbit('link')}>
-            Hopp over
-          </StyledLink>
         </StyledContent>
       </StyledModalMain>
     </StyledModal>
