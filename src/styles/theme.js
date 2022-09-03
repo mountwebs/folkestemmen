@@ -24,6 +24,7 @@ export const theme = {
     name: 'Light',
     colors: {
       brown,
+      yellow,
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',

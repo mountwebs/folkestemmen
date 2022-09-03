@@ -60,6 +60,11 @@ const StyledContainer = styled.form`
 const StyledTag = styled(Tag)`
   padding: 0.6rem 0.3rem;
 
+  &:hover,
+  &:focus-within {
+    background: ${({ theme }) => theme.colors.yellow};
+  }
+
   @media only screen and ${device.sm} {
     padding: 0.5rem;
   }
@@ -137,12 +142,7 @@ const StyledWarning = styled.span`
   text-align: center;
 `;
 
-const Input = ({
-  placeholderText,
-  buttonText,
-  addAnswer,
-  setShowThanksModal,
-}) => {
+const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const [temaFocus, setTemaFocus] = useState(true);
