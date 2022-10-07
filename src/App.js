@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
 import { Helmet } from 'react-helmet';
+import Closed from './components/Closed/Closed';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -56,6 +57,7 @@ function App() {
             setShowLoginModal={setShowLoginModal}
           />
           <StyledMain>
+            <Closed />
             <Question text={questionText} />
             <AnswerBoard />
           </StyledMain>

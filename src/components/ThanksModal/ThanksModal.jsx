@@ -123,7 +123,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
         <StyledContent>
           <StyledEmoji>👏</StyledEmoji>
           <StyledHeader>Takk for innspill!</StyledHeader>
-          {userData.answer.tags.length === 0 && (
+          {userData.answer.tags.trim().length === 0 && (
             <>
               <p>Beskriv innspillet med et stikkord</p>
               <StyledInput
@@ -144,7 +144,8 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
           <StyledButton
             onClick={() => handleSumbit('button')}
             disabled={
-              userData.answer.tags.length === 0 && tagValue.length === 0
+              userData.answer.tags.trim().length === 0 &&
+              tagValue.trim().length === 0
             }
           >
             Ok!
