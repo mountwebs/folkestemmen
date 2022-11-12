@@ -30,20 +30,7 @@ function App() {
 
   return (
     <UserProvider>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <ThemeProvider theme={theme.randaberg}>
+      <ThemeProvider theme={theme.munch}>
         <GlobalStyle />
         <Layout
           showLoginModal={showLoginModal}
@@ -51,10 +38,6 @@ function App() {
           showWhatsThisModal={showWhatsThisModal}
           setShowWhatsThisModal={setShowWhatsThisModal}
         >
-          <Welcome
-            showLoginModal={showLoginModal}
-            setShowLoginModal={setShowLoginModal}
-          />
           <StyledMain>
             <Question text={questionText} />
             <AnswerBoard />
