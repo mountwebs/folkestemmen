@@ -71,7 +71,8 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.7"
+    "babel-plugin-styled-components": "^2.0.7",
+    "prettier": "^2.7.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -86,7 +87,10 @@
     "parserOptions": {
       "babelOptions": {
         "presets": [
-          ["babel-preset-react-app", false]
+          [
+            "babel-preset-react-app",
+            false
+          ]
         ]
       }
     }
