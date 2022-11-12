@@ -39,6 +39,7 @@ const StyledContentLeft = styled.span`
 `;
 
 const StyledContentRight = styled.div`
+  z-index: 100;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;

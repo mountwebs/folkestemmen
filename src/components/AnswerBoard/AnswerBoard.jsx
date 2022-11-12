@@ -14,15 +14,14 @@ const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.body.background};
   margin-bottom: 5rem;
   border-radius: 10px;
   margin: 0 5px;
   max-width: 1020px;
-  padding-top: 2rem;
+  margin-top: 2rem;
 
   @media only screen and ${device.sm} {
-    padding-top: 4rem;
+    margin-top: 4rem;
   }
 `;
 
@@ -215,8 +214,6 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
-      <Extra />
-      <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}

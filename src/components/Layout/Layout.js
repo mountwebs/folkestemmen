@@ -5,6 +5,21 @@ import styled from 'styled-components';
 import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
+import munchBackground from '../../assets/img/munch-background.png';
+
+const StyledImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  height: 25rem;
+  z-index: 0;
+
+  @media only screen and ${device.sm} {
+    height: 42rem;
+  }
+`;
 
 const StyledApp = styled.div`
   background-color: ${({ theme }) => theme.colors.body.background};
@@ -45,6 +60,7 @@ const Layout = ({
 }) => {
   return (
     <StyledApp>
+      <StyledImg src={munchBackground} />
       <StyledQuestionmark onClick={() => setShowWhatsThisModal(true)}>
         <span>?</span>
       </StyledQuestionmark>

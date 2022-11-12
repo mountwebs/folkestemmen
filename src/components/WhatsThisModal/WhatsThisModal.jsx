@@ -10,7 +10,7 @@ const StyledModal = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1000;
 `;
 
@@ -25,11 +25,11 @@ const StyledModalMain = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-bottom: 2rem;
 
   @media only screen and ${device.sm} {
     width: auto;
-    max-width: 90%;
-    min-width: 60%;
+    max-width: 32.8125rem;
     padding: 2rem;
   }
 `;
@@ -42,71 +42,39 @@ const StyledContent = styled.div`
   text-align: left;
   font-size: 1rem;
   position: relative;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 
   h1 {
-    font-weight: 500;
     margin-bottom: 0;
     font-size: 1.8rem;
     padding-right: 2rem;
+    text-align: center;
   }
 
   p {
     opacity: 0.7;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-weight: 400;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 
   @media only screen and ${device.sm} {
     font-size: 1.3rem;
 
     h1 {
-      font-size: 2.5rem;
-    }
-
-    p {
-      margin-bottom: 4rem;
-    }
-  }
-`;
-
-const StyledArea = styled.div`
-  border-radius: 25px;
-  background: #fcfaef;
-  padding: 15px 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-
-  p {
-    margin: 0;
-    text-wrap: balance;
-  }
-
-  > * {
-    &:last-child {
       margin-top: 1rem;
-    }
-  }
-
-  @media only screen and ${device.sm} {
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-
-    > * {
-      &:last-child {
-        margin-left: 20px;
-      }
+      font-size: 4.375rem;
     }
   }
 `;
 
 const StyledButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: #302405;
-  font-weight: 600;
+  background-color: black;
+  color: white;
+  padding: 0.875rem 3.75rem;
+  border-radius: 2rem;
 
   :disabled {
     opacity: 50%;
@@ -117,7 +85,7 @@ const StyledButton = styled(Button)`
   }
 
   @media only screen and ${device.sm} {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -152,9 +120,11 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
   const handleX = () => {
     setShowWhatsThisModal(false);
   };
+
   function handleOutsideClick() {
     setShowWhatsThisModal(false);
   }
+
   useOutsideClick(ref, handleOutsideClick);
   return (
     <StyledModal>
@@ -163,32 +133,18 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>Den smarte fjellbygda Trøym</h1>
+          <h1>Hei! 👋</h1>
           <p>
-            Hemsedal kommune jobber nå med å utvikle og utvide Trøym sentrum. Vi
-            ønsker å skape et trivelig sentrum som knytter sammen folk, natur,
-            handel og opplevelser.
-            <br />
-            <br />
-            Derfor ønsker vi å snakke med innbyggere i Hemsedal om hva dere
-            tenker om sentrum i dag, og ikke minst, hva dere ønsker at sentrum
-            skal være i fremtiden!
-            <br />
-            <br />I ukene fremover vil vi gjøre ulike aktiviteter for å samle
-            inn ulike innspill og tanker fra helårs-hemsedøler, helge-hemsedøler
-            og av-og-til-hemsedøler. I løpet av hele perioden kan du komme med
-            dine innspill på <a href="https://livisentrum.no">livisentrum.no</a>
-            .
-            <br />
-            <br />
-            I løpet av hele perioden kan du komme med dine innspill på
-            livisentrum.no/hemsedal.
-            <br />
-            <br />
-            Senere i høst vil vi lage skisser av ulike muligheter og tiltak, og
-            vil invitere på ny til en ny runde med innspill.
+            Det gamle Munchmuseet på Tøyen har siden 1960-tallet vært en
+            nasjonalt viktig kulturarena. Siden august 2022 har bygningen vært
+            driftet av Kulturetaten og tatt i bruk som et kulturhus.
+          </p>
+          <p>
+            Nå ønsker vi å høre fra innbyggerne. Hva ønsker du at Gamle Munch
+            skal romme fremover?
           </p>
         </StyledContent>
+        <StyledButton onClick={handleX}>Okei!</StyledButton>
       </StyledModalMain>
     </StyledModal>
   );

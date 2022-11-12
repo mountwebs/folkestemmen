@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Layout from './components/Layout/Layout';
 import Question from './components/Question/Question';
-import Welcome from './components/Welcome/Welcome';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/globalStyle';
 import AnswerBoard from './components/AnswerBoard/AnswerBoard';
@@ -9,7 +8,6 @@ import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
-import { Helmet } from 'react-helmet';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -19,14 +17,16 @@ const StyledMain = styled.main`
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  position: relative;
+
   @media only screen and ${device.sm} {
-    padding: 0 10px;
+    padding: 5rem 1rem 0;
   }
 `;
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showWhatsThisModal, setShowWhatsThisModal] = useState(false);
+  const [showWhatsThisModal, setShowWhatsThisModal] = useState(true);
 
   return (
     <UserProvider>
