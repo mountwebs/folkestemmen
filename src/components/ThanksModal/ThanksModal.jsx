@@ -46,6 +46,7 @@ const StyledContent = styled.div`
     opacity: 0.7;
     margin-bottom: 1.5rem;
     align-self: start;
+    text-align: start;
   }
 `;
 
@@ -108,7 +109,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const [tagValue, setTagValue] = useState('');
   const userData = useContext(UserContext);
 
-  const handleSumbit = (input) => {
+  const handleSubmit = (input) => {
     const answer = userData.answer;
     answer.age = ageValue;
     answer.tags = tagValue;
@@ -142,9 +143,11 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             maxLength="10"
           />
           <StyledButton
-            onClick={() => handleSumbit('button')}
+            onClick={() => handleSubmit('button')}
             disabled={
-              userData.answer.tags.length === 0 && tagValue.length === 0
+              (userData.answer.tags.length === 0 &&
+                tagValue.trim().length === 0) ||
+              ageValue.trim().length === 0
             }
           >
             Ok!
