@@ -17,12 +17,14 @@
     "react-is": "^17.0.2",
     "react-masonry-css": "^1.0.16",
     "react-responsive": "^9.0.0-beta.5",
-    "react-scripts": "^5.0.0",
     "react-textarea-autosize": "^8.3.3",
     "rooks": "^5.10.0",
     "styled-components": "^5.2.3",
     "styled-normalize": "^8.0.7",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
