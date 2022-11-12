@@ -45,8 +45,14 @@ const StyledButton = styled(Button)`
   padding: 20px 40px;
   border-radius: 25px;
   font-weight: 600;
-  background-color: ${(props) => (props.selected ? '#C3E679' : '#EBE6CE')};
-  color: ${({ theme, selected }) => (selected ? '#302405' : '#ACA79B')};
+  background-color: ${({ theme, selected }) =>
+    selected
+      ? theme.colors.buttons.sort.selected.background
+      : theme.colors.buttons.sort.deselected.background};
+  color: ${({ theme, selected }) =>
+    selected
+      ? theme.colors.buttons.sort.selected.text
+      : theme.colors.buttons.sort.deselected.text};
 
   &:last-child {
     margin-left: 10px;
@@ -82,8 +88,8 @@ const StyledLoadMoreButton = styled(Button)`
   padding: 20px 40px;
   border-radius: 25px;
   font-weight: 600;
-  background-color: #c3e679;
-  color: ${({ theme }) => theme.colors.button.text.secondary};
+  background-color: ${({ theme }) => theme.colors.button.background.primary};
+  color: ${({ theme }) => theme.colors.button.text.primary};
 
   @media only screen and ${device.sm} {
     padding: 12px 40px;

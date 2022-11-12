@@ -59,10 +59,12 @@ const StyledContainer = styled.form`
 
 const StyledTag = styled(Tag)`
   padding: 0.6rem 0.3rem;
+  background: ${({ theme }) => theme.colors.buttons.tag.background};
+  color: ${({ theme }) => theme.colors.buttons.tag.text};
 
   &:hover,
   &:focus-within {
-    background: ${({ theme }) => theme.colors.yellow};
+    background: ${({ theme }) => theme.colors.buttons.tag.hover.background};
   }
 
   @media only screen and ${device.sm} {

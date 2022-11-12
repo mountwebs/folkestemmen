@@ -18,8 +18,30 @@ const randabergLighterYellow = '#F5F2E3';
 const randabergDarkBrown = '#513C08';
 const randabergLightGreen = '#C3E679';
 
+const colors = {
+  munch: {
+    cultured: {
+      default: '#F5F6F7',
+    },
+    seashell: {
+      strong: '#EFECDF',
+      default: '#FAF7EC',
+    },
+    brown: {
+      default: '#2E2402',
+      dark: '#231C00',
+      light: '#513C08',
+    },
+    gray: {
+      lightest: '#6a6a6a',
+      light: '#bcbcbc',
+      dark: '#333',
+    },
+  },
+};
+
 export const theme = {
-  randaberg: {
+  munch: {
     id: 'T_001',
     name: 'Light',
     colors: {
@@ -28,11 +50,11 @@ export const theme = {
       body: {
         primary: '#FFFFFF',
         secondary: '#F6F6F6',
-        background: randabergLighterYellow,
+        background: colors.munch.cultured.default,
       },
       text: {
         primary: black,
-        secondary: randabergDarkBrown,
+        secondary: colors.munch.brown.dark,
         tertiary: white,
         muted: lightGrey,
       },
@@ -42,35 +64,48 @@ export const theme = {
           text: darkBrown,
         },
         post: {
-          background: lightGreen,
-          text: darkerBrown,
-          disabledBackground: lightGrey,
-          disabledColor: black,
+          background: colors.munch.gray.dark,
+          text: white,
+          disabledBackground: colors.munch.gray.light,
+          disabledColor: colors.munch.gray.lightest,
         },
         tag: {
-          background: lightYellow,
-          text: randabergDarkBrown,
+          background: colors.munch.seashell.default,
+          hover: {
+            background: colors.munch.seashell.strong,
+          },
+          text: black,
         },
         extra: {
           color: white,
           background: '#82380E',
         },
+        sort: {
+          selected: {
+            background: colors.munch.gray.dark,
+            text: white,
+          },
+          deselected: {
+            background: colors.munch.seashell.strong,
+            text: 'rgba(51,51,51,0.5)',
+          },
+        },
       },
       button: {
         text: {
           primary: white,
-          secondary: darkerBrown,
+          secondary: black,
           disabled: '#A5A5A5',
         },
         background: {
-          primary: '#292929',
-          secondary: 'transparent',
+          primary: colors.munch.gray.dark,
+          secondary: white,
           disabled: '#E5E5E5',
         },
       },
       question: {
-        text: randabergDarkBrown,
-        background: randabergLightGreen,
+        text: colors.munch.darkBrown,
+        background: colors.munch.seashell.default,
       },
       questionHeader: {
         background: beige,
@@ -93,7 +128,10 @@ export const theme = {
         background: randabergDarkBrown,
         color: randabergLighterYellow,
       },
+      footer: {
+        background: colors.munch.brown.light,
+      },
     },
-    font: 'DM Sans',
+    font: 'Oslo Sans',
   },
 };

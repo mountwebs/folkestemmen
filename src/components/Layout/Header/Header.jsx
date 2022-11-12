@@ -31,6 +31,7 @@ const StyledContentLeft = styled.span`
   z-index: 100;
   font-size: 2rem;
   text-align: center;
+  color: ${({ theme }) => theme.colors.text.tertiary};
 
   @media only screen and ${device.sm} {
     font-size: 1.5rem;
@@ -46,25 +47,16 @@ const StyledContentRight = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
-  font-size: 1.2rem;
-  display: none;
-  background-color: ${({ theme }) => theme.colors.buttons.header.background};
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.buttons.header.text};
-
-  @media only screen and ${device.sm} {
-    display: block;
-  }
-`;
-
 const StyledLink = styled.a`
   display: none;
-  margin-right: 1.5rem;
   font-size: 1.3rem;
+  color: ${({ theme }) => theme.colors.text.tertiary};
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
 
   @media only screen and ${device.sm} {
-    color: inherit;
     text-decoration: unset;
     display: block;
   }
@@ -78,16 +70,16 @@ const Header = ({
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft>Den smarte fjellbygda Trøym</StyledContentLeft>
+        <StyledContentLeft>Gamle Munch</StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>
             Hva er dette?
           </StyledLink>
-          <StyledButton
+          <StyledLink
             onClick={() => (window.location = 'mailto:erlend@travers.as')}
           >
             Kontakt oss
-          </StyledButton>
+          </StyledLink>
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>

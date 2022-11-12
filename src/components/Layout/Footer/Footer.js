@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background: #3a5108;
+  background: ${({ theme }) => theme.colors.footer.background};
   position: relative;
   bottom: 0;
   color: #a5a5a5;
@@ -84,13 +84,13 @@ const StyledBranding = styled.small`
 `;
 
 const StyledButton = styled(Button)`
-  background-color: #fff3c7;
+  background-color: ${({ theme }) => theme.colors.button.background.secondary};
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-top: 1rem;
-  color: #3a5108;
+  color: ${({ theme }) => theme.colors.button.text.secondary};
   font-size: 1rem;
-
+  border-radius: 0.6875rem;
   @media only screen and ${device.sm} {
     margin-left: 2rem;
     margin-top: 0rem;
