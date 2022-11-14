@@ -70,7 +70,7 @@ const StyledInput = styled.input`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: black;
+  color: white;
   margin-top: 1rem;
   padding: 10px 40px;
   font-weight: bold;
@@ -112,11 +112,15 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const handleSubmit = (input) => {
     const answer = userData.answer;
     answer.age = ageValue;
-    answer.tags = tagValue;
+    answer.tags = tagValue ? tagValue : answer.tags;
     addAnswer(answer);
     userData.setAnswer({});
     setShowThanksModal(false);
   };
+
+  function containsOnlyNumbers(str) {
+    return /^\d+$/.test(str);
+  }
 
   return (
     <StyledModal>
@@ -147,7 +151,8 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             disabled={
               (userData.answer.tags.length === 0 &&
                 tagValue.trim().length === 0) ||
-              ageValue.trim().length === 0
+              ageValue.trim().length === 0 ||
+              !containsOnlyNumbers(ageValue)
             }
           >
             Ok!
