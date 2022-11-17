@@ -2,54 +2,77 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
+import backgroundImage from '../../assets/img/munch-background.png';
+
+const StyledContainer = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
 
 const StyledExtra = styled.div`
-  background: ${({ theme }) => theme.colors.extra.background};
+  background: url(${backgroundImage});
+  background-size: cover;
   position: relative;
-  width: 100%;
   border-radius: 25px;
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 25px;
-  font-size: 1rem;
+  justify-content: center;
+  padding: 1.5rem 1rem;
   flex-direction: column;
   color: black;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  max-width: 878px;
+  color: white;
 
   @media only screen and ${device.sm} {
-    flex-direction: row;
-    padding: 1.5rem 40px;
+    padding: 3rem 40px;
+  }
+
+  h3 {
     font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1.5rem;
+
+    @media only screen and ${device.sm} {
+      flex-direction: row;
+      padding: 0 40px;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
   }
 `;
 
 const StyledButton = styled(Button)`
-  background: ${({ theme }) => theme.colors.buttons.extra.background};
-  color: white;
+  background: white;
+  color: black;
   font-size: 1.1rem;
-  margin: 1rem 0;
+
+  &:hover {
+    opacity: 90%;
+  }
 
   @media only screen and ${device.sm} {
-    padding: 0.8rem 35px;
-    margin-left: 60px;
+    padding: 1rem 2rem;
   }
 `;
 
 const Extra = () => {
   return (
-    <StyledExtra>
-      <p>
-        <strong>Har du 5 min ekstra?</strong> Svar på spørreundersøkelse og vær
-        med i trekningen av gavekort!
-      </p>
-      <StyledButton
-        onClick={() => window.open('https://nettskjema.no/a/280736')}
-      >
-        Svar på undersøkelse
-      </StyledButton>
-    </StyledExtra>
+    <StyledContainer>
+      <StyledExtra>
+        <h3>Hva ønsker du at Gamle Munch skal romme?</h3>
+        <StyledButton onClick={() => (window.location = '#')}>
+          Legg til innspill
+        </StyledButton>
+      </StyledExtra>
+    </StyledContainer>
   );
 };
 

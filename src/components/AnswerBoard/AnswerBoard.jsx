@@ -8,6 +8,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
+import Extra from './Extra';
 
 const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
@@ -79,7 +80,7 @@ const StyledLoadMoreContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 `;
 
 const StyledLoadMoreButton = styled(Button)`
@@ -97,8 +98,8 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+// const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = 'http://164.92.234.64:4001/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -263,6 +264,7 @@ const AnswerBoard = () => {
           )}
         </StyledLoadMoreContainer>
       )}
+      <Extra />
     </StyledContainer>
   );
 };

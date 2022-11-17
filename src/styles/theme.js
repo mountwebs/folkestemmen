@@ -26,6 +26,7 @@ const colors = {
     seashell: {
       strong: '#EFECDF',
       default: '#FAF7EC',
+      stronger: '#EEECE0',
     },
     brown: {
       default: '#2E2402',
@@ -112,7 +113,7 @@ export const theme = {
         text: randabergDarkBrown,
       },
       currentUserAnswer: {
-        background: lightGreen,
+        background: colors.munch.seashell.stronger,
         details: darkestGrey,
         text: black,
       },
