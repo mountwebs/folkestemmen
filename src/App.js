@@ -20,7 +20,7 @@ const StyledMain = styled.main`
   position: relative;
 
   @media only screen and ${device.sm} {
-    padding: 5rem 1rem 0;
+    padding: 5rem 1rem 2rem;
   }
 `;
 
