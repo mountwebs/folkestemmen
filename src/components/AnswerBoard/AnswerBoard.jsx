@@ -134,7 +134,7 @@ const AnswerBoard = () => {
         setAnswerList(data);
         setLoadingState(false);
         if (data.length < ANSWERS_LIMIT) {
-          setLoadPosts(data.length);
+          // setLoadPosts(data.length);
           setMorePosts(false);
         }
       })
@@ -162,9 +162,10 @@ const AnswerBoard = () => {
   const addAnswer = (answer) => {
     axios
       .post(`${baseUrl}answer`, answer)
-      .then((response) =>
-        userData.setPosts([...userData.posts, response.data._id])
-      )
+      .then((response) => {
+        setLoadPosts(loadPosts + 1);
+        return userData.setPosts([...userData.posts, response.data._id]);
+      })
       .then(getAnswers)
       .catch((error) => console.log(error));
   };
