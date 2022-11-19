@@ -74,13 +74,14 @@ const StyledText = styled.div`
   font-size: 0.8rem;
 `;
 
-const StyledBranding = styled.small`
+const StyledBranding = styled.a`
   display: flex;
   place-self: center;
   margin-top: 2rem;
   font-size: 0.8rem;
   color: #ffffff;
   align-items: center;
+  text-decoration: none;
 `;
 
 const StyledButton = styled(Button)`
@@ -112,7 +113,9 @@ const StyledLink = styled(StyledSpan)`
 `;
 
 const StyledA = styled.a`
+  display: block;
   color: white;
+  padding-top: 0.5rem;
 `;
 
 const Footer = ({ showLoginModal, setShowLoginModal }) => {
@@ -177,13 +180,13 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
           Kontakt oss
         </StyledButton>
       </StyledContainer>
-      <StyledBranding>
+      <StyledBranding href="https://www.travers.as/">
         Utviklet av &nbsp;
         <img src={traversLogo} alt="" />
       </StyledBranding>
       <StyledGit>
         <StyledA href="https://github.com/mountwebs/iver">
-          Åpen kildekode <FontAwesomeIcon icon={faGithub} size="lg" />
+          Kode: Stian Klasbu <FontAwesomeIcon icon={faGithub} size="lg" />
         </StyledA>
       </StyledGit>
       <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
