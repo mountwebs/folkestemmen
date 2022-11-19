@@ -12,38 +12,46 @@ const StyledContainer = styled.form`
   z-index: 100;
   display: flex;
   flex-direction: column;
-  padding: 0.7rem 0.5rem;
+  padding: 0.8rem;
   margin-bottom: 3rem;
   height: 225px;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 25px;
-
+  font-size: 1rem;
+  
   @media only screen and ${device.sm} {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 1rem;
     height: 250px;
   }
 
   .input {
+    line-height: 1.4em;
+    
     &-field::placeholder {
       color: ${({ theme }) => theme.colors.text.muted};
     }
     
     &-field {
       padding: 0.5rem;
+      padding-top: 1rem;
       height: inherit;
-      line-height: 1.5;
       font-size: 1rem;
       border: none;
       outline: none;
       resize: none;
       @media only screen and ${device.sm} {
         font-size: 1.4rem;
+        padding-top: 0.5rem
       }
     }
     &-tema-button-wrapper {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
+      
+      @media only screen and ${device.sm} {
+        align-items: center;
+      }
     }
     &-tema {
       padding: 0 0.5rem;
@@ -51,16 +59,23 @@ const StyledContainer = styled.form`
       outline: none;
       min-width: 0;
       background-color: inherit;
-      @media only screen and ${device.sm} {
-        font-size: 1rem;
+      font-size: 1rem;
+      line-height: 1.5em;
+      
+      input {
+        padding: 0;
+        line-height: 1.5em;
       }
   }
+ 
 `;
 
 const StyledTag = styled(Tag)`
-  padding: 0.6rem 0.3rem;
+  padding: 0.8em 0.3em;
   background: ${({ theme }) => theme.colors.buttons.tag.background};
   color: ${({ theme }) => theme.colors.buttons.tag.text};
+  font-size: 1rem;
+  box-sizing: border-box;
 
   &:hover,
   &:focus-within {
@@ -75,22 +90,26 @@ const StyledTag = styled(Tag)`
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
   color: ${({ theme }) => theme.colors.buttons.post.text};
-  padding: 0.7rem 1rem;
+  padding: 0.8em 1em;
   margin: 2px;
   font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4em;
+  border-radius: 50px;
 
   &:hover {
     filter: brightness(90%);
   }
   :disabled {
     opacity: 50%;
+    color: ${({ theme }) => theme.colors.buttons.post.disabledColor};
   }
   :disabled:hover {
     filter: brightness(100%);
   }
   @media only screen and ${device.sm} {
-    font-size: 1rem;
-    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    padding: 0.8rem 2.5rem;
   }
 `;
 
@@ -118,7 +137,7 @@ const StyledLength = styled.span`
 const StyledLengthMobile = styled(StyledLength)`
   display: inline;
   position: absolute;
-  right: 17px;
+  right: 20px;
   top: 10px;
   font-size: 0.7rem;
 

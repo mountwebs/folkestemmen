@@ -25,15 +25,6 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledHeading = styled.p`
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  @media only screen and ${device.sm} {
-    font-size: 1rem;
-  }
-`;
-
 const StyledSortButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
