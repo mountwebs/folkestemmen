@@ -90,7 +90,7 @@ const StyledTag = styled(Tag)`
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
   color: ${({ theme }) => theme.colors.buttons.post.text};
-  padding: 0.8em 1em;
+  padding: 0.8em 1.3em;
   margin: 2px;
   font-weight: 500;
   font-size: 1rem;
@@ -170,7 +170,7 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
   const [tagPlaceholderText, setTagPlaceholderText] =
     useState('# Legg til tema');
   const userData = useContext(UserContext);
-  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
+  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
 
   const handleTemaFocus = (e) => {
     setTemaFocus(true);
@@ -227,7 +227,7 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
             onChange={handleTemaChange}
             onFocus={handleTemaFocus}
             onBlur={handleTemaFocusOff}
-            maxLength={isXtraSmallScreen ? 20 : 25}
+            maxLength={isXtraSmallScreen ? 24 : 24}
             inputStyle={{
               borderStyle: 'none',
               outline: 'none',
