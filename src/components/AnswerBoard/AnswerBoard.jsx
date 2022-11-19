@@ -90,7 +90,7 @@ const StyledLoadMoreButton = styled(Button)`
 const ANSWERS_LIMIT = 25;
 
 // const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-const baseUrl = 'http://164.92.234.64:4001/';
+const baseUrl = 'http://164.92.234.64/api/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
