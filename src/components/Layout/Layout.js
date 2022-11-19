@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
@@ -6,6 +6,7 @@ import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import munchBackground from '../../assets/img/munch-background.png';
+import UserContext from '../../UserContext';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -58,6 +59,11 @@ const Layout = ({
   showWhatsThisModal,
   children,
 }) => {
+  const userData = useContext(UserContext);
+  if (userData.newUser) {
+    setShowWhatsThisModal(true);
+    userData.setNewUser(false);
+  }
   return (
     <StyledApp>
       <StyledImg src={munchBackground} />

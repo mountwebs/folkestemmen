@@ -9,6 +9,7 @@ var initialState = {
   posts: [],
   isAdmin: false,
   answer: {},
+  newUser: true,
 };
 
 function setLocalStorage(key, value) {
@@ -43,8 +44,11 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
   const [user, setUser] = useState(() => getUserData());
 
-  useEffect(async () => {
-    await setLocalStorage('userData', user);
+  useEffect(() => {
+    async function fetchData() {
+      await setLocalStorage('userData', user);
+    }
+    fetchData();
   }, [user]);
 
   return (
@@ -55,11 +59,13 @@ function UserProvider({ children }) {
         posts: user.posts,
         isAdmin: user.isAdmin,
         answer: user.answer,
+        newUser: user.newUser,
         setUserId: (userId) => setUser({ ...user, userId }),
         setLikes: (likes) => setUser({ ...user, likes }),
         setPosts: (posts) => setUser({ ...user, posts }),
         setIsAdmin: (isAdmin) => setUser({ ...user, isAdmin }),
         setAnswer: (answer) => setUser({ ...user, answer }),
+        setNewUser: (newUser) => setUser({ ...user, newUser }),
       }}
     >
       {children}
