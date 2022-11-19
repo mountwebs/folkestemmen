@@ -43,10 +43,10 @@ const StyledContent = styled.div`
   font-size: 1rem;
   position: relative;
   margin-bottom: 1rem;
-  margin-top: 1rem;
 
   h1 {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
     font-size: 1.8rem;
     padding-right: 2rem;
     text-align: center;
