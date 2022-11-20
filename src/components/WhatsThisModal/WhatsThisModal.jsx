@@ -18,7 +18,7 @@ const StyledModalMain = styled.div`
   position: fixed;
   padding: 1rem;
   width: 90%;
-  background-color: #f5f2e3;
+  background-color: #fafafa;
   border-radius: 25px;
   color: white;
   text-align: center;

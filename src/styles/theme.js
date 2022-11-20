@@ -57,7 +57,7 @@ export const theme = {
         primary: black,
         secondary: colors.munch.brown.dark,
         tertiary: white,
-        muted: lightGrey,
+        muted: colors.munch.gray.dark,
       },
       buttons: {
         header: {

@@ -19,7 +19,7 @@ const StyledModalMain = styled.div`
   padding: 2rem;
   max-width: 90%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   color: white;
   text-align: center;
   top: 50%;

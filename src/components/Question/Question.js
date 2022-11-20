@@ -50,7 +50,6 @@ const StyledCard = styled.div`
   @media only screen and ${device.sm} {
     font-size: 3.25rem;
     line-height: 4.5rem;
-    border-radius: 50px;
     padding-top: 3.625rem;
     padding-bottom: 3.625rem;
   }

@@ -72,6 +72,8 @@ const StyledCTA = styled.div`
 
 const StyledText = styled.div`
   font-size: 0.8rem;
+  color: white;
+  opacity: 30%;
 `;
 
 const StyledBranding = styled.a`
