@@ -175,7 +175,9 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
           Har du spørsmål eller vil du gi oss tilbakemelding?
         </StyledCTA>
         <StyledButton
-          onClick={() => (window.location = 'mailto:erlend@travers.as')}
+          onClick={() =>
+            (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+          }
         >
           Kontakt oss
         </StyledButton>

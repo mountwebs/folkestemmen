@@ -77,7 +77,9 @@ const Header = ({
             Hva er dette?
           </StyledLink>
           <StyledLink
-            onClick={() => (window.location = 'mailto:erlend@travers.as')}
+            onClick={() =>
+              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+            }
           >
             Kontakt oss
           </StyledLink>
