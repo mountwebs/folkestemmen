@@ -7,6 +7,7 @@ import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import munchBackground from '../../assets/img/munch-background.png';
 import UserContext from '../../UserContext';
+import CookiePopup from '../CookiePopup/CookiePopup';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -81,6 +82,7 @@ const Layout = ({
           setShowWhatsThisModal={setShowWhatsThisModal}
         ></WhatsThisModal>
       )}
+      <CookiePopup></CookiePopup>
       {children}
       <Footer
         showLoginModal={showLoginModal}
