@@ -58,6 +58,8 @@ const Layout = ({
   setShowLoginModal,
   setShowWhatsThisModal,
   showWhatsThisModal,
+  showCookiePopup,
+  setShowCookiePopup,
   children,
 }) => {
   const userData = useContext(UserContext);
@@ -82,7 +84,13 @@ const Layout = ({
           setShowWhatsThisModal={setShowWhatsThisModal}
         ></WhatsThisModal>
       )}
-      <CookiePopup></CookiePopup>
+      {showCookiePopup && (
+        <CookiePopup
+          showCookiePopup={showCookiePopup}
+          setShowCookiePopup={setShowCookiePopup}
+        />
+      )}
+
       {children}
       <Footer
         showLoginModal={showLoginModal}

@@ -27,6 +27,7 @@ const StyledMain = styled.main`
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showWhatsThisModal, setShowWhatsThisModal] = useState(false);
+  const [showCookiePopup, setShowCookiePopup] = useState(true);
 
   return (
     <UserProvider>
@@ -37,6 +38,8 @@ function App() {
           setShowLoginModal={setShowLoginModal}
           showWhatsThisModal={showWhatsThisModal}
           setShowWhatsThisModal={setShowWhatsThisModal}
+          showCookiePopup={showCookiePopup}
+          setShowCookiePopup={setShowCookiePopup}
         >
           <StyledMain>
             <Question text={questionText} />
