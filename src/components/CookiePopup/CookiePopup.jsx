@@ -7,8 +7,8 @@ const StyledContainer = styled.div`
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: 1rem;
-  background: #e0e9f1;
+  padding: 0.8rem 1.2rem;
+  background: #e1e1e1;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@ const StyledSpan = styled.span`
 `;
 
 const StyledButton = styled.button`
-  padding: 10px 16px;
+  padding: 12px 18px;
   font-size: 17px;
   font-weight: 400;
   border-radius: 10px;
