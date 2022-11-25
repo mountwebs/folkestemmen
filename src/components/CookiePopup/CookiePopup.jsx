@@ -29,6 +29,7 @@ const StyledButton = styled.button`
   font-weight: 400;
   border-radius: 10px;
   background: white;
+  color: black;
 
   &:not(:last-of-type) {
     margin-right: 0.5rem;
