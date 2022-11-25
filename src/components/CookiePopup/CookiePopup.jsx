@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import UserContext from '../../UserContext';
 
 const StyledContainer = styled.div`
-  z-index: 1000;
+  z-index: 500;
   position: fixed;
   bottom: 3rem;
   left: 50%;
@@ -19,6 +20,7 @@ const StyledSpan = styled.span`
   font-size: 15px;
   font-weight: 400;
   margin-right: 1rem;
+  color: black;
 `;
 
 const StyledButton = styled.button`
@@ -33,14 +35,27 @@ const StyledButton = styled.button`
   }
 `;
 
-const CookiePopup = ({ setShowCookiePopup }) => {
+const CookiePopup = ({ setShowCookiePopup, handleAcceptCookie }) => {
+  const userData = useContext(UserContext);
+
   return (
     <StyledContainer>
       <StyledSpan>Vi bruker Cookies</StyledSpan>
-      <StyledButton onClick={() => setShowCookiePopup(false)}>
+      <StyledButton
+        onClick={() => {
+          setShowCookiePopup(false);
+          handleAcceptCookie();
+        }}
+      >
         Godta
       </StyledButton>
-      <StyledButton>Avslå</StyledButton>
+      <StyledButton
+        onClick={() => {
+          setShowCookiePopup(false);
+        }}
+      >
+        Avslå
+      </StyledButton>
     </StyledContainer>
   );
 };

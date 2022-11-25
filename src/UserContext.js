@@ -10,6 +10,7 @@ var initialState = {
   isAdmin: false,
   answer: {},
   newUser: true,
+  cookieAccept: false,
 };
 
 function setLocalStorage(key, value) {
@@ -60,12 +61,14 @@ function UserProvider({ children }) {
         isAdmin: user.isAdmin,
         answer: user.answer,
         newUser: user.newUser,
+        cookieAccept: user.cookieAccept,
         setUserId: (userId) => setUser({ ...user, userId }),
         setLikes: (likes) => setUser({ ...user, likes }),
         setPosts: (posts) => setUser({ ...user, posts }),
         setIsAdmin: (isAdmin) => setUser({ ...user, isAdmin }),
         setAnswer: (answer) => setUser({ ...user, answer }),
         setNewUser: (newUser) => setUser({ ...user, newUser }),
+        setCookieAccept: (cookieAccept) => setUser({ ...user, cookieAccept }),
       }}
     >
       {children}
