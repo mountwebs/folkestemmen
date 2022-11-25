@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
@@ -7,6 +7,8 @@ import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import munchBackground from '../../assets/img/munch-background.png';
 import UserContext from '../../UserContext';
+import CookiePopup from '../CookiePopup/CookiePopup';
+import initGA from './../../utils/gaUtils';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -59,11 +61,26 @@ const Layout = ({
   showWhatsThisModal,
   children,
 }) => {
+  const [showCookiePopup, setShowCookiePopup] = useState(false);
+
   const userData = useContext(UserContext);
-  if (userData.newUser) {
-    setShowWhatsThisModal(true);
-    userData.setNewUser(false);
-  }
+
+  useEffect(() => {
+    if (!userData.cookieAccept) {
+      setShowCookiePopup(true);
+    }
+
+    if (userData.newUser) {
+      setShowWhatsThisModal(true);
+      userData.setNewUser(false);
+    }
+  }, [userData]);
+
+  const handleAcceptCookie = () => {
+    initGA('G-7FEN6KCET5');
+    userData.setCookieAccept(true);
+  };
+
   return (
     <StyledApp>
       <StyledImg src={munchBackground} />
@@ -80,6 +97,12 @@ const Layout = ({
         <WhatsThisModal
           setShowWhatsThisModal={setShowWhatsThisModal}
         ></WhatsThisModal>
+      )}
+      {showCookiePopup && (
+        <CookiePopup
+          setShowCookiePopup={setShowCookiePopup}
+          handleAcceptCookie={handleAcceptCookie}
+        />
       )}
       {children}
       <Footer
