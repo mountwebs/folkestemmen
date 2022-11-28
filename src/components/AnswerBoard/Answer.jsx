@@ -107,7 +107,7 @@ const StyledDots = styled.span`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: black;
+  color: white;
 
   :disabled {
     opacity: 50%;
