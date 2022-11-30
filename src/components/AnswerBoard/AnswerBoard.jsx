@@ -89,7 +89,7 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'http://gamlemunch.no/api/';
+const baseUrl = 'https://gamlemunch.no/api/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
