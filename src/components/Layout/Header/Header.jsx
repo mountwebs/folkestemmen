@@ -27,9 +27,10 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledContentLeft = styled.span`
+const StyledContentLeft = styled.a`
   z-index: 100;
   font-size: 2rem;
+  text-decoration: none;
   text-align: center;
   color: ${({ theme }) => theme.colors.text.tertiary};
 
@@ -71,7 +72,9 @@ const Header = ({
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft>Gamle Munch</StyledContentLeft>
+        <StyledContentLeft href="https://gamlemunch.no">
+          Gamle Munch
+        </StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>
             Hva er dette?
