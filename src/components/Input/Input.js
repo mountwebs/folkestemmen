@@ -166,21 +166,8 @@ const StyledWarning = styled.span`
 const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
-  const [temaFocus, setTemaFocus] = useState(true);
-  const [tagPlaceholderText, setTagPlaceholderText] =
-    useState('# Legg til tema');
   const userData = useContext(UserContext);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
-
-  const handleTemaFocus = (e) => {
-    setTemaFocus(true);
-    setTagPlaceholderText('');
-  };
-
-  const handleTemaFocusOff = (e) => {
-    setTemaFocus(true);
-    if (temaValue === '') setTagPlaceholderText('# Legg til tema');
-  };
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -202,7 +189,6 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
     // addAnswer(answer);
     setTemaValue('');
     setTextAreaValue('');
-    setTagPlaceholderText('# Legg til tema');
   };
 
   return (
@@ -218,15 +204,14 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
         maxLength="250"
       />
       <div className="input-tema-button-wrapper">
-        <StyledTag hide={!temaFocus && !temaValue}>
+        <StyledTag>
           <AutosizeInput
             type="text"
             className="input-tema"
-            placeholder={tagPlaceholderText}
+            placeholder="# Legg til tema"
+            placeholderIsMinWidth
             value={temaValue}
             onChange={handleTemaChange}
-            onFocus={handleTemaFocus}
-            onBlur={handleTemaFocusOff}
             maxLength={isXtraSmallScreen ? 24 : 24}
             inputStyle={{
               borderStyle: 'none',
