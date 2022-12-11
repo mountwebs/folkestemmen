@@ -217,6 +217,7 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
               borderStyle: 'none',
               outline: 'none',
               backgroundColor: 'inherit',
+              minWidth: '119px',
             }}
           />
         </StyledTag>
