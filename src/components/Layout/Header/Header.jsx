@@ -28,6 +28,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledContentLeft = styled.a`
+  display: none;
   z-index: 100;
   font-size: 2rem;
   text-decoration: none;
@@ -35,6 +36,7 @@ const StyledContentLeft = styled.a`
   color: ${({ theme }) => theme.colors.text.tertiary};
 
   @media only screen and ${device.sm} {
+    display: flex;
     font-size: 1.5rem;
   }
 `;

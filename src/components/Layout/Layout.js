@@ -20,7 +20,7 @@ const StyledImg = styled.img`
   z-index: 0;
 
   @media only screen and ${device.sm} {
-    height: 42rem;
+    height: 32rem;
   }
 `;
 

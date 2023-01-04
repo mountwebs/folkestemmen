@@ -3,16 +3,18 @@ import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 
 const StyledContainer = styled.div`
-  margin: auto;
+  color: #f2f2f2;
+  margin: 1.5rem auto 0;
   max-width: 700px;
-  margin: 3rem auto 3rem;
+  height: 256px;
   z-index: 100;
   position: relative;
   padding: 0 10px;
 
   @media only screen and ${device.sm} {
+    height: auto;
     max-width: 700px;
-    margin: 4rem auto 6rem;
+    margin: 0 auto 12rem;
   }
 `;
 
@@ -21,6 +23,7 @@ const StyledHeader = styled.h1`
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 0;
+  margin-top: 0;
 
   @media only screen and ${device.sm} {
     font-size: 3rem;

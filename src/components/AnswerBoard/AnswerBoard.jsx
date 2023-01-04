@@ -200,11 +200,6 @@ const AnswerBoard = () => {
           addAnswer={addAnswer}
         ></ThanksModal>
       )}
-      <Input
-        placeholderText={placeholderText}
-        buttonText={buttonText}
-        setShowThanksModal={setShowThanksModal}
-      />
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}

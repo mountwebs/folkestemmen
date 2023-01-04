@@ -8,19 +8,20 @@ import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
+import Closed from './components/Closed/Closed';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
 const StyledMain = styled.main`
-  margin: 1rem;
+  margin: 0 1rem 1rem;
   max-width: 1020px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding: 0 10px 10px;
   position: relative;
 
   @media only screen and ${device.sm} {
-    padding: 5rem 1rem 2rem;
+    padding: 4rem 1rem 2rem;
   }
 `;
 
@@ -39,7 +40,7 @@ function App() {
           setShowWhatsThisModal={setShowWhatsThisModal}
         >
           <StyledMain>
-            <Question text={questionText} />
+            <Closed />
             <AnswerBoard />
           </StyledMain>
         </Layout>

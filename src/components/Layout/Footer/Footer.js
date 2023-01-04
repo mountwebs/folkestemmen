@@ -145,7 +145,7 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
     if (jwtKey) headerConfig.headers.token = `Bearer ${jwtKey}`;
 
     axios
-      .get('https://mighty-bayou-51480.herokuapp.com/answer/all', headerConfig)
+      .get('https://gamlemunch.no/api/answer/all', headerConfig)
       .then((response) => response.data)
       .then((data) => {
         const items = data;
