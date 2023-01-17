@@ -135,14 +135,15 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Det gamle Munchmuseet på Tøyen har siden 1960-tallet vært en
-            nasjonalt viktig kulturarena. Siden august 2022 har bygningen vært
-            driftet av Kulturetaten og tatt i bruk som et kulturhus.
+            Tokke kommune skal revidere sin næringsplan og arbeidet er nyleg
+            starta.{' '}
           </p>
           <p>
-            Nå ønsker vi å høre fra innbyggerne. Hva ønsker du at Gamle Munch
-            skal romme fremover?
+            Planen skal gi føringar for korleis arbeidet med næringsutvikling
+            skal vere framover, og korleis kommunen kan bidra til å skape
+            attraktivitet og vekst.
           </p>
+          <p>Kva tenkjer du skal til for å skape utvikling?</p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
       </StyledModalMain>

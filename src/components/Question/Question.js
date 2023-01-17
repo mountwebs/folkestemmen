@@ -41,15 +41,16 @@ const StyledCard = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  font-weight: 400;
 
   p {
-    max-width: 20ch;
+    max-width: 95%;
     margin: 0;
   }
 
   @media only screen and ${device.sm} {
     font-size: 3.25rem;
-    line-height: 4.5rem;
+    line-height: 3.87rem;
     padding-top: 3.625rem;
     padding-bottom: 3.625rem;
   }
@@ -60,7 +61,10 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hva ønsker du at Gamle Munch skal romme?</p>
+          <p>
+            Korleis kan vi skape attraktivitet og vekst for næringslivet i
+            Tokke?
+          </p>
         </StyledCard>
       </StyledCardContainer>
     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
-import backgroundImage from '../../assets/img/munch-background.png';
+import backgroundImage from '../../assets/img/background.png';
 
 const StyledContainer = styled.section`
   width: 100%;
@@ -67,7 +67,7 @@ const Extra = () => {
   return (
     <StyledContainer>
       <StyledExtra>
-        <h3>Hva ønsker du at Gamle Munch skal romme?</h3>
+        <h3></h3>
         <StyledButton onClick={() => (window.location = '#')}>
           Legg til innspill
         </StyledButton>

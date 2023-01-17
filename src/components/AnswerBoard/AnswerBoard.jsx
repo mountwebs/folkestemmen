@@ -255,7 +255,6 @@ const AnswerBoard = () => {
           )}
         </StyledLoadMoreContainer>
       )}
-      <Extra />
     </StyledContainer>
   );
 };

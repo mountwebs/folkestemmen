@@ -72,16 +72,16 @@ const Header = ({
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft href="https://gamlemunch.no">
-          Gamle Munch
+        <StyledContentLeft href="https://www.tokke.kommune.no/">
+          Tokke kommune
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>
-            Hva er dette?
+            Kva er dette?
           </StyledLink>
           <StyledLink
             onClick={() =>
-              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+              (window.location = 'mailto:hei@travers.no?subject=Kontakt oss')
             }
           >
             Kontakt oss

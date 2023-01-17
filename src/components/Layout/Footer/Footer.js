@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import whiteLogo from '../../../assets/logo-white.svg';
+import whiteLogo from '../../../assets/innspill-logo.svg';
 import Button from '../../Button/Button';
 import traversLogo from '../../../assets/travers-logo.svg';
 import device from '../../../constants/breakpoints';
@@ -62,7 +62,7 @@ const StyledLogo = styled.img`
 const StyledCTA = styled.div`
   max-width: 200px;
   color: #f2f2f2;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
 
   @media only screen and ${device.sm} {

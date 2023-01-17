@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
-import munchBackground from '../../assets/img/munch-background.png';
+import background from '../../assets/img/background.png';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
@@ -74,7 +74,7 @@ const Layout = ({
       setShowWhatsThisModal(true);
       userData.setNewUser(false);
     }
-  }, [userData]);
+  }, [userData, setShowWhatsThisModal]);
 
   const handleAcceptCookie = () => {
     initGA('G-7FEN6KCET5');
@@ -83,7 +83,7 @@ const Layout = ({
 
   return (
     <StyledApp>
-      <StyledImg src={munchBackground} />
+      <StyledImg src={background} />
       <StyledQuestionmark onClick={() => setShowWhatsThisModal(true)}>
         <span>?</span>
       </StyledQuestionmark>

@@ -133,6 +133,6 @@ export const theme = {
         background: colors.munch.brown.light,
       },
     },
-    font: 'Oslo Sans',
+    font: 'DM Sans',
   },
 };

@@ -1,6 +1,5 @@
 {
   "name": "folkestemmen",
-  "homepage": "https://gamlemunch.no/innspill",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
