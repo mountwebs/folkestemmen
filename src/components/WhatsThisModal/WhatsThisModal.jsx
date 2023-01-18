@@ -15,7 +15,9 @@ const StyledModal = styled.div`
 `;
 
 const StyledModalMain = styled.div`
-  position: fixed;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: absolute;
   padding: 1rem;
   width: 90%;
   background-color: #fafafa;
@@ -51,27 +53,29 @@ const StyledContent = styled.div`
     font-size: 1.8rem;
     padding-right: 2rem;
     margin-left: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   p {
     opacity: 0.7;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: normal;
     margin-right: 1.5rem;
     margin-left: 1.5rem;
+    margin-top: 0;
   }
 
   @media only screen and ${device.sm} {
     font-size: 1.3rem;
 
     p {
-      font-size: 25px;
-      line-height: 30px;
+      font-size: 20px;
+      line-height: 24px;
     }
 
     h1 {
       margin-top: 1rem;
-      font-size: 48px;
+      font-size: 44px;
       line-height: 58px;
     }
   }
@@ -128,7 +132,6 @@ const StyledInfo = styled.div`
   font-weight: 400;
   color: #2b2300;
   opacity: 0.9;
-  margin-top: 1rem;
 
   p {
     padding-top: 2rem;
@@ -138,8 +141,9 @@ const StyledInfo = styled.div`
   }
 
   @media only screen and ${device.sm} {
-    font-size: 24px;
-    line-height: 28px;
+    p {
+      line-height: 28px;
+    }
   }
 `;
 
