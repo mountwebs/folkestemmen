@@ -66,14 +66,16 @@ const StyledCTA = styled.div`
   font-size: 1rem;
 
   @media only screen and ${device.sm} {
-    max-width: 200px;
+    font-size: 20px;
+    line-height: 30px;
+    max-width: 240px;
   }
 `;
 
 const StyledText = styled.div`
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: white;
-  opacity: 30%;
+  opacity: 0.6;
 `;
 
 const StyledBranding = styled.a`
