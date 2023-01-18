@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
+import tokkeLogo from '../../../assets/img/tokke-logo.png';
 
 const StyledHeader = styled.header`
   height: 103px;
@@ -9,6 +10,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   z-index: 100;
+  font-family: 'Good Sans', sans-serif;
 `;
 
 const StyledContainer = styled.div`
@@ -31,12 +33,21 @@ const StyledContentLeft = styled.a`
   z-index: 100;
   font-size: 2rem;
   text-decoration: none;
+  display: flex;
   text-align: center;
   color: ${({ theme }) => theme.colors.text.tertiary};
 
   @media only screen and ${device.sm} {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
+
+  span {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledLogo = styled.img`
+  width: 28px;
 `;
 
 const StyledContentRight = styled.div`
@@ -73,7 +84,8 @@ const Header = ({
     <StyledHeader>
       <StyledContainer>
         <StyledContentLeft href="https://www.tokke.kommune.no/">
-          Tokke kommune
+          <StyledLogo src={tokkeLogo} alt="Tokke kommune" />
+          <span>Tokke kommune</span>
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>

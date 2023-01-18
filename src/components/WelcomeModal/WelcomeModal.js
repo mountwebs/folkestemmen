@@ -26,11 +26,10 @@ const StyledModalMain = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding-bottom: 2rem;
-  font-family: 'Good Sans', sans-serif;
 
   @media only screen and ${device.sm} {
-    width: 90%;
-    max-width: 816px;
+    width: auto;
+    max-width: 32.8125rem;
     padding: 2rem;
   }
 `;
@@ -50,13 +49,13 @@ const StyledContent = styled.div`
     margin-top: 1.5rem;
     font-size: 1.8rem;
     padding-right: 2rem;
-    margin-left: 1.5rem;
+    text-align: center;
   }
 
   p {
     opacity: 0.7;
     margin-bottom: 1rem;
-    font-weight: normal;
+    font-weight: 400;
     margin-right: 1.5rem;
     margin-left: 1.5rem;
   }
@@ -64,15 +63,9 @@ const StyledContent = styled.div`
   @media only screen and ${device.sm} {
     font-size: 1.3rem;
 
-    p {
-      font-size: 25px;
-      line-height: 30px;
-    }
-
     h1 {
       margin-top: 1rem;
-      font-size: 48px;
-      line-height: 58px;
+      font-size: 4.375rem;
     }
   }
 `;
@@ -121,37 +114,15 @@ const StyledX = styled.div`
   }
 `;
 
-const StyledInfo = styled.div`
-  background-color: #fcfaef;
-  width: 100%;
-  border-radius: 25px;
-  font-weight: 400;
-  color: #2b2300;
-  opacity: 0.9;
-  margin-top: 1rem;
-
-  p {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  @media only screen and ${device.sm} {
-    font-size: 24px;
-    line-height: 28px;
-  }
-`;
-
-const WhatsThisModal = ({ setShowWhatsThisModal }) => {
+const WhatsThisModal = ({ setShowWelcomeModal }) => {
   const ref = useRef();
 
   const handleX = () => {
-    setShowWhatsThisModal(false);
+    setShowWelcomeModal(false);
   };
 
   function handleOutsideClick() {
-    setShowWhatsThisModal(false);
+    setShowWelcomeModal(false);
   }
 
   useOutsideClick(ref, handleOutsideClick);
@@ -162,34 +133,19 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>Hva er dette?</h1>
+          <h1>Hei! 👋</h1>
           <p>
             Tokke kommune skal revidere sin næringsplan og arbeidet er nyleg
-            starta. Planen skal gi føringar for korleis arbeidet med
-            næringsutvikling skal vere framover, og korleis kommunen kan bidra
-            til å skape attraktivitet og vekst.
+            starta.{' '}
           </p>
           <p>
-            Designkontoret Travers skal bistå kommunen i prosessen, og vil i
-            løpet av dei neste vekene gjennomføre ulike aktivitetar for å samle
-            innspel frå næringslivet.
+            Planen skal gi føringar for korleis arbeidet med næringsutvikling
+            skal vere framover, og korleis kommunen kan bidra til å skape
+            attraktivitet og vekst.
           </p>
-          <p>
-            Gjennom heile prosessen kan du gi dine innspel om framtidas
-            næringsutvikling i Tokke på www.innspill.io. Portalen opnar
-            19.januar.
-          </p>
-          <p>
-            Onsdag 8. februar blir det ope digital arbeidsverkstad for å gå
-            gjennom behov, utfordringar og innspel.
-          </p>
-          <StyledInfo>
-            <p>
-              Har du andre spørsmål?
-              <br /> Ikke nøl med å kontakte oss.
-            </p>
-          </StyledInfo>
+          <p>Kva tenkjer du skal til for å skape utvikling?</p>
         </StyledContent>
+        <StyledButton onClick={handleX}>Gi innspill</StyledButton>
       </StyledModalMain>
     </StyledModal>
   );

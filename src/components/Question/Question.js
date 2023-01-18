@@ -46,13 +46,15 @@ const StyledCard = styled.div`
   p {
     max-width: 95%;
     margin: 0;
+    font-weight: normal;
+    font-family: 'Good Sans', sans-serif;
   }
 
   @media only screen and ${device.sm} {
     font-size: 3.25rem;
     line-height: 3.87rem;
-    padding-top: 3.625rem;
-    padding-bottom: 3.625rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 `;
 

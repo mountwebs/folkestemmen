@@ -1,64 +1,15 @@
 @font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Good Sans';
+  src: url('../assets/fonts/GoodSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Good Sans';
+  src: url('../assets/fonts/GoodSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Oslo Sans';
-    src: url('../assets/fonts/OsloSans-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-

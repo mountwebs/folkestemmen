@@ -9,6 +9,7 @@ import background from '../../assets/img/background.png';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
+import WelcomeModal from '../WelcomeModal/WelcomeModal';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -59,6 +60,8 @@ const Layout = ({
   setShowLoginModal,
   setShowWhatsThisModal,
   showWhatsThisModal,
+  showWelcomeModal,
+  setShowWelcomeModal,
   children,
 }) => {
   const [showCookiePopup, setShowCookiePopup] = useState(false);
@@ -71,10 +74,10 @@ const Layout = ({
     }
 
     if (userData.newUser) {
-      setShowWhatsThisModal(true);
+      setShowWelcomeModal(true);
       userData.setNewUser(false);
     }
-  }, [userData, setShowWhatsThisModal]);
+  }, [userData, setShowWelcomeModal]);
 
   const handleAcceptCookie = () => {
     initGA('G-7FEN6KCET5');
@@ -97,6 +100,9 @@ const Layout = ({
         <WhatsThisModal
           setShowWhatsThisModal={setShowWhatsThisModal}
         ></WhatsThisModal>
+      )}
+      {showWelcomeModal && (
+        <WelcomeModal setShowWelcomeModal={setShowWelcomeModal} />
       )}
       {showCookiePopup && (
         <CookiePopup

@@ -28,6 +28,7 @@ const StyledMain = styled.main`
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showWhatsThisModal, setShowWhatsThisModal] = useState(false);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
   return (
     <UserProvider>
@@ -51,6 +52,8 @@ function App() {
           setShowLoginModal={setShowLoginModal}
           showWhatsThisModal={showWhatsThisModal}
           setShowWhatsThisModal={setShowWhatsThisModal}
+          showWelcomeModal={showWelcomeModal}
+          setShowWelcomeModal={setShowWelcomeModal}
         >
           <StyledMain>
             <Question text={questionText} />
