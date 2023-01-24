@@ -29,11 +29,10 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.question.background};
+  background-color: #fff;
   margin-bottom: 1rem;
   padding: 2rem 2rem;
   margin: 0.5rem 5px 0 0;
-  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 25px;
   text-align: center;
@@ -42,8 +41,11 @@ const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 
   p {
+    background-color: #f8fffe;
     max-width: 95%;
     margin: 0;
     font-weight: normal;
@@ -51,8 +53,9 @@ const StyledCard = styled.div`
   }
 
   @media only screen and ${device.sm} {
-    font-size: 3.25rem;
-    line-height: 3.87rem;
+    font-weight: 400;
+    font-size: 56.3999px;
+    line-height: 68px;
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
@@ -64,8 +67,8 @@ const Question = () => {
       <StyledCardContainer>
         <StyledCard className="question-card">
           <p>
-            Korleis kan vi skape attraktivitet og vekst for næringslivet i
-            Tokke?
+            Hvordan kan vi skape fremtidens arena for kultur og læring i Karlsøy
+            kommune?
           </p>
         </StyledCard>
       </StyledCardContainer>

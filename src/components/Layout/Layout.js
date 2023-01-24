@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
@@ -6,6 +6,7 @@ import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import background from '../../assets/img/background.png';
+import backgroundMobile from '../../assets/img/background-mobile.png';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
@@ -17,7 +18,7 @@ const StyledImg = styled.img`
   left: 0;
   width: 100%;
   object-fit: cover;
-  height: 25rem;
+  height: 469px;
   z-index: 0;
 
   @media only screen and ${device.sm} {
@@ -65,6 +66,7 @@ const Layout = ({
   children,
 }) => {
   const [showCookiePopup, setShowCookiePopup] = useState(false);
+  const windowWidth = useRef(window.innerWidth);
 
   const userData = useContext(UserContext);
 
@@ -86,7 +88,11 @@ const Layout = ({
 
   return (
     <StyledApp>
-      <StyledImg src={background} />
+      {windowWidth.current <= 768 ? (
+        <StyledImg src={backgroundMobile} />
+      ) : (
+        <StyledImg src={background} />
+      )}
       <StyledQuestionmark onClick={() => setShowWhatsThisModal(true)}>
         <span>?</span>
       </StyledQuestionmark>

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
-import tokkeLogo from '../../../assets/img/tokke-logo.png';
 
 const StyledHeader = styled.header`
   height: 103px;
@@ -14,16 +13,16 @@ const StyledHeader = styled.header`
 `;
 
 const StyledContainer = styled.div`
-  height: 11rem;
+  height: 13rem;
   display: flex;
   flex-grow: 1;
-  max-width: 1020px;
+  max-width: 1328px;
   padding: 0 10px;
   align-items: center;
   justify-content: center;
 
   @media only screen and ${device.sm} {
-    height: 103px;
+    height: 150px;
     justify-content: space-between;
     padding: 0 20px 0 15px;
   }
@@ -35,19 +34,22 @@ const StyledContentLeft = styled.a`
   text-decoration: none;
   display: flex;
   text-align: center;
-  color: ${({ theme }) => theme.colors.text.tertiary};
+  color: #004349;
+  font-weight: 400;
+  max-width: 10ch;
+  font-size: 24.34px;
+  line-height: 29px;
 
   @media only screen and ${device.sm} {
-    font-size: 1.3rem;
+    color: #003929;
+    font-size: 24px;
+    line-height: 29px;
+    max-width: 100%;
   }
 
   span {
     margin-left: 0.5rem;
   }
-`;
-
-const StyledLogo = styled.img`
-  width: 28px;
 `;
 
 const StyledContentRight = styled.div`
@@ -63,7 +65,9 @@ const StyledContentRight = styled.div`
 const StyledLink = styled.a`
   display: none;
   font-size: 1.3rem;
-  color: ${({ theme }) => theme.colors.text.tertiary};
+  color: black;
+  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
 
   &:not(:last-child) {
     margin-right: 2rem;
@@ -72,32 +76,44 @@ const StyledLink = styled.a`
   @media only screen and ${device.sm} {
     text-decoration: unset;
     display: block;
+    font-size: 21.6px;
+    line-height: 28px;
   }
 `;
 
-const Header = ({
-  showLoginModal,
-  setShowLoginModal,
-  setShowWhatsThisModal,
-}) => {
+const StyledLink2 = styled.a`
+  display: none;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @media only screen and ${device.sm} {
+    text-decoration: unset;
+    display: block;
+    font-size: 21px;
+    line-height: 29px;
+    padding: 14px 29px;
+    background: #cfe3dd;
+    border-radius: 28.5px;
+  }
+`;
+
+const Header = ({ setShowWhatsThisModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft href="https://www.tokke.kommune.no/">
-          <StyledLogo src={tokkeLogo} alt="Tokke kommune" />
-          <span>Tokke kommune</span>
+        <StyledContentLeft href="https://innspill.io/karlsoy">
+          <span>Karlsøy kommune</span>
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink onClick={() => setShowWhatsThisModal(true)}>
-            Kva er dette?
+            Hva er dette?
           </StyledLink>
-          <StyledLink
-            onClick={() =>
-              (window.location = 'mailto:hei@travers.no?subject=Kontakt oss')
-            }
-          >
-            Kontakt oss
-          </StyledLink>
+          <StyledLink2 href="https://innspill.io/karlsoy">Hjem</StyledLink2>
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>

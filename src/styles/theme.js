@@ -17,6 +17,8 @@ const orange = '#FF7272';
 const randabergLighterYellow = '#F5F2E3';
 const randabergDarkBrown = '#513C08';
 const randabergLightGreen = '#C3E679';
+const karlsoyDarkGreen = '#174346';
+const karlsoyGrey = '#707070';
 
 const colors = {
   munch: {
@@ -105,7 +107,7 @@ export const theme = {
         },
       },
       question: {
-        text: colors.munch.darkBrown,
+        text: '#231C00',
         background: colors.munch.seashell.default,
       },
       questionHeader: {
@@ -126,11 +128,11 @@ export const theme = {
         background: '#F9DB83',
       },
       questionmark: {
-        background: randabergDarkBrown,
-        color: randabergLighterYellow,
+        background: white,
+        color: karlsoyGrey,
       },
       footer: {
-        background: colors.munch.brown.light,
+        background: karlsoyDarkGreen,
       },
     },
     font: 'DM Sans',

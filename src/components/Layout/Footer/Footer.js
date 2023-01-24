@@ -40,7 +40,7 @@ const StyledContainer = styled.div`
 
   @media only screen and ${device.sm} {
     flex-direction: row;
-    max-width: 1020px;
+    max-width: 1328px;
     padding: 0 25px;
   }
 `;
@@ -95,7 +95,7 @@ const StyledButton = styled(Button)`
   margin-top: 1rem;
   color: ${({ theme }) => theme.colors.button.text.secondary};
   font-size: 1rem;
-  border-radius: 0.6875rem;
+  border-radius: 13.7017px;
   @media only screen and ${device.sm} {
     margin-left: 2rem;
     margin-top: 0rem;

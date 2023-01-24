@@ -17,11 +17,11 @@ const StyledContainer = styled.div`
   margin-bottom: 5rem;
   border-radius: 10px;
   margin: 0 5px;
-  max-width: 1020px;
+  width: 100%;
   margin-top: 2rem;
 
   @media only screen and ${device.sm} {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
   }
 `;
 

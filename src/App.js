@@ -13,15 +13,17 @@ import { Helmet } from 'react-helmet';
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
 const StyledMain = styled.main`
-  margin: 1rem;
-  max-width: 1020px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 1328px;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  padding-top: 5rem;
   position: relative;
 
   @media only screen and ${device.sm} {
-    padding: 5rem 1rem 2rem;
+    padding: 8rem 1rem 2rem;
   }
 `;
 
