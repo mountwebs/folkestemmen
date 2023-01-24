@@ -93,13 +93,14 @@ const Layout = ({
       ) : (
         <StyledImg src={background} />
       )}
-      <StyledQuestionmark onClick={() => setShowWhatsThisModal(true)}>
+      <StyledQuestionmark onClick={() => setShowWelcomeModal(true)}>
         <span>?</span>
       </StyledQuestionmark>
       <Header
         showLoginModal={showLoginModal}
         setShowLoginModal={setShowLoginModal}
         setShowWhatsThisModal={setShowWhatsThisModal}
+        setShowWelcomeModal={setShowWelcomeModal}
       />
       {showLoginModal && <Login setShowLoginModal={setShowLoginModal}></Login>}
       {showWhatsThisModal && (

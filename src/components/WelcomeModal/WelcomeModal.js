@@ -54,7 +54,8 @@ const StyledContent = styled.div`
 
   p {
     opacity: 0.7;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
     font-weight: 400;
     margin-right: 1.5rem;
     margin-left: 1.5rem;
@@ -135,17 +136,12 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Tokke kommune skal revidere sin næringsplan og arbeidet er nyleg
-            starta.{' '}
+            Karlsøy kommune ønsker å tenke nytt rundt fremtidens arena for
+            kultur og læring på Hansnes. Her kan du gi dine innspill og se hva
+            andre ønsker seg.
           </p>
-          <p>
-            Planen skal gi føringar for korleis arbeidet med næringsutvikling
-            skal vere framover, og korleis kommunen kan bidra til å skape
-            attraktivitet og vekst.
-          </p>
-          <p>Kva tenkjer du skal til for å skape utvikling?</p>
         </StyledContent>
-        <StyledButton onClick={handleX}>Gi innspill</StyledButton>
+        <StyledButton onClick={handleX}>Okei!</StyledButton>
       </StyledModalMain>
     </StyledModal>
   );

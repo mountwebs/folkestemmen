@@ -102,7 +102,7 @@ const StyledLink2 = styled.a`
   }
 `;
 
-const Header = ({ setShowWhatsThisModal }) => {
+const Header = ({ setShowWelcomeModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
@@ -110,7 +110,7 @@ const Header = ({ setShowWhatsThisModal }) => {
           <span>Karlsøy kommune</span>
         </StyledContentLeft>
         <StyledContentRight>
-          <StyledLink onClick={() => setShowWhatsThisModal(true)}>
+          <StyledLink onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
           </StyledLink>
           <StyledLink2 href="https://innspill.io/karlsoy">Hjem</StyledLink2>
