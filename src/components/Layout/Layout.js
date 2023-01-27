@@ -82,7 +82,7 @@ const Layout = ({
   }, [userData, setShowWelcomeModal]);
 
   const handleAcceptCookie = () => {
-    initGA('G-7FEN6KCET5');
+    initGA('G-MKP54LV81H');
     userData.setCookieAccept(true);
   };
 
