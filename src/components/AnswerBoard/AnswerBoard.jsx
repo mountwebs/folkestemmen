@@ -89,7 +89,7 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://folkestemmen-api-karlsoy.onrender.com/';
+const baseUrl = 'https://stiangk.dev/api/karlsoy/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
