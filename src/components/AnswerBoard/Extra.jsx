@@ -38,6 +38,10 @@ const StyledButton = styled(Button)`
     padding: 0.8rem 35px;
     margin-left: 60px;
   }
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 const Extra = () => {

@@ -100,6 +100,11 @@ const StyledLink2 = styled.a`
     background: #cfe3dd;
     border-radius: 28.5px;
   }
+
+  &:hover {
+    background: #0f282c;
+    color: #dae7e7;
+  }
 `;
 
 const Header = ({ setShowWelcomeModal }) => {
