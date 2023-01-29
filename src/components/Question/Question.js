@@ -45,7 +45,6 @@ const StyledCard = styled.div`
   line-height: 22px;
 
   p {
-    background-color: #f8fffe;
     max-width: 95%;
     margin: 0;
     font-weight: normal;
