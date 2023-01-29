@@ -81,7 +81,7 @@ export const theme = {
         },
         extra: {
           color: white,
-          background: '#82380E',
+          background: '#174346',
         },
         sort: {
           selected: {
@@ -125,7 +125,7 @@ export const theme = {
       },
       extra: {
         color: black,
-        background: '#F9DB83',
+        background: '#E3EFEC',
       },
       questionmark: {
         background: white,

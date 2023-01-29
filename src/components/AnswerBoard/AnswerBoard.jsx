@@ -205,6 +205,7 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
+      <Extra />
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}
