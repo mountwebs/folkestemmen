@@ -102,7 +102,7 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://stiangk.dev/api/karlsoy/';
+const baseUrl = 'https://stiangk.dev/api/notodden/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');

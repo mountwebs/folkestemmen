@@ -147,7 +147,7 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
     if (jwtKey) headerConfig.headers.token = `Bearer ${jwtKey}`;
 
     axios
-      .get('https://stiangk.dev/api/karlsoy/answer/all', headerConfig)
+      .get('https://stiangk.dev/api/notodden/answer/all', headerConfig)
       .then((response) => response.data)
       .then((data) => {
         const items = data;
