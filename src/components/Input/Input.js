@@ -21,7 +21,7 @@ const StyledContainer = styled.form`
   
   @media only screen and ${device.sm} {
     padding: 1.5rem 1.5rem 1rem;
-    height: 250px;
+    height: 300px;
     margin-bottom: 4rem;
   }
 
