@@ -29,7 +29,7 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background-color: #fff;
+  background-color: #f8fffe;
   margin-bottom: 1rem;
   padding: 2rem 2rem;
   margin: 0.5rem 5px 0 0;
@@ -45,7 +45,7 @@ const StyledCard = styled.div`
   line-height: 22px;
 
   p {
-    max-width: 95%;
+    max-width: 15ch;
     margin: 0;
     font-weight: normal;
     font-family: 'Good Sans', sans-serif;
@@ -65,10 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>
-            Hvordan kan vi skape fremtidens arena for kultur og læring i Karlsøy
-            kommune?
-          </p>
+          <p>Hvordan skape byliv i Notodden sentrum?</p>
         </StyledCard>
       </StyledCardContainer>
     </>

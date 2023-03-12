@@ -8,7 +8,8 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
-import Extra from './Extra';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
@@ -28,7 +29,11 @@ const StyledContainer = styled.div`
 const StyledSortButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media only screen and ${device.sm} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -44,13 +49,21 @@ const StyledButton = styled(Button)`
       ? theme.colors.buttons.sort.selected.text
       : theme.colors.buttons.sort.deselected.text};
 
+  span {
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
   &:last-child {
     margin-left: 10px;
   }
 
   @media only screen and ${device.sm} {
-    padding: 12px 40px;
-    font-size: 1rem;
+    padding: 18px 40px;
+    font-size: 1.2rem;
   }
 `;
 
@@ -205,19 +218,19 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
-      <Extra />
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Nyeste
+          Alle innspill
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}
           onClick={() => setSortType('likes')}
         >
-          Populære
+          <FontAwesomeIcon icon={faHeart} size={'lg'} />
+          <span>Populære</span>
         </StyledButton>
       </StyledSortButtonsContainer>
       <StyledMasonry

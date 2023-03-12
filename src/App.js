@@ -19,11 +19,11 @@ const StyledMain = styled.main`
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
-  padding-top: 5rem;
+  padding-top: 4rem;
   position: relative;
 
   @media only screen and ${device.sm} {
-    padding: 8rem 1rem 2rem;
+    padding: 6rem 1rem 2rem;
   }
 `;
 

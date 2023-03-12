@@ -22,6 +22,7 @@ const StyledContainer = styled.form`
   @media only screen and ${device.sm} {
     padding: 1.5rem 1.5rem 1rem;
     height: 250px;
+    margin-bottom: 4rem;
   }
 
   .input {
@@ -168,6 +169,7 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
   const [temaValue, setTemaValue] = useState('');
   const userData = useContext(UserContext);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
+  const isSmallScreen = useMediaQuery({ query: `(max-width: 768px)` });
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -208,7 +210,11 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
           <AutosizeInput
             type="text"
             className="input-tema"
-            placeholder="# Legg til tema"
+            placeholder={
+              isSmallScreen
+                ? '# Legg til tema'
+                : '#Beskiv innspillet med et stikkord'
+            }
             placeholderIsMinWidth
             value={temaValue}
             onChange={handleTemaChange}

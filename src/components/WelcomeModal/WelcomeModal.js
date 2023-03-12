@@ -42,7 +42,7 @@ const StyledContent = styled.div`
   text-align: left;
   font-size: 1rem;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   h1 {
     margin-bottom: 0.5rem;
@@ -54,11 +54,14 @@ const StyledContent = styled.div`
 
   p {
     opacity: 0.7;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-bottom: 1rem;
     font-weight: 400;
     margin-right: 1.5rem;
     margin-left: 1.5rem;
+  }
+
+  p:first-child {
+    margin-top: 3rem;
   }
 
   @media only screen and ${device.sm} {
@@ -136,9 +139,14 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Karlsøy kommune ønsker å tenke nytt rundt fremtidens arena for
-            kultur og læring på Hansnes. Her kan du gi dine innspill og se hva
-            andre ønsker seg.
+            Notodden kommune vil skape mer liv i sentrum og lurer på hva du som
+            innbygger mener, ønsker deg og har behov for! Derfor har vi laget
+            denne nettsiden. Her kan du legge inn dine innspill og stemme på
+            andre forslag.
+          </p>
+          <p>
+            Prosjektet er en del av Bylab Notodden som arrangeres{' '}
+            <b>29. mars</b> i samarbeid med USN Notodden og Notodden Utvikling.
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>

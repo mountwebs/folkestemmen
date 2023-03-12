@@ -1,16 +1,17 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
-import background from '../../assets/img/background.png';
+import background from '../../assets/img/background.jpg';
 import backgroundMobile from '../../assets/img/background-mobile.png';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
 import WelcomeModal from '../WelcomeModal/WelcomeModal';
+import { useMediaQuery } from 'react-responsive';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -18,6 +19,7 @@ const StyledImg = styled.img`
   left: 0;
   width: 100%;
   object-fit: cover;
+  object-position: center;
   height: 469px;
   z-index: 0;
 
@@ -36,7 +38,7 @@ const StyledQuestionmark = styled.div`
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  background: ${({ theme }) => theme.colors.questionmark.background};
+  background: #cfe3dd;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -66,7 +68,7 @@ const Layout = ({
   children,
 }) => {
   const [showCookiePopup, setShowCookiePopup] = useState(false);
-  const windowWidth = useRef(window.innerWidth);
+  const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
 
   const userData = useContext(UserContext);
 
@@ -88,7 +90,7 @@ const Layout = ({
 
   return (
     <StyledApp>
-      {windowWidth.current <= 768 ? (
+      {isXtraSmallScreen ? (
         <StyledImg src={backgroundMobile} />
       ) : (
         <StyledImg src={background} />

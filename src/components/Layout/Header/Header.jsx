@@ -4,7 +4,7 @@ import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
 
 const StyledHeader = styled.header`
-  height: 103px;
+  padding-top: 60px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -13,7 +13,6 @@ const StyledHeader = styled.header`
 `;
 
 const StyledContainer = styled.div`
-  height: 13rem;
   display: flex;
   flex-grow: 1;
   max-width: 1328px;
@@ -22,7 +21,6 @@ const StyledContainer = styled.div`
   justify-content: center;
 
   @media only screen and ${device.sm} {
-    height: 150px;
     justify-content: space-between;
     padding: 0 20px 0 15px;
   }
@@ -34,14 +32,14 @@ const StyledContentLeft = styled.a`
   text-decoration: none;
   display: flex;
   text-align: center;
-  color: #004349;
+  color: white;
   font-weight: 400;
   max-width: 10ch;
   font-size: 24.34px;
   line-height: 29px;
 
   @media only screen and ${device.sm} {
-    color: #003929;
+    color: white;
     font-size: 24px;
     line-height: 29px;
     max-width: 100%;
@@ -96,7 +94,7 @@ const StyledLink2 = styled.a`
     display: block;
     font-size: 21px;
     line-height: 29px;
-    padding: 14px 29px;
+    padding: 12px 27px;
     background: #cfe3dd;
     border-radius: 28.5px;
   }
@@ -111,14 +109,13 @@ const Header = ({ setShowWelcomeModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft href="https://innspill.io/karlsoy">
-          <span>Karlsøy kommune</span>
+        <StyledContentLeft href="https://www.notodden.kommune.no/">
+          <span>Notodden kommune</span>
         </StyledContentLeft>
         <StyledContentRight>
-          <StyledLink onClick={() => setShowWelcomeModal(true)}>
+          <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
-          </StyledLink>
-          <StyledLink2 href="https://innspill.io/karlsoy">Hjem</StyledLink2>
+          </StyledLink2>
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>
