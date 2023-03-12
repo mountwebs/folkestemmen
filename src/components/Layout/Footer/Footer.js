@@ -10,11 +10,17 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
+const StyledWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 1296px;
   background: ${({ theme }) => theme.colors.footer.background};
   position: relative;
   bottom: 0;
@@ -25,23 +31,19 @@ const StyledFooter = styled.footer`
   @media only screen and ${device.sm} {
     border-radius: 50px 50px 0 0;
     padding-top: 6rem;
-    padding-right: 10%;
-    padding-left: 10%;
   }
 `;
 
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
 
   @media only screen and ${device.sm} {
     flex-direction: row;
-    max-width: 1328px;
-    padding: 0 25px;
+    max-width: 80%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -169,40 +171,42 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
   };
 
   return (
-    <StyledFooter>
-      <StyledContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={whiteLogo}></StyledLogo>
-          <StyledText>Medvirkning rett i lomma.</StyledText>
-        </StyledLogoContainer>
-        <StyledCTA>
-          Har du spørsmål eller vil du gi oss tilbakemelding?
-        </StyledCTA>
-        <StyledButton
-          onClick={() =>
-            (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
-          }
-        >
-          Kontakt oss
-        </StyledButton>
-      </StyledContainer>
-      <StyledBranding href="https://www.travers.as/">
-        Utviklet av &nbsp;
-        <img src={traversLogo} alt="" />
-      </StyledBranding>
-      <StyledGit>
-        <StyledA href="https://github.com/mountwebs/iver">
-          Kode: Stian Klasbu <FontAwesomeIcon icon={faGithub} size="lg" />
-        </StyledA>
-      </StyledGit>
-      <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
-      {userData.isAdmin && (
-        <>
-          <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
-          <StyledLink onClick={downloadCsv}>Last ned csv</StyledLink>
-        </>
-      )}
-    </StyledFooter>
+    <StyledWrapper>
+      <StyledFooter>
+        <StyledContainer>
+          <StyledLogoContainer>
+            <StyledLogo src={whiteLogo}></StyledLogo>
+            <StyledText>Medvirkning rett i lomma.</StyledText>
+          </StyledLogoContainer>
+          <StyledCTA>
+            Har du spørsmål eller vil du gi oss tilbakemelding?
+          </StyledCTA>
+          <StyledButton
+            onClick={() =>
+              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+            }
+          >
+            Kontakt oss
+          </StyledButton>
+        </StyledContainer>
+        <StyledBranding href="https://www.travers.as/">
+          Utviklet av &nbsp;
+          <img src={traversLogo} alt="" />
+        </StyledBranding>
+        <StyledGit>
+          <StyledA href="https://github.com/mountwebs/iver">
+            Kode: Stian Klasbu <FontAwesomeIcon icon={faGithub} size="lg" />
+          </StyledA>
+        </StyledGit>
+        <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
+        {userData.isAdmin && (
+          <>
+            <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
+            <StyledLink onClick={downloadCsv}>Last ned csv</StyledLink>
+          </>
+        )}
+      </StyledFooter>
+    </StyledWrapper>
   );
 };
 
