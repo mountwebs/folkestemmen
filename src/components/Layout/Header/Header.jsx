@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
+import byLabLogo from '../../../assets/Bylab_logo.svg';
 
 const StyledHeader = styled.header`
   padding-top: 60px;
@@ -17,7 +18,7 @@ const StyledContainer = styled.div`
   flex-grow: 1;
   max-width: 1328px;
   padding: 0 10px;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 
   @media only screen and ${device.sm} {
@@ -47,6 +48,10 @@ const StyledContentLeft = styled.a`
 
   span {
     margin-left: 0.5rem;
+  }
+
+  img {
+    width: 128px;
   }
 `;
 
@@ -110,7 +115,7 @@ const Header = ({ setShowWelcomeModal }) => {
     <StyledHeader>
       <StyledContainer>
         <StyledContentLeft href="https://www.notodden.kommune.no/">
-          <span>Notodden kommune</span>
+          <img src={byLabLogo} alt="ByLab logo" />
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
