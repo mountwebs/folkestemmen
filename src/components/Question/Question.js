@@ -45,7 +45,7 @@ const StyledCard = styled.div`
   line-height: 22px;
 
   p {
-    max-width: 15ch;
+    max-width: 20ch;
     margin: 0;
     font-weight: normal;
     font-family: 'Good Sans', sans-serif;
