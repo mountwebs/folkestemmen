@@ -5,12 +5,16 @@ import device from '../../../constants/breakpoints';
 import byLabLogo from '../../../assets/Bylab_logo.svg';
 
 const StyledHeader = styled.header`
-  padding-top: 60px;
+  padding-top: 3.5rem;
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 100;
   font-family: 'Good Sans', sans-serif;
+
+  @media only screen and ${device.sm} {
+    padding-top: 3.75rem;
+  }
 `;
 
 const StyledContainer = styled.div`
@@ -39,19 +43,24 @@ const StyledContentLeft = styled.a`
   font-size: 24.34px;
   line-height: 29px;
 
-  @media only screen and ${device.sm} {
-    color: white;
-    font-size: 24px;
-    line-height: 29px;
-    max-width: 100%;
-  }
-
   span {
     margin-left: 0.5rem;
   }
 
   img {
-    width: 128px;
+    width: 6rem;
+  }
+
+  @media only screen and ${device.sm} {
+    color: white;
+    font-size: 24px;
+    line-height: 29px;
+    max-width: 100%;
+
+    img {
+      width: 8rem;
+    }
+  }
   }
 `;
 

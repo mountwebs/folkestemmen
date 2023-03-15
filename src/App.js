@@ -21,9 +21,11 @@ const StyledMain = styled.main`
   padding: 10px;
   padding-top: 4rem;
   position: relative;
+  padding-top: 2rem;
 
   @media only screen and ${device.sm} {
     padding: 6rem 1rem 2rem;
+    padding-top: 4rem;
   }
 `;
 
