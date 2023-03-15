@@ -65,7 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hvordan skape byliv i Notodden sentrum?</p>
+          <p>Hva skal til for å skape liv i Notodden sentrum?</p>
         </StyledCard>
       </StyledCardContainer>
     </>
