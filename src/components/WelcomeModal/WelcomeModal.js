@@ -139,14 +139,14 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Notodden kommune vil skape mer liv i sentrum og lurer på hva du som
-            innbygger mener, ønsker deg og har behov for! Derfor har vi laget
-            denne nettsiden. Her kan du legge inn dine innspill og stemme på
-            andre forslag.
+            Notodden kommune ønsker å bidra til mer liv og aktivitet i sentrum
+            og lurer på hva du som innbygger mener, ønsker deg og har behov for!
+            Derfor har vi laget denne nettsiden. Her kan du legge inn dine
+            innspill og stemme på andre forslag.
           </p>
           <p>
-            Prosjektet er en del av Bylab Notodden som arrangeres{' '}
-            <b>29. mars</b> i samarbeid med USN Notodden og Notodden Utvikling.
+            Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
+            samarbeid med USN Notodden og Notodden Utvikling.
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
