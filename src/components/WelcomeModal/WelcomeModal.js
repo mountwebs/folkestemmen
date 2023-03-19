@@ -146,7 +146,8 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </p>
           <p>
             Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
-            samarbeid med USN Notodden og Notodden Utvikling.
+            samarbeid med USN Notodden, Notodden utvikling og Notodden i
+            sentrum.
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
