@@ -32,7 +32,7 @@ const StyledCard = styled.div`
   background-color: #f8fffe;
   margin-bottom: 1rem;
   padding: 2rem 2rem;
-  margin: 0.5rem 5px 0 0;
+  margin-top: 0.5rem;
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 25px;
   text-align: center;

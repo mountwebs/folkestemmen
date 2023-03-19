@@ -31,7 +31,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledContentLeft = styled.a`
+const StyledContentLeft = styled.div`
   z-index: 100;
   font-size: 2rem;
   text-decoration: none;
@@ -123,7 +123,7 @@ const Header = ({ setShowWelcomeModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft href="https://www.notodden.kommune.no/">
+        <StyledContentLeft>
           <img src={byLabLogo} alt="ByLab logo" />
         </StyledContentLeft>
         <StyledContentRight>

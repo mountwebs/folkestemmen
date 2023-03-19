@@ -17,7 +17,6 @@ const buttonText = 'Legg ut';
 const StyledContainer = styled.div`
   margin-bottom: 5rem;
   border-radius: 10px;
-  margin: 0 5px;
   width: 100%;
   margin-top: 2rem;
 
@@ -37,7 +36,7 @@ const StyledSortButtonsContainer = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  padding: 20px 40px;
+  padding: 18px 35px;
   border-radius: 25px;
   font-weight: 600;
   background-color: ${({ theme, selected }) =>
