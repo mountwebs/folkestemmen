@@ -5,14 +5,14 @@ import device from '../../constants/breakpoints';
 const StyledContainer = styled.div`
   margin: auto;
   max-width: 700px;
-  margin: 3rem auto 3rem;
+  margin: 0 auto 4rem;
   z-index: 100;
   position: relative;
   padding: 0 10px;
 
   @media only screen and ${device.sm} {
     max-width: 700px;
-    margin: 4rem auto 6rem;
+    margin: 4rem auto 10rem;
   }
 `;
 
@@ -21,6 +21,7 @@ const StyledHeader = styled.h1`
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 0;
+  color: white;
 
   @media only screen and ${device.sm} {
     font-size: 3rem;
@@ -32,6 +33,7 @@ const StyledP = styled.p`
   font-weight: 400;
   font-size: 1.2rem;
   margin-top: 1rem;
+  color: white;
 
   @media only screen and ${device.sm} {
     font-size: 1.8rem;
