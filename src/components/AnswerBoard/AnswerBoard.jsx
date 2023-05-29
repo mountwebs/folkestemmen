@@ -101,7 +101,7 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://stiangk.dev/api/notodden/';
+const baseUrl = process.env.REACT_APP_BASE_API_URL;
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
