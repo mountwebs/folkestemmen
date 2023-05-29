@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { UserProvider } from './UserContext';
 import device from './constants/breakpoints';
 import { Helmet } from 'react-helmet';
-import Closed from './components/Closed/Closed';
 
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
@@ -25,7 +24,8 @@ const StyledMain = styled.main`
   padding-top: 2rem;
 
   @media only screen and ${device.sm} {
-    padding: 0 1rem 2rem;
+    padding: 6rem 1rem 2rem;
+    padding-top: 4rem;
   }
 `;
 
@@ -60,7 +60,6 @@ function App() {
           setShowWelcomeModal={setShowWelcomeModal}
         >
           <StyledMain>
-            <Closed />
             <Question text={questionText} />
             <AnswerBoard />
           </StyledMain>
