@@ -26,10 +26,7 @@ const StyledCard = styled.div`
   border-radius: 25px;
 
   .fa-ellipsis-h {
-    color: ${({ theme, currentUser }) =>
-      currentUser
-        ? theme.colors.currentUserAnswer.details
-        : theme.colors.text.muted};
+    color: ${({ theme, currentUser }) => theme.colors.text.muted};
   }
 
   @media only screen and ${device.sm} {
@@ -51,10 +48,7 @@ const StyledCard = styled.div`
 
       p {
         margin: 1rem 0 0.2rem 0.2rem;
-        color: ${({ currentUser, theme }) =>
-          currentUser
-            ? theme.colors.currentUserAnswer.details
-            : theme.colors.text.muted};
+        color: ${({ theme }) => theme.colors.text.muted};
         font-size: 0.8rem;
       }
     }
@@ -113,7 +107,7 @@ const StyledDots = styled.span`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: black;
+  color: white;
 
   :disabled {
     opacity: 50%;

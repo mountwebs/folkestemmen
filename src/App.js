@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Layout from './components/Layout/Layout';
 import Question from './components/Question/Question';
-import Welcome from './components/Welcome/Welcome';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/globalStyle';
 import AnswerBoard from './components/AnswerBoard/AnswerBoard';
@@ -15,19 +14,25 @@ import Closed from './components/Closed/Closed';
 const questionText = 'Hvordan synes du fremtidens sentrum bør være?';
 
 const StyledMain = styled.main`
-  margin: 1rem;
-  max-width: 1020px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 1328px;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  padding-top: 4rem;
+  position: relative;
+  padding-top: 2rem;
+
   @media only screen and ${device.sm} {
-    padding: 0 10px;
+    padding: 0 1rem 2rem;
   }
 `;
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showWhatsThisModal, setShowWhatsThisModal] = useState(false);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
   return (
     <UserProvider>
@@ -44,18 +49,16 @@ function App() {
           rel="stylesheet"
         />
       </Helmet>
-      <ThemeProvider theme={theme.randaberg}>
+      <ThemeProvider theme={theme.munch}>
         <GlobalStyle />
         <Layout
           showLoginModal={showLoginModal}
           setShowLoginModal={setShowLoginModal}
           showWhatsThisModal={showWhatsThisModal}
           setShowWhatsThisModal={setShowWhatsThisModal}
+          showWelcomeModal={showWelcomeModal}
+          setShowWelcomeModal={setShowWelcomeModal}
         >
-          <Welcome
-            showLoginModal={showLoginModal}
-            setShowLoginModal={setShowLoginModal}
-          />
           <StyledMain>
             <Closed />
             <Question text={questionText} />

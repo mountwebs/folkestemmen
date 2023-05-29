@@ -2,42 +2,70 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
+import byLabLogo from '../../../assets/Bylab_logo.svg';
 
 const StyledHeader = styled.header`
-  height: 103px;
+  padding-top: 3.5rem;
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 100;
+  font-family: 'Good Sans', sans-serif;
+
+  @media only screen and ${device.sm} {
+    padding-top: 3.75rem;
+  }
 `;
 
 const StyledContainer = styled.div`
-  height: 11rem;
   display: flex;
   flex-grow: 1;
-  max-width: 1020px;
+  max-width: 1328px;
   padding: 0 10px;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 
   @media only screen and ${device.sm} {
-    height: 103px;
     justify-content: space-between;
     padding: 0 20px 0 15px;
   }
 `;
 
-const StyledContentLeft = styled.span`
+const StyledContentLeft = styled.div`
   z-index: 100;
   font-size: 2rem;
+  text-decoration: none;
+  display: flex;
   text-align: center;
+  color: white;
+  font-weight: 400;
+  max-width: 10ch;
+  font-size: 24.34px;
+  line-height: 29px;
+
+  span {
+    margin-left: 0.5rem;
+  }
+
+  img {
+    width: 6rem;
+  }
 
   @media only screen and ${device.sm} {
-    font-size: 1.5rem;
+    color: white;
+    font-size: 24px;
+    line-height: 29px;
+    max-width: 100%;
+
+    img {
+      width: 8rem;
+    }
+  }
   }
 `;
 
 const StyledContentRight = styled.div`
+  z-index: 100;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -46,48 +74,62 @@ const StyledContentRight = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
-  font-size: 1.2rem;
-  display: none;
-  background-color: ${({ theme }) => theme.colors.buttons.header.background};
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.buttons.header.text};
-
-  @media only screen and ${device.sm} {
-    display: block;
-  }
-`;
-
 const StyledLink = styled.a`
   display: none;
-  margin-right: 1.5rem;
   font-size: 1.3rem;
+  color: black;
+  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
 
   @media only screen and ${device.sm} {
-    color: inherit;
     text-decoration: unset;
     display: block;
+    font-size: 21.6px;
+    line-height: 28px;
   }
 `;
 
-const Header = ({
-  showLoginModal,
-  setShowLoginModal,
-  setShowWhatsThisModal,
-}) => {
+const StyledLink2 = styled.a`
+  display: none;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @media only screen and ${device.sm} {
+    text-decoration: unset;
+    display: block;
+    font-size: 21px;
+    line-height: 29px;
+    padding: 12px 27px;
+    background: #cfe3dd;
+    border-radius: 28.5px;
+  }
+
+  &:hover {
+    background: #0f282c;
+    color: #dae7e7;
+  }
+`;
+
+const Header = ({ setShowWelcomeModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft>Den smarte fjellbygda Trøym</StyledContentLeft>
+        <StyledContentLeft>
+          <img src={byLabLogo} alt="ByLab logo" />
+        </StyledContentLeft>
         <StyledContentRight>
-          <StyledLink onClick={() => setShowWhatsThisModal(true)}>
+          <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
-          </StyledLink>
-          <StyledButton
-            onClick={() => (window.location = 'mailto:erlend@travers.as')}
-          >
-            Kontakt oss
-          </StyledButton>
+          </StyledLink2>
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>

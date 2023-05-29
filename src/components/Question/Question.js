@@ -29,35 +29,43 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background-color: white;
+  background-color: #f8fffe;
   margin-bottom: 1rem;
-  padding: 1rem 2rem;
-  margin: 0.5rem 5px 0 0;
-  font-size: 1.5rem;
+  padding: 2rem 2rem;
+  margin-top: 0.5rem;
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 25px;
   text-align: center;
   z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  p {
+    max-width: 20ch;
+    margin: 0;
+    font-weight: normal;
+    font-family: 'Good Sans', sans-serif;
+  }
 
   @media only screen and ${device.sm} {
-    font-size: 2.5rem;
-    background-color: ${({ theme }) => theme.colors.question.background};
-    max-width: 650px;
-    border-radius: 50px;
+    font-weight: 400;
+    font-size: 56.3999px;
+    line-height: 68px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 `;
 
 const Question = () => {
   return (
     <>
-      <StyledHeadingContainer>
-        <StyledHeading>Spørsmål</StyledHeading>
-      </StyledHeadingContainer>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p className="card-text">
-            Hva slags sentrum ønsker du deg i Hemsedal?
-          </p>
+          <p>Hva skal til for å skape liv i Notodden sentrum?</p>
         </StyledCard>
       </StyledCardContainer>
     </>

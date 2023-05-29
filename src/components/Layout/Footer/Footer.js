@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import whiteLogo from '../../../assets/logo-white.svg';
+import whiteLogo from '../../../assets/innspill-logo.svg';
 import Button from '../../Button/Button';
 import traversLogo from '../../../assets/travers-logo.svg';
 import device from '../../../constants/breakpoints';
@@ -10,12 +10,18 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
+const StyledWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  background: #3a5108;
+  width: 1296px;
+  background: ${({ theme }) => theme.colors.footer.background};
   position: relative;
   bottom: 0;
   color: #a5a5a5;
@@ -25,23 +31,19 @@ const StyledFooter = styled.footer`
   @media only screen and ${device.sm} {
     border-radius: 50px 50px 0 0;
     padding-top: 6rem;
-    padding-right: 10%;
-    padding-left: 10%;
   }
 `;
 
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
 
   @media only screen and ${device.sm} {
     flex-direction: row;
-    max-width: 1020px;
-    padding: 0 25px;
+    max-width: 80%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -62,35 +64,40 @@ const StyledLogo = styled.img`
 const StyledCTA = styled.div`
   max-width: 200px;
   color: #f2f2f2;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
 
   @media only screen and ${device.sm} {
-    max-width: 200px;
+    font-size: 20px;
+    line-height: 30px;
+    max-width: 240px;
   }
 `;
 
 const StyledText = styled.div`
-  font-size: 0.8rem;
+  font-size: 1rem;
+  color: white;
+  opacity: 0.6;
 `;
 
-const StyledBranding = styled.small`
+const StyledBranding = styled.a`
   display: flex;
   place-self: center;
   margin-top: 2rem;
   font-size: 0.8rem;
   color: #ffffff;
   align-items: center;
+  text-decoration: none;
 `;
 
 const StyledButton = styled(Button)`
-  background-color: #fff3c7;
+  background-color: ${({ theme }) => theme.colors.button.background.secondary};
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-top: 1rem;
-  color: #3a5108;
+  color: ${({ theme }) => theme.colors.button.text.secondary};
   font-size: 1rem;
-
+  border-radius: 13.7017px;
   @media only screen and ${device.sm} {
     margin-left: 2rem;
     margin-top: 0rem;
@@ -112,7 +119,9 @@ const StyledLink = styled(StyledSpan)`
 `;
 
 const StyledA = styled.a`
+  display: block;
   color: white;
+  padding-top: 0.5rem;
 `;
 
 const Footer = ({ showLoginModal, setShowLoginModal }) => {
@@ -140,7 +149,7 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
     if (jwtKey) headerConfig.headers.token = `Bearer ${jwtKey}`;
 
     axios
-      .get('https://mighty-bayou-51480.herokuapp.com/answer/all', headerConfig)
+      .get('https://stiangk.dev/api/notodden/answer/all', headerConfig)
       .then((response) => response.data)
       .then((data) => {
         const items = data;
@@ -162,38 +171,42 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
   };
 
   return (
-    <StyledFooter>
-      <StyledContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={whiteLogo}></StyledLogo>
-          <StyledText>Medvirkning rett i lomma.</StyledText>
-        </StyledLogoContainer>
-        <StyledCTA>
-          Har du spørsmål eller vil du gi oss tilbakemelding?
-        </StyledCTA>
-        <StyledButton
-          onClick={() => (window.location = 'mailto:erlend@travers.as')}
-        >
-          Kontakt oss
-        </StyledButton>
-      </StyledContainer>
-      <StyledBranding>
-        Utviklet av &nbsp;
-        <img src={traversLogo} alt="" />
-      </StyledBranding>
-      <StyledGit>
-        <StyledA href="https://github.com/mountwebs/iver">
-          Åpen kildekode <FontAwesomeIcon icon={faGithub} size="lg" />
-        </StyledA>
-      </StyledGit>
-      <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
-      {userData.isAdmin && (
-        <>
-          <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
-          <StyledLink onClick={downloadCsv}>Last ned csv</StyledLink>
-        </>
-      )}
-    </StyledFooter>
+    <StyledWrapper>
+      <StyledFooter>
+        <StyledContainer>
+          <StyledLogoContainer>
+            <StyledLogo src={whiteLogo}></StyledLogo>
+            <StyledText>Medvirkning rett i lomma.</StyledText>
+          </StyledLogoContainer>
+          <StyledCTA>
+            Har du spørsmål eller vil du gi oss tilbakemelding?
+          </StyledCTA>
+          <StyledButton
+            onClick={() =>
+              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+            }
+          >
+            Kontakt oss
+          </StyledButton>
+        </StyledContainer>
+        <StyledBranding href="https://www.travers.as/">
+          Utviklet av &nbsp;
+          <img src={traversLogo} alt="" />
+        </StyledBranding>
+        <StyledGit>
+          <StyledA href="https://github.com/mountwebs/iver">
+            Kode: Stian Klasbu <FontAwesomeIcon icon={faGithub} size="lg" />
+          </StyledA>
+        </StyledGit>
+        <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>
+        {userData.isAdmin && (
+          <>
+            <StyledLink onClick={handleLogout}>Logg ut</StyledLink>
+            <StyledLink onClick={downloadCsv}>Last ned csv</StyledLink>
+          </>
+        )}
+      </StyledFooter>
+    </StyledWrapper>
   );
 };
 

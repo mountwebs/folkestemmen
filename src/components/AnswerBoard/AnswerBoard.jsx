@@ -8,53 +8,61 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
-import Extra from './Extra';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.body.background};
   margin-bottom: 5rem;
   border-radius: 10px;
-  margin: 0 5px;
-  max-width: 1020px;
-  padding-top: 2rem;
+  width: 100%;
+  margin-top: 2rem;
 
   @media only screen and ${device.sm} {
-    padding-top: 4rem;
-  }
-`;
-
-const StyledHeading = styled.p`
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  @media only screen and ${device.sm} {
-    font-size: 1rem;
+    margin-top: 2.5rem;
   }
 `;
 
 const StyledSortButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media only screen and ${device.sm} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const StyledButton = styled(Button)`
-  padding: 20px 40px;
+  padding: 18px 35px;
   border-radius: 25px;
   font-weight: 600;
-  background-color: ${(props) => (props.selected ? '#C3E679' : '#EBE6CE')};
-  color: ${({ theme, selected }) => (selected ? '#302405' : '#ACA79B')};
+  background-color: ${({ theme, selected }) =>
+    selected
+      ? theme.colors.buttons.sort.selected.background
+      : theme.colors.buttons.sort.deselected.background};
+  color: ${({ theme, selected }) =>
+    selected
+      ? theme.colors.buttons.sort.selected.text
+      : theme.colors.buttons.sort.deselected.text};
+
+  span {
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
 
   &:last-child {
     margin-left: 10px;
   }
 
   @media only screen and ${device.sm} {
-    padding: 12px 40px;
-    font-size: 1rem;
+    padding: 18px 40px;
+    font-size: 1.2rem;
   }
 `;
 
@@ -75,15 +83,15 @@ const StyledLoadMoreContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 `;
 
 const StyledLoadMoreButton = styled(Button)`
   padding: 20px 40px;
   border-radius: 25px;
   font-weight: 600;
-  background-color: #c3e679;
-  color: ${({ theme }) => theme.colors.button.text.secondary};
+  background-color: ${({ theme }) => theme.colors.button.background.primary};
+  color: ${({ theme }) => theme.colors.button.text.primary};
 
   @media only screen and ${device.sm} {
     padding: 12px 40px;
@@ -93,8 +101,7 @@ const StyledLoadMoreButton = styled(Button)`
 
 const ANSWERS_LIMIT = 25;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
-// const baseUrl = 'http://localhost:4000/';
+const baseUrl = 'https://stiangk.dev/api/notodden/';
 
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
@@ -129,7 +136,7 @@ const AnswerBoard = () => {
         setAnswerList(data);
         setLoadingState(false);
         if (data.length < ANSWERS_LIMIT) {
-          setLoadPosts(data.length);
+          // setLoadPosts(data.length);
           setMorePosts(false);
         }
       })
@@ -157,9 +164,10 @@ const AnswerBoard = () => {
   const addAnswer = (answer) => {
     axios
       .post(`${baseUrl}answer`, answer)
-      .then((response) =>
-        userData.setPosts([...userData.posts, response.data._id])
-      )
+      .then((response) => {
+        setLoadPosts(loadPosts + 1);
+        return userData.setPosts([...userData.posts, response.data._id]);
+      })
       .then(getAnswers)
       .catch((error) => console.log(error));
   };
@@ -204,19 +212,19 @@ const AnswerBoard = () => {
           addAnswer={addAnswer}
         ></ThanksModal>
       )}
-      <StyledHeading>Innspill</StyledHeading>
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Nyeste
+          Alle innspill
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}
           onClick={() => setSortType('likes')}
         >
-          Populære
+          <FontAwesomeIcon icon={faHeart} size={'lg'} />
+          <span>Populære</span>
         </StyledButton>
       </StyledSortButtonsContainer>
       <StyledMasonry

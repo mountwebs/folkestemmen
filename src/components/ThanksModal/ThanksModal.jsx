@@ -19,7 +19,7 @@ const StyledModalMain = styled.div`
   padding: 2rem;
   max-width: 90%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   color: white;
   text-align: center;
   top: 50%;
@@ -46,6 +46,7 @@ const StyledContent = styled.div`
     opacity: 0.7;
     margin-bottom: 1.5rem;
     align-self: start;
+    text-align: start;
   }
 `;
 
@@ -69,7 +70,7 @@ const StyledInput = styled.input`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.post.background};
-  color: black;
+  color: white;
   margin-top: 1rem;
   padding: 10px 40px;
   font-weight: bold;
@@ -108,14 +109,18 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const [tagValue, setTagValue] = useState('');
   const userData = useContext(UserContext);
 
-  const handleSumbit = (input) => {
+  const handleSubmit = (input) => {
     const answer = userData.answer;
     answer.age = ageValue;
-    answer.tags = tagValue;
+    answer.tags = tagValue ? tagValue : answer.tags;
     addAnswer(answer);
     userData.setAnswer({});
     setShowThanksModal(false);
   };
+
+  function containsOnlyNumbers(str) {
+    return /^\d+$/.test(str);
+  }
 
   return (
     <StyledModal>
@@ -142,10 +147,12 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             maxLength="10"
           />
           <StyledButton
-            onClick={() => handleSumbit('button')}
+            onClick={() => handleSubmit('button')}
             disabled={
-              userData.answer.tags.trim().length === 0 &&
-              tagValue.trim().length === 0
+              (userData.answer.tags.length === 0 &&
+                tagValue.trim().length === 0) ||
+              ageValue.trim().length === 0 ||
+              !containsOnlyNumbers(ageValue)
             }
           >
             Ok!

@@ -17,11 +17,14 @@ const StyledExtra = styled.div`
   flex-direction: column;
   color: black;
   margin-bottom: 3rem;
+  margin-right: auto;
+  margin-left: auto;
 
   @media only screen and ${device.sm} {
     flex-direction: row;
     padding: 1.5rem 40px;
     font-size: 1.3rem;
+    width: 80%;
   }
 `;
 
@@ -35,6 +38,10 @@ const StyledButton = styled(Button)`
     padding: 0.8rem 35px;
     margin-left: 60px;
   }
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 const Extra = () => {
@@ -45,7 +52,7 @@ const Extra = () => {
         med i trekningen av gavekort!
       </p>
       <StyledButton
-        onClick={() => window.open('https://nettskjema.no/a/280736')}
+        onClick={() => window.open('https://nettskjema.no/a/314143')}
       >
         Svar på undersøkelse
       </StyledButton>
