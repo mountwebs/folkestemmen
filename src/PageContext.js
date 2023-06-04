@@ -8,7 +8,7 @@ function PageProvider({ children }) {
   const [page, setPage] = useState([]);
   useEffect(() => {
     axios
-      .get('http://localhost:4000/pages/test')
+      .get(process.env.REACT_APP_PAGE_API_URL + process.env.REACT_APP_PAGE_NAME)
       .then((res) => {
         setPage(res.data);
       })
