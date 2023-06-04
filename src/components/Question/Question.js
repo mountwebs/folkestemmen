@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
+import PageContext from '../../PageContext';
 
 const StyledHeadingContainer = styled.div`
   display: flex;
@@ -61,11 +62,12 @@ const StyledCard = styled.div`
 `;
 
 const Question = () => {
+  const pageData = useContext(PageContext);
   return (
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hva skal til for å skape liv i Notodden sentrum?</p>
+          <p>{pageData.question}</p>
         </StyledCard>
       </StyledCardContainer>
     </>
