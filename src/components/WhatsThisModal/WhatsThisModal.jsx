@@ -148,7 +148,6 @@ const StyledInfo = styled.div`
 `;
 
 const WhatsThisModal = ({ setShowWhatsThisModal }) => {
-  const [page, setPage] = useState(1);
   const ref = useRef();
 
   const handleX = () => {
