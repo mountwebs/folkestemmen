@@ -10,6 +10,8 @@ import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import FilterSection from './FilterSection';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
@@ -24,6 +26,10 @@ const StyledContainer = styled.div`
     margin-top: 2.5rem;
   }
 `;
+
+const StyledFilterContainer = styled.div``;
+
+const StyledFilterButton = styled.button``;
 
 const StyledSortButtonsContainer = styled.div`
   display: flex;
@@ -103,6 +109,22 @@ const ANSWERS_LIMIT = 25;
 
 const baseUrl = process.env.REACT_APP_BASE_API_URL;
 
+const options = [
+  'Gaterommet St. Olavs plass',
+  'Nordlig utgang av Korsatunellen',
+  'Sørlig inngang til Korsatunellen',
+  'Korsatunellen',
+  'Harald Torsviks plass',
+];
+
+const qpOptions = {
+  sted1: 'Gaterommet St. Olavs plass',
+  sted2: 'Nordlig utgang av Korsatunellen',
+  sted4: 'Sørlig inngang til Korsatunellen',
+  sted3: 'Korsatunellen',
+  sted5: 'Harald Torsviks plass',
+};
+
 const AnswerBoard = () => {
   const [answerList, setAnswerList] = useState('');
   const [loading, setLoadingState] = useState(true);
@@ -112,6 +134,15 @@ const AnswerBoard = () => {
   const [loadPosts, setLoadPosts] = useState(ANSWERS_LIMIT);
   const userData = useContext(UserContext);
   const [showThanksModal, setShowThanksModal] = useState(false);
+  const [selectFilter, setSelectFilter] = useState('Alle innspill');
+
+  const qpData = useContext(QueryParameterContext);
+
+  useEffect(() => {
+    if (qpData.tag && qpData.tag in qpOptions) {
+      setSelectFilter(qpOptions[qpData.tag]);
+    }
+  }, [qpData]);
 
   const userId = userData.userId;
   const jwtKey = localStorage.getItem('jwtKey');
@@ -130,9 +161,22 @@ const AnswerBoard = () => {
 
   const getAnswers = useCallback(() => {
     axios
-      .get(`${baseUrl}answer?sort=${sortType}&limit=${loadPosts}`)
+      .get(
+        `${baseUrl}answer?sort=${sortType}&limit=${loadPosts}${
+          selectFilter !== 'Alle innspill'
+            ? `&tag=${encodeURIComponent(selectFilter)}`
+            : ''
+        }`
+      )
       .then((response) => response.data)
       .then((data) => {
+        console.log(
+          `${baseUrl}answer?sort=${sortType}&limit=${loadPosts}${
+            selectFilter !== 'Alle innspill'
+              ? `&tag=${encodeURIComponent(selectFilter)}`
+              : ''
+          }`
+        );
         setAnswerList(data);
         setLoadingState(false);
         if (data.length < ANSWERS_LIMIT) {
@@ -144,7 +188,7 @@ const AnswerBoard = () => {
         console.log(error);
         setErrorState(true);
       });
-  }, [sortType, loadPosts]);
+  }, [sortType, loadPosts, selectFilter]);
 
   const getMoreAnswers = () => {
     axios
@@ -216,13 +260,19 @@ const AnswerBoard = () => {
         placeholderText={placeholderText}
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
+        options={['Velg byrom', ...options]}
+      />
+      <FilterSection
+        options={options}
+        selectFilter={selectFilter}
+        setSelectFilter={setSelectFilter}
       />
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Alle innspill
+          Nyeste
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}

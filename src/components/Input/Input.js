@@ -6,6 +6,7 @@ import Tag from '../AnswerBoard/Tag';
 import AutosizeInput from 'react-input-autosize';
 import { useMediaQuery } from 'react-responsive';
 import UserContext from '../../UserContext';
+import TagSelect from '../TagSelect/TagSelect';
 
 const StyledContainer = styled.form`
   position: relative;
@@ -47,7 +48,7 @@ const StyledContainer = styled.form`
     }
     &-tema-button-wrapper {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-start;
       
       @media only screen and ${device.sm} {
@@ -164,12 +165,18 @@ const StyledWarning = styled.span`
   text-align: center;
 `;
 
-const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
+const Input = ({
+  placeholderText,
+  buttonText,
+  setShowThanksModal,
+  options,
+}) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [temaValue, setTemaValue] = useState('');
   const userData = useContext(UserContext);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
   const isSmallScreen = useMediaQuery({ query: `(max-width: 768px)` });
+  const [selectedOption, setSelectedOption] = useState(options[0]);
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -184,7 +191,8 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
 
     const answer = { userId: userData.userId };
     answer.text = textAreaValue;
-    answer.tags = temaValue;
+    if (!selectedOption) return;
+    answer.tags = selectedOption;
     if (!answer.text) return;
     userData.setAnswer(answer);
     setShowThanksModal(true);
@@ -194,61 +202,51 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
   };
 
   return (
-    <StyledContainer className="input-container" onSubmit={handleSubmit}>
-      <StyledLengthMobile full={textAreaValue.length >= 250}>
-        {textAreaValue.length}/250 tegn
-      </StyledLengthMobile>
-      <textarea
-        value={textAreaValue}
-        onChange={handleTextAreaChange}
-        className="input-field"
-        placeholder={placeholderText}
-        maxLength="250"
+    <>
+      <TagSelect
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+        options={options}
       />
-      <div className="input-tema-button-wrapper">
-        <StyledTag>
-          <AutosizeInput
-            type="text"
-            className="input-tema"
-            placeholder={
-              isSmallScreen
-                ? '# Legg til tema'
-                : '#Beskiv innspillet med et stikkord'
-            }
-            placeholderIsMinWidth
-            value={temaValue}
-            onChange={handleTemaChange}
-            maxLength={isXtraSmallScreen ? 24 : 24}
-            inputStyle={{
-              borderStyle: 'none',
-              outline: 'none',
-              backgroundColor: 'inherit',
-              minWidth: '119px',
-            }}
-          />
-        </StyledTag>
-
-        <StyledBottomLeft>
-          <StyledLength full={textAreaValue.length >= 250}>
-            {textAreaValue.length}/250 tegn
-          </StyledLength>
-          <StyledButton
-            type="submit"
-            disabled={!textAreaValue || textAreaValue.length >= 250}
-            children={buttonText}
-          />
-        </StyledBottomLeft>
-      </div>
-      {userData.posts.length >= 2 && (
-        <StyledWarningContainer>
-          <StyledWarning>
-            Vi har lagt inn en begrensning på antall innspill for hver bruker på
-            to innspill. Dersom du ønsker å legge ut et nytt innspill må du
-            først slette et av dine tidligere innspill.
-          </StyledWarning>
-        </StyledWarningContainer>
-      )}
-    </StyledContainer>
+      <StyledContainer className="input-container" onSubmit={handleSubmit}>
+        <StyledLengthMobile full={textAreaValue.length >= 250}>
+          {textAreaValue.length}/250 tegn
+        </StyledLengthMobile>
+        <textarea
+          value={textAreaValue}
+          onChange={handleTextAreaChange}
+          className="input-field"
+          placeholder={placeholderText}
+          maxLength="250"
+        />
+        <div className="input-tema-button-wrapper">
+          <StyledBottomLeft>
+            <StyledLength full={textAreaValue.length >= 250}>
+              {textAreaValue.length}/250 tegn
+            </StyledLength>
+            <StyledButton
+              type="submit"
+              disabled={
+                !textAreaValue ||
+                textAreaValue.length >= 250 ||
+                !selectedOption ||
+                selectedOption === 'Velg byrom'
+              }
+              children={buttonText}
+            />
+          </StyledBottomLeft>
+        </div>
+        {userData.posts.length >= 2 && (
+          <StyledWarningContainer>
+            <StyledWarning>
+              Vi har lagt inn en begrensning på antall innspill for hver bruker
+              på to innspill. Dersom du ønsker å legge ut et nytt innspill må du
+              først slette et av dine tidligere innspill.
+            </StyledWarning>
+          </StyledWarningContainer>
+        )}
+      </StyledContainer>
+    </>
   );
 };
 
