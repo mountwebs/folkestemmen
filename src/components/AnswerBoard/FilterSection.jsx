@@ -40,8 +40,12 @@ const StyledFilterButton = styled.button`
   border-radius: 30.545px;
   background: #f3ecd0;
 
-  background-color: ${({ selected }) => (selected ? '#f3ecd0' : '#f5f5f4')};
-  color: ${({ theme, selected }) => (selected ? '#000000' : '#000000')};
+  background-color: ${({ selected }) => (selected ? '#463A11' : '#f3ecd0')};
+  color: ${({ theme, selected }) => (selected ? '#fff' : '#000')};
+
+  svg path {
+    fill: ${({ selected }) => (selected ? '#fff' : '##332A0A')};
+  }
 `;
 
 const FilterSection = ({ options, selectFilter, setSelectFilter }) => {
