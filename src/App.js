@@ -7,7 +7,6 @@ import AnswerBoard from './components/AnswerBoard/AnswerBoard';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
 import { UserProvider } from './UserContext';
-import { PageProvider } from './PageContext';
 import device from './constants/breakpoints';
 import { Helmet } from 'react-helmet';
 
@@ -36,39 +35,37 @@ function App() {
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
   return (
-    <PageProvider>
-      <UserProvider>
-        <Helmet>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <UserProvider>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-          <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
-        <ThemeProvider theme={theme.munch}>
-          <GlobalStyle />
-          <Layout
-            showLoginModal={showLoginModal}
-            setShowLoginModal={setShowLoginModal}
-            showWhatsThisModal={showWhatsThisModal}
-            setShowWhatsThisModal={setShowWhatsThisModal}
-            showWelcomeModal={showWelcomeModal}
-            setShowWelcomeModal={setShowWelcomeModal}
-          >
-            <StyledMain>
-              <Question text={questionText} />
-              <AnswerBoard />
-            </StyledMain>
-          </Layout>
-        </ThemeProvider>
-      </UserProvider>
-    </PageProvider>
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <ThemeProvider theme={theme.munch}>
+        <GlobalStyle />
+        <Layout
+          showLoginModal={showLoginModal}
+          setShowLoginModal={setShowLoginModal}
+          showWhatsThisModal={showWhatsThisModal}
+          setShowWhatsThisModal={setShowWhatsThisModal}
+          showWelcomeModal={showWelcomeModal}
+          setShowWelcomeModal={setShowWelcomeModal}
+        >
+          <StyledMain>
+            <Question text={questionText} />
+            <AnswerBoard />
+          </StyledMain>
+        </Layout>
+      </ThemeProvider>
+    </UserProvider>
   );
 }
 
