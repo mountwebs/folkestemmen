@@ -1,9 +1,8 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import { useOutsideClick } from 'rooks';
-import PageContext from '../../PageContext';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -149,7 +148,6 @@ const StyledInfo = styled.div`
 `;
 
 const WhatsThisModal = ({ setShowWhatsThisModal }) => {
-  const pageData = useContext(PageContext);
   const ref = useRef();
 
   const handleX = () => {
@@ -168,8 +166,27 @@ const WhatsThisModal = ({ setShowWhatsThisModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>{pageData['hva_er_dette-overskrift']}</h1>
-          {pageData['hva_er_dette-tekst']}
+          <h1>Hva er dette?</h1>
+          <p>
+            Tokke kommune skal revidere sin næringsplan og arbeidet er nyleg
+            starta. Planen skal gi føringar for korleis arbeidet med
+            næringsutvikling skal vere framover, og korleis kommunen kan bidra
+            til å skape attraktivitet og vekst.
+          </p>
+          <p>
+            Designkontoret Travers skal bistå kommunen i prosessen, og vil i
+            løpet av dei neste vekene gjennomføre ulike aktivitetar for å samle
+            innspel frå næringslivet.
+          </p>
+          <p>
+            Gjennom heile prosessen kan du gi dine innspel om framtidas
+            næringsutvikling i Tokke på www.innspill.io. Portalen opnar
+            19.januar.
+          </p>
+          <p>
+            Onsdag 8. februar blir det ope digital arbeidsverkstad for å gå
+            gjennom behov, utfordringar og innspel.
+          </p>
           <StyledInfo>
             <p>
               Har du andre spørsmål?
