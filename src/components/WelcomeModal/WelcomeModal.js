@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import { useOutsideClick } from 'rooks';
+import PageContext from '../../PageContext';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -118,8 +119,16 @@ const StyledX = styled.div`
   }
 `;
 
+const Testing = () => {
+  const pageData = useContext(PageContext);
+  return (
+    <div dangerouslySetInnerHTML={{ __html: pageData['hva_er_dette-tekst'] }} />
+  );
+};
+
 const WhatsThisModal = ({ setShowWelcomeModal }) => {
   const ref = useRef();
+  const pageData = useContext(PageContext);
 
   const handleX = () => {
     setShowWelcomeModal(false);
@@ -137,18 +146,8 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>Hei! 👋</h1>
-          <p>
-            Notodden kommune ønsker å bidra til mer liv og aktivitet i sentrum
-            og lurer på hva du som innbygger mener, ønsker deg og har behov for!
-            Derfor har vi laget denne nettsiden. Her kan du legge inn dine
-            innspill og stemme på andre forslag.
-          </p>
-          <p>
-            Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
-            samarbeid med USN Notodden, Notodden utvikling og Notodden i
-            sentrum.
-          </p>
+          <h1>{pageData['hva_er_dette-overskrift']}</h1>
+          <Testing />
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
       </StyledModalMain>
