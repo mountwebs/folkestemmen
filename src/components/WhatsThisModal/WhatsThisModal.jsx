@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
@@ -148,6 +148,7 @@ const StyledInfo = styled.div`
 `;
 
 const WhatsThisModal = ({ setShowWhatsThisModal }) => {
+  const [page, setPage] = useState(1);
   const ref = useRef();
 
   const handleX = () => {

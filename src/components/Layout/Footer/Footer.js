@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
+import { ReactComponent as Logo } from '../../../assets/aalesund-logo.svg';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -21,10 +22,10 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   width: 1296px;
-  background: ${({ theme }) => theme.colors.footer.background};
+  background: #2b2b2b;
   position: relative;
   bottom: 0;
-  color: #a5a5a5;
+  color: #fff;
   padding: 3rem;
   border-radius: 20px 20px 0 0;
 
@@ -57,8 +58,19 @@ const StyledLogoContainer = styled.div`
   }
 `;
 
-const StyledLogo = styled.img`
-  height: 38px;
+const StyledLogo = styled(Logo)`
+  width: 93px;
+  height: 39.927px;
+
+  path {
+    fill: #fff;
+  }
+
+  @media only screen and ${device.sm} {
+    display: block;
+    width: 191px;
+    height: 82px;
+  }
 `;
 
 const StyledCTA = styled.div`
@@ -175,8 +187,7 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
       <StyledFooter>
         <StyledContainer>
           <StyledLogoContainer>
-            <StyledLogo src={whiteLogo}></StyledLogo>
-            <StyledText>Medvirkning rett i lomma.</StyledText>
+            <StyledLogo />
           </StyledLogoContainer>
           <StyledCTA>
             Har du spørsmål eller vil du gi oss tilbakemelding?

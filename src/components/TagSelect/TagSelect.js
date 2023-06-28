@@ -16,7 +16,7 @@ const StyledCard = styled.div`
   padding: 2rem 2rem;
   margin-top: 0.5rem;
   color: ${({ theme }) => theme.colors.question.text};
-  border-radius: 25px;
+  border-radius: 20px;
   text-align: center;
   z-index: 100;
   width: 100%;

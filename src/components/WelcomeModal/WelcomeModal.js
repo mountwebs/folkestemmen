@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import { useOutsideClick } from 'rooks';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -120,6 +121,7 @@ const StyledX = styled.div`
 
 const WhatsThisModal = ({ setShowWelcomeModal }) => {
   const ref = useRef();
+  const qpData = useContext(QueryParameterContext);
 
   const handleX = () => {
     setShowWelcomeModal(false);
@@ -130,6 +132,7 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
   }
 
   useOutsideClick(ref, handleOutsideClick);
+  console.log(qpData.english);
   return (
     <StyledModal>
       <StyledModalMain ref={ref}>
@@ -137,18 +140,52 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          <h1>Hei! 👋</h1>
-          <p>
-            Notodden kommune ønsker å bidra til mer liv og aktivitet i sentrum
-            og lurer på hva du som innbygger mener, ønsker deg og har behov for!
-            Derfor har vi laget denne nettsiden. Her kan du legge inn dine
-            innspill og stemme på andre forslag.
-          </p>
-          <p>
-            Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
-            samarbeid med USN Notodden, Notodden utvikling og Notodden i
-            sentrum.
-          </p>
+          {qpData.english ? (
+            <>
+              <h1>Hi! 👋</h1>
+              <p>
+                We, Ålesund municipality, are planning to upgrade the public
+                spaces “Harald Torsviks plass, “Korsatunellen” and “St. Olavs
+                plass”.
+              </p>
+
+              <p>
+                The new street bus terminal in Keiser Wilhelm street will be
+                established in 2024. This will result in a new and more
+                important use in daily life for the public spaces nearby.
+              </p>
+
+              <p>
+                This year, we would like to hear your opinion about what you
+                want to see in these public spaces, and how we can develop them
+                in the best possible way.
+              </p>
+
+              <p>
+                Throughout this year we’re going to test the public spaces with
+                temporary happenings, so please stay tuned!
+              </p>
+            </>
+          ) : (
+            <>
+              <h1>Hei! 👋</h1>
+              <p>
+                Vi i Ålesund kommune skal oppgradere byromma Harald Torsviks
+                plass, Korsatunellen og St. Olavs plass.
+              </p>
+              <p>
+                I 2024 vil Kollektivknutepunktet i Keiser Wilhelms gate komme på
+                plass, og da vil byromma kunne få ein ny og viktigare bruk i det
+                daglege. I år ønsker vi derfor å høyre di meining om kva du
+                ønsker deg for byromma, slik at vi kan utvikle dei til å bli
+                best mogleg for flest mogleg.
+              </p>
+              <p>
+                Gjennom året ønsker vi å teste ut byromma ved bruk av
+                midlertidige tiltak, så følg med!
+              </p>
+            </>
+          )}
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
       </StyledModalMain>

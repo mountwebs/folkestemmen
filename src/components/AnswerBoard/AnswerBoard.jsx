@@ -192,7 +192,13 @@ const AnswerBoard = () => {
 
   const getMoreAnswers = () => {
     axios
-      .get(`${baseUrl}answer?sort=${sortType}&skip=${answerList.length}`)
+      .get(
+        `${baseUrl}answer?sort=${sortType}&skip=${answerList.length}${
+          selectFilter !== 'Alle innspill'
+            ? `&tag=${encodeURIComponent(selectFilter)}`
+            : ''
+        }`
+      )
       .then((response) => response.data)
       .then((data) => {
         setAnswerList([...answerList, ...data]);

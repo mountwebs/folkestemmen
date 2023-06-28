@@ -21,7 +21,7 @@ function QueryParameterProvider({ children }) {
     const tagParam = queryParams.get('sted');
     setTag(tagParam);
 
-    const englishParam = queryParams.get('english') == 'true' ? true : false;
+    const englishParam = queryParams.get('english') === 'true' ? true : false;
     setEnglsih(englishParam);
 
     if (tagParam in qpOptions) {

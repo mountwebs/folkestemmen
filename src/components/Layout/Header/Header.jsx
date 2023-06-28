@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
 import byLabLogo from '../../../assets/Bylab_logo.svg';
+import aalesundLogo from '../../../assets/aalesund-logo.svg';
 
 const StyledHeader = styled.header`
   padding-top: 3.5rem;
@@ -48,7 +49,7 @@ const StyledContentLeft = styled.div`
   }
 
   img {
-    width: 6rem;
+    width: 150.58px;
   }
 
   @media only screen and ${device.sm} {
@@ -124,7 +125,7 @@ const Header = ({ setShowWelcomeModal }) => {
     <StyledHeader>
       <StyledContainer>
         <StyledContentLeft>
-          <img src={byLabLogo} alt="ByLab logo" />
+          <img src={aalesundLogo} alt="Aalesund logo" />
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink2 onClick={() => setShowWelcomeModal(true)}>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import device from '../../constants/breakpoints';
 
 const StyledFilterSection = styled.section`
   width: 100%;
@@ -9,6 +10,16 @@ const StyledFilterSection = styled.section`
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+
+  @media only screen and ${device.sm} {
+    padding-bottom: 70px;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const StyledFilterContainer = styled.div`
