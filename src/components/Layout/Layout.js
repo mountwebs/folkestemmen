@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
-import background from '../../assets/img/background.jpg';
+import background from '../../assets/img/background.png';
 import backgroundMobile from '../../assets/img/background-mobile.png';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
@@ -24,12 +24,12 @@ const StyledImg = styled.img`
   z-index: 0;
 
   @media only screen and ${device.sm} {
-    height: 42rem;
+    height: 899px;
   }
 `;
 
 const StyledApp = styled.div`
-  background-color: ${({ theme }) => theme.colors.body.background};
+  background-color: #fafafa;
   min-height: 100vh;
   position: relative;
 `;
