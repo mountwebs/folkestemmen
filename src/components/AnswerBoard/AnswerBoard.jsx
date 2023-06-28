@@ -263,7 +263,9 @@ const AnswerBoard = () => {
         ></ThanksModal>
       )}
       <Input
-        placeholderText={placeholderText}
+        placeholderText={
+          qpData.english ? 'What is your feedback?' : placeholderText
+        }
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
         options={['Velg byrom', ...options]}

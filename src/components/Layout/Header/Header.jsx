@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
 import byLabLogo from '../../../assets/Bylab_logo.svg';
 import aalesundLogo from '../../../assets/aalesund-logo.svg';
+import QueryParameterContext from '../../../queryParameterProvider';
 
 const StyledHeader = styled.header`
   padding-top: 3.5rem;
@@ -121,6 +122,8 @@ const StyledLink2 = styled.a`
 `;
 
 const Header = ({ setShowWelcomeModal, setWelcomePage }) => {
+  const qpData = useContext(QueryParameterContext);
+
   return (
     <StyledHeader>
       <StyledContainer>
@@ -129,7 +132,7 @@ const Header = ({ setShowWelcomeModal, setWelcomePage }) => {
         </StyledContentLeft>
         <StyledContentRight>
           <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
-            Hva er dette?
+            {qpData.english ? 'What is this?' : 'Hva er dette?'}
           </StyledLink2>
           <StyledLink2
             onClick={() => {
@@ -137,7 +140,7 @@ const Header = ({ setShowWelcomeModal, setWelcomePage }) => {
               setShowWelcomeModal(true);
             }}
           >
-            Vis steder
+            {qpData.english ? 'Show places' : 'Vis steder'}
           </StyledLink2>
         </StyledContentRight>
       </StyledContainer>

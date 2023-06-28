@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import { ReactComponent as Pin } from '../../assets/img/pin.svg';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const StyledFilterSection = styled.section`
   width: 100%;
@@ -44,9 +45,15 @@ const StyledFilterButton = styled.button`
 `;
 
 const FilterSection = ({ options, selectFilter, setSelectFilter }) => {
+  const qpData = useContext(QueryParameterContext);
+
   return (
     <StyledFilterSection>
-      <p>Utforsk innspill fra ulike byrom</p>
+      <p>
+        {qpData.english
+          ? 'Explore feedback from different places'
+          : 'Utforsk innspill fra ulike byrom'}
+      </p>
       <StyledFilterContainer>
         <StyledFilterButton
           selected={selectFilter === 'Alle innspill'}
