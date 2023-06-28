@@ -112,7 +112,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const handleSubmit = (input) => {
     const answer = userData.answer;
     answer.age = ageValue;
-    answer.tags = tagValue ? tagValue : answer.tags;
+    answer.place = tagValue ? tagValue : answer.tags;
     addAnswer(answer);
     userData.setAnswer({});
     setShowThanksModal(false);
@@ -128,23 +128,19 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
         <StyledContent>
           <StyledEmoji>👏</StyledEmoji>
           <StyledHeader>Takk for innspill!</StyledHeader>
-          {userData.answer.tags.trim().length === 0 && (
-            <>
-              <p>Beskriv innspillet med et stikkord</p>
-              <StyledInput
-                placeholder="Stikkord"
-                value={tagValue}
-                onChange={(e) => setTagValue(e.target.value)}
-                maxLength="20"
-              />
-            </>
-          )}
           <p>Hvor gammel er du?</p>
           <StyledInput
             placeholder="Alder"
             value={ageValue}
             onChange={(e) => setAgeValue(e.target.value)}
-            maxLength="10"
+            maxLength="200"
+          />
+          <p>Kva er ditt favorittstad i byen? Kvifor er det fint?</p>
+          <StyledInput
+            placeholder="Svar"
+            value={tagValue}
+            onChange={(e) => setTagValue(e.target.value)}
+            maxLength="20"
           />
           <StyledButton
             onClick={() => handleSubmit('button')}

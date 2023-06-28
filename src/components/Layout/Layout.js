@@ -7,11 +7,17 @@ import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import background from '../../assets/img/background.png';
 import backgroundMobile from '../../assets/img/background-mobile.png';
+import lilla from '../../assets/img/backgrounds/lilla.jpg';
+import roed from '../../assets/img/backgrounds/roed.jpg';
+import blaa from '../../assets/img/backgrounds/blaa.jpg';
+import gronn from '../../assets/img/backgrounds/gronn.jpg';
+import gult from '../../assets/img/backgrounds/gult.jpg';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
 import WelcomeModal from '../WelcomeModal/WelcomeModal';
 import { useMediaQuery } from 'react-responsive';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const StyledImg = styled.img`
   position: absolute;
@@ -71,6 +77,7 @@ const Layout = ({
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
   const [welcomePage, setWelcomePage] = useState(1);
 
+  const qpData = useContext(QueryParameterContext);
   const userData = useContext(UserContext);
 
   useEffect(() => {
@@ -89,12 +96,34 @@ const Layout = ({
     userData.setCookieAccept(true);
   };
 
+  let backgroundImg;
+
+  switch (qpData.place) {
+    case 'Gaterommet St. Olavs plass':
+      backgroundImg = lilla;
+      break;
+    case 'Nordlig utgang av Korsatunellen':
+      backgroundImg = gult;
+      break;
+    case 'Korsatunellen':
+      backgroundImg = gronn;
+      break;
+    case 'Sørlig inngang til Korsatunellen':
+      backgroundImg = blaa;
+      break;
+    case 'Harald Torsviks plass':
+      backgroundImg = roed;
+      break;
+    default:
+      backgroundImg = background;
+  }
+
   return (
     <StyledApp>
       {isXtraSmallScreen ? (
-        <StyledImg src={backgroundMobile} />
+        <StyledImg src={qpData.place ? backgroundImg : backgroundMobile} />
       ) : (
-        <StyledImg src={background} />
+        <StyledImg src={backgroundImg} />
       )}
       <StyledQuestionmark onClick={() => setShowWelcomeModal(true)}>
         <span>?</span>

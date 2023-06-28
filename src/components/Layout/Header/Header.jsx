@@ -110,7 +110,7 @@ const StyledLink2 = styled.a`
     font-size: 21px;
     line-height: 29px;
     padding: 12px 27px;
-    background: #cfe3dd;
+    background: white;
     border-radius: 28.5px;
   }
 

@@ -191,7 +191,7 @@ const Input = ({
     const answer = { userId: userData.userId };
     answer.text = textAreaValue;
     if (!selectedOption) return;
-    answer.tags = selectedOption;
+    answer.tags = selectedOption !== 'Velg byrom' ? selectedOption : '';
     if (!answer.text) return;
     userData.setAnswer(answer);
     setShowThanksModal(true);
@@ -225,12 +225,7 @@ const Input = ({
             </StyledLength>
             <StyledButton
               type="submit"
-              disabled={
-                !textAreaValue ||
-                textAreaValue.length >= 250 ||
-                !selectedOption ||
-                selectedOption === 'Velg byrom'
-              }
+              disabled={!textAreaValue || textAreaValue.length >= 250}
               children={buttonText}
             />
           </StyledBottomLeft>
