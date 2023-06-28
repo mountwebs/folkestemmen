@@ -320,7 +320,7 @@ const AnswerBoard = () => {
               Last flere innspill
             </StyledLoadMoreButton>
           ) : (
-            'Ingen flere innspill..'
+            'Ingen flere innspill...'
           )}
         </StyledLoadMoreContainer>
       )}

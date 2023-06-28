@@ -69,6 +69,7 @@ const Layout = ({
 }) => {
   const [showCookiePopup, setShowCookiePopup] = useState(false);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
+  const [welcomePage, setWelcomePage] = useState(1);
 
   const userData = useContext(UserContext);
 
@@ -103,6 +104,7 @@ const Layout = ({
         setShowLoginModal={setShowLoginModal}
         setShowWhatsThisModal={setShowWhatsThisModal}
         setShowWelcomeModal={setShowWelcomeModal}
+        setWelcomePage={setWelcomePage}
       />
       {showLoginModal && <Login setShowLoginModal={setShowLoginModal}></Login>}
       {showWhatsThisModal && (
@@ -111,7 +113,11 @@ const Layout = ({
         ></WhatsThisModal>
       )}
       {showWelcomeModal && (
-        <WelcomeModal setShowWelcomeModal={setShowWelcomeModal} />
+        <WelcomeModal
+          setShowWelcomeModal={setShowWelcomeModal}
+          welcomePage={welcomePage}
+          setWelcomePage={setWelcomePage}
+        />
       )}
       {showCookiePopup && (
         <CookiePopup

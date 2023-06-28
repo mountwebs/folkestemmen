@@ -1,9 +1,15 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import { useOutsideClick } from 'rooks';
 import QueryParameterContext from '../../queryParameterProvider';
+import { ReactComponent as Pin } from '../../assets/img/pin.svg';
+import place1 from '../../assets/img/places/Korsatunellen utgang sør.jpg';
+import place2 from '../../assets/img/places/Korsatunellen.jpg';
+import place3 from '../../assets/img/places/Glassrommet, Korsatunellen utgang nord.jpg';
+import place4 from '../../assets/img/places/Gaterommet St Olavs plass.jpg';
+import place5 from '../../assets/img/places/Harald Torsviks plass.jpg';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -19,7 +25,7 @@ const StyledModalMain = styled.div`
   position: fixed;
   padding: 1rem;
   width: 90%;
-  background-color: #fafafa;
+  background-color: #faf7ec;
   border-radius: 25px;
   color: white;
   text-align: center;
@@ -75,6 +81,49 @@ const StyledContent = styled.div`
   }
 `;
 
+const StyledPlaceContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 30px;
+  margin-top: 3rem;
+`;
+
+const StyledInfo = styled.div`
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: #332a0a;
+    text-align: center;
+    font-size: 15px;
+    font-family: Good Sans;
+    letter-spacing: 0.15px;
+    margin: 1rem 0 0 0;
+  }
+`;
+
+const StyledCard = styled.div`
+  min-width: 0;
+  background: white;
+  border-radius: 7px;
+
+  img {
+    fit-content: cover;
+    width: 100%;
+  }
+
+  p {
+    margin-top: 14px;
+    margin-bottom: 13px;
+    font-size: 15px;
+    color: black;
+    margin-left: 11px;
+  }
+`;
+
 const StyledButton = styled(Button)`
   background-color: black;
   color: white;
@@ -119,16 +168,31 @@ const StyledX = styled.div`
   }
 `;
 
-const WhatsThisModal = ({ setShowWelcomeModal }) => {
+const WhatsThisModal = ({
+  setShowWelcomeModal,
+  setWelcomePage,
+  welcomePage,
+}) => {
   const ref = useRef();
   const qpData = useContext(QueryParameterContext);
 
   const handleX = () => {
     setShowWelcomeModal(false);
+    setWelcomePage(1);
+  };
+
+  const handleButton = () => {
+    if (welcomePage === 1) {
+      setWelcomePage(2);
+    } else {
+      setShowWelcomeModal(false);
+      setWelcomePage(1);
+    }
   };
 
   function handleOutsideClick() {
     setShowWelcomeModal(false);
+    setWelcomePage(1);
   }
 
   useOutsideClick(ref, handleOutsideClick);
@@ -140,7 +204,7 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           <StyledX onClick={handleX}>
             <span>x</span>
           </StyledX>
-          {qpData.english ? (
+          {qpData.english && welcomePage === 1 && (
             <>
               <h1>Hi! 👋</h1>
               <p>
@@ -166,7 +230,8 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
                 temporary happenings, so please stay tuned!
               </p>
             </>
-          ) : (
+          )}
+          {!qpData.english && welcomePage === 1 && (
             <>
               <h1>Hei! 👋</h1>
               <p>
@@ -186,8 +251,40 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
               </p>
             </>
           )}
+          {welcomePage === 2 && (
+            <StyledPlaceContainer>
+              <StyledInfo>
+                <Pin />
+                <p>
+                  Du kan gi innspill på disse fem stedene i Ålesund sentrum.
+                </p>
+              </StyledInfo>
+              <StyledCard>
+                <img src={place1} alt="" />
+                <p>Korsatunellen utgang sør</p>
+              </StyledCard>
+              <StyledCard>
+                <img src={place2} alt="" />
+                <p>Korsatunellen</p>
+              </StyledCard>
+              <StyledCard>
+                <img src={place3} alt="" />
+                <p>Glassrommet, Korsatunellen utgang nord</p>
+              </StyledCard>
+              <StyledCard>
+                <img src={place4} alt="" />
+                <p>Gaterommet St Olavs plass</p>
+              </StyledCard>
+              <StyledCard>
+                <img src={place5} alt="" />
+                <p>Harald Torsviks plass</p>
+              </StyledCard>
+            </StyledPlaceContainer>
+          )}
         </StyledContent>
-        <StyledButton onClick={handleX}>Okei!</StyledButton>
+        <StyledButton onClick={handleButton}>
+          {welcomePage === 1 ? 'Neste' : 'Okei!'}
+        </StyledButton>
       </StyledModalMain>
     </StyledModal>
   );

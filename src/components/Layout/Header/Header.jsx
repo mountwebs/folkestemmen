@@ -101,7 +101,7 @@ const StyledLink2 = styled.a`
   font-weight: 400;
 
   &:not(:last-child) {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
   @media only screen and ${device.sm} {
@@ -120,7 +120,7 @@ const StyledLink2 = styled.a`
   }
 `;
 
-const Header = ({ setShowWelcomeModal }) => {
+const Header = ({ setShowWelcomeModal, setWelcomePage }) => {
   return (
     <StyledHeader>
       <StyledContainer>
@@ -130,6 +130,14 @@ const Header = ({ setShowWelcomeModal }) => {
         <StyledContentRight>
           <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
+          </StyledLink2>
+          <StyledLink2
+            onClick={() => {
+              setWelcomePage(2);
+              setShowWelcomeModal(true);
+            }}
+          >
+            Vis steder
           </StyledLink2>
         </StyledContentRight>
       </StyledContainer>
