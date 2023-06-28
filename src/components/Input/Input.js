@@ -18,7 +18,6 @@ const StyledContainer = styled.form`
   height: 225px;
   background-color: ${({ theme }) => theme.colors.body.primary};
   border-radius: 25px;
-  font-size: 1rem;
   
   @media only screen and ${device.sm} {
     padding: 1.5rem 1.5rem 1rem;
