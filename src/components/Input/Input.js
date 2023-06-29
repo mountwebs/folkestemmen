@@ -7,6 +7,7 @@ import AutosizeInput from 'react-input-autosize';
 import { useMediaQuery } from 'react-responsive';
 import UserContext from '../../UserContext';
 import TagSelect from '../TagSelect/TagSelect';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const StyledContainer = styled.form`
   position: relative;
@@ -176,6 +177,7 @@ const Input = ({
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
   const isSmallScreen = useMediaQuery({ query: `(max-width: 768px)` });
   const [selectedOption, setSelectedOption] = useState(options[0]);
+  const qpData = useContext(QueryParameterContext);
 
   const handleTemaChange = (e) => {
     setTemaValue(e.target.value);
@@ -209,7 +211,7 @@ const Input = ({
       />
       <StyledContainer className="input-container" onSubmit={handleSubmit}>
         <StyledLengthMobile full={textAreaValue.length >= 250}>
-          {textAreaValue.length}/250 tegn
+          {textAreaValue.length}/250 {qpData.english ? 'chars' : 'tegn'}
         </StyledLengthMobile>
         <textarea
           value={textAreaValue}
@@ -221,7 +223,7 @@ const Input = ({
         <div className="input-tema-button-wrapper">
           <StyledBottomLeft>
             <StyledLength full={textAreaValue.length >= 250}>
-              {textAreaValue.length}/250 tegn
+              {textAreaValue.length}/250 {qpData.english ? 'chars' : 'tegn'}
             </StyledLength>
             <StyledButton
               type="submit"
@@ -230,7 +232,7 @@ const Input = ({
             />
           </StyledBottomLeft>
         </div>
-        {userData.posts.length >= 2 && (
+        {userData.posts.length >= 8 && (
           <StyledWarningContainer>
             <StyledWarning>
               Vi har lagt inn en begrensning på antall innspill for hver bruker

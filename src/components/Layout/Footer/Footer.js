@@ -10,6 +10,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 import { ReactComponent as Logo } from '../../../assets/aalesund-logo.svg';
+import QueryParameterContext from '../../../queryParameterProvider';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -138,6 +139,7 @@ const StyledA = styled.a`
 
 const Footer = ({ showLoginModal, setShowLoginModal }) => {
   const userData = useContext(UserContext);
+  const qpData = useContext(QueryParameterContext);
 
   const handleAdminLogin = () => {
     setShowLoginModal(!showLoginModal);
@@ -190,23 +192,26 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
             <StyledLogo />
           </StyledLogoContainer>
           <StyledCTA>
-            Har du spørsmål eller vil du gi oss tilbakemelding?
+            {qpData.english
+              ? 'Questions or feedback? Let us know!'
+              : 'Har du spørsmål eller vil du gi oss tilbakemelding?'}
           </StyledCTA>
           <StyledButton
             onClick={() =>
-              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+              (window.location = 'mailto:postmottak@alesund.kommune.no')
             }
           >
-            Kontakt oss
+            {qpData.english ? 'Contact us' : 'Kontakt oss'}
           </StyledButton>
         </StyledContainer>
         <StyledBranding href="https://www.travers.as/">
-          Utviklet av &nbsp;
+          {qpData.english ? 'Developed by' : 'Utviklet av'} &nbsp;
           <img src={traversLogo} alt="" />
         </StyledBranding>
         <StyledGit>
           <StyledA href="https://github.com/mountwebs/iver">
-            Kode: Stian Klasbu <FontAwesomeIcon icon={faGithub} size="lg" />
+            {qpData.english ? 'Code' : 'Kode'}: Stian Klasbu{' '}
+            <FontAwesomeIcon icon={faGithub} size="lg" />
           </StyledA>
         </StyledGit>
         <StyledLink onClick={handleAdminLogin}>Admin</StyledLink>

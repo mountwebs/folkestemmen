@@ -13,9 +13,6 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import FilterSection from './FilterSection';
 import QueryParameterContext from '../../queryParameterProvider';
 
-const placeholderText = 'Hva er ditt innspill?';
-const buttonText = 'Legg ut';
-
 const StyledContainer = styled.div`
   margin-bottom: 5rem;
   border-radius: 10px;
@@ -137,6 +134,11 @@ const AnswerBoard = () => {
   const [selectFilter, setSelectFilter] = useState('Alle innspill');
 
   const qpData = useContext(QueryParameterContext);
+
+  const placeholderText = qpData.english
+    ? 'What is your feedback?'
+    : 'Hva er ditt innspill?';
+  const buttonText = qpData.english ? 'Add' : 'Legg ut';
 
   useEffect(() => {
     if (qpData.tag && qpData.tag in qpOptions) {
@@ -263,9 +265,7 @@ const AnswerBoard = () => {
         ></ThanksModal>
       )}
       <Input
-        placeholderText={
-          qpData.english ? 'What is your feedback?' : placeholderText
-        }
+        placeholderText={placeholderText}
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
         options={['Velg byrom', ...options]}
@@ -280,14 +280,14 @@ const AnswerBoard = () => {
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Nyeste
+          {qpData.english ? 'Newest' : 'Nyeste'}
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}
           onClick={() => setSortType('likes')}
         >
           <FontAwesomeIcon icon={faHeart} size={'lg'} />
-          <span>Populære</span>
+          <span>{qpData.english ? 'Popular' : 'Populære'}</span>
         </StyledButton>
       </StyledSortButtonsContainer>
       <StyledMasonry
@@ -319,8 +319,10 @@ const AnswerBoard = () => {
         <StyledLoadMoreContainer>
           {morePosts ? (
             <StyledLoadMoreButton onClick={handleLoadMore}>
-              Last flere innspill
+              {qpData.english ? 'Load more' : 'Last flere innspill'}
             </StyledLoadMoreButton>
+          ) : qpData.english ? (
+            'No more posts...'
           ) : (
             'Ingen flere innspill...'
           )}
