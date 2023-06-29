@@ -140,11 +140,11 @@ const AnswerBoard = () => {
     : 'Hva er ditt innspill?';
   const buttonText = qpData.english ? 'Add' : 'Legg ut';
 
-  useEffect(() => {
-    if (qpData.tag && qpData.tag in qpOptions) {
-      setSelectFilter(qpOptions[qpData.tag]);
-    }
-  }, [qpData]);
+  // useEffect(() => {
+  //   if (qpData.tag && qpData.tag in qpOptions) {
+  //     setSelectFilter(qpOptions[qpData.tag]);
+  //   }
+  // }, [qpData]);
 
   const userId = userData.userId;
   const jwtKey = localStorage.getItem('jwtKey');
