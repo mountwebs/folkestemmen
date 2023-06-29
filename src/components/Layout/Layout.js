@@ -148,12 +148,12 @@ const Layout = ({
           setWelcomePage={setWelcomePage}
         />
       )}
-      {showCookiePopup && (
+      {/* {showCookiePopup && (
         <CookiePopup
           setShowCookiePopup={setShowCookiePopup}
           handleAcceptCookie={handleAcceptCookie}
         />
-      )}
+      )} */}
       {children}
       <Footer
         showLoginModal={showLoginModal}
