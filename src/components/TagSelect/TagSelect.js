@@ -79,11 +79,11 @@ const TagSelect = ({ options, selectedOption, setSelectedOption }) => {
 
   let headingText = '';
   if (qpData.place && qpData.english) {
-    headingText = 'Chose a place and give feedback';
+    headingText = 'What do wish for in this public space';
   } else if (qpData.place && !qpData.english) {
     headingText = 'Hva synes du om dette byrommet?';
   } else if (!qpData.place && qpData.english) {
-    headingText = 'What do you think of this city space';
+    headingText = 'Choose a public space and tell us what you wish for';
   } else if (!qpData.place && !qpData.english) {
     headingText = 'Vel eit byrom og gi ditt innspel';
   }
