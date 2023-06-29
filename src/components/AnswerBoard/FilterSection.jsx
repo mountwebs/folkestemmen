@@ -48,6 +48,14 @@ const StyledFilterButton = styled.button`
   }
 `;
 
+const optionTranslation = {
+  'Gaterommet St. Olavs plass': 'Corner of St. Olavs plass',
+  'Nordlig utgang av Korsatunellen': 'Korsatunellen North Exit',
+  'Sørlig inngang til Korsatunellen': 'Korsatunellen South Entrance',
+  Korsatunellen: 'Korsatunellen',
+  'Harald Torsviks plass': 'Harald Torsviks plass',
+};
+
 const FilterSection = ({ options, selectFilter, setSelectFilter }) => {
   const qpData = useContext(QueryParameterContext);
 
@@ -63,7 +71,7 @@ const FilterSection = ({ options, selectFilter, setSelectFilter }) => {
           selected={selectFilter === 'Alle innspill'}
           onClick={() => setSelectFilter('Alle innspill')}
         >
-          Alle innspill
+          {qpData.english ? 'All' : 'Alle innspill'}
         </StyledFilterButton>
         {options.map((option, index) => (
           <StyledFilterButton
@@ -72,7 +80,7 @@ const FilterSection = ({ options, selectFilter, setSelectFilter }) => {
             key={index}
           >
             <Pin />
-            {option}
+            {qpData.english ? optionTranslation[option] : option}
           </StyledFilterButton>
         ))}
       </StyledFilterContainer>

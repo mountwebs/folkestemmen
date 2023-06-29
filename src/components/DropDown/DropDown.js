@@ -9,6 +9,14 @@ const StyledContainer = styled.div`
   }
 `;
 
+const optionTranslation = {
+  'Gaterommet St. Olavs plass': 'Corner of St. Olavs plass',
+  'Nordlig utgang av Korsatunellen': 'Korsatunellen North Exit',
+  'Sørlig inngang til Korsatunellen': 'Korsatunellen South Entrance',
+  Korsatunellen: 'Korsatunellen',
+  'Harald Torsviks plass': 'Harald Torsviks plass',
+};
+
 const StyledSelect = styled.select``;
 
 const StyledOptions = styled.option``;
@@ -33,7 +41,7 @@ const DropDown = ({ options, selectedOption, setSelectedOption }) => {
           else
             return (
               <StyledOptions key={index} value={option}>
-                {option}
+                {qpData.english ? optionTranslation[option] : option}
               </StyledOptions>
             );
         })}

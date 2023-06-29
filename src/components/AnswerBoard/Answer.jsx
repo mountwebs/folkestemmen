@@ -11,6 +11,15 @@ import AutosizeInput from 'react-input-autosize';
 import { useMediaQuery } from 'react-responsive';
 import TextareaAutosize from 'react-textarea-autosize';
 import Button from '../Button/Button';
+import QueryParameterContext from '../../queryParameterProvider';
+
+const optionTranslation = {
+  'Gaterommet St. Olavs plass': 'Corner of St. Olavs plass',
+  'Nordlig utgang av Korsatunellen': 'Korsatunellen North Exit',
+  'Sørlig inngang til Korsatunellen': 'Korsatunellen South Entrance',
+  Korsatunellen: 'Korsatunellen',
+  'Harald Torsviks plass': 'Harald Torsviks plass',
+};
 
 const StyledCard = styled.div`
   z-index: 100;
@@ -147,6 +156,7 @@ const Answer = ({
   const [textAreaValue, setTextAreaValue] = useState(answerData.text);
   const [temaValue, setTemaValue] = useState(answerData.tags);
   const isXtraSmallScreen = useMediaQuery({ query: '(max-width: 320px)' });
+  const qpData = useContext(QueryParameterContext);
 
   const currentUser = userData.posts.includes(answerData._id);
 
@@ -225,7 +235,7 @@ const Answer = ({
               />
             </StyledTag>
           ) : (
-            tags && <Tag>{tags}</Tag>
+            tags && <Tag>{qpData.english ? optionTranslation[tags] : tags}</Tag>
           )}
         </div>
         {editable ? (
