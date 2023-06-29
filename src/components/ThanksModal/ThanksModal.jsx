@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
 import UserContext from '../../UserContext';
+import QueryParameterContext from '../../queryParameterProvider';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -108,6 +109,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
   const [ageValue, setAgeValue] = useState('');
   const [tagValue, setTagValue] = useState('');
   const userData = useContext(UserContext);
+  const qpData = useContext(QueryParameterContext);
 
   const handleSubmit = (input) => {
     const answer = userData.answer;
@@ -127,15 +129,23 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
       <StyledModalMain>
         <StyledContent>
           <StyledEmoji>👏</StyledEmoji>
-          <StyledHeader>Takk for innspill!</StyledHeader>
-          <p>Hvor gammel er du?</p>
+          <StyledHeader>
+            {qpData.english
+              ? 'Thank you for your feedback'
+              : 'Takk for innspel!'}
+          </StyledHeader>
+          <p>{qpData.english ? 'How Old are you?' : 'Kor gammal er du?'}</p>
           <StyledInput
             placeholder="Alder"
             value={ageValue}
             onChange={(e) => setAgeValue(e.target.value)}
             maxLength="200"
           />
-          <p>Kva er ditt favorittstad i byen? Kvifor er det fint?</p>
+          <p>
+            {qpData.english
+              ? 'What is your favorite place in the city, why do you like it?'
+              : 'Kva er ditt favorittstad i byen? Kvifor er det fint?'}
+          </p>
           <StyledInput
             placeholder="Svar"
             value={tagValue}
