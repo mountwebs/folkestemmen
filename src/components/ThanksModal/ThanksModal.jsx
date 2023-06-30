@@ -139,7 +139,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             placeholder="Alder"
             value={ageValue}
             onChange={(e) => setAgeValue(e.target.value)}
-            maxLength="200"
+            maxLength="20"
           />
           <p>
             {qpData.english
@@ -150,7 +150,7 @@ const ThanksModal = ({ setShowThanksModal, addAnswer }) => {
             placeholder="Svar"
             value={tagValue}
             onChange={(e) => setTagValue(e.target.value)}
-            maxLength="20"
+            maxLength="200"
           />
           <StyledButton
             onClick={() => handleSubmit('button')}
