@@ -111,7 +111,7 @@ const TagSelect = ({ options, selectedOption, setSelectedOption }) => {
           {qpData.place ? (
             <StyledFilterTag>
               <img src={pin} alt="pin" />
-              {qpData.place}
+              {qpData.english ? optionTranslation[qpData.place] : qpData.place}
             </StyledFilterTag>
           ) : (
             <DropDown
