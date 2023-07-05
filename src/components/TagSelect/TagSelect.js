@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
 import QueryParameterContext from '../../queryParameterProvider';
@@ -74,8 +74,23 @@ const StyledFilterTag = styled.button`
   }
 `;
 
+
+const optionTranslation = {
+  'Gaterommet St. Olavs plass': 'Corner of St. Olavs plass',
+  'Nordlig utgang av Korsatunellen': 'Korsatunellen North Exit',
+  'Sørlig inngang til Korsatunellen': 'Korsatunellen South Entrance',
+  Korsatunellen: 'Korsatunellen',
+  'Harald Torsviks plass': 'Harald Torsviks plass',
+};
+
 const TagSelect = ({ options, selectedOption, setSelectedOption }) => {
   const qpData = useContext(QueryParameterContext);
+
+  useEffect(() => {
+    if (qpData.place) {
+      setSelectedOption(qpData.place);
+    }
+  }, [qpData]);
 
   let headingText = '';
   if (qpData.place && qpData.english) {
