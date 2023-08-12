@@ -196,13 +196,11 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
               ? 'Questions or feedback? Let us know!'
               : 'Har du spørsmål eller vil du gi oss tilbakemelding?'}
           </StyledCTA>
-          <StyledButton
-            onClick={() =>
-              (window.location = 'mailto:postmottak@alesund.kommune.no')
-            }
-          >
-            {qpData.english ? 'Contact us' : 'Kontakt oss'}
-          </StyledButton>
+          <a href="mailto:hei@travers.as">
+            <StyledButton>
+              {qpData.english ? 'Contact us' : 'Kontakt oss'}
+            </StyledButton>
+          </a>
         </StyledContainer>
         <StyledBranding href="https://www.travers.as/">
           {qpData.english ? 'Developed by' : 'Utviklet av'} &nbsp;
