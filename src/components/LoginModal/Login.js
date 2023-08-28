@@ -39,7 +39,7 @@ const StyledCloseButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.buttons.header.background};
 `;
 
-const baseUrl = 'https://mighty-bayou-51480.herokuapp.com/';
+const baseUrl = process.env.REACT_APP_BASE_API_URL;
 // const baseUrl = 'http://localhost:4000/';
 
 const Login = ({ setShowLoginModal }) => {
