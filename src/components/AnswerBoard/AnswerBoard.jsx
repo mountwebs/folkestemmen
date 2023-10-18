@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import styled from 'styled-components';
 import device from '../../constants/breakpoints';
+import Closed from '../Closed/Closed';
 import Input from '../Input/Input';
 import Answer from './Answer';
 import Masonry from 'react-masonry-css';
@@ -264,12 +265,13 @@ const AnswerBoard = () => {
           addAnswer={addAnswer}
         ></ThanksModal>
       )}
-      <Input
+      <Closed />
+      {/* <Input
         placeholderText={placeholderText}
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
         options={['Velg byrom', ...options]}
-      />
+      /> */}
       <FilterSection
         options={options}
         selectFilter={selectFilter}
