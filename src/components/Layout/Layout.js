@@ -6,7 +6,7 @@ import Login from '../LoginModal/Login';
 import WhatsThisModal from '../WhatsThisModal/WhatsThisModal';
 import device from '../../constants/breakpoints';
 import background from '../../assets/img/background.jpg';
-import backgroundMobile from '../../assets/img/background-mobile.png';
+import backgroundMobile from '../../assets/img/background.jpg';
 import UserContext from '../../UserContext';
 import CookiePopup from '../CookiePopup/CookiePopup';
 import initGA from './../../utils/gaUtils';
@@ -19,7 +19,7 @@ const StyledImg = styled.img`
   left: 0;
   width: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   height: 469px;
   z-index: 0;
 
@@ -38,10 +38,10 @@ const StyledQuestionmark = styled.div`
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  background: #cfe3dd;
+  background: #fff;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 50px;
+  right: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +91,7 @@ const Layout = ({
   return (
     <StyledApp>
       {isXtraSmallScreen ? (
-        <StyledImg src={backgroundMobile} />
+        <StyledImg src={background} />
       ) : (
         <StyledImg src={background} />
       )}

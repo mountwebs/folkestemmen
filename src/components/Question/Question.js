@@ -29,9 +29,9 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background-color: #f8fffe;
+  background-color: #FDF8FF;
   margin-bottom: 1rem;
-  padding: 2rem 2rem;
+  padding: 3rem 2rem;
   margin-top: 0.5rem;
   color: ${({ theme }) => theme.colors.question.text};
   border-radius: 25px;
@@ -65,7 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hva skal til for å skape liv i Notodden sentrum?</p>
+          <p>Hvordan ønsker du å bo på Andøy i fremtiden?</p>
         </StyledCard>
       </StyledCardContainer>
     </>

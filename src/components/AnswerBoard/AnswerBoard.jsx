@@ -18,10 +18,10 @@ const StyledContainer = styled.div`
   margin-bottom: 5rem;
   border-radius: 10px;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   @media only screen and ${device.sm} {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
 `;
 
@@ -222,7 +222,7 @@ const AnswerBoard = () => {
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Alle innspill
+          Nyeste
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}

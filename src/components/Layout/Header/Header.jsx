@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
-import byLabLogo from '../../../assets/Bylab_logo.svg';
+import andoyLogo from '../../../assets/andoy-logo.svg';
 
 const StyledHeader = styled.header`
   padding-top: 3.5rem;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 100;
   font-family: 'Good Sans', sans-serif;
 
@@ -21,9 +22,8 @@ const StyledContainer = styled.div`
   display: flex;
   flex-grow: 1;
   max-width: 1328px;
-  padding: 0 10px;
-  align-items: end;
-  justify-content: center;
+  padding: 0 2rem;
+  align-items: center;
 
   @media only screen and ${device.sm} {
     justify-content: space-between;
@@ -31,15 +31,13 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledContentLeft = styled.div`
+const StyledContentLeft = styled.a`
   z-index: 100;
   font-size: 2rem;
   text-decoration: none;
   display: flex;
-  text-align: center;
-  color: white;
+  color: black;
   font-weight: 400;
-  max-width: 10ch;
   font-size: 24.34px;
   line-height: 29px;
 
@@ -48,18 +46,13 @@ const StyledContentLeft = styled.div`
   }
 
   img {
-    width: 6rem;
+    width: 22px;
   }
 
   @media only screen and ${device.sm} {
-    color: white;
     font-size: 24px;
     line-height: 29px;
     max-width: 100%;
-
-    img {
-      width: 8rem;
-    }
   }
   }
 `;
@@ -109,13 +102,13 @@ const StyledLink2 = styled.a`
     font-size: 21px;
     line-height: 29px;
     padding: 12px 27px;
-    background: #cfe3dd;
-    border-radius: 28.5px;
+    background: #640F53;
+    border-radius: 10px;
+    color: #fff;
   }
 
   &:hover {
-    background: #0f282c;
-    color: #dae7e7;
+    filter: brightness(80%);
   }
 `;
 
@@ -123,13 +116,18 @@ const Header = ({ setShowWelcomeModal }) => {
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledContentLeft>
-          <img src={byLabLogo} alt="ByLab logo" />
+        <StyledContentLeft href="https://innspill.io/andoy">
+          <img src={andoyLogo} alt="Andøy logo" />
+          <span>Andøy kommune</span>
         </StyledContentLeft>
         <StyledContentRight>
-          <StyledLink2 onClick={() => setShowWelcomeModal(true)}>
+          <StyledLink onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
+          </StyledLink>
+          <StyledLink2 href="https://innspill.io/andoy">
+            Hjem
           </StyledLink2>
+
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>

@@ -19,9 +19,8 @@ const StyledMain = styled.main`
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
-  padding-top: 4rem;
   position: relative;
-  padding-top: 2rem;
+  padding-top: 4rem;
 
   @media only screen and ${device.sm} {
     padding: 6rem 1rem 2rem;

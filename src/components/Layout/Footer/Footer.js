@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import whiteLogo from '../../../assets/innspill-logo.svg';
+import circleLogo from '../../../assets/circle.svg';
 import Button from '../../Button/Button';
 import traversLogo from '../../../assets/travers-logo.svg';
 import device from '../../../constants/breakpoints';
@@ -21,11 +21,12 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   width: 1296px;
-  background: ${({ theme }) => theme.colors.footer.background};
+  background: #0F253A;
   position: relative;
   bottom: 0;
   color: #a5a5a5;
   padding: 3rem;
+  padding-top: 2rem;
   border-radius: 20px 20px 0 0;
 
   @media only screen and ${device.sm} {
@@ -48,36 +49,47 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLogoContainer = styled.div`
-  flex: 1 0;
-  padding-right: 8px;
   display: none;
 
   @media only screen and ${device.sm} {
-    display: block;
+    flex: 1 0;
+    padding-right: 8px;
+    display: flex;
   }
 `;
 
+const StyledTextContent = styled.div``;
+
+const StyledLogoText = styled.div`
+  color: white;
+  font-size: 44px;
+`;
+
 const StyledLogo = styled.img`
-  height: 38px;
+  margin-right: 1rem;
+  align-self: flex-start;
+  padding-top: 2px;
 `;
 
 const StyledCTA = styled.div`
-  max-width: 200px;
+  max-width: 300px;
   color: #f2f2f2;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
 
   @media only screen and ${device.sm} {
-    font-size: 20px;
+    font-size: 1.3rem;
     line-height: 30px;
-    max-width: 240px;
+    max-width: 260px;
+    text-align: left;
   }
 `;
 
 const StyledText = styled.div`
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: white;
-  opacity: 0.6;
+  opacity: 0.5;
 `;
 
 const StyledBranding = styled.a`
@@ -92,12 +104,13 @@ const StyledBranding = styled.a`
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.button.background.secondary};
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-top: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  margin-top: 1.5rem;
   color: ${({ theme }) => theme.colors.button.text.secondary};
-  font-size: 1rem;
+  font-size: 1.3rem;
   border-radius: 13.7017px;
+  
   @media only screen and ${device.sm} {
     margin-left: 2rem;
     margin-top: 0rem;
@@ -175,18 +188,21 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
       <StyledFooter>
         <StyledContainer>
           <StyledLogoContainer>
-            <StyledLogo src={whiteLogo}></StyledLogo>
-            <StyledText>Medvirkning rett i lomma.</StyledText>
+            <StyledLogo src={circleLogo} alt="" />
+            <StyledTextContent>
+              <StyledLogoText>Aula</StyledLogoText>
+              <StyledText>Rom for deltagelse</StyledText>
+            </StyledTextContent>
           </StyledLogoContainer>
           <StyledCTA>
             Har du spørsmål eller vil du gi oss tilbakemelding?
           </StyledCTA>
           <StyledButton
             onClick={() =>
-              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
+              (window.location = 'mailto:hei@travers.as')
             }
           >
-            Kontakt oss
+            Ta kontakt
           </StyledButton>
         </StyledContainer>
         <StyledBranding href="https://www.travers.as/">

@@ -44,7 +44,7 @@ const Autocomplete = ({
   const [activeSuggestion, setActiveSuggestion] = useState(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState('');
-  const [placeholder, setPlaceholder] = useState('# Legg til tema');
+  const [placeholder, setPlaceholder] = useState('# Stikkord');
   const [disabledInput, setDisabledInput] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Autocomplete = ({
       setPlaceholder('');
       setDisabledInput(true);
     } else {
-      setPlaceholder('# Legg til tema');
+      setPlaceholder('# Stikkord');
       setDisabledInput(false);
     }
   }, [selectedTags]);

@@ -74,7 +74,7 @@ const StyledContainer = styled.form`
 const StyledTag = styled(Tag)`
   padding: 0.8em 0.3em;
   background: ${({ theme }) => theme.colors.buttons.tag.background};
-  color: ${({ theme }) => theme.colors.buttons.tag.text};
+  color: #2E2402;
   font-size: 1rem;
   box-sizing: border-box;
 
@@ -239,7 +239,7 @@ const Input = ({ placeholderText, buttonText, setShowThanksModal }) => {
           />
         </StyledBottomLeft>
       </div>
-      {userData.posts.length >= 2 && (
+      {userData.posts.length >= 5 && (
         <StyledWarningContainer>
           <StyledWarning>
             Vi har lagt inn en begrensning på antall innspill for hver bruker på

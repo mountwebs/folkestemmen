@@ -139,15 +139,10 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Notodden kommune ønsker å bidra til mer liv og aktivitet i sentrum
-            og lurer på hva du som innbygger mener, ønsker deg og har behov for!
-            Derfor har vi laget denne nettsiden. Her kan du legge inn dine
-            innspill og stemme på andre forslag.
+            Andøy kommune ønsker innspill på hvordan innbyggere ønsker og bo og leve på Andøya i fremtiden. Innspillene skal brukes til å utforme framtidsbilder som på hver sin måte belyser ønsker og muligheter. 
           </p>
           <p>
-            Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
-            samarbeid med USN Notodden, Notodden utvikling og Notodden i
-            sentrum.
+            På denne siden kan du gi innspill og se hva andre ønsker seg. Spre gjerne ordet!
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
