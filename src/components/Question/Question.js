@@ -41,8 +41,8 @@ const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 28px;
 
   p {
     max-width: 20ch;
