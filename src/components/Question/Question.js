@@ -45,7 +45,7 @@ const StyledCard = styled.div`
   line-height: 28px;
 
   p {
-    max-width: 20ch;
+    max-width: 22ch;
     margin: 0;
     font-weight: normal;
     font-family: 'Good Sans', sans-serif;
@@ -65,7 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hvordan ønsker du å bo på Andøy i fremtiden?</p>
+          <p>Hvordan kan vi skape gode boliger og møteplasser i Andøy?</p>
         </StyledCard>
       </StyledCardContainer>
     </>
