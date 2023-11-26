@@ -94,7 +94,7 @@ const StyledLoadMoreButton = styled(Button)`
   color: ${({ theme }) => theme.colors.button.text.primary};
 
   @media only screen and ${device.sm} {
-    padding: 12px 40px;
+    padding: 20px 40px;
     font-size: 1rem;
   }
 `;
@@ -222,7 +222,7 @@ const AnswerBoard = () => {
           selected={sortType === 'new'}
           onClick={() => setSortType('new')}
         >
-          Alle innspill
+          Nyeste
         </StyledButton>
         <StyledButton
           selected={sortType === 'likes'}
@@ -261,7 +261,7 @@ const AnswerBoard = () => {
         <StyledLoadMoreContainer>
           {morePosts ? (
             <StyledLoadMoreButton onClick={handleLoadMore}>
-              Last flere innspill
+              Last inn flere innspill
             </StyledLoadMoreButton>
           ) : (
             'Ingen flere innspill..'

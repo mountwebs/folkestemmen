@@ -29,7 +29,7 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background-color: #f8fffe;
+  background-color: #faf7ec;
   margin-bottom: 1rem;
   padding: 2rem 2rem;
   margin-top: 0.5rem;
@@ -65,7 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Hva skal til for å skape liv i Notodden sentrum?</p>
+          <p>Spørsmål...</p>
         </StyledCard>
       </StyledCardContainer>
     </>

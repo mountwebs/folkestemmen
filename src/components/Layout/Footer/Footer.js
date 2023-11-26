@@ -21,7 +21,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   width: 1296px;
-  background: ${({ theme }) => theme.colors.footer.background};
+  background: #513c08;
   position: relative;
   bottom: 0;
   color: #a5a5a5;
