@@ -70,6 +70,7 @@ const Header = ({
   showLoginModal,
   setShowLoginModal,
   setShowWhatsThisModal,
+  setShowWelcomeModal,
 }) => {
   return (
     <StyledHeader>
@@ -78,7 +79,7 @@ const Header = ({
           Gamle Munch
         </StyledContentLeft>
         <StyledContentRight>
-          <StyledLink onClick={() => setShowWhatsThisModal(true)}>
+          <StyledLink onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
           </StyledLink>
           <StyledLink

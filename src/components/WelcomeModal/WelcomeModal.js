@@ -139,15 +139,10 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Notodden kommune ønsker å bidra til mer liv og aktivitet i sentrum
-            og lurer på hva du som innbygger mener, ønsker deg og har behov for!
-            Derfor har vi laget denne nettsiden. Her kan du legge inn dine
-            innspill og stemme på andre forslag.
-          </p>
-          <p>
-            Prosjektet er en del av Bylab Notodden som arrangeres 29. mars i
-            samarbeid med USN Notodden, Notodden utvikling og Notodden i
-            sentrum.
+            Ullamco sint elit ullamco commodo in nostrud. Elit ullamco commodo
+            in, nostrud deserunt. In nostrud deserunt nulla enim occaecat minim.
+            Deserunt nulla enim occaecat, minim. Occaecat minim reprehenderit
+            nisi nulla enim.
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>
