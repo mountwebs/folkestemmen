@@ -10,6 +10,7 @@ import UserContext from '../../UserContext';
 import ThanksModal from '../ThanksModal/ThanksModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import Extra from './Extra';
 
 const placeholderText = 'Hva er ditt innspill?';
 const buttonText = 'Legg ut';
@@ -268,6 +269,7 @@ const AnswerBoard = () => {
           )}
         </StyledLoadMoreContainer>
       )}
+      <Extra />
     </StyledContainer>
   );
 };
