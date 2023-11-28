@@ -54,10 +54,14 @@ const StyledExtra = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(Button).attrs({
+  as: 'a',
+})`
   background: #dcff00;
   color: black;
   font-size: 1.1rem;
+  border-radius: 20px;
+  text-decoration: none;
 
   &:hover {
     opacity: 90%;
@@ -82,7 +86,7 @@ const Extra = () => {
           Opplev utstillinger, arrangementer, konserter, kurs og aktiviteter.
           Sammen skaper vi østkantens nye kunst- og kulturhus.
         </p>
-        <StyledButton onClick={() => (window.location = '#')}>
+        <StyledButton href="http://gamlemunch.no">
           <FontAwesomeIcon icon={faArrowRight} size={'md'} />
           <span>Se mer</span>
         </StyledButton>
