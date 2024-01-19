@@ -22,9 +22,11 @@ const StyledImg = styled.img`
   object-position: center;
   height: 469px;
   z-index: 0;
+  filter: brightness(0.9);
 
   @media only screen and ${device.sm} {
     height: 42rem;
+    filter: auto;
   }
 `;
 
@@ -52,6 +54,19 @@ const StyledQuestionmark = styled.div`
     font-size: 1.5rem;
     font-weight: 300;
   }
+
+  @media only screen and ${device.sm} {
+    display: none;
+  }
+`;
+
+const StyledHeading = styled.h1`
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 
   @media only screen and ${device.sm} {
     display: none;
@@ -119,6 +134,7 @@ const Layout = ({
           handleAcceptCookie={handleAcceptCookie}
         />
       )}
+      <StyledHeading>Gamle munch</StyledHeading>
       {children}
       <Footer
         showLoginModal={showLoginModal}

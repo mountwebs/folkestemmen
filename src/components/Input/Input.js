@@ -22,14 +22,14 @@ const StyledContainer = styled.form`
   @media only screen and ${device.sm} {
     padding: 1.5rem 1.5rem 1rem;
     height: 300px;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 
   .input {
     line-height: 1.4em;
     
     &-field::placeholder {
-      color: ${({ theme }) => theme.colors.text.muted};
+      color: #B9B9B9;
     }
     
     &-field {

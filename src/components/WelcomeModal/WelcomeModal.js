@@ -139,10 +139,13 @@ const WhatsThisModal = ({ setShowWelcomeModal }) => {
           </StyledX>
           <h1>Hei! 👋</h1>
           <p>
-            Ullamco sint elit ullamco commodo in nostrud. Elit ullamco commodo
-            in, nostrud deserunt. In nostrud deserunt nulla enim occaecat minim.
-            Deserunt nulla enim occaecat, minim. Occaecat minim reprehenderit
-            nisi nulla enim.
+            Gamle Munch er et pilotprosjekt for perioden 2022 - 2025, hvor vi
+            tester ut ny bruk av det gamle Munchmuseet på Tøyen. Prosjektet er
+            et samarbeid mellom Kulturetaten, Oslobygg og Bydel Gamle Oslo.
+          </p>
+          <p>
+            Siden dette er et prøveprosjekt ønsker vi å lære mer om erfaringer,
+            behov og drømmer fra besøkende, arrangører og leietakere.
           </p>
         </StyledContent>
         <StyledButton onClick={handleX}>Okei!</StyledButton>

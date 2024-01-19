@@ -4,11 +4,15 @@ import Button from '../../Button/Button';
 import device from '../../../constants/breakpoints';
 
 const StyledHeader = styled.header`
-  height: 103px;
+  height: 85px;
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 100;
+
+  @media only screen and ${device.sm} {
+    height: 103px;
+  }
 `;
 
 const StyledContainer = styled.div`

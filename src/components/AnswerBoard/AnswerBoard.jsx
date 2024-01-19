@@ -11,8 +11,10 @@ import ThanksModal from '../ThanksModal/ThanksModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Extra from './Extra';
+import Survey from './Survey';
 
-const placeholderText = 'Hva er ditt innspill?';
+const placeholderText =
+  'Hva har vært bra? Hva kan bli bedre? Er det noe du savner?';
 const buttonText = 'Legg ut';
 
 const StyledContainer = styled.div`
@@ -218,6 +220,7 @@ const AnswerBoard = () => {
         buttonText={buttonText}
         setShowThanksModal={setShowThanksModal}
       />
+      <Survey />
       <StyledSortButtonsContainer>
         <StyledButton
           selected={sortType === 'new'}

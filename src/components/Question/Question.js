@@ -41,8 +41,8 @@ const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 24px;
+  line-height: 1.2;
 
   p {
     max-width: 20ch;
@@ -65,7 +65,7 @@ const Question = () => {
     <>
       <StyledCardContainer>
         <StyledCard className="question-card">
-          <p>Spørsmål...</p>
+          <p>Hvordan har du opplevd Gamle Munch i 2023?</p>
         </StyledCard>
       </StyledCardContainer>
     </>

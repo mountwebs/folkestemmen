@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import device from '../../constants/breakpoints';
-import backgroundImage from '../../assets/img/background-mobile.jpg';
+import outsideImg from '../../assets/img/outside.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,7 +17,8 @@ const StyledContainer = styled.section`
 `;
 
 const StyledExtra = styled.div`
-  background: url(${backgroundImage});
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${outsideImg});
   background-size: cover;
   position: relative;
   border-radius: 25px;

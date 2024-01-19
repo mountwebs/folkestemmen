@@ -25,7 +25,6 @@ const StyledMain = styled.main`
 
   @media only screen and ${device.sm} {
     padding: 6rem 1rem 2rem;
-    padding-top: 4rem;
   }
 `;
 
