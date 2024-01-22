@@ -90,7 +90,13 @@ const StyledBranding = styled.a`
   text-decoration: none;
 `;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled.a`
+  white-space: nowrap;
+  border-radius: 20px;
+  padding: ${(props) => (props.icon ? '0.5rem 20px' : '0.5rem 1.6rem')};
+  border: none;
+  background: ${(props) => (props.primary ? '#292929' : '#e5e5e5')};
+  color: ${(props) => (props.primary ? 'white' : '#a5a5a5')};
   background-color: ${({ theme }) => theme.colors.button.background.secondary};
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -98,6 +104,8 @@ const StyledButton = styled(Button)`
   color: ${({ theme }) => theme.colors.button.text.secondary};
   font-size: 1rem;
   border-radius: 13.7017px;
+  text-decoration: none;
+
   @media only screen and ${device.sm} {
     margin-left: 2rem;
     margin-top: 0rem;
@@ -181,13 +189,7 @@ const Footer = ({ showLoginModal, setShowLoginModal }) => {
           <StyledCTA>
             Har du spørsmål eller vil du gi oss tilbakemelding?
           </StyledCTA>
-          <StyledButton
-            onClick={() =>
-              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
-            }
-          >
-            Kontakt oss
-          </StyledButton>
+          <StyledButton href="mailto:hei@travers.no">Kontakt oss</StyledButton>
         </StyledContainer>
         <StyledBranding href="https://www.travers.as/">
           Utviklet av &nbsp;

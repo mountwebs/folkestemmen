@@ -8,7 +8,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const StyledContainer = styled.section`
   width: 100%;
-  display: none;
+  display: flex;
   justify-content: center;
 
   @media only screen and ${device.sm} {
@@ -17,7 +17,7 @@ const StyledContainer = styled.section`
 `;
 
 const StyledExtra = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${outsideImg});
   background-size: cover;
   position: relative;
@@ -28,18 +28,20 @@ const StyledExtra = styled.div`
   flex-direction: column;
   color: black;
   margin-bottom: 2rem;
-  width: 1000px;
   color: white;
+  min-height: 350px;
+  justify-content: flex-end;
 
   @media only screen and ${device.sm} {
     padding: 3rem 40px;
     justify-content: flex-end;
+    width: 1000px;
     min-height: 500px;
   }
 
   h3 {
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.7rem;
+    font-weight: 600;
     margin: 0;
 
     @media only screen and ${device.sm} {
@@ -49,9 +51,15 @@ const StyledExtra = styled.div`
   }
 
   p {
-    width: 38ch;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 200;
+    margin-top: 0.8rem;
+
+    @media only screen and ${device.sm} {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      width: 38ch;
+    }
   }
 `;
 
@@ -61,8 +69,10 @@ const StyledButton = styled(Button).attrs({
   background: #dcff00;
   color: black;
   font-size: 1.1rem;
-  border-radius: 20px;
+  border-radius: 12px;
   text-decoration: none;
+  padding: 12px 18px;
+  align-self: flex-start;
 
   &:hover {
     opacity: 90%;

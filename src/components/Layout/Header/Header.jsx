@@ -86,13 +86,7 @@ const Header = ({
           <StyledLink onClick={() => setShowWelcomeModal(true)}>
             Hva er dette?
           </StyledLink>
-          <StyledLink
-            onClick={() =>
-              (window.location = 'mailto:jonas.vesterhus@kul.oslo.kommune.no')
-            }
-          >
-            Kontakt oss
-          </StyledLink>
+          <StyledLink href="mailto:hei@travers.no">Kontakt oss</StyledLink>
         </StyledContentRight>
       </StyledContainer>
     </StyledHeader>
